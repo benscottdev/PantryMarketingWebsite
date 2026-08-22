@@ -12,7 +12,8 @@ html.loader-lock body {
 
 :root {
   --vv-top: 0px;
-  --header-gap: max(12px, 1.6dvh, env(safe-area-inset-top, 0px));
+  --vv-bottom: 0px;
+  --header-gap: max(12px, 1.6lvh, env(safe-area-inset-top, 0px));
   --header-bar: 57px;
   --header-inline: max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
 }
@@ -46,7 +47,7 @@ body {
   position: relative;
   z-index: 4;
   width: 100%;
-  height: 100dvh;
+  height: 100lvh;
   overflow: hidden;
   background: #184534;
   touch-action: pan-y;
@@ -83,7 +84,7 @@ body {
    flipped upwards because the band's edge now faces into the scene. */
 .threejs .ticker {
   position: absolute;
-  bottom: env(safe-area-inset-bottom, 0px);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + var(--vv-bottom, 0px));
   left: 0;
   right: 0;
   z-index: 6;
@@ -130,7 +131,7 @@ body {
 .scroll-hint {
   position: absolute;
   left: 50%;
-  bottom: max(1.25rem, env(safe-area-inset-bottom, 0px) + 0.85rem);
+  bottom: calc(max(1.25rem, env(safe-area-inset-bottom, 0px) + 0.85rem) + var(--vv-bottom, 0px));
   z-index: 7;
   margin: 0;
   pointer-events: none;
@@ -219,7 +220,7 @@ body {
 }
 .waste-total {
   position: absolute;
-  top: calc(var(--header-gap) + var(--header-bar) + 12px);
+  top: calc(var(--vv-top, 0px) + var(--header-gap) + var(--header-bar) + 12px);
   left: 50%;
   transform: translateX(-50%);
   display: flex;

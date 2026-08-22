@@ -18,16 +18,25 @@ export default function Header() {
   const veilEl = useRef(null)
   const fadeTl = useRef(null)
 
-  // `position: fixed` is laid out against the layout viewport. On mobile the
-  // visual viewport (and `dvh`) shrinks as the URL bar / bottom chrome shows,
-  // so we write the visual offset onto `:root` and CSS can keep the pill inside
-  // the live viewport. MDN's VisualViewport example does the same with `top`.
+  // `position: fixed` is laid out against the layout viewport, and full-screen
+  // sections are sized in `lvh` — the viewport with every bar hidden — so that
+  // nothing re-lays-out while the URL bar slides. Both of those frames are
+  // taller than what is actually visible whenever mobile chrome is showing. So
+  // publish how much the chrome covers at each edge, and anything that has to
+  // stay inside the live viewport (the header pill, the scene's scroll hint and
+  // ticker) offsets by it. MDN's VisualViewport example does the same with `top`.
   useEffect(() => {
     const root = document.documentElement
     const vv = window.visualViewport
 
     const sync = () => {
-      root.style.setProperty('--vv-top', `${vv?.offsetTop ?? 0}px`)
+      const top = vv?.offsetTop ?? 0
+      // `clientHeight` is the layout viewport, which is the box `lvh` resolves
+      // against; the visible strip inside it starts at `offsetTop`.
+      const layout = root.clientHeight
+      const visible = vv?.height ?? layout
+      root.style.setProperty('--vv-top', `${top}px`)
+      root.style.setProperty('--vv-bottom', `${Math.max(0, layout - top - visible)}px`)
     }
 
     sync()
@@ -40,6 +49,7 @@ export default function Header() {
       vv?.removeEventListener('scroll', sync)
       window.removeEventListener('resize', sync)
       root.style.removeProperty('--vv-top')
+      root.style.removeProperty('--vv-bottom')
       fadeTl.current?.kill()
     }
   }, [])

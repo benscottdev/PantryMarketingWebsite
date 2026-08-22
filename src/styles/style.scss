@@ -10,14 +10,13 @@ html.loader-lock body {
 }
 
 :root {
-	// `--vv-top` is written from Header.jsx as the visual viewport's offset
-	// against the layout viewport. It stays 0 until mobile chrome / pinch-zoom
-	// moves the visible area.
+	// Both written from Header.jsx: how much of the layout viewport mobile chrome
+	// (or a pinch-zoom) is currently covering at the top and at the bottom. They
+	// stay 0 on desktop. Anything that has to sit inside the *visible* area —
+	// rather than inside the `lvh` frame the bars overlap — offsets by these.
 	--vv-top: 0px;
-	// `dvh` tracks the URL bar and bottom chrome as they show and hide, so the
-	// gap above the pill (and the waste HUD under it) stays inside the live
-	// viewport instead of sitting on the large `vh` frame behind the bars.
-	--header-gap: max(12px, 1.6dvh, env(safe-area-inset-top, 0px));
+	--vv-bottom: 0px;
+	--header-gap: max(12px, 1.6lvh, env(safe-area-inset-top, 0px));
 	--header-bar: 57px;
 	--header-inline: max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
 }
@@ -50,16 +49,19 @@ body {
 	font-weight: 400;
 }
 
-// `dvh`, so the scene tracks the URL bar as it shows and hides rather than
-// hanging below the fold behind it. The pin's scroll distance is measured from
-// this element's own height (see Three.jsx) so the two can't disagree, and
-// ScrollTrigger.config({ ignoreMobileResize: true }) keeps that measurement
-// still while the bar moves.
+// `lvh` — the viewport at its tallest, with every bar hidden. ScrollTrigger
+// locks a pinned element's height in pixels when it measures, so a `dvh` box
+// measured while the URL bar was up stayed that short once the bar slid away,
+// leaving a band of empty green under the scene. Sized to the large viewport it
+// always covers; the bar simply overlaps the bottom of the frame while it's
+// showing, and anything that has to stay clear of it offsets by `--vv-bottom`.
+// The pin's scroll distance is measured from this same element (see Three.jsx),
+// so the two can't disagree.
 .threejs {
 	position: relative;
 	z-index: 4;
 	width: 100%;
-	height: 100dvh;
+	height: 100lvh;
 	overflow: hidden;
 	background: #184534;
 	touch-action: pan-y;
@@ -104,7 +106,7 @@ body {
    flipped upwards because the band's edge now faces into the scene. */
 .threejs .ticker {
 	position: absolute;
-	bottom: env(safe-area-inset-bottom, 0px);
+	bottom: calc(env(safe-area-inset-bottom, 0px) + var(--vv-bottom, 0px));
 	left: 0;
 	right: 0;
 	z-index: 6;
@@ -157,7 +159,9 @@ body {
 .scroll-hint {
 	position: absolute;
 	left: 50%;
-	bottom: max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 0.85rem));
+	// The scene fills the large viewport, so the bottom of it is behind the URL
+	// bar while that's showing. Ride above it.
+	bottom: calc(max(1.25rem, env(safe-area-inset-bottom, 0px) + 0.85rem) + var(--vv-bottom, 0px));
 	z-index: 7;
 	margin: 0;
 	pointer-events: none;
@@ -255,7 +259,9 @@ body {
 
 .waste-total {
 	position: absolute;
-	top: calc(var(--header-gap) + var(--header-bar) + 12px);
+	// Sits under the header pill, so it carries the same `--vv-top` the pill does
+	// — both are laid out against a frame whose top edge mobile chrome can cover.
+	top: calc(var(--vv-top, 0px) + var(--header-gap) + var(--header-bar) + 12px);
 	left: 50%;
 	transform: translateX(-50%);
 	display: flex;

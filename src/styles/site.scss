@@ -577,7 +577,7 @@ img {
 
 @media (max-width: 560px) {
 	:root {
-		--header-gap: max(8px, 1.2dvh, env(safe-area-inset-top, 0px));
+		--header-gap: max(8px, 1.2lvh, env(safe-area-inset-top, 0px));
 		--header-inline: max(10px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
 		--header-bar: 46px;
 	}
@@ -988,19 +988,27 @@ img {
 // much of it shows above the fold, and the stage takes that as its floor. The
 // device hangs off its own height rather than a fraction of the stage, which is
 // what let the two drift apart.
+//
+// `lvh`, not `dvh`, and the same for every height below. `dvh` shrinks and grows
+// with the URL bar, and since the whole hero — its own height, the padding under
+// the header, the phone's size and how much of it shows — is measured in it, one
+// bar sliding away re-laid-out the entire section under the reader's thumb. The
+// large viewport is a constant, so nothing here moves while the bar does; the
+// cost is that the very bottom of the stage sits behind the bar while it's up,
+// which is where the phone is deliberately cropped anyway.
 .landing {
-	--phone-w: clamp(23dvh, 21dvw, 34dvh);
+	--phone-w: clamp(23lvh, 21dvw, 34lvh);
 	--phone-h: calc(var(--phone-w) * 2.069); // 1324 / 640 — the frame's aspect
-	--phone-reveal: min(46dvh, var(--phone-h));
+	--phone-reveal: min(46lvh, var(--phone-h));
 
 	position: relative;
 	z-index: 3;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	min-height: 100dvh;
+	min-height: 100lvh;
 	overflow: hidden;
-	padding: calc(var(--header-gap) + var(--header-bar) + clamp(20px, 5dvh, 56px)) 0 0;
+	padding: calc(var(--header-gap) + var(--header-bar) + clamp(20px, 5lvh, 56px)) 0 0;
 	background: radial-gradient(ellipse 70% 55% at 18% 78%, #fff 0%, transparent 58%), radial-gradient(ellipse 55% 50% at 88% 22%, var(--green-light) 0%, transparent 52%), radial-gradient(ellipse 80% 60% at 50% 100%, var(--cream-2) 0%, transparent 62%), var(--cream);
 	color: var(--ink);
 	box-sizing: border-box;
@@ -1053,7 +1061,7 @@ img {
 		width: 100%;
 		// Never shorter than the sliver of phone it has to hold, so the device
 		// can't reach up into the copy. Where the copy wants that room too, the
-		// section grows past 100dvh rather than the two overlapping.
+		// section grows past 100lvh rather than the two overlapping.
 		min-height: var(--phone-reveal);
 	}
 
@@ -1105,7 +1113,7 @@ img {
 		place-items: center;
 		// Capped against height too: in a short window the orbs otherwise stay
 		// full size and eat the whole stage the phone is meant to occupy.
-		width: clamp(44px, min(7.2vw, 11dvh), 86px);
+		width: clamp(44px, min(7.2vw, 11lvh), 86px);
 		aspect-ratio: 1;
 		padding: 10px;
 		border: 1px solid rgba(15, 38, 25, 0.08);
@@ -1177,17 +1185,17 @@ img {
 
 @media (max-width: 900px) {
 	.landing {
-		--phone-w: clamp(29dvh, 80dvw, 46dvh);
-		--phone-reveal: min(58dvh, var(--phone-h));
+		--phone-w: clamp(29lvh, 80dvw, 46lvh);
+		--phone-reveal: min(58lvh, var(--phone-h));
 
-		padding: calc(var(--header-gap) + var(--header-bar) + clamp(12px, 2.6dvh, 24px)) 0 0;
+		padding: calc(var(--header-gap) + var(--header-bar) + clamp(12px, 2.6lvh, 24px)) 0 0;
 
 		&__copy {
 			width: 90%;
-			// dvh rather than the percentage this used to be: percentage margins
-			// resolve against the *width*, so on a landscape phone the copy was
-			// being pushed 100px down the screen.
-			margin-top: clamp(8px, 5dvh, 44px);
+			// A viewport height, not the percentage this used to be: percentage
+			// margins resolve against the *width*, so on a landscape phone the
+			// copy was being pushed 100px down the screen.
+			margin-top: clamp(8px, 5lvh, 44px);
 		}
 
 		&__title {
@@ -1201,7 +1209,7 @@ img {
 		}
 
 		&__food {
-			width: clamp(40px, min(12vw, 9dvh), 58px);
+			width: clamp(40px, min(12vw, 9lvh), 58px);
 			padding: 7px;
 		}
 
@@ -1259,8 +1267,8 @@ img {
 
 @media (max-width: 900px) and (max-height: 740px) {
 	.landing {
-		--phone-w: min(180px, 46vw, 26dvh);
-		--phone-reveal: min(46dvh, var(--phone-h));
+		--phone-w: min(180px, 46vw, 26lvh);
+		--phone-reveal: min(46lvh, var(--phone-h));
 
 		padding-top: calc(var(--header-gap) + var(--header-bar) + 12px);
 
@@ -1277,8 +1285,8 @@ img {
 // copy and the form have to clear the fold before anything decorative does.
 @media (orientation: landscape) and (max-height: 520px) {
 	.landing {
-		--phone-w: min(150px, 30dvh);
-		--phone-reveal: min(30dvh, var(--phone-h));
+		--phone-w: min(150px, 30lvh);
+		--phone-reveal: min(30lvh, var(--phone-h));
 
 		padding-top: calc(var(--header-gap) + var(--header-bar) + 8px);
 
@@ -1293,7 +1301,7 @@ img {
 		}
 
 		&__food {
-			width: clamp(38px, 9dvh, 52px);
+			width: clamp(38px, 9lvh, 52px);
 			padding: 6px;
 		}
 
@@ -1404,9 +1412,11 @@ img {
 // ==========================================================================
 
 .problem {
-	// `dvh`, not `vh`: this section gets pinned, and a section taller than the
-	// visible viewport would have its lower half clipped for the whole pin.
-	min-height: 100dvh;
+	// `lvh`: this section is pinned, and ScrollTrigger locks a pinned element's
+	// height in pixels at measure time. Measured in `dvh` with the URL bar up,
+	// the box stayed that short after the bar slid away and left a strip of the
+	// section behind it showing under the pin.
+	min-height: 100lvh;
 	background: var(--cream);
 	color: var(--charcoal);
 	display: flex;

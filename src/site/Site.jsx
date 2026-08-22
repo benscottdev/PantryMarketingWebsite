@@ -23,10 +23,18 @@ const MOTION_WIDE = '(prefers-reduced-motion: no-preference) and (min-width: 901
 const MOTION_NARROW = '(prefers-reduced-motion: no-preference) and (max-width: 900px)';
 const REDUCED = '(prefers-reduced-motion: reduce)';
 
-// Pin lengths as multiples of the viewport height rather than fixed pixel
-// counts, so the scrub rate is the same on a laptop and a tall monitor.
-// Paired with `invalidateOnRefresh` these are re-measured on every resize.
-const vh = (n) => () => `+=${window.innerHeight * n}`;
+// Pin lengths as multiples of the pinned section's own height rather than fixed
+// pixel counts, so the scrub rate is the same on a laptop and a tall monitor.
+// Paired with `invalidateOnRefresh` these are re-measured on every refresh.
+//
+// The section, not the window: these sections are sized in `lvh`, while
+// `window.innerHeight` on mobile reports whatever the URL bar has left of the
+// viewport. Measuring the distance in one and the box in the other let a pin
+// run out of timeline before it released.
+const pinLength = (selector, n) => () => {
+  const el = document.querySelector(selector);
+  return `+=${(el?.offsetHeight || window.innerHeight) * n}`;
+};
 
 // Problem: pinned counter runs up to $2,500, then the stamp slams in.
 function buildProblem() {
@@ -38,10 +46,14 @@ function buildProblem() {
       id: 'problem',
       trigger: '[data-problem]',
       start: 'top top',
-      end: vh(1.6),
+      end: pinLength('[data-problem]', 1.6),
       pin: true,
-      scrub: isMobile ? 0.5 : true,
-      anticipatePin: 1,
+      // Lenis already eases the scroll on touch; scrub smoothing on top of it
+      // eases towards a target that is itself still easing, and reversing
+      // direction unwinds both. anticipatePin's velocity guess is unreliable
+      // under smooth scrolling too, and shows up as a jump into the pin.
+      scrub: true,
+      anticipatePin: isMobile ? 0 : 1,
       invalidateOnRefresh: true,
       refreshPriority: REFRESH_PRIORITY.PROBLEM,
     },
@@ -143,7 +155,6 @@ function buildShowcase(scene, id, refreshPriority, holdFirstVh = 0) {
     return pillsHeight + gaps + tallest;
   };
 
-  const isMobile = window.innerWidth < 900;
   const tl = gsap.timeline({
     scrollTrigger: {
       id,
@@ -152,12 +163,11 @@ function buildShowcase(scene, id, refreshPriority, holdFirstVh = 0) {
       // One screen of scroll per transition, plus a little to hold the last
       // step before the pin lets go. `holdFirstVh` is extra dwell on step 1
       // (How it works: 50dvh) so the first screen can be read before it moves.
-      end: () => {
-        const h = window.visualViewport?.height ?? window.innerHeight;
-        return `+=${h * (steps - 1 + 0.35 + holdFirstVh)}`;
-      },
+      // Desktop-only branch (MOTION_WIDE), so the window height is the section
+      // height here — there is no mobile chrome to reconcile.
+      end: () => `+=${window.innerHeight * (steps - 1 + 0.35 + holdFirstVh)}`,
       pin: true,
-      scrub: isMobile ? 0.5 : true,
+      scrub: true,
       anticipatePin: 1,
       invalidateOnRefresh: true,
       refreshPriority,
