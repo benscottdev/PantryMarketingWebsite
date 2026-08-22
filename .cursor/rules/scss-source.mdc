@@ -1,0 +1,27 @@
+---
+description: Edit SCSS only — never write compiled CSS. A compiler is always running.
+alwaysApply: true
+---
+
+# SCSS is the source of truth
+
+A compiler is running. **Never create or edit `.css` files.** Write styles only in the matching `.scss`.
+
+- `src/styles/style.scss` → compiled `src/styles/style.css`
+- `src/styles/site.scss` → compiled `src/styles/site.css`
+
+Do not "keep CSS in sync." Do not patch both. If a `.css` file is open, still change only the `.scss`.
+
+```scss
+// ✅ GOOD — edit the SCSS
+.scroll-hint {
+	color: var(--green-dark);
+}
+```
+
+```css
+/* ❌ BAD — compiled output; the compiler overwrites this */
+.scroll-hint {
+  color: var(--green-dark);
+}
+```

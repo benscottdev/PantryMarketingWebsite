@@ -1,0 +1,610 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+html.loader-lock,
+html.loader-lock body {
+	overflow: hidden;
+	height: 100%;
+}
+
+:root {
+	// `--vv-top` is written from Header.jsx as the visual viewport's offset
+	// against the layout viewport. It stays 0 until mobile chrome / pinch-zoom
+	// moves the visible area.
+	--vv-top: 0px;
+	// `dvh` tracks the URL bar and bottom chrome as they show and hide, so the
+	// gap above the pill (and the waste HUD under it) stays inside the live
+	// viewport instead of sitting on the large `vh` frame behind the bars.
+	--header-gap: max(12px, 1.6dvh, env(safe-area-inset-top, 0px));
+	--header-bar: 57px;
+	--header-inline: max(16px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+}
+
+html,
+body,
+#root {
+	min-height: 100%;
+	background: #184534;
+}
+
+// Prevent scroll snapping and ensure smooth behavior on mobile
+@media (max-width: 900px) {
+	html,
+	body {
+		// Prevent overscroll bounce interference
+		overscroll-behavior-y: contain;
+		// Disable scroll-snap if accidentally enabled
+		scroll-snap-type: none;
+		// Ensure smooth momentum scrolling on iOS
+		-webkit-overflow-scrolling: touch;
+	}
+	
+	html {
+		// Prevent iOS safari from snapping scroll position
+		scroll-behavior: auto;
+	}
+}
+
+.home {
+	min-height: 100%;
+	background: #184534;
+}
+
+/* The renderer keeps alpha:true and clears transparent, so this is what the
+   white fridge reads against. */
+body {
+	font-family: "Manrope", sans-serif;
+	font-weight: 400;
+}
+
+.threejs {
+	position: relative;
+	z-index: 4;
+	width: 100%;
+	height: 100dvh;
+	overflow: hidden;
+	background: #184534;
+	touch-action: pan-y;
+	// Prevent momentum scrolling conflicts on iOS
+	-webkit-overflow-scrolling: touch;
+	// Ensure smooth transforms during scroll
+	will-change: transform;
+	
+	@media (max-width: 900px) {
+		// Use vh instead of dvh on mobile to prevent address bar jumps
+		height: 100vh;
+		// Prevent overscroll rubber-banding interference
+		overscroll-behavior-y: contain;
+	}
+}
+
+.threejs canvas {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #184534;
+}
+
+/* Frame-space half of the lighting: warm haze spilling in from the window on
+   the right, and the room falling away into the corners. Neither belongs to a
+   light — they're camera effects — and doing them here keeps the WebGL pass on a
+   single plain render instead of a post-processing chain. Above the canvas,
+   below the HUD (z-index 5) and the ticker (6), and never takes a pointer. */
+.threejs__grade {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	pointer-events: none;
+	background:
+		radial-gradient(80% 70% at 92% 4%, rgba(255, 238, 209, 0.34) 0%, rgba(255, 238, 209, 0) 60%),
+		radial-gradient(60% 50% at 76% 34%, rgba(255, 243, 224, 0.16) 0%, rgba(255, 243, 224, 0) 70%),
+		radial-gradient(115% 95% at 46% 40%, rgba(31, 26, 19, 0) 52%, rgba(31, 26, 19, 0.3) 100%);
+}
+
+.pin-spacer:has(> .threejs) {
+	background: #184534;
+	// Prevent layout shift during pin on mobile
+	@media (max-width: 900px) {
+		will-change: transform;
+		backface-visibility: hidden;
+		// Prevent subpixel rendering issues
+		transform: translateZ(0);
+	}
+}
+
+/* Ticker tape along the bottom edge of the scene. It rides the pin, so the
+   tape stays on the bottom of the viewport for the whole time the fridge owns
+   the screen. Above the waste HUD and its floating -$ popups (both z-index 5)
+   so they pass behind the band rather than through it, and the shadow is
+   flipped upwards because the band's edge now faces into the scene. */
+.threejs .ticker {
+	position: absolute;
+	bottom: env(safe-area-inset-bottom, 0px);
+	left: 0;
+	right: 0;
+	z-index: 6;
+	box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.header {
+	position: fixed;
+	top: calc(var(--vv-top, 0px) + var(--header-gap));
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1000;
+	width: min(1080px, calc(100% - 2 * var(--header-inline)));
+	// Even inset all round, which is what holds the CTA's 41px pill inside a
+	// 57px bar. It has to stay symmetric for the wordmark to land on the bar's
+	// centre, so the extra room the menu control needs is `.nav__start`'s own
+	// padding rather than more padding here.
+	padding: 8px;
+	border-radius: 999px;
+	background: var(--nav-bar);
+	border: 1px solid var(--nav-line);
+	box-shadow: 0 12px 30px rgba(8, 22, 14, 0.3);
+	animation: header-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes header-in {
+	from {
+		opacity: 0;
+		transform: translateX(-50%) translateY(-14px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.header {
+		animation: none;
+	}
+}
+
+.waste-hud {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 5;
+}
+
+.scroll-hint {
+	position: absolute;
+	left: 50%;
+	bottom: max(1.25rem, calc(env(safe-area-inset-bottom, 0px) + 0.85rem));
+	z-index: 7;
+	margin: 0;
+	pointer-events: none;
+	color: var(--green-dark);
+	transform: translateX(-50%);
+}
+
+.scroll-hint__inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.4rem;
+	animation: scroll-hint-bob 2.1s ease-in-out infinite;
+}
+
+.scroll-hint__label {
+	font-family: "Manrope", sans-serif;
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	// text-shadow: 0 1px 10px rgba(11, 29, 19, 0.45);
+}
+
+.scroll-hint__chevs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0;
+	height: 18px;
+}
+
+.scroll-hint__chev {
+	display: block;
+	width: 10px;
+	height: 10px;
+	margin-top: -5px;
+	border-right: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
+	transform: rotate(45deg);
+	opacity: 0.35;
+	animation: scroll-hint-chev 1.6s ease-in-out infinite;
+}
+
+.scroll-hint__chev:first-child {
+	margin-top: 0;
+	animation-delay: 0s;
+}
+
+.scroll-hint__chev:last-child {
+	animation-delay: 0.2s;
+}
+
+@keyframes scroll-hint-bob {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-7px);
+	}
+}
+
+@keyframes scroll-hint-chev {
+	0%,
+	100% {
+		opacity: 0.25;
+	}
+	40% {
+		opacity: 1;
+	}
+}
+
+@media (max-width: 560px) {
+	.scroll-hint__label {
+		font-size: 0.64rem;
+	}
+
+	.scroll-hint__chev {
+		width: 8px;
+		height: 8px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.scroll-hint__inner,
+	.scroll-hint__chev {
+		animation: none;
+	}
+
+	.scroll-hint__chev {
+		opacity: 0.85;
+	}
+}
+
+.waste-total {
+	position: absolute;
+	top: calc(var(--header-gap) + var(--header-bar) + 12px);
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	color: #ff5a4a;
+	opacity: 0;
+	visibility: hidden;
+	white-space: nowrap;
+}
+
+.waste-copy {
+	font-family: "Manrope", sans-serif;
+	font-size: clamp(13px, 1.5vw, 16px);
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: #ff5a4a;
+}
+
+.waste-value {
+	display: inline-block;
+	font-family: "Bricolage Grotesque", sans-serif;
+	font-size: clamp(15px, 1.7vw, 19px);
+	font-weight: 800;
+	letter-spacing: -0.5px;
+	font-variant-numeric: tabular-nums;
+	line-height: 1;
+	transform-origin: center center;
+}
+
+.waste-value--hot {
+	color: #ff5a4a;
+}
+
+.life-labels {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+.life-tag {
+	--life-bg: #b9ffa4;
+	--life-fg: #111;
+	position: absolute;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	will-change: transform;
+}
+
+.life-tag__inner {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	height: clamp(44px, 5.4vw, 56px);
+	padding: 4px 4px 4px 18px;
+	border-radius: 999px;
+	background: #fff;
+	color: #111;
+	transform-origin: 50% 100%;
+	animation: life-drift 3.6s ease-in-out infinite;
+	animation-delay: var(--drift-delay, 0s);
+}
+
+.life-tag--gone .life-tag__inner {
+	animation: life-gone 0.45s ease-in forwards;
+}
+
+.life-tag__name {
+	font-family: "Manrope", sans-serif;
+	font-size: clamp(14px, 1.7vw, 18px);
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.life-tag__days {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	align-self: stretch;
+	min-width: 3.15em;
+	padding: 0 12px;
+	overflow: hidden;
+	border-radius: 999px;
+	background-color: var(--life-bg);
+	color: var(--life-fg);
+	line-height: 1;
+}
+
+.life-tag__n {
+	display: block;
+	font-family: "Manrope", sans-serif;
+	font-size: clamp(13px, 1.55vw, 16px);
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	font-variant-numeric: tabular-nums;
+	line-height: 1;
+}
+
+.life-tag__unit {
+	display: block;
+	font-family: "Manrope", sans-serif;
+	font-size: clamp(9px, 1vw, 11px);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	line-height: 1.15;
+}
+
+@media (max-width: 900px) {
+	:root {
+		--header-bar: 52px;
+	}
+
+	.waste-copy {
+		font-size: 12px;
+	}
+
+	.waste-value {
+		font-size: 15px;
+	}
+
+	.life-tag__inner {
+		height: 40px;
+		gap: 8px;
+		padding: 3px 3px 3px 14px;
+	}
+
+	.life-tag__name {
+		font-size: 13px;
+	}
+
+	.life-tag__days {
+		min-width: 2.8em;
+		padding: 0 10px;
+	}
+
+	.life-tag__n {
+		font-size: 12px;
+	}
+
+	.life-tag__unit {
+		font-size: 8px;
+	}
+}
+
+@media (max-width: 560px) {
+	:root {
+		--header-bar: 46px;
+	}
+
+	.life-tag__inner {
+		height: 34px;
+		gap: 6px;
+		padding: 3px 3px 3px 12px;
+	}
+
+	.life-tag__name {
+		font-size: 11px;
+	}
+
+	.life-tag__days {
+		min-width: 2.4em;
+		padding: 0 8px;
+	}
+
+	.life-tag__n {
+		font-size: 11px;
+	}
+
+	.life-tag__unit {
+		font-size: 7px;
+	}
+}
+
+.life-tag--roll .life-tag__n {
+	animation: life-roll 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+// Kept shallow on purpose: the tag sits just clear of the item it belongs to,
+// and a taller float spends most of its cycle opening that gap back up.
+@keyframes life-drift {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-3px);
+	}
+}
+
+@keyframes life-roll {
+	from {
+		transform: translateY(55%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes life-gone {
+	0% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-12px);
+		opacity: 0;
+	}
+}
+
+.waste-popups {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 6;
+	overflow: hidden;
+}
+
+.waste-popup {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.62em 1.2em;
+	border-radius: 999px;
+	background: #e07a5f;
+	color: #fff;
+	font-family: "Manrope", sans-serif;
+	white-space: nowrap;
+}
+
+.waste-popup--used {
+	display: flex;
+	flex-direction: column;
+	padding: 0.55em 1.15em 0.6em;
+	background: var(--green, #b9ffa4);
+	color: var(--ink, #0f2619);
+	white-space: normal;
+	text-align: center;
+}
+
+.waste-popup__amt {
+	font-size: clamp(1.15rem, 2.4vw, 1.7rem);
+	font-weight: 800;
+	letter-spacing: -0.04em;
+	font-variant-numeric: tabular-nums;
+	line-height: 1;
+}
+
+.waste-popup__cur {
+	font-size: 0.72em;
+	letter-spacing: -0.03em;
+}
+
+.waste-popup__copy {
+	font-size: clamp(0.82rem, 1.7vw, 1.05rem);
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	line-height: 1.12;
+	white-space: nowrap;
+}
+
+/* ---- Site loader ------------------------------------------------------- */
+.loader {
+	position: fixed;
+	inset: 0;
+	z-index: 1000000;
+	pointer-events: auto;
+}
+
+.loader-door {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 50%;
+	background: #0f2e24;
+}
+
+.loader-door--left {
+	left: 0;
+}
+
+.loader-door--right {
+	right: 0;
+}
+
+.loader-content {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1.25rem;
+	padding: 2rem;
+	pointer-events: none;
+}
+
+.loader-fact {
+	max-width: 22rem;
+	margin: 0;
+	color: #eef6f1;
+	font-family: "Manrope", sans-serif;
+	font-size: clamp(1rem, 2.4vw, 1.25rem);
+	font-weight: 400;
+	line-height: 1.35;
+	text-align: center;
+	text-wrap: balance;
+}
+
+.loader-bar {
+	width: 100px;
+	height: 1px;
+	background: rgba(255, 255, 255, 0.18);
+	overflow: hidden;
+}
+
+.loader-bar__fill {
+	width: 100%;
+	height: 100%;
+	background: #f4f7f4;
+	transform: scaleX(0.02);
+	transform-origin: left center;
+}

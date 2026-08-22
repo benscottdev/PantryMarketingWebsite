@@ -1,0 +1,446 @@
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+import * as THREE from 'three'
+import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib.js'
+import { createEXRLoader, createGLTFLoader } from '../loadingManager'
+import { REFRESH_PRIORITY } from '../scrollPriority'
+import {
+    AFTER_LAST_ITEM_VH,
+    getScrollLengthVh,
+    INTRO_VH,
+    loadFridgeBody,
+    STAGE_VH,
+    wireExtrasScroll
+} from './FridgeBody'
+
+// EXR lives in /public, so it is a runtime URL rather than a bundled import.
+const envUrl = `${import.meta.env.BASE_URL}kitchenhdr.exr`
+
+gsap.registerPlugin(ScrollTrigger)
+
+// Stop the browser restoring scroll position on reload mid-pin
+if (history.scrollRestoration) history.scrollRestoration = 'manual'
+
+// ---------------------------------------------------------------------------
+// Lighting rig. Every value that affects the look lives here so it can be
+// tuned in one place (and wired to lil-gui later without hunting through the
+// effect body).
+//
+// Principle: the HDRI does the heavy lifting for a diffuse interior scene.
+// The directionals only shape and add contact shadows — they are NOT the
+// primary light source. Previously the key sat at 2.5 on top of a full-
+// intensity environment, which is roughly double-exposing the scene.
+// ---------------------------------------------------------------------------
+const LIGHTING = {
+    exposure: 1.3,
+    // Overall color punch on the canvas (1 = neutral, 1.15–1.3 = richer kitchen).
+    saturation: 1.3,
+
+    envIntensity: 0.6,
+    envRotationY: Math.PI / 4,
+
+    key: { intensity: 2, color: 0xfff1dd, position: [2.5, 4.5, 4.0] },
+    fill: { intensity: 0.3, color: 0xd9e6f2, position: [-5.0, 2.5, 3.0] },
+    rim: { intensity: 0, color: 0xffffff, position: [-2.5, 3.5, -4.5] },
+
+    // Soft box light standing in for the ceiling strip above the fridge.
+    // Tune position/size to your scene scale — these assume the fridge is
+    // ~2 units tall sitting near the origin.
+    ceiling: {
+        intensity: 2.6,
+        color: 0xfff6e8,
+        width: 6.0,
+        height: 0.4,
+        position: [0, 3.0, 1.6]
+    },
+
+    // Interior panel light, parented to the fridge so it travels with it.
+    // Only visible once the door swings open.
+    interior: {
+        intensity: 3.2,
+        color: 0xf2f7ff,
+        width: 0.9,
+        height: 0.5,
+        position: [0, 1.55, 0.15]
+    },
+
+    shadowRadius: 3.5,
+    shadowMapSize: 2048
+}
+
+function formatMoney(n) {
+    return `$${n.toFixed(2)}`
+}
+
+export default function Three({ children }) {
+    const mountRef = useRef()
+    const wastedHudEl = useRef()
+    const wastedEl = useRef()
+    const popupsEl = useRef()
+
+    useEffect(() => {
+        const mount = mountRef.current
+        let disposed = false
+
+        // Required before any RectAreaLight is constructed.
+        RectAreaLightUniformsLib.init()
+
+        const scene = new THREE.Scene()
+
+        // Scroll moves the group (up + forward); cursor offsets the camera locally.
+        const camGroup = new THREE.Group()
+        camGroup.position.set(0, 1, 8)
+        scene.add(camGroup)
+
+        const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 1000)
+        camGroup.add(camera)
+
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25))
+        renderer.outputColorSpace = THREE.SRGBColorSpace
+
+        // AgX holds saturation and rolls highlights far more gracefully than
+        // ACES on bright neutral surfaces — exactly the white-fridge-on-tile
+        // case. Falls back to ACES on three < r160.
+        renderer.toneMapping = THREE.AgXToneMapping ?? THREE.ACESFilmicToneMapping
+        renderer.toneMappingExposure = LIGHTING.exposure
+
+        renderer.shadowMap.enabled = true
+        // PCFSoft + a blur radius, instead of hard-edged PCF.
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap
+        // Canvas-only so HUD / scroll hint stay unfiltered.
+        renderer.domElement.style.filter = `brightness(1.0747) contrast(1.1747)`
+        mount.appendChild(renderer.domElement)
+
+        function sizeRenderer() {
+            const w = Math.max(1, mount.clientWidth)
+            const h = Math.max(1, mount.clientHeight)
+            camera.aspect = w / h
+            camera.updateProjectionMatrix()
+            renderer.setSize(w, h)
+        }
+        sizeRenderer()
+
+        // Assign environment in the load callback only — the placeholder 1x1
+        // texture would otherwise PMREM-compile with invalid shader defines.
+        const exrLoader = createEXRLoader()
+        const envTexture = exrLoader.load(envUrl, (t) => {
+            if (disposed) return
+            t.mapping = THREE.EquirectangularReflectionMapping
+            scene.environment = t
+
+            // Was: scene.environment.rotation = Math.PI / 4
+            // Texture.rotation is a UV-transform scalar and is ignored for
+            // environment maps, so that line was a silent no-op. The real
+            // control is Scene.environmentRotation (Euler, r163+).
+            if (scene.environmentRotation?.isEuler) {
+                scene.environmentRotation.set(0, LIGHTING.envRotationY, 0)
+            }
+
+            // Without this the HDRI lands at full strength and every added
+            // light stacks on top of it.
+            if ('environmentIntensity' in scene) {
+                scene.environmentIntensity = LIGHTING.envIntensity
+            }
+        })
+
+        const parallax = { strength: 0.05, ease: 0.05 }
+        const cursor = { x: 0, y: 0 }
+
+        function cursorLoc(event) {
+            cursor.x = (event.clientX / window.innerWidth - 0.5) * 2
+            cursor.y = -(event.clientY / window.innerHeight - 0.5) * 2
+        }
+        document.addEventListener('mousemove', cursorLoc)
+
+        // ---- Lights ---------------------------------------------------------
+        const key = new THREE.DirectionalLight(LIGHTING.key.color, LIGHTING.key.intensity)
+        key.position.set(...LIGHTING.key.position)
+        key.castShadow = true
+        key.shadow.mapSize.set(LIGHTING.shadowMapSize, LIGHTING.shadowMapSize)
+        key.shadow.bias = -0.0004
+        key.shadow.normalBias = 0.02
+        key.shadow.radius = LIGHTING.shadowRadius
+        scene.add(key)
+        scene.add(key.target)
+
+        // Re-enabled. With this commented out there was nothing lifting the
+        // shadow side, which is why the plant and pot read as near-black.
+        const fill = new THREE.DirectionalLight(LIGHTING.fill.color, LIGHTING.fill.intensity)
+        fill.position.set(...LIGHTING.fill.position)
+        scene.add(fill)
+
+        const rim = new THREE.DirectionalLight(LIGHTING.rim.color, LIGHTING.rim.intensity)
+        rim.position.set(...LIGHTING.rim.position)
+        scene.add(rim)
+
+        // Area lights give soft, directional falloff that directionals cannot.
+        // They do not cast shadows — that stays the key's job.
+        const ceilingLight = new THREE.RectAreaLight(
+            LIGHTING.ceiling.color,
+            LIGHTING.ceiling.intensity,
+            LIGHTING.ceiling.width,
+            LIGHTING.ceiling.height
+        )
+        ceilingLight.position.set(...LIGHTING.ceiling.position)
+        ceilingLight.lookAt(LIGHTING.ceiling.position[0], 0, LIGHTING.ceiling.position[2])
+        scene.add(ceilingLight)
+
+        let interiorLight = null
+
+        function fitKeyShadow(root) {
+            root.updateMatrixWorld(true)
+            const box = new THREE.Box3().setFromObject(root)
+            const center = box.getCenter(new THREE.Vector3())
+            key.target.position.copy(center)
+            key.target.updateMatrixWorld()
+
+            const size = box.getSize(new THREE.Vector3())
+            const half = Math.max(size.x, size.y, size.z) * 0.65
+            const cam = key.shadow.camera
+            cam.left = -half
+            cam.right = half
+            cam.top = half
+            cam.bottom = -half
+            cam.near = 0.5
+            cam.far = key.position.distanceTo(center) + half * 2
+            cam.updateProjectionMatrix()
+        }
+
+        // ---- Waste counter (shown once the camera dolly starts) -------------
+        const totals = { wasted: 0 }
+        const display = { wasted: 0 }
+        const popupTweens = []
+
+        if (wastedHudEl.current) gsap.set(wastedHudEl.current, { autoAlpha: 0 })
+
+        function paintCounters() {
+            if (wastedEl.current) wastedEl.current.textContent = formatMoney(display.wasted)
+        }
+        paintCounters()
+
+        function animateCounters() {
+            gsap.to(display, {
+                wasted: totals.wasted,
+                duration: 0.45,
+                ease: 'power2.out',
+                overwrite: 'auto',
+                onUpdate: paintCounters
+            })
+        }
+
+        const _ndc = new THREE.Vector3()
+
+        function worldToOverlay(world) {
+            _ndc.copy(world).project(camera)
+            const w = mount.clientWidth
+            const h = mount.clientHeight
+            return {
+                x: (_ndc.x * 0.5 + 0.5) * w,
+                y: (-_ndc.y * 0.5 + 0.5) * h
+            }
+        }
+
+        function spawnStatusPopup({ price, thrownOut, world }) {
+            if (!popupsEl.current) return
+            const { x, y } = worldToOverlay(world)
+            const el = document.createElement('div')
+            el.className = thrownOut ? 'waste-popup waste-popup--waste' : 'waste-popup waste-popup--used'
+            el.innerHTML = thrownOut
+                ? `-${formatMoney(price)}`
+                : `<span class="waste-popup__tick" aria-hidden="true">✓</span><span>Used!</span>`
+            el.style.left = `${x}px`
+            el.style.top = `${y}px`
+            popupsEl.current.appendChild(el)
+
+            const tw = gsap.fromTo(
+                el,
+                { xPercent: -50, yPercent: -50, y: 0, opacity: 1, scale: 0.85 },
+                {
+                    xPercent: -50,
+                    yPercent: -50,
+                    y: -72,
+                    opacity: 0,
+                    scale: 1,
+                    duration: 1.1,
+                    ease: 'power2.out',
+                    onComplete: () => el.remove()
+                }
+            )
+            popupTweens.push(tw)
+        }
+
+        function onRemoved(evt) {
+            if (evt.thrownOut) {
+                totals.wasted += evt.price
+                animateCounters()
+            }
+            spawnStatusPopup(evt)
+        }
+
+        function onRestored(evt) {
+            if (evt.thrownOut) {
+                totals.wasted = Math.max(0, totals.wasted - evt.price)
+                animateCounters()
+            }
+        }
+
+        const gltfLoader = createGLTFLoader()
+        let fridge = null
+
+        const scrollVh = getScrollLengthVh()
+        const introDur = INTRO_VH / STAGE_VH
+        const totalDur = scrollVh / STAGE_VH
+        const scrollTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.threejs',
+                pin: true,
+                start: 'top top',
+                // Unpin 50dvh after the last item disappears (see getScrollLengthVh).
+                end: () => {
+                    const dvh = window.visualViewport?.height ?? window.innerHeight
+                    return `+=${(scrollVh / 100) * dvh}`
+                },
+                scrub: 1,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+                // Top of the page and pinned for several screens, so it has to
+                // be measured before anything in <Site> — see scrollPriority.js.
+                refreshPriority: REFRESH_PRIORITY.FRIDGE
+            }
+        })
+
+        scrollTl.to(camGroup.position, { y: 1.7, z: 3.4, duration: introDur, ease: 'none' }, 0)
+        // Hold the pinned scene through the post-last-item buffer, then unpin.
+        scrollTl.to({}, { duration: AFTER_LAST_ITEM_VH / STAGE_VH }, totalDur - AFTER_LAST_ITEM_VH / STAGE_VH)
+
+        // Reveal wasted total as the camera moves in (first half of intro).
+        if (wastedHudEl.current) {
+            scrollTl.fromTo(
+                wastedHudEl.current,
+                { autoAlpha: 0, y: -8 },
+                { autoAlpha: 1, y: 0, duration: introDur * 0.45, ease: 'none' },
+                0
+            )
+        }
+
+        loadFridgeBody(gltfLoader)
+            .then((loaded) => {
+                if (disposed) {
+                    loaded.dispose()
+                    return
+                }
+                fridge = loaded
+                scene.add(fridge.root)
+
+                // Glossy appliance surfaces need correct normals and a sane
+                // roughness floor or they mirror the HDRI into hotspots.
+                fridge.root.traverse((o) => {
+                    if (!o.isMesh) return
+                    o.castShadow = true
+                    o.receiveShadow = true
+                    const mats = Array.isArray(o.material) ? o.material : [o.material]
+                    mats.forEach((m) => {
+                        if (!m || !m.isMeshStandardMaterial) return
+                        m.envMapIntensity = LIGHTING.envIntensity
+                        // Perfectly smooth surfaces produce a blown specular
+                        // pinpoint; a small floor keeps the highlight readable.
+                        if (m.roughness < 0.08) m.roughness = 0.08
+                    })
+                })
+
+                fitKeyShadow(fridge.root)
+
+                interiorLight = new THREE.RectAreaLight(
+                    LIGHTING.interior.color,
+                    LIGHTING.interior.intensity,
+                    LIGHTING.interior.width,
+                    LIGHTING.interior.height
+                )
+                interiorLight.position.set(...LIGHTING.interior.position)
+                interiorLight.rotation.x = -Math.PI / 2
+                fridge.root.add(interiorLight)
+
+                scrollTl.to(fridge.door.rotation, { y: Math.PI / 2, duration: introDur * 0.5, ease: 'none' }, 0)
+                wireExtrasScroll(scrollTl, fridge.extras, { onRemoved, onRestored })
+                ScrollTrigger.refresh()
+            })
+            .catch((err) => console.error('Fridge load failed', err))
+
+        function onResize() {
+            sizeRenderer()
+        }
+        window.addEventListener('resize', onResize)
+
+        function animate() {
+            const targetX = cursor.x * parallax.strength
+            const targetY = cursor.y * parallax.strength
+
+            camera.position.x += (targetX - camera.position.x) * parallax.ease
+            camera.position.y += (targetY - camera.position.y) * parallax.ease
+            camera.rotation.set(0, 0, 0)
+
+            renderer.render(scene, camera)
+        }
+        renderer.setAnimationLoop(animate)
+
+        const raf = requestAnimationFrame(() => ScrollTrigger.refresh())
+        const onLoaderFinished = () => ScrollTrigger.refresh()
+        window.addEventListener('loader:finished', onLoaderFinished)
+
+        return () => {
+            disposed = true
+            cancelAnimationFrame(raf)
+            window.removeEventListener('loader:finished', onLoaderFinished)
+            scrollTl.scrollTrigger?.kill()
+            scrollTl.kill()
+            popupTweens.forEach((t) => t.kill())
+            window.removeEventListener('resize', onResize)
+            document.removeEventListener('mousemove', cursorLoc)
+
+            if (interiorLight) {
+                interiorLight.parent?.remove(interiorLight)
+                interiorLight.dispose()
+            }
+
+            if (fridge) {
+                scene.remove(fridge.root)
+                fridge.dispose()
+            }
+
+            scene.remove(camGroup)
+            scene.remove(key.target)
+            scene.remove(key, fill, rim, ceilingLight)
+            ceilingLight.dispose()
+            key.shadow.dispose()
+            scene.environment = null
+            envTexture.dispose()
+
+            renderer.setAnimationLoop(null)
+            renderer.dispose()
+            if (mount.contains(renderer.domElement)) {
+                mount.removeChild(renderer.domElement)
+            }
+        }
+    }, [])
+
+    return (
+        <div ref={mountRef} className="threejs">
+            <div className="waste-hud" aria-live="polite">
+                <div className="waste-total" ref={wastedHudEl}>
+                    <span className="waste-label">Wasted</span>
+                    <span className="waste-value waste-value--hot" ref={wastedEl}>
+                        $0.00
+                    </span>
+                </div>
+            </div>
+            <div className="waste-popups" ref={popupsEl} />
+            <p className="scroll-hint" aria-hidden="true">
+                <span>Scroll</span>
+                <span className="scroll-hint__arrow">↓</span>
+            </p>
+            {children}
+        </div>
+    )
+}
