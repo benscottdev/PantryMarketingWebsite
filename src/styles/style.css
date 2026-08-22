@@ -333,7 +333,7 @@ body {
     --header-bar: 52px;
   }
   .waste-total {
-    top: calc(var(--vv-top, 0px) + var(--header-gap) + var(--header-bar) + 12px + 15lvh);
+    top: calc(var(--vv-top, 0px) + var(--header-gap) + var(--header-bar) + 12px + 7.5lvh);
   }
   .scroll-hint {
     bottom: calc(max(2rem, env(safe-area-inset-bottom, 0px) + 1.4rem) + var(--vv-bottom, 0px));

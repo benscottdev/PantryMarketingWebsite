@@ -377,7 +377,7 @@ body {
 		// almost on top of each other, and the total reads better over the open
 		// fridge than crowded under the bar. `lvh` for the same reason the scene
 		// uses it — the offset can't shift when the URL bar slides.
-		top: calc(var(--vv-top, 0px) + var(--header-gap) + var(--header-bar) + 12px + 15lvh);
+		top: calc(var(--vv-top, 0px) + var(--header-gap) + var(--header-bar) + 12px + 7.5lvh);
 	}
 
 	// A hint that has to be read at arm's length, over a frame whose bottom edge

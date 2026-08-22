@@ -785,14 +785,12 @@ export default function Three({ children }) {
         }
 
         if (scrollHintEl.current) {
-            // A phone arrives at the scene mid-flick, on native touch momentum,
-            // so a hint that starts fading at progress 0 and is gone a sixth of
-            // the way into the intro is never actually read. Hold it a beat,
-            // then take longer over the fade.
+            // Stays up for the whole pin so it's still there after the door
+            // opens, then fades with the camera exit as the scene lets go.
             scrollTl.to(
                 scrollHintEl.current,
-                { autoAlpha: 0, duration: introDur * (isMobile ? 0.5 : 0.22), ease: 'none' },
-                isMobile ? introDur * 0.12 : 0
+                { autoAlpha: 0, duration: exitDur, ease: 'none' },
+                exitAt
             )
         }
 
