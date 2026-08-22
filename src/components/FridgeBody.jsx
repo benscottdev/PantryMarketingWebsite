@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import gsap from 'gsap'
-import { createTextureLoader } from '../loadingManager'
+import { createTextureLoader, expectAssets } from '../loadingManager'
 
 // Every model here is the output of `npm run models`, which compresses whatever
 // sits in static/models/source. Never import from source/ — those are the raw
@@ -674,6 +674,11 @@ function restorePart(part) {
  * Animate `door.rotation.y` for a hinge open — the Door mesh origin is already the hinge.
  */
 export async function loadFridgeBody(loader) {
+    // Body, door and magnets, plus every EXTRA_PARTS model. Told to the manager
+    // before the first request so the progress bar has a fixed denominator
+    // instead of one that grows when the second wave is queued.
+    expectAssets(3 + EXTRA_PARTS.length)
+
     const [bodyGltf, doorGltf, magnetsGltf] = await Promise.all([
         loader.loadAsync(bodyUrl),
         loader.loadAsync(doorUrl),

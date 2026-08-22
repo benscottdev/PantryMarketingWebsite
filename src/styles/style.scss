@@ -29,21 +29,12 @@ body,
 	background: #184534;
 }
 
-// Prevent scroll snapping and ensure smooth behavior on mobile
+// Pull-to-refresh and rubber-banding both hand the scroller a position Lenis
+// never asked for, which lands as a jump once it eases back.
 @media (max-width: 900px) {
 	html,
 	body {
-		// Prevent overscroll bounce interference
 		overscroll-behavior-y: contain;
-		// Disable scroll-snap if accidentally enabled
-		scroll-snap-type: none;
-		// Ensure smooth momentum scrolling on iOS
-		-webkit-overflow-scrolling: touch;
-	}
-	
-	html {
-		// Prevent iOS safari from snapping scroll position
-		scroll-behavior: auto;
 	}
 }
 
@@ -59,6 +50,11 @@ body {
 	font-weight: 400;
 }
 
+// `dvh`, so the scene tracks the URL bar as it shows and hides rather than
+// hanging below the fold behind it. The pin's scroll distance is measured from
+// this element's own height (see Three.jsx) so the two can't disagree, and
+// ScrollTrigger.config({ ignoreMobileResize: true }) keeps that measurement
+// still while the bar moves.
 .threejs {
 	position: relative;
 	z-index: 4;
@@ -67,17 +63,6 @@ body {
 	overflow: hidden;
 	background: #184534;
 	touch-action: pan-y;
-	// Prevent momentum scrolling conflicts on iOS
-	-webkit-overflow-scrolling: touch;
-	// Ensure smooth transforms during scroll
-	will-change: transform;
-	
-	@media (max-width: 900px) {
-		// Use vh instead of dvh on mobile to prevent address bar jumps
-		height: 100vh;
-		// Prevent overscroll rubber-banding interference
-		overscroll-behavior-y: contain;
-	}
 }
 
 .threejs canvas {
@@ -103,15 +88,13 @@ body {
 		radial-gradient(115% 95% at 46% 40%, rgba(31, 26, 19, 0) 52%, rgba(31, 26, 19, 0.3) 100%);
 }
 
+// Nothing here may establish a containing block. The window is the scroller, so
+// ScrollTrigger pins with `position: fixed`, and a `transform`, `will-change:
+// transform` or `backface-visibility: hidden` on this spacer would make the
+// fixed scene resolve against the spacer instead of the viewport — the pin then
+// scrolls away with the page, which is pinning being broken outright.
 .pin-spacer:has(> .threejs) {
 	background: #184534;
-	// Prevent layout shift during pin on mobile
-	@media (max-width: 900px) {
-		will-change: transform;
-		backface-visibility: hidden;
-		// Prevent subpixel rendering issues
-		transform: translateZ(0);
-	}
 }
 
 /* Ticker tape along the bottom edge of the scene. It rides the pin, so the

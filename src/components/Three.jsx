@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 import * as THREE from 'three'
 import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib.js'
-import { createGLTFLoader } from '../loadingManager'
+import { createGLTFLoader, markSceneReady } from '../loadingManager'
 import { REFRESH_PRIORITY } from '../scrollPriority'
 import {
     AFTER_LAST_ITEM_VH,
@@ -131,13 +131,19 @@ const CAM = {
         shadow: 2048,
         parallax: 0.05
     },
+    // Phones and tablets render without MSAA (see the renderer's `antialias`),
+    // so resolution is the only thing holding their edges together and 1.15 was
+    // leaving the fridge visibly soft on a 3x screen. Sampling at 2 costs ~3x
+    // the fragments of 1.15, which this scene can afford on mobile: one draw
+    // pass, no post-processing, and a shadow map that is redrawn only while the
+    // door is swinging.
     tablet: {
         fov: 40,
         start: { y: 1.08, z: 8.8 },
         framed: { y: 1.55, z: 4.5 },
         exitY: 1.15,
         exitRotX: -0.04,
-        dpr: 1.2,
+        dpr: 2,
         shadow: 1536,
         parallax: 0.03
     },
@@ -147,7 +153,7 @@ const CAM = {
         framed: { y: 1.42, z: 6.1 },
         exitY: 1.18,
         exitRotX: -0.03,
-        dpr: 1.15,
+        dpr: 2,
         shadow: 1024,
         parallax: 0
     }
@@ -296,11 +302,15 @@ export default function Three({ children }) {
             }
         }
 
-        let resizeTimeout = null
+        // Measured off the mount, not the viewport. While pinned the scene is
+        // `position: fixed` at a size ScrollTrigger wrote onto it, and unpinned
+        // it is a `100dvh` box — either way its own box is the only thing the
+        // canvas has to match. Sizing from visualViewport instead let the two
+        // disagree by the height of the URL bar, which stretched the render.
         function sizeRenderer() {
             applyLayout()
-            const w = window.innerWidth
-            const h = window.visualViewport?.height ?? window.innerHeight
+            const w = mount.clientWidth || window.innerWidth
+            const h = mount.clientHeight || window.innerHeight
             if (w < 64 || h < 64) return
             if (w === lastW && h === lastH) {
                 camera.updateProjectionMatrix()
@@ -314,14 +324,10 @@ export default function Three({ children }) {
             const scale = String(overlayScale(w))
             lifeLabelsEl.current?.style.setProperty('--hud-scale', scale)
             popupsEl.current?.style.setProperty('--hud-scale', scale)
-            
-            // Debounce ScrollTrigger refresh on mobile to prevent jank from address bar
-            if (window.innerWidth < 900) {
-                clearTimeout(resizeTimeout)
-                resizeTimeout = setTimeout(() => {
-                    ScrollTrigger.refresh()
-                }, 150)
-            }
+            // Deliberately no ScrollTrigger.refresh() here. On mobile this runs
+            // every time the URL bar slides, and a refresh re-measures the pin
+            // and re-sizes its spacer mid-scroll — the page-wide jump, and the
+            // exact thing ignoreMobileResize exists to prevent.
         }
 
         // Built in place rather than fetched, which also means it is present
@@ -712,21 +718,27 @@ export default function Three({ children }) {
         const introDur = INTRO_VH / STAGE_VH
         const totalDur = scrollVh / STAGE_VH
         
-        // Mobile-specific scrub config: smoother on touch devices
         const isMobile = window.innerWidth < 900
-        const scrubConfig = isMobile ? 0.5 : true
-        
+
         const scrollTl = gsap.timeline({
             scrollTrigger: {
                 trigger: '.threejs',
                 pin: true,
                 start: 'top top',
-                end: () => {
-                    const dvh = window.visualViewport?.height ?? window.innerHeight
-                    return `+=${(scrollVh / 100) * dvh}`
-                },
-                scrub: scrubConfig,
-                anticipatePin: 1,
+                // One screen of scroll means one of *this* element's screens.
+                // Reading a viewport height here instead let the pin be 100dvh
+                // tall while its scroll distance was counted in visualViewport
+                // heights, so the timeline ran out before the pin released.
+                end: () => `+=${(scrollVh / 100) * (mount.clientHeight || window.innerHeight)}`,
+                // Lenis already eases the scroll position on touch, and scrub
+                // smoothing on top of it eases towards a target that is itself
+                // still easing. Reversing direction then unwinds both, which is
+                // the rubber-banding on the way back up.
+                scrub: true,
+                // anticipatePin guesses the pin early from scroll velocity. That
+                // guess is wrong under smooth scrolling on touch and shows up as
+                // a jump at the top of the scene; desktop still wants it.
+                anticipatePin: isMobile ? 0 : 1,
                 invalidateOnRefresh: true,
                 refreshPriority: REFRESH_PRIORITY.FRIDGE,
                 onRefresh: (self) => {
@@ -848,8 +860,17 @@ export default function Three({ children }) {
                 ScrollTrigger.update()
 
                 await warmUp(fridge.root)
+                // Only now is there a frame the loader can hand over to: every
+                // texture is uploaded and every program compiled, so the door
+                // animation has the main thread to itself.
+                markSceneReady()
             })
-            .catch((err) => console.error('Fridge load failed', err))
+            .catch((err) => {
+                console.error('Fridge load failed', err)
+                // Nobody should be held behind the doors by a model that is
+                // never going to arrive.
+                markSceneReady()
+            })
 
         let lastDoorY = null
         let shadowRedraws = 0
@@ -1047,7 +1068,6 @@ export default function Three({ children }) {
 
         return () => {
             disposed = true
-            clearTimeout(resizeTimeout)
             perf?.dispose()
             disposeGui?.()
             visIo.disconnect()

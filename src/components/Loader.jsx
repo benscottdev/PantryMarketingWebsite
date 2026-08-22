@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import { onLoadComplete, onLoadProgress } from '../loadingManager'
+import { onLoadProgress, onSceneReady } from '../loadingManager'
 
 /** Flip to false to skip the loader and enter the site immediately. */
 export const LOADER_ON = true
@@ -9,12 +9,53 @@ export const LOADER_ON = true
 const MIN_FACT_MS = 2000
 
 /**
- * Ceiling on the wait, whatever the network is doing. The scene is ~1.6MB, so
- * this is only reached on a connection slow enough that holding out longer would
- * read as a broken page rather than a loading one — better to open the doors on
- * a half-built room than to strand someone behind them.
+ * Ceiling on the wait, whatever the network is doing. Reaching this means the
+ * scene never reported itself ready, so the doors open on a half-built room
+ * rather than stranding someone behind them. It sits well past a cold first
+ * load — the bytes are only half the wait, the Draco decode and shader compile
+ * that follow are the rest.
  */
-const MAX_WAIT_MS = 6000
+const MAX_WAIT_MS = 20000
+
+/**
+ * The bar can't sit still while several megabytes of Draco decode, but there is
+ * no progress to report during it either, so it creeps to here and waits.
+ */
+const CREEP_TO = 0.97
+const CREEP_MS = 9000
+
+/**
+ * The doors are the one animation nobody can miss, and they used to be kicked
+ * off while the main thread was still busy — which left them frozen part-open,
+ * for as long as the work took. So don't start until frames are actually being
+ * delivered on time: three in a row inside a normal frame budget, or give up
+ * waiting after this long and open anyway.
+ */
+const SMOOTH_FRAMES = 3
+const SMOOTH_FRAME_MS = 34
+const SETTLE_CAP_MS = 3000
+
+/** Resolves on the first frame the main thread is keeping up. */
+function whenFramesFlow(run) {
+    let calm = 0
+    let prev = performance.now()
+    const startedAt = prev
+    let raf = 0
+
+    const tick = (now) => {
+        const gap = now - prev
+        prev = now
+        calm = gap <= SMOOTH_FRAME_MS ? calm + 1 : 0
+        if (calm >= SMOOTH_FRAMES || now - startedAt > SETTLE_CAP_MS) {
+            run()
+            return
+        }
+        raf = requestAnimationFrame(tick)
+    }
+
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+}
 
 const FOOD_FACTS = [
     'Households throw away about a third of the food they buy.',
@@ -50,19 +91,44 @@ export default function Loader({ onFinished }) {
         let factDelayTimer
         let factInterval
         let exitTl
+        let creepTween
+        let cancelSettle
+        let shown = 0
 
         // First fact visible immediately — no entrance flicker.
         gsap.set(factRef.current, { autoAlpha: 1, y: 0 })
 
+        // The bar is driven from a value that only ever rises, and it is tweened
+        // rather than set, so a batch of files landing together reads as a slide
+        // instead of a hop.
         const setProgress = (p) => {
-            if (fillRef.current) {
-                gsap.to(fillRef.current, {
-                    scaleX: Math.max(0.02, Math.min(1, p)),
-                    duration: 0.25,
-                    ease: 'power1.out',
-                    overwrite: 'auto'
-                })
-            }
+            if (!fillRef.current) return
+            const next = Math.max(0.02, Math.min(1, p))
+            if (next <= shown) return
+            shown = next
+            creepTween?.kill()
+            creepTween = null
+            gsap.to(fillRef.current, {
+                scaleX: next,
+                duration: 0.45,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            })
+        }
+
+        // Every byte is in and the scene is being decoded and compiled, which
+        // reports nothing. Inch forward so the bar doesn't read as hung.
+        const startCreep = () => {
+            if (creepTween || finishedRef.current || shown >= CREEP_TO) return
+            creepTween = gsap.to(fillRef.current, {
+                scaleX: CREEP_TO,
+                duration: CREEP_MS / 1000,
+                ease: 'power2.out',
+                overwrite: 'auto',
+                onUpdate: () => {
+                    shown = gsap.getProperty(fillRef.current, 'scaleX')
+                }
+            })
         }
 
         setProgress(0.02)
@@ -72,7 +138,13 @@ export default function Loader({ onFinished }) {
             finishedRef.current = true
             clearTimeout(factDelayTimer)
             clearInterval(factInterval)
-            setProgress(1)
+            creepTween?.kill()
+            gsap.to(fillRef.current, {
+                scaleX: 1,
+                duration: 0.3,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            })
 
             exitTl = gsap.timeline({
                 defaults: { ease: 'power2.inOut' },
@@ -99,25 +171,28 @@ export default function Loader({ onFinished }) {
         }
 
         const tryExit = () => {
-            if (finishedRef.current) return
+            if (finishedRef.current || cancelSettle) return
             const remaining = MIN_FACT_MS - (performance.now() - startedAt)
             clearTimeout(exitTimer)
-            if (remaining > 0) {
-                exitTimer = setTimeout(beginExit, remaining)
-            } else {
-                beginExit()
+            const settle = () => {
+                cancelSettle = whenFramesFlow(() => {
+                    cancelSettle = null
+                    beginExit()
+                })
             }
+            if (remaining > 0) exitTimer = setTimeout(settle, remaining)
+            else settle()
         }
 
-        const unsubProgress = onLoadProgress((p) => setProgress(p))
-        // Wait for the scene before opening the doors, since the manager reports
-        // in as soon as the fridge itself is standing — the food items queue
-        // behind it and land during the exit animation. tryExit still holds the
-        // first fact for MIN_FACT_MS, so a fast connection can't flash past it.
-        const unsubComplete = onLoadComplete(() => {
-            setProgress(1)
-            tryExit()
+        const unsubProgress = onLoadProgress((p, settled) => {
+            setProgress(p)
+            if (settled) startCreep()
         })
+        // The doors wait for the scene to be genuinely ready to draw — every
+        // model in, decoded, uploaded and compiled — not merely for the first
+        // handful of files to arrive. tryExit still holds the first fact for
+        // MIN_FACT_MS, so a warm cache can't flash past it.
+        const unsubReady = onSceneReady(tryExit)
         const hardStop = setTimeout(tryExit, MAX_WAIT_MS)
 
         // Only cycle facts if we're still here after the first fact has been read.
@@ -134,7 +209,9 @@ export default function Loader({ onFinished }) {
             clearTimeout(factDelayTimer)
             clearInterval(factInterval)
             unsubProgress()
-            unsubComplete()
+            unsubReady()
+            cancelSettle?.()
+            creepTween?.kill()
             exitTl?.kill()
             document.documentElement.classList.remove('loader-lock')
         }
