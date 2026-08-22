@@ -748,7 +748,9 @@ img {
 }
 
 .landing {
-  --phone-w: clamp(23lvh, 21dvw, 34lvh);
+  --phone-base: clamp(23lvh, 21dvw, 34lvh);
+  --phone-scale: 1;
+  --phone-w: calc(var(--phone-base) * var(--phone-scale));
   --phone-h: calc(var(--phone-w) * 2.069);
   --phone-reveal: min(46lvh, var(--phone-h));
   position: relative;
@@ -903,8 +905,8 @@ img {
 
 @media (max-width: 900px) {
   .landing {
-    --phone-w: clamp(29lvh, 80dvw, 46lvh);
-    --phone-reveal: min(58lvh, var(--phone-h));
+    --phone-w: clamp(35lvh, 95dvw, 55lvh);
+    --phone-reveal: min(66lvh, var(--phone-h));
     padding: calc(var(--header-gap) + var(--header-bar) + clamp(12px, 2.6lvh, 24px)) 0 0;
   }
   .landing__copy {

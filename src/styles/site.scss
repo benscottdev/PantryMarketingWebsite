@@ -997,7 +997,13 @@ img {
 // cost is that the very bottom of the stage sits behind the bar while it's up,
 // which is where the phone is deliberately cropped anyway.
 .landing {
-	--phone-w: clamp(23lvh, 21dvw, 34lvh);
+	// `--phone-base` is the size the breakpoint wants; `--phone-scale` is the one
+	// knob for making the device bigger or smaller without re-deriving three
+	// terms of a clamp. Each breakpoint below restates the base it needs and
+	// leaves the rest of the chain alone.
+	--phone-base: clamp(23lvh, 21dvw, 34lvh);
+	--phone-scale: 1;
+	--phone-w: calc(var(--phone-base) * var(--phone-scale));
 	--phone-h: calc(var(--phone-w) * 2.069); // 1324 / 640 — the frame's aspect
 	--phone-reveal: min(46lvh, var(--phone-h));
 
@@ -1185,8 +1191,8 @@ img {
 
 @media (max-width: 900px) {
 	.landing {
-		--phone-w: clamp(29lvh, 80dvw, 46lvh);
-		--phone-reveal: min(58lvh, var(--phone-h));
+		--phone-w: clamp(35lvh, 95dvw, 55lvh);
+		--phone-reveal: min(66lvh, var(--phone-h));
 
 		padding: calc(var(--header-gap) + var(--header-bar) + clamp(12px, 2.6lvh, 24px)) 0 0;
 
@@ -1267,8 +1273,8 @@ img {
 
 @media (max-width: 900px) and (max-height: 740px) {
 	.landing {
-		--phone-w: min(180px, 46vw, 26lvh);
-		--phone-reveal: min(46lvh, var(--phone-h));
+		--phone-w: min(216px, 55vw, 31lvh);
+		--phone-reveal: min(54lvh, var(--phone-h));
 
 		padding-top: calc(var(--header-gap) + var(--header-bar) + 12px);
 

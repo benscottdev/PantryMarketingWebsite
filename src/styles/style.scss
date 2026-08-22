@@ -235,17 +235,6 @@ body {
 	}
 }
 
-@media (max-width: 560px) {
-	.scroll-hint__label {
-		font-size: 0.64rem;
-	}
-
-	.scroll-hint__chev {
-		width: 8px;
-		height: 8px;
-	}
-}
-
 @media (prefers-reduced-motion: reduce) {
 	.scroll-hint__inner,
 	.scroll-hint__chev {
@@ -381,6 +370,32 @@ body {
 @media (max-width: 900px) {
 	:root {
 		--header-bar: 52px;
+	}
+
+	.waste-total {
+		// Further off the header pill than on desktop: on a phone the two sit
+		// almost on top of each other, and the total reads better over the open
+		// fridge than crowded under the bar. `lvh` for the same reason the scene
+		// uses it — the offset can't shift when the URL bar slides.
+		top: calc(var(--vv-top, 0px) + var(--header-gap) + var(--header-bar) + 12px + 15lvh);
+	}
+
+	// A hint that has to be read at arm's length, over a frame whose bottom edge
+	// runs from bright floor tiles to the white fridge interior — so cream on a
+	// shadow rather than the desktop's dark green, and clear of the URL bar.
+	.scroll-hint {
+		bottom: calc(max(2rem, env(safe-area-inset-bottom, 0px) + 1.4rem) + var(--vv-bottom, 0px));
+		color: var(--cream);
+		text-shadow: 0 1px 12px rgba(11, 29, 19, 0.55);
+	}
+
+	.scroll-hint__label {
+		font-size: 0.7rem;
+	}
+
+	.scroll-hint__chev {
+		width: 10px;
+		height: 10px;
 	}
 
 	.waste-copy {

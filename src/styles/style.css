@@ -200,15 +200,6 @@ body {
     opacity: 1;
   }
 }
-@media (max-width: 560px) {
-  .scroll-hint__label {
-    font-size: 0.64rem;
-  }
-  .scroll-hint__chev {
-    width: 8px;
-    height: 8px;
-  }
-}
 @media (prefers-reduced-motion: reduce) {
   .scroll-hint__inner,
   .scroll-hint__chev {
@@ -340,6 +331,21 @@ body {
 @media (max-width: 900px) {
   :root {
     --header-bar: 52px;
+  }
+  .waste-total {
+    top: calc(var(--vv-top, 0px) + var(--header-gap) + var(--header-bar) + 12px + 15lvh);
+  }
+  .scroll-hint {
+    bottom: calc(max(2rem, env(safe-area-inset-bottom, 0px) + 1.4rem) + var(--vv-bottom, 0px));
+    color: var(--cream);
+    text-shadow: 0 1px 12px rgba(11, 29, 19, 0.55);
+  }
+  .scroll-hint__label {
+    font-size: 0.7rem;
+  }
+  .scroll-hint__chev {
+    width: 10px;
+    height: 10px;
   }
   .waste-copy {
     font-size: 12px;

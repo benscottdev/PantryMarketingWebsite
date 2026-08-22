@@ -133,17 +133,17 @@ const CAM = {
     },
     // Phones and tablets render without MSAA (see the renderer's `antialias`),
     // so resolution is the only thing holding their edges together and 1.15 was
-    // leaving the fridge visibly soft on a 3x screen. Sampling at 2 costs ~3x
-    // the fragments of 1.15, which this scene can afford on mobile: one draw
-    // pass, no post-processing, and a shadow map that is redrawn only while the
-    // door is swinging.
+    // leaving the fridge visibly soft on a 3x screen. 1.75 keeps most of that
+    // back for ~77% of the fragments a full 2 would cost — the scene can afford
+    // it (one draw pass, no post-processing, a shadow map redrawn only while the
+    // door swings), but it's the frame budget the pinned scroll shares.
     tablet: {
         fov: 40,
         start: { y: 1.08, z: 8.8 },
         framed: { y: 1.55, z: 4.5 },
         exitY: 1.15,
         exitRotX: -0.04,
-        dpr: 2,
+        dpr: 1.75,
         shadow: 1536,
         parallax: 0.03
     },
@@ -153,7 +153,7 @@ const CAM = {
         framed: { y: 1.42, z: 6.1 },
         exitY: 1.18,
         exitRotX: -0.03,
-        dpr: 2,
+        dpr: 1.75,
         shadow: 1024,
         parallax: 0
     }
@@ -785,10 +785,14 @@ export default function Three({ children }) {
         }
 
         if (scrollHintEl.current) {
+            // A phone arrives at the scene mid-flick, on native touch momentum,
+            // so a hint that starts fading at progress 0 and is gone a sixth of
+            // the way into the intro is never actually read. Hold it a beat,
+            // then take longer over the fade.
             scrollTl.to(
                 scrollHintEl.current,
-                { autoAlpha: 0, duration: introDur * 0.22, ease: 'none' },
-                0
+                { autoAlpha: 0, duration: introDur * (isMobile ? 0.5 : 0.22), ease: 'none' },
+                isMobile ? introDur * 0.12 : 0
             )
         }
 
