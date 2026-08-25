@@ -25,6 +25,7 @@ export const REFRESH_PRIORITY = {
   PROBLEM: 20,
   HOW: 10,
   HOUSEHOLD: 5,
+  MEALS: 3,
   FEATURES: 0,
   FAQ: -5,
 };

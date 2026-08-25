@@ -113,7 +113,7 @@ export default function WasteSwap({ wasteYear }) {
           <span className="calc-swap__title-figure">{money(wasteYear)}</span> a year, spent on anything else
         </h3>
         <p className="calc-swap__lede">
-          Same money, better ending. Every one of these is inside a single year of your waste, not a stretch goal, just the food already in your bin, priced up.
+          Same money, better ending. Every one of these fits inside a single year of your waste. Not a stretch goal, just the food already in your bin, priced up.
         </p>
       </div>
 

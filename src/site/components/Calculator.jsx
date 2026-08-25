@@ -125,11 +125,12 @@ export default function Calculator() {
     <section className="calc" id="calculator">
       <div className="calc__inner">
         <header className="calc__head">
-          <div className="calc__eyebrow eyebrow">THE MATHS — WHAT YOUR BIN ACTUALLY COSTS</div>
+          <div className="calc__eyebrow eyebrow">THE MATHS · WHAT YOUR BIN ACTUALLY COSTS</div>
           <h2 className="calc__title">Run your own numbers.</h2>
           <p className="calc__lede">
-            Three questions. The rest comes from Australia&apos;s own food-waste research, including the awkward
-            finding that the more you spend, the bigger the share you bin.
+            Three questions. Everything else comes from Australia&apos;s own food-waste research, including the
+            uncomfortable finding that the more you spend, the bigger the share you bin. Every figure below is
+            sourced.
           </p>
         </header>
 
@@ -267,7 +268,7 @@ export default function Calculator() {
               <HeartHandshake size={18} strokeWidth={2.1} />
               <span>
                 That&apos;s <strong>{Math.round(r.wasteYear * 2).toLocaleString('en-AU')} meals</strong> delivered to
-                people who need them — OzHarvest turns every $1 into two.
+                people who need them, if OzHarvest had it instead. They turn every $1 into two meals.
               </span>
             </p>
           </div>
@@ -283,7 +284,7 @@ export default function Calculator() {
           <div className="calc-sources__body">
             <ul className="calc-sources__list">
               <li>
-                <strong>Reported share of groceries wasted (9–17%).</strong> Rabobank Financial Health Barometer —
+                <strong>Reported share of groceries wasted (9&ndash;17%).</strong> Rabobank Financial Health Barometer:
                 Australian households <em>say</em> they bin ~11.1% of the food they buy, rising to almost 17% for
                 households spending over $300 a week. We interpolate between those published points and hold the rate
                 flat beyond them rather than extrapolating.{' '}
@@ -300,7 +301,7 @@ export default function Calculator() {
                 and the reason your result is larger than you&apos;d guess. Those Rabobank figures are self-reported,
                 and the Fight Food Waste CRC&apos;s headline finding is that households bin <em>more than twice</em>{' '}
                 what they think they do. Uncorrected, the rates above put an average Australian household (~2.5 people,
-                ~$200 a week of groceries) at $1,096 and 116kg a year — against the measured national baseline of
+                ~$200 a week of groceries) at $1,096 and 116kg a year, against the measured national baseline of
                 $2,500 and 265kg quoted higher up this page. This factor is exactly that gap: it puts a typical
                 household back on the measured baseline, and sits inside the &ldquo;more than twice&rdquo; the research
                 describes. Corrected rates land in the low 20s, consistent with WRAP&apos;s weighed-bin studies; the
@@ -324,7 +325,7 @@ export default function Calculator() {
               </li>
               <li>
                 <strong>Dollars to kilos ($9.43/kg).</strong> Australia&apos;s national baseline puts household food
-                waste at 265kg and $2,500 per household per year — 2.46 million tonnes nationally, almost a third of
+                waste at 265kg and $2,500 per household per year, or 2.46 million tonnes nationally, almost a third of
                 all Australian food waste.{' '}
                 <a href="https://endfoodwaste.com.au/fact-library/" target="_blank" rel="noreferrer">
                   End Food Waste Australia
@@ -339,11 +340,11 @@ export default function Calculator() {
               </li>
               <li>
                 <strong>The things you could have bought instead.</strong> Indicative Australian retail prices as of
-                2026 — flights, phones and TVs all move, so treat them as a sense of scale rather than a quote.
+                2026. Flights, phones and TVs all move, so treat these as a sense of scale rather than a quote.
               </li>
             </ul>
             <p className="calc-sources__caveat">
-              An estimate, not an audit. Real waste swings hard on how you cook, shop and store — which is rather the
+              An estimate, not an audit. Real waste swings hard on how you cook, shop and store, which is rather the
               point of Pantry.
             </p>
           </div>

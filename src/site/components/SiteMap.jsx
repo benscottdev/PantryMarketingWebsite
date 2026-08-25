@@ -42,7 +42,8 @@ export function SiteMap({ home = false, onBrandClick }) {
 
   const house = [
     { label: 'Shared household', href: homeHref('#household', home) },
-    { label: 'Waste calculator', href: homeHref('#calculator', home) },
+    { label: 'Meal generation', href: homeHref('#meals', home) },
+    { label: 'Waste calculator', href: PATHS.calculator },
     { label: 'FAQ', href: homeHref('#faq', home) },
   ]
 
@@ -65,7 +66,7 @@ export function SiteMap({ home = false, onBrandClick }) {
           <span className="footer__wordmark" aria-hidden="true" />
         </a>
         <p className="footer__tagline">
-          The household fridge, on every phone — before groceries turn into waste.
+          The household fridge, on every phone, before groceries turn into waste.
         </p>
       </div>
 
@@ -107,7 +108,7 @@ export function FooterLegal({ onTop }) {
         </button>
       ) : null}
 
-      <p className="footer__locale">Made in Australia</p>
+      <p className="footer__locale">Made in Sydney, Australia</p>
     </div>
   )
 }

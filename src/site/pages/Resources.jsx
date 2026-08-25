@@ -14,8 +14,8 @@ export default function Resources() {
       }
       eyebrow="RESOURCES"
       updated={false}
-      lede="Short reads on food waste, household pantries, and how Pantry works. Add a post to the articles array — it lands here and gets its own page."
-      description="Notes on food waste, household pantries, and how Pantry works — from receipt scan to dinner."
+      lede="Short reads on food waste, shared pantries, and how Pantry actually works. Every number we quote comes with the place it came from."
+      description="Notes on food waste, household pantries, and how Pantry works, from receipt scan to dinner."
     >
       <div className="blog-grid">
         {articles.map((post) => {

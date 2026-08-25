@@ -135,18 +135,18 @@ function LockScreen({ time, items }) {
 
 const steps = [
   {
-    title: 'Upload your receipt',
-    desc: 'Take a photo or upload an image of your grocery receipt. Pantry reads the whole thing: store, date, every line item & their prices.',
+    title: 'Photograph the receipt',
+    desc: 'One photo, in the car park or on the bench. Pantry reads the store, the date, and every line item with its price, so you never type a shopping list again.',
     screen: <CaptureScreen />,
   },
   {
-    title: 'Confirm the contents',
-    desc: 'Every item gets a realistic expiry estimate, based on CSIRO guidance where it exists. Change anything that looks off, then save the lot.',
+    title: 'Check it over',
+    desc: 'Every item gets a shelf-life estimate, built on CSIRO refrigerated-storage guidance where it covers the food. Fix anything that looks wrong, then save the lot.',
     screen: <ReceiptScreen />,
   },
   {
-    title: 'A nudge when it counts',
-    desc: "A single digest each morning — what needs eating and what it's worth — rather than a stream of alerts after the spinach has already turned.",
+    title: 'A nudge while it still counts',
+    desc: "One digest each morning: what needs eating today, and what it cost you. Not a stream of alerts that arrive after the spinach has already turned.",
     screen: <LockScreen time={morning.time} items={[morning]} />,
   },
 ]
@@ -160,7 +160,7 @@ export default function HowItWorks() {
       eyebrow="HOW IT WORKS"
       title={
         <>
-          From receipt to <em>a nudge.</em>
+          Receipt in. <em>Dinner sorted.</em>
         </>
       }
       steps={steps}

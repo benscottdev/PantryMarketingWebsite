@@ -58,12 +58,14 @@ function whenFramesFlow(run) {
 }
 
 const FOOD_FACTS = [
-    'Households throw away about a third of the food they buy.',
+    // Every line here is either a verifiable figure or plain kitchen craft.
+    // Nothing that reads as food-safety advice: 'use by' means use by.
+    'The average Australian household bins one grocery bag in five.',
+    'That is about $2,500 of food a year, and 265kg of it.',
     'A wrinkled apple is still perfect for baking.',
-    'Milk often lasts days past its “best before” if it smells fine.',
+    '“Best before” is about quality. “Use by” is about safety.',
     'Leftover mince makes tomorrow’s pasta better than today’s.',
-    'The average fridge hides more forgotten food than empty space.',
-    'Planning two meals ahead cuts waste more than any gadget.',
+    'Most forgotten food is hiding behind something else.',
     'Soft herbs last longer standing in a glass of water.',
     'Freezing bread on day one beats binning it on day four.'
 ]

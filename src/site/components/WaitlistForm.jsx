@@ -53,10 +53,10 @@ export default function WaitlistForm({ variant = 'hero' }) {
               : 'waitlist-form waitlist-form--live'
         }
       >
-        {variant === 'hero' && (
-          <p className="waitlist-form__prompt">Pantry is live on the App Store</p>
-        )}
         <StoreButton variant={variant} />
+        {variant === 'hero' && (
+          <p className="waitlist-form__prompt">Pantry is on the App Store. Free to start.</p>
+        )}
       </div>
     )
   }
@@ -72,7 +72,7 @@ export default function WaitlistForm({ variant = 'hero' }) {
     setError('');
 
     if (!supabase) {
-      setError('Sign-ups are offline right now. Please try again later.');
+      setError('Sign-ups are offline right now. Try again in a little while.');
       setStatus('error');
       return;
     }
@@ -102,7 +102,7 @@ export default function WaitlistForm({ variant = 'hero' }) {
         }
       >
         <CircleCheck size={18} strokeWidth={2.25} />
-        On the list. See you at launch.
+        You&apos;re on the list. We&apos;ll email you once, when it ships.
       </div>
     );
   }
@@ -115,9 +115,6 @@ export default function WaitlistForm({ variant = 'hero' }) {
       onSubmit={handleSubmit}
       noValidate={false}
     >
-      {variant === 'hero' && (
-        <p className="waitlist-form__prompt">Join the waitlist to get in first</p>
-      )}
       <div className="waitlist-form__field">
         <input
           type="email"
@@ -145,6 +142,9 @@ export default function WaitlistForm({ variant = 'hero' }) {
           {variant !== 'hero' && <ArrowRight size={16} strokeWidth={2.5} />}
         </button>
       </div>
+      {variant === 'hero' && (
+        <p className="waitlist-form__prompt">One email when Pantry launches, plus founding pricing.</p>
+      )}
       {error && (
         <p className="waitlist-form__error" role="alert">
           {error}

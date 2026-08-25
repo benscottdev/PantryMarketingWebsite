@@ -5,7 +5,7 @@ const plans = [
     id: 'free',
     name: 'Free',
     kicker: 'Forever',
-    desc: 'Scan a receipt, see what is turning, get one quiet nudge each morning.',
+    desc: 'Scan a receipt, watch what is turning, and get one quiet nudge every morning. No card, no trial clock.',
     items: [
       { label: 'Receipt scans', note: '1 / week' },
       { label: 'Meal generations', note: '2 / week' },
@@ -20,7 +20,7 @@ const plans = [
     id: 'pro',
     name: 'Pro',
     kicker: 'Upgrade in the app',
-    desc: 'Unlimited scans and meals, the evening nudge, and the people you live with on the same pantry.',
+    desc: 'Unlimited scans and meals, the evening nudge, and everyone you live with on the same pantry. One subscription covers the house.',
     featured: true,
     items: [
       { label: 'Receipt scans', note: 'Unlimited' },
@@ -72,18 +72,18 @@ export default function Features() {
     <section id="features" className="features" data-features>
       <div className="features__inner">
         <div className="features__copy">
-          <div className="features__eyebrow eyebrow">FEATURES</div>
+          <div className="features__eyebrow eyebrow">PLANS</div>
           <h2 className="features__title">
             Free vs <em>Pro.</em>
           </h2>
           <p className="features__desc">
-            Start with Pantry for free, forever. Pro unlocks the whole house —
-            unlimited scans, evening nudges, and sharing with the people you
-            actually live with.
+            Free is a real plan, not a countdown. Pro opens it up to the whole
+            house: unlimited scans, the evening nudge, and one shared pantry for
+            everyone who opens that fridge.
           </p>
           <p className="features__note">
-            You can&apos;t buy Pro here. Download the app, then upgrade whenever
-            you are ready.
+            Pro is not sold on this site. Download the app, use Free as long as
+            you like, and upgrade in-app if the house needs it.
           </p>
         </div>
 

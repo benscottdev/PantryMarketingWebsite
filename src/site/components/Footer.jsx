@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="footer__inner">
         <div className="footer__waitlist">
           <h2 className="footer__title">
-            {APP_LIVE ? 'Pantry is live.' : 'Get in before launch.'}
+            {APP_LIVE ? 'Pantry is live.' : 'Get in before the first shop.'}
           </h2>
           <WaitlistForm variant="cta" />
           {/* <p className="footer__note">

@@ -6,6 +6,7 @@ import { REFRESH_PRIORITY } from '../scrollPriority';
 import Problem from './components/Problem';
 import HowItWorks from './components/HowItWorks';
 import Household from './components/Household';
+import Meals from './components/Meals';
 import Features from './components/Features';
 import Faq from './components/Faq';
 import Footer from './components/Footer';
@@ -289,6 +290,34 @@ function buildHousehold() {
   });
 }
 
+// Meals: copy points step in, phone rises — no pin, same pattern as household.
+function buildMeals() {
+  gsap.from('[data-meals-point]', {
+    x: -18,
+    opacity: 0,
+    stagger: 0.1,
+    scrollTrigger: {
+      trigger: '[data-meals]',
+      start: 'top 78%',
+      end: 'top 45%',
+      scrub: true,
+      refreshPriority: REFRESH_PRIORITY.MEALS,
+    },
+  });
+
+  gsap.from('[data-meals-stage]', {
+    y: 48,
+    opacity: 0,
+    scrollTrigger: {
+      trigger: '[data-meals]',
+      start: 'top 80%',
+      end: 'top 48%',
+      scrub: true,
+      refreshPriority: REFRESH_PRIORITY.MEALS,
+    },
+  });
+}
+
 // Feature comparison rows step in one at a time.
 function buildFeatures() {
   gsap.from('[data-feature-row]', {
@@ -335,6 +364,7 @@ export default function Site() {
       mm.add(MOTION, () => {
         buildProblem();
         buildHousehold();
+        buildMeals();
         buildFeatures();
         buildFaq();
       });
@@ -386,6 +416,7 @@ export default function Site() {
           y: 0,
           opacity: 1,
         });
+        gsap.set('[data-meals-point], [data-meals-stage]', { x: 0, y: 0, opacity: 1 });
         gsap.set('[data-feature-row], [data-faq-item]', { x: 0, y: 0, opacity: 1 });
       });
 
@@ -417,6 +448,7 @@ export default function Site() {
         <Problem />
         <HowItWorks />
         <Household />
+        <Meals />
         <Features />
         <Faq />
         <Footer />

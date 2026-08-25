@@ -35,7 +35,7 @@ function formatShelfLife(days) {
 const tickerBase = [
 	{ name: "Baby spinach", price: "$3.50", days: 5, category: "produce" }, // leafy greens, 5-7 days (Sustainability Victoria)
 	{ name: "Sourdough loaf", price: "$7.00", days: 4, category: "bakery" }, // crusty bread, room temp
-	{ name: "Greek yoghurt", price: "$6.80", days: 10, category: "dairy" }, // CSIRO: cultured dairy ~10 days
+	{ name: "Greek yoghurt", price: "$6.80", days: 10, category: "dairy" }, // no CSIRO figure for yoghurt; 10 days is its cottage/ricotta/cream-cheese line, used as the nearest cultured-dairy proxy
 	{ name: "Chicken thighs", price: "$8.20", days: 3, category: "meat" }, // CSIRO: poultry, 3 days
 	{ name: "Tomatoes ×6", price: "$4.90", days: 5, category: "produce" }, // ripe, bench-stored
 	{ name: "Cheddar block", price: "$9.50", days: 60, category: "dairy" }, // CSIRO: hard cheese, 1-3 months
@@ -56,7 +56,7 @@ export const tickerItems = tickerBase.map((item) => ({
 const receiptBase = [
 	{ name: "Chicken breast", location: "Fridge", price: 9.5, days: 3, category: "meat", icon: "drumstick" },
 	{ name: "Garlic", location: "Pantry", price: 1.2, days: 30, category: "produce" },
-	{ name: "Butter", location: "Fridge", price: 5.0, days: 30, category: "dairy", icon: "milk" },
+	{ name: "Butter", location: "Fridge", price: 5.0, days: 30, category: "dairy", icon: "milk" }, // CSIRO gives butter 8 weeks; held at 30 days as the cautious home-fridge end
 	{ name: "Parsley", location: "Fridge", price: 2.5, days: 7, category: "produce", icon: "leafyGreen" },
 	{ name: "Panko breadcrumbs", location: "Pantry", price: 3.2, days: 180, category: "pantry", icon: "croissant" },
 	{ name: "Eggs", location: "Fridge", price: 5.5, days: 21, category: "dairy", icon: "egg" },
@@ -86,7 +86,7 @@ export const notifications = [
 		plan: "ALL PLANS",
 		planColor: "#1f5c43",
 		msg: "3 things expire this week. $37.47 potentially going to waste.",
-		note: "Plan the day before it runs away from you.",
+		note: "The one everyone gets. Free plan included.",
 	},
 
 	{
@@ -94,8 +94,8 @@ export const notifications = [
 		slot: "EVENING",
 		plan: "PRO",
 		planColor: "#8f6316",
-		msg: "Your Lean Beef Mince goes bad tomorrow. Why not make Spaghetti Bolognese and save it from the bin.",
-		note: "The one everyone gets. Free tier included.",
+		msg: "Your lean beef mince goes off tomorrow. Spaghetti bolognese tonight and it never sees the bin.",
+		note: "Pro only. The nudge that arrives while you can still act on it.",
 	},
 ];
 
@@ -103,54 +103,54 @@ export const notifications = [
 export const faqs = [
 	{
 		q: "Is Pantry actually free?",
-		a: "Yes, forever. Free covers one person, one receipt scan and two meal generations a week, expiry tracking, and the morning digest. To connect with the rest of your household on a shared pantry, that's when you upgrade to Pro.",
+		a: "Yes, and there is no trial clock on it. Free covers one person: one receipt scan and two meal generations a week, full expiry tracking, and the morning digest. You only need Pro when you want the rest of your household on the same pantry.",
 	},
 	{
 		q: "Does everyone in the household need to pay for Pro?",
-		a: "No. One person subscribes, and Pro unlocks the shared household for everyone in it, up to six people. Invite the rest for free, they get the same list and the same digest without their own subscription.",
+		a: "No. One person subscribes and Pro opens the shared household for everyone in it, up to six people. The others join free and get the same list and the same digest.",
 	},
 	{
 		q: "How accurate is the scanning?",
-		a: "About 97% right now. Receipts are messy, abbreviated item names, weird formatting, the odd faded thermal print, so 100% isn't realistic. When something's off, you fix it in a couple of taps and Pantry gets better at that item next time.",
+		a: "Good, but not perfect, and we would rather say so than quote a number we cannot show you. Receipts are abbreviated, faded and inconsistent, so some lines come back wrong. Fixing one takes two taps, and Pantry remembers that item next time.",
 	},
 	{
 		q: "Can I buy Pro from this site?",
-		a: "You can't buy Pro here, but download the app, then upgrade and you get 7 days free.  Waitlist members get founding member pricing at launch.",
+		a: "No. Download the app and upgrade there, with 7 days free first. People on the waitlist get founding pricing when we launch.",
 	},
 	{
 		q: "How much does Pro cost?",
-		a: "$4.99 a month, or $49.99 a year if you're committing to not wasting money on wasted food. Either way, you get a 7 day free trial first.",
+		a: "$4.99 a month or $49.99 a year, billed by Apple, with a 7 day free trial either way. For scale, the yearly plan costs about what the average Australian household bins in a single week ($2,500 a year, per the Fight Food Waste CRC).",
 	},
 	{
-		q: "Is Pantry available world wide?",
-		a: "Australian only first. We have trained the models specifically on Australian receipt data, in English. We are looking to expand to the rest of the world down the road.",
+		q: "Is Pantry available worldwide?",
+		a: "Australia first. The receipt models are trained on Australian receipt data in English, so that is where they work properly. Other countries come after we have earned the right to say the same about them.",
 	},
 	{
 		q: "Can I cancel anytime?",
-		a: "Yes, whenever. No calls, no forms, no guilt trips.",
+		a: "Yes, from your Apple ID settings, in about four taps. No calls, no forms, no retention offers.",
 	},
 	{
 		q: "How do you pick the expiry dates?",
-		a: "A shelf life database built on standard Australian food safety guidance, covering fridge, pantry, and freezer storage. You confirm the list after each scan, so anything that looks off is yours to change.",
+		a: "A shelf-life database built on CSIRO's refrigerated-storage guidance for the foods it covers, and standard Australian food-safety advice for the rest, across fridge, pantry and freezer. Where guidance gives a range we take the cautious end. You confirm every list after a scan, so anything that looks off is yours to change.",
 	},
 	{
-		q: "Morning digest vs afternoon notifications?",
-		a: "Every plan gets one quiet morning digest: what's turning this week, and what it's worth. Afternoon AI notifications are Pro, a specific meal idea for the thing that's about to go.",
+		q: "Morning digest or afternoon notifications?",
+		a: "Every plan gets the morning digest: what is turning this week and what it is worth. The afternoon notification is Pro, and it names a specific meal for the thing that is about to go.",
 	},
 	{
 		q: "Does Pantry track more than groceries?",
-		a: "No, the system we designed to extract grocery data from your receipts, filters out any non-edible items. Pantry is specifically designed for grocery expiry times.",
+		a: "No. The receipt reader filters out non-food lines on purpose. Pantry is built for grocery shelf life, not for your whole shopping history.",
 	},
 	{
 		q: "Can the rest of the house see the same pantry?",
-		a: "That's Pro! One shared inventory, the digest on every phone, and a decent chance of not buying milk twice.",
+		a: "That is Pro. One shared inventory, the digest on every phone, and a decent chance of nobody buying milk twice in one day.",
 	},
 	{
 		q: "Which supermarkets does receipt scanning work with?",
-		a: "Any Australian supermarket. Pantry reads the receipt itself rather than matching a specific chain's format, so Coles, Woolworths, IGA, Aldi, whatever's in your bag, all scan the same way.",
+		a: "Any Australian supermarket. Pantry reads the receipt itself rather than matching one chain's template, so Coles, Woolworths, IGA, Aldi and the corner grocer all go through the same way.",
 	},
 	{
 		q: "Do I have to scan every receipt?",
-		a: "No. Scanning's the fast way in, but you can always add or edit items by hand if you grabbed something without a receipt, or just can't be bothered digging it out.",
+		a: "No. Scanning is the fast way in, but you can add or edit items by hand whenever you grabbed something without a receipt, or cannot be bothered digging it out.",
 	},
 ];

@@ -1,181 +1,76 @@
-import { useLayoutEffect, useRef } from 'react'
-import gsap from 'gsap'
+import { Plus } from 'lucide-react'
 import Legal from '../Legal'
 import { PATHS } from '../launch'
-import { changelog } from '../content'
+import { changelog, coming } from '../content'
 
-function ChangelogWires({ entries }) {
-  const svgRef = useRef(null)
-
-  useLayoutEffect(() => {
-    const svg = svgRef.current
-    const stage = svg?.closest('[data-changelog-stage]')
-    if (!svg || !stage) return
-
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const clampX = gsap.utils.clamp(-22, 22)
-    const clampY = gsap.utils.clamp(-16, 16)
-
-    const nodes = [...stage.querySelectorAll('[data-change-card]')].map((card, i) => ({
-      face: card.querySelector('[data-change-face]'),
-      float: card.querySelector('[data-change-float]'),
-      side: card.dataset.changeSide,
-      x: 0,
-      y: 0,
-      phase: i * 1.7 + 0.4,
-      amp: 5 + (i % 3) * 1.6,
-    }))
-
-    const segs = [...stage.querySelectorAll('[data-change-seg]')].map((el) => ({
-      track: el.querySelector('[data-change-track]'),
-      line: el.querySelector('[data-change-line]'),
-      from: el.querySelector('[data-change-from]'),
-      to: el.querySelector('[data-change-to]'),
-    }))
-
-    let raf = 0
-    let last = performance.now()
-    let inView = true
-    let lastSw = 0
-    let lastSh = 0
-
-    const dock = (node, sr, t) => {
-      const r = node.face.getBoundingClientRect()
-      const into = 36
-      return {
-        x: (node.side === 'start' ? r.right - into : r.left + into) - sr.left,
-        y: r.top + r.height * t - sr.top,
-      }
-    }
-
-    const draw = () => {
-      if (nodes.length !== entries.length) return
-      const sr = stage.getBoundingClientRect()
-      if (sr.width !== lastSw || sr.height !== lastSh) {
-        lastSw = sr.width
-        lastSh = sr.height
-        svg.setAttribute('width', String(sr.width))
-        svg.setAttribute('height', String(sr.height))
-        svg.setAttribute('viewBox', `0 0 ${sr.width} ${sr.height}`)
-      }
-
-      for (let i = 0; i < segs.length; i += 1) {
-        const a = dock(nodes[i], sr, 0.72)
-        const b = dock(nodes[i + 1], sr, 0.28)
-        const midY = a.y + (b.y - a.y) * 0.52
-        const d = `M ${a.x.toFixed(1)} ${a.y.toFixed(1)} C ${a.x.toFixed(1)} ${midY.toFixed(1)}, ${b.x.toFixed(1)} ${midY.toFixed(1)}, ${b.x.toFixed(1)} ${b.y.toFixed(1)}`
-        segs[i].track?.setAttribute('d', d)
-        segs[i].line?.setAttribute('d', d)
-        segs[i].from?.setAttribute('cx', String(a.x))
-        segs[i].from?.setAttribute('cy', String(a.y))
-        segs[i].to?.setAttribute('cx', String(b.x))
-        segs[i].to?.setAttribute('cy', String(b.y))
-      }
-    }
-
-    const tick = (now) => {
-      if (!inView) {
-        raf = 0
-        return
-      }
-      raf = requestAnimationFrame(tick)
-      const dt = Math.min(2, (now - last) / 16.67)
-      last = now
-
-      if (!reduce) {
-        for (const n of nodes) {
-          n.x += (Math.sin(now * 0.0008 + n.phase) * n.amp - n.x) * 0.06 * dt
-          n.y += (Math.cos(now * 0.001 + n.phase * 1.2) * (n.amp * 0.7) - n.y) * 0.06 * dt
-          gsap.set(n.float, { x: clampX(n.x), y: clampY(n.y), force3D: true })
-        }
-      }
-
-      draw()
-    }
-
-    raf = requestAnimationFrame(tick)
-    const ro = new ResizeObserver(draw)
-    ro.observe(stage)
-    const io = new IntersectionObserver(([entry]) => {
-      inView = entry.isIntersecting
-      if (inView && !raf) {
-        last = performance.now()
-        raf = requestAnimationFrame(tick)
-      }
-    })
-    io.observe(stage)
-
-    return () => {
-      ro.disconnect()
-      io.disconnect()
-      cancelAnimationFrame(raf)
-    }
-  }, [entries])
-
+function ReleaseList({ entries }) {
   return (
-    <svg ref={svgRef} className="changelog-path__links" aria-hidden="true">
-      {entries.slice(0, -1).map((entry, i) => (
-        <g key={entry.version} data-change-seg>
-          <path className="changelog-path__track" data-change-track />
-          <path className="changelog-path__line" data-change-line stroke={entry.color} />
-          <circle className="changelog-path__dot" data-change-from r="3.5" fill={entry.color} />
-          <circle className="changelog-path__dot" data-change-to r="3.5" fill={entries[i + 1].color} />
-        </g>
+    <div className="changelog-path">
+      {entries.map((entry, i) => (
+        <details
+          key={`${entry.version}-${entry.date}`}
+          className="changelog-card"
+          style={{ '--card-accent': entry.color }}
+          open={i === 0}
+        >
+          <summary className="changelog-card__summary">
+            <span className="changelog-card__version">{entry.version}</span>
+            <time dateTime={entry.date}>{entry.date}</time>
+            <span className="changelog-card__toggle" aria-hidden="true">
+              <Plus size={16} strokeWidth={2.5} />
+            </span>
+          </summary>
+          <div className="changelog-card__body">
+            <h3 className="changelog-card__title">{entry.title}</h3>
+            <ul className="changelog-card__changes">
+              {entry.changes.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          </div>
+        </details>
       ))}
-    </svg>
+    </div>
   )
 }
 
 export default function Changelog() {
+  const shipped = changelog.length > 0
+
   return (
     <Legal
       wide
-      title="What shipped."
+      title="Every version."
       heading={
         <>
-          What <em>shipped.</em>
+          Every <em>version.</em>
         </>
       }
-      eyebrow="VERSIONS"
+      eyebrow="THE APP"
       updated={false}
-      lede="Newest first. Each release sits opposite the last, wired as one path down the page."
-      description="What changed in Pantry — app and website version notes, newest first."
+      lede="What each release of the Pantry app put on your phone. Newest first."
+      description="Release notes for the Pantry iOS app, and what is coming next."
     >
-      <div className="changelog-path" data-changelog-stage>
-        <ChangelogWires entries={changelog} />
+      {shipped ? (
+        <ReleaseList entries={changelog} />
+      ) : (
+        <p className="changelog-empty">
+          Nothing yet. Pantry has not reached the App Store, so there is no
+          honest release history to show you. Version 1.0 will be the first
+          entry on this page, and everything below it is what we are building
+          towards.
+        </p>
+      )}
 
-        {changelog.map((entry, i) => {
-          const side = i % 2 === 0 ? 'start' : 'end'
-          const inset = i % 4 >= 2
-          return (
-            <article
-              key={entry.version}
-              className={`changelog-card changelog-card--${side}${inset ? ' changelog-card--inset' : ''}`}
-              data-change-card
-              data-change-side={side}
-              style={{
-                '--card-rot': `${entry.rotate}deg`,
-                '--card-accent': entry.color,
-              }}
-            >
-              <div className="changelog-card__float" data-change-float>
-                <div className="changelog-card__face" data-change-face>
-                  <div className="changelog-card__head">
-                    <span className="changelog-card__version">{entry.version}</span>
-                    <time dateTime={entry.date}>{entry.date}</time>
-                  </div>
-                  <h2 className="changelog-card__title">{entry.title}</h2>
-                  <ul className="changelog-card__changes">
-                    {entry.changes.map((line) => (
-                      <li key={line}>{line}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </article>
-          )
-        })}
-      </div>
+      <section className="changelog-block" aria-labelledby="coming-heading">
+        <h2 className="changelog-block__title" id="coming-heading">
+          What&rsquo;s <em>coming.</em>
+        </h2>
+        <p className="changelog-block__lede">
+          Soonest first. These are windows we are aiming at, not dates we are promising.
+        </p>
+        <ReleaseList entries={coming} />
+      </section>
 
       <p className="resource-footer-note">
         Questions about a release? See <a href={PATHS.support}>Support</a>. Longer

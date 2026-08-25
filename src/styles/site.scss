@@ -453,13 +453,19 @@ img {
 	&--hero {
 		width: min(340px, 88%, 36vh);
 	}
+
+	// Static meals mockup: a little larger than the pinned showcase phones,
+	// because this section isn't 100vh and 36vh would read as a toy.
+	&--meals {
+		width: min(320px, 78%, 52vh);
+	}
 }
 
 // Dropdown tray — same forest pill language as the header, hanging under
 // the burger instead of taking over the viewport.
 .nav-tray {
 	position: absolute;
-	top: calc(100% + 10px);
+	top: calc(100% + 18px);
 	left: 0;
 	z-index: 20;
 	min-width: 248px;
@@ -1015,7 +1021,8 @@ img {
 	min-height: 100lvh;
 	overflow: hidden;
 	padding: calc(var(--header-gap) + var(--header-bar) + clamp(20px, 5lvh, 56px)) 0 0;
-	background: radial-gradient(ellipse 70% 55% at 18% 78%, #fff 0%, transparent 58%), radial-gradient(ellipse 55% 50% at 88% 22%, var(--green-light) 0%, transparent 52%), radial-gradient(ellipse 80% 60% at 50% 100%, var(--cream-2) 0%, transparent 62%), var(--cream);
+	// background: radial-gradient(ellipse 70% 55% at 18% 78%, #fff 0%, transparent 58%), radial-gradient(ellipse 55% 50% at 88% 22%, var(--green-light) 0%, transparent 52%), radial-gradient(ellipse 80% 60% at 50% 100%, var(--cream-2) 0%, transparent 62%), var(--cream);
+	background: white;
 	color: var(--ink);
 	box-sizing: border-box;
 
@@ -1051,14 +1058,25 @@ img {
 		font-size: clamp(36px, 5.2vw, 64px);
 		line-height: 1.02;
 		letter-spacing: -0.04em;
-		margin: 0 0 28px;
-		max-width: 16ch;
+		margin: 0 0 16px;
+		max-width: none;
 		color: var(--ink);
 
 		em {
 			font-style: normal;
 			color: var(--forest-light);
 		}
+	}
+
+	&__sub {
+		margin: 0 0 28px;
+		max-width: 46ch;
+		font-family: var(--font-body);
+		font-size: clamp(15px, 1.6vw, 18px);
+		font-weight: 500;
+		line-height: 1.45;
+		letter-spacing: -0.01em;
+		color: var(--muted);
 	}
 
 	&__stage {
@@ -1111,6 +1129,18 @@ img {
 		position: absolute;
 		z-index: 4;
 		transform: translate(-50%, -50%);
+
+		// Each orb carries the colour its own expiry would earn in the app, so
+		// the ring is telling the truth rather than decorating.
+		--tone: var(--green-dark);
+
+		&[data-tone="soon"] {
+			--tone: var(--amber);
+		}
+
+		&[data-tone="urgent"] {
+			--tone: var(--red);
+		}
 	}
 
 	&__food {
@@ -1122,27 +1152,53 @@ img {
 		width: clamp(44px, min(7.2vw, 11lvh), 86px);
 		aspect-ratio: 1;
 		padding: 10px;
-		border: 1px solid rgba(15, 38, 25, 0.08);
+		border: 0;
 		border-radius: 50%;
-		background: #fff;
+		// Warm at the bottom rather than flat white: against cream, a pure
+		// white disc reads as a hole punched in the page.
+		background: linear-gradient(180deg, #ffffff 0%, #fbf8f0 100%);
 		cursor: pointer;
-		box-shadow: 0 10px 24px rgba(15, 38, 25, 0.1);
-		transition:
-			box-shadow 0.25s ease,
-			border-color 0.25s ease;
+		// Contact shadow plus a wide soft one — a single mid-blur shadow is what
+		// made these look pasted on.
+		box-shadow:
+			0 1px 2px rgba(15, 38, 25, 0.06),
+			0 14px 26px -10px rgba(15, 38, 25, 0.3),
+			inset 0 1px 0 #fff;
+		transition: box-shadow 0.25s ease;
+
+		// The tone ring sits outside the disc so it never crowds the art. It is
+		// a separate layer because the button's transform belongs to GSAP.
+		&::before {
+			content: '';
+			position: absolute;
+			inset: -3px;
+			border: 2px solid var(--tone);
+			border-radius: 50%;
+			opacity: 0.3;
+			transition: opacity 0.25s ease;
+			pointer-events: none;
+		}
 
 		svg {
-			width: 72%;
-			height: 72%;
+			width: 76%;
+			height: 76%;
 			display: block;
 			transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
 		}
 
 		&:hover,
 		&:focus-visible {
-			border-color: rgba(15, 38, 25, 0.2);
-			box-shadow: 0 14px 30px rgba(15, 38, 25, 0.16);
+			box-shadow:
+				0 1px 2px rgba(15, 38, 25, 0.06),
+				0 20px 34px -12px rgba(15, 38, 25, 0.38),
+				inset 0 1px 0 #fff;
 			outline: none;
+		}
+
+		&:hover::before,
+		&:focus-visible::before,
+		&.is-open::before {
+			opacity: 0.75;
 		}
 
 		&:hover svg,
@@ -1182,7 +1238,9 @@ img {
 		pointer-events: none;
 
 		strong {
-			color: var(--green);
+			// Mint on ink is unreadable once the count turns urgent, so the
+			// amber and terracotta tones get lightened for this context only.
+			color: color-mix(in srgb, var(--tone) 45%, var(--green));
 			font-weight: 800;
 			font-variant-numeric: tabular-nums;
 		}
@@ -1206,8 +1264,12 @@ img {
 
 		&__title {
 			font-size: clamp(30px, 8.4vw, 42px);
-			margin: 0 0 18px;
-			// max-width: 14ch;
+			margin: 0 0 8px;
+		}
+
+		&__sub {
+			margin-bottom: 20px;
+			font-size: 14px;
 		}
 
 		&__stage {
@@ -1280,7 +1342,11 @@ img {
 
 		&__title {
 			font-size: clamp(26px, 7.2vw, 34px);
-			margin: 0 0 12px;
+			margin: 0 0 6px;
+		}
+
+		&__sub {
+			margin-bottom: 16px;
 		}
 	}
 }
@@ -1303,7 +1369,12 @@ img {
 
 		&__title {
 			font-size: clamp(22px, 4.6vw, 30px);
-			margin: 0 0 10px;
+			margin: 0 0 6px;
+		}
+
+		&__sub {
+			margin-bottom: 12px;
+			font-size: 13px;
 		}
 
 		&__food {
@@ -3527,12 +3598,68 @@ img {
 		}
 
 		&__cluster {
-			height: 320px;
-			max-width: 400px;
+			height: 280px;
+			max-width: 360px;
 		}
 
 		&__card {
-			width: min(70%, 240px);
+			width: min(48%, 168px);
+
+			&:nth-child(1) {
+				left: 0;
+				top: 30%;
+			}
+
+			&:nth-child(2) {
+				left: 32%;
+				top: 0;
+			}
+
+			&:nth-child(3) {
+				left: 62%;
+				top: 38%;
+			}
+		}
+
+		&__face {
+			padding: 14px 14px 12px;
+			border-radius: 16px;
+		}
+
+		&__who {
+			gap: 8px;
+			margin-bottom: 10px;
+		}
+
+		&__avatar {
+			width: 32px;
+			height: 32px;
+			font-size: 16px;
+		}
+
+		&__name {
+			font-size: 13px;
+		}
+
+		&__role {
+			font-size: 10px;
+		}
+
+		&__activity {
+			padding-top: 10px;
+			font-size: 12px;
+		}
+
+		&__badge {
+			margin-top: 16px;
+			gap: 8px;
+			padding: 8px 11px 8px 12px;
+			font-size: 12px;
+
+			span {
+				padding: 3px 7px;
+				font-size: 10px;
+			}
 		}
 
 		&__title {
@@ -3544,19 +3671,160 @@ img {
 @media (max-width: 560px) {
 	.household {
 		&__cluster {
-			height: 270px;
+			height: 250px;
+			max-width: 320px;
+		}
+	}
+}
+
+// ==========================================================================
+// Meals
+// ==========================================================================
+
+// Forest beat after the cream household scene. Same two-column contract —
+// copy left, a phone on the right — but this one is a still of the meal
+// generator rather than another pinned showcase.
+.meals {
+	background: var(--forest-mid);
+	color: var(--cream);
+	padding: clamp(80px, 10vw, 140px) var(--gutter);
+	overflow: hidden;
+
+	&__inner {
+		max-width: var(--shell-mid);
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+		gap: clamp(36px, 6vw, 88px);
+		align-items: center;
+	}
+
+	&__eyebrow {
+		color: var(--green);
+		margin-bottom: 18px;
+	}
+
+	&__title {
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: clamp(32px, 3.6vw, 52px);
+		line-height: 1.05;
+		letter-spacing: -1px;
+		margin: 0 0 18px;
+		max-width: 14ch;
+		color: var(--cream);
+
+		em {
+			font-style: normal;
+			color: var(--green);
+		}
+	}
+
+	&__lede {
+		margin: 0 0 32px;
+		max-width: 46ch;
+		font-size: 17px;
+		line-height: 1.6;
+		color: rgba(244, 240, 228, 0.66);
+	}
+
+	&__points {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	&__point {
+		display: grid;
+		grid-template-columns: 40px 1fr;
+		gap: 14px;
+		align-items: flex-start;
+
+		strong {
+			display: block;
+			font-size: 15.5px;
+			font-weight: 800;
+			letter-spacing: -0.01em;
+			margin-bottom: 4px;
+			color: var(--cream);
 		}
 
-		&__face {
-			padding: 16px 16px 14px;
-			border-radius: 18px;
+		p {
+			margin: 0;
+			font-size: 14.5px;
+			line-height: 1.55;
+			color: rgba(244, 240, 228, 0.62);
+			max-width: 42ch;
+		}
+	}
+
+	&__point-icon {
+		display: grid;
+		place-items: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 12px;
+		background: rgba(244, 240, 228, 0.08);
+		color: var(--green);
+		border: 1.5px solid rgba(244, 240, 228, 0.12);
+	}
+
+	&__stage {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&::before {
+			content: "";
+			position: absolute;
+			width: 78%;
+			aspect-ratio: 1;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(185, 255, 164, 0.28) 0%, rgba(185, 255, 164, 0) 70%);
+			top: 6%;
+			pointer-events: none;
 		}
 
-		&__avatar {
-			width: 36px;
-			height: 36px;
-			font-size: 18px;
+		.device {
+			position: relative;
+			z-index: 1;
 		}
+
+		.device__screen {
+			background: #0a3422;
+		}
+	}
+
+	&__shot {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top center;
+	}
+}
+
+@media (max-width: 900px) {
+	.meals {
+		&__inner {
+			grid-template-columns: minmax(0, 1fr);
+		}
+
+		&__stage {
+			order: -1;
+		}
+
+		&__title {
+			max-width: none;
+		}
+	}
+
+	.device--meals {
+		width: min(280px, 72%, 58vh);
 	}
 }
 
@@ -4298,7 +4566,7 @@ body:has(.legal),
 			min-width: 0;
 			max-width: 100%;
 			font-family: var(--font-body);
-			font-size: 13px;
+			font-size: 10px;
 			font-weight: 600;
 			letter-spacing: 0.02em;
 			line-height: 1.3;
@@ -4409,6 +4677,12 @@ body:has(.legal),
 		}
 	}
 
+	// Changelog dropped the snaking cards, so the wide full-bleed is just empty
+	// margin. Keep the wide type, centre the column like every other legal page.
+	&:has(.changelog-path) &__doc {
+		max-width: 760px;
+	}
+
 	&__body {
 		font-size: 16.5px;
 		line-height: 1.65;
@@ -4451,6 +4725,89 @@ body:has(.legal),
 		}
 	}
 
+	// Legal docs carry tables (what we collect, overseas recipients, retention).
+	// They stay readable at 760px by scrolling inside their own box on narrow
+	// screens rather than squashing the copy column.
+	&__table {
+		margin: 0 0 1.3em;
+		overflow-x: auto;
+		border: 1px solid var(--line);
+		border-radius: 14px;
+		background: #ffffff;
+		-webkit-overflow-scrolling: touch;
+
+		table {
+			width: 100%;
+			min-width: 520px;
+			border-collapse: collapse;
+			font-size: 14.5px;
+			line-height: 1.5;
+		}
+
+		th,
+		td {
+			padding: 11px 14px;
+			text-align: left;
+			vertical-align: top;
+			border-bottom: 1px solid color-mix(in srgb, var(--charcoal) 9%, transparent);
+			color: color-mix(in srgb, var(--charcoal) 88%, transparent);
+		}
+
+		th {
+			font-family: var(--font-body);
+			font-weight: 700;
+			font-size: 13px;
+			letter-spacing: 0.01em;
+			color: var(--forest);
+			background: var(--green-light);
+			white-space: nowrap;
+		}
+
+		tr:last-child td {
+			border-bottom: 0;
+		}
+	}
+
+	// The allergen/food-safety warning at the top of the terms, and the smaller
+	// inline warnings that follow it.
+	&__callout {
+		margin: 0 0 1.4em;
+		padding: 20px 20px 18px;
+		border: 1px solid color-mix(in srgb, var(--red) 28%, transparent);
+		border-left-width: 4px;
+		border-radius: 16px;
+		background: var(--red-bg);
+
+		h2,
+		h3 {
+			margin: 0 0 10px;
+			font-family: var(--font-display);
+			font-weight: 800;
+			font-size: 19px;
+			line-height: 1.25;
+			letter-spacing: -0.4px;
+			color: var(--charcoal);
+		}
+
+		p:last-child,
+		ul:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__note {
+		margin: 0 0 1.2em;
+		padding: 14px 16px;
+		border-radius: 14px;
+		background: var(--green-light);
+		font-size: 15px;
+		color: color-mix(in srgb, var(--charcoal) 88%, transparent);
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+
 	&__section {
 		margin-top: clamp(28px, 4vw, 40px);
 
@@ -4467,6 +4824,16 @@ body:has(.legal),
 		p {
 			margin: 0 0 1em;
 			color: color-mix(in srgb, var(--charcoal) 88%, transparent);
+		}
+
+		h3 {
+			font-family: var(--font-body);
+			font-weight: 700;
+			font-size: 16.5px;
+			line-height: 1.3;
+			letter-spacing: -0.2px;
+			margin: 1.6em 0 10px;
+			color: var(--charcoal);
 		}
 
 		p:last-child,
@@ -4523,6 +4890,57 @@ body:has(.legal),
 	}
 }
 
+.legal:has(.calc) {
+	.legal__doc {
+		padding-right: 0;
+		padding-left: 0;
+		padding-bottom: 0;
+	}
+
+	.legal__head {
+		max-width: 1140px;
+		margin-right: auto;
+		margin-left: auto;
+		padding-right: var(--gutter);
+		padding-left: var(--gutter);
+	}
+
+	.legal__body {
+		color: inherit;
+
+		ul,
+		ol {
+			margin: 0;
+			padding-left: 0;
+			color: inherit;
+		}
+
+		li {
+			margin: 0;
+		}
+
+		strong {
+			color: inherit;
+		}
+
+		a {
+			color: var(--green);
+
+			&:hover {
+				color: var(--green-light);
+			}
+		}
+	}
+
+	.calc__head {
+		display: none;
+	}
+
+	.calc {
+		padding-top: clamp(28px, 4vh, 48px);
+	}
+}
+
 .footer--legal {
 	min-height: 0;
 	background: var(--cream);
@@ -4542,7 +4960,6 @@ body:has(.legal),
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 18px;
 }
-
 
 .blog-card {
 	display: flex;
@@ -4714,87 +5131,317 @@ body:has(.legal),
 // Changelog — vertical snake
 // ==========================================================================
 
-.changelog-path {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	gap: clamp(28px, 4.5vw, 64px);
-	margin: 8px 0 0;
-	padding: 4px 0 12px;
+.changelog-block {
+	margin-top: clamp(56px, 8vw, 88px);
 
-	&__links {
-		position: absolute;
-		inset: 0;
-		z-index: 0;
-		width: 100%;
-		height: 100%;
-		pointer-events: none;
-		overflow: visible;
+	&__title {
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: clamp(28px, 3.2vw, 44px);
+		line-height: 1.05;
+		letter-spacing: -1px;
+		margin: 0 0 10px;
+		color: var(--charcoal);
+
+		em {
+			font-style: normal;
+			color: var(--forest-light);
+		}
 	}
 
-	&__track {
-		fill: none;
-		stroke: rgba(15, 38, 25, 0.12);
-		stroke-width: 5;
-		stroke-linecap: round;
+	&__lede {
+		margin: 0 0 22px;
+		font-size: 16px;
+		line-height: 1.55;
+		color: rgba(26, 29, 24, 0.66);
 	}
 
-	&__line {
-		fill: none;
-		stroke-width: 2.25;
-		stroke-linecap: round;
-	}
-
-	&__dot {
-		stroke: #ffffff;
-		stroke-width: 1.75;
+	.changelog-path {
+		margin-top: 0;
 	}
 }
 
-.changelog-card {
-	position: relative;
-	z-index: 1;
-	width: min(46%, 400px);
+// Password recovery. Lives under the same `.legal` shell as the policy pages,
+// so it inherits the measure, the header and the footer, and only has to bring
+// the form furniture with it.
+.reset {
+	max-width: 46ch;
 
-	&--start {
-		align-self: flex-start;
+	&__lede {
+		margin: 0 0 24px;
+		font-size: 16.5px;
+		line-height: 1.6;
+		color: color-mix(in srgb, var(--charcoal) 78%, transparent);
 	}
 
-	&--end {
-		align-self: flex-end;
+	&__status {
+		margin: 0;
+		font-size: 16px;
+		color: var(--muted);
 	}
 
-	&--start.changelog-card--inset {
-		margin-left: 9%;
-	}
-
-	&--end.changelog-card--inset {
-		margin-right: 9%;
-	}
-
-	&__float {
-		will-change: transform;
-	}
-
-	&__face {
-		padding: 18px 18px 16px;
-		background: #ffffff;
-		border: 1px solid var(--line);
-		border-left: 3px solid var(--card-accent, var(--green));
-		border-radius: 22px;
-		box-shadow: 0 14px 32px rgba(15, 38, 25, 0.08);
-		transform: rotate(var(--card-rot, 0deg));
-	}
-
-	&__head {
+	&__form {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
+		gap: 8px;
+		margin: 0;
+
+		&--wide {
+			gap: 6px;
+		}
+	}
+
+	&__label {
+		margin-top: 12px;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		color: var(--muted);
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	// The reveal toggle and the key glyph sit inside the box rather than beside
+	// it, so the field keeps one rectangle at every width.
+	&__field {
+		position: relative;
+		display: flex;
 		align-items: center;
-		gap: 8px 10px;
+	}
+
+	&__field-icon {
+		position: absolute;
+		left: 14px;
+		display: flex;
+		color: var(--muted);
+		pointer-events: none;
+	}
+
+	&__input {
+		width: 100%;
+		padding: 14px 16px;
+		border: 1px solid var(--line);
+		border-radius: 14px;
+		background: var(--surface);
+		font: inherit;
+		font-size: 16px; // anything smaller and iOS Safari zooms on focus
+		color: var(--charcoal);
+		transition: border-color 0.18s ease, box-shadow 0.18s ease;
+
+		&--icon {
+			padding-left: 40px;
+			padding-right: 46px;
+		}
+
+		&:focus-visible {
+			outline: none;
+			border-color: var(--forest-light);
+			box-shadow: 0 0 0 3px color-mix(in srgb, var(--forest-light) 18%, transparent);
+		}
+
+		&[aria-invalid='true'] {
+			border-color: color-mix(in srgb, var(--red) 55%, transparent);
+		}
+
+		&:disabled {
+			opacity: 0.6;
+		}
+	}
+
+	&__reveal {
+		position: absolute;
+		right: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		padding: 0;
+		border: 0;
+		border-radius: 9px;
+		background: transparent;
+		color: var(--muted);
+		cursor: pointer;
+
+		&:hover {
+			color: var(--charcoal);
+			background: color-mix(in srgb, var(--charcoal) 6%, transparent);
+		}
+	}
+
+	&__hint {
+		margin: 2px 0 10px;
+		min-height: 1.2em; // reserved, so the button does not hop as it appears
+		font-size: 13.5px;
+		color: var(--muted);
+	}
+
+	&__button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 8px;
+		padding: 15px 22px;
+		border: 0;
+		border-radius: 14px;
+		background: var(--forest);
+		font: inherit;
+		font-weight: 700;
+		font-size: 15.5px;
+		color: var(--green);
+		cursor: pointer;
+		transition: background 0.18s ease, transform 0.18s ease;
+
+		&:hover:not(:disabled) {
+			background: var(--forest-light);
+		}
+
+		&:active:not(:disabled) {
+			transform: translateY(1px);
+		}
+
+		&:disabled {
+			opacity: 0.45;
+			cursor: not-allowed;
+		}
+
+		&--link {
+			text-decoration: none;
+		}
+	}
+
+	&__error {
+		margin: 10px 0 0;
+		font-size: 14.5px;
+		color: var(--red);
+	}
+
+	// Supabase's own message, kept but demoted: useful when someone forwards a
+	// screenshot to support, noise for everyone else.
+	&__detail {
+		font-size: 13.5px;
+		color: var(--muted);
+	}
+
+	&__foot {
+		margin: 26px 0 0;
+		font-size: 14px;
+		line-height: 1.6;
+		color: var(--muted);
+	}
+
+	&__panel {
+		padding: 24px;
+		border: 1px solid var(--line);
+		border-radius: 18px;
+		background: var(--surface);
+
+		p {
+			margin: 0 0 12px;
+			font-size: 15.5px;
+			line-height: 1.6;
+			color: color-mix(in srgb, var(--charcoal) 80%, transparent);
+		}
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+
+		&--good {
+			border-color: color-mix(in srgb, var(--green-dark) 30%, transparent);
+			background: var(--green-light);
+		}
+
+		&--warn {
+			border-color: color-mix(in srgb, var(--amber) 30%, transparent);
+			background: var(--amber-bg);
+		}
+	}
+
+	&__panel-icon {
+		display: flex;
 		margin-bottom: 10px;
-		font-size: 12px;
+
+		.reset__panel--good & {
+			color: var(--green-dark);
+		}
+
+		.reset__panel--warn & {
+			color: var(--amber);
+		}
+	}
+
+	&__panel-title {
+		margin: 0 0 10px;
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: 21px;
+		letter-spacing: -0.4px;
+		color: var(--charcoal);
+	}
+
+	&__panel .reset__form {
+		margin-top: 18px;
+	}
+}
+
+.changelog-empty {
+	margin: 8px 0 0;
+	padding: clamp(20px, 3vw, 30px);
+	border: 1px dashed color-mix(in srgb, var(--charcoal) 22%, transparent);
+	border-radius: 16px;
+	background: color-mix(in srgb, var(--charcoal) 3%, transparent);
+	font-size: 16px;
+	line-height: 1.6;
+	color: rgba(26, 29, 24, 0.72);
+	max-width: 62ch;
+}
+
+.changelog-path {
+	margin: 8px 0 0;
+	padding: 0;
+	border-top: 1px solid color-mix(in srgb, var(--charcoal) 14%, transparent);
+}
+
+.changelog-card {
+	border-bottom: 1px solid color-mix(in srgb, var(--charcoal) 14%, transparent);
+
+	&__summary {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		align-items: center;
+		gap: 10px 12px;
+		padding: 18px 0;
+		font-size: 14px;
 		font-weight: 600;
 		color: var(--muted);
+		list-style: none;
+		cursor: pointer;
+
+		&::-webkit-details-marker,
+		&::marker {
+			content: none;
+			display: none;
+		}
+	}
+
+	&__toggle {
+		display: grid;
+		place-items: center;
+		width: 28px;
+		height: 28px;
+		border-radius: 50%;
+		background: var(--nav-bar);
+		color: var(--green);
+	}
+
+	&[open] &__toggle {
+		background: var(--green);
+		color: var(--nav-bar);
+		transform: rotate(45deg);
 	}
 
 	&__version {
@@ -4807,11 +5454,15 @@ body:has(.legal),
 		border-radius: 999px;
 	}
 
+	&__body {
+		padding: 0 40px 20px 0;
+	}
+
 	&__title {
 		margin: 0 0 10px;
 		font-family: var(--font-display);
 		font-weight: 800;
-		font-size: 18px;
+		font-size: clamp(16px, 1.4vw, 20px);
 		letter-spacing: -0.4px;
 		line-height: 1.15;
 		color: var(--charcoal);
@@ -4820,8 +5471,8 @@ body:has(.legal),
 	&__changes {
 		margin: 0;
 		padding-left: 1.1em;
-		font-size: 13.5px;
-		line-height: 1.5;
+		font-size: 15px;
+		line-height: 1.55;
 		color: color-mix(in srgb, var(--charcoal) 78%, transparent);
 
 		li {
@@ -4841,26 +5492,6 @@ body:has(.legal),
 @media (max-width: 800px) {
 	.blog-grid {
 		grid-template-columns: 1fr;
-	}
-}
-
-@media (max-width: 640px) {
-	.changelog-path {
-		gap: 16px;
-
-		&__links {
-			display: none;
-		}
-	}
-
-	.changelog-card {
-		width: 100%;
-		margin-left: 0 !important;
-		margin-right: 0 !important;
-
-		&__float {
-			transform: none;
-		}
 	}
 }
 
@@ -5065,6 +5696,30 @@ body:has(.legal),
 		}
 	}
 
+	// ----- Meals ------------------------------------------------------------
+
+	.meals {
+		&__title {
+			font-size: scale-up(52, 68);
+		}
+
+		&__lede {
+			font-size: scale-up(17, 21);
+		}
+
+		&__point strong {
+			font-size: scale-up(15.5, 18);
+		}
+
+		&__point p {
+			font-size: scale-up(14.5, 17);
+		}
+	}
+
+	.device--meals {
+		width: min(#{scale-up(320, 400)}, 78%, 52vh);
+	}
+
 	// ----- Features ---------------------------------------------------------
 
 	.features {
@@ -5171,6 +5826,10 @@ body:has(.legal),
 	.legal--wide {
 		.legal__title {
 			font-size: scale-up(52, 64);
+		}
+
+		.changelog-block__title {
+			font-size: scale-up(44, 56);
 		}
 
 		.blog-card__title,

@@ -5,7 +5,9 @@ import Terms from './site/pages/Terms'
 import Resources from './site/pages/Resources'
 import Article from './site/pages/Article'
 import Changelog from './site/pages/Changelog'
+import Calculator from './site/pages/Calculator'
 import NotFound from './site/pages/NotFound'
+import ResetPassword from './site/pages/ResetPassword'
 import { PATHS } from './site/launch'
 import './styles/style.scss'
 import './styles/site.scss'
@@ -18,6 +20,8 @@ const pages = {
   [PATHS.terms]: Terms,
   [PATHS.resources]: Resources,
   [PATHS.changelog]: Changelog,
+  [PATHS.calculator]: Calculator,
+  [PATHS.resetPassword]: ResetPassword,
 }
 
 function currentPath() {

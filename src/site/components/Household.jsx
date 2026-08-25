@@ -47,7 +47,7 @@ const points = [
   {
     icon: ShoppingBasket,
     title: 'Stop buying it twice',
-    desc: 'If someone already grabbed milk, the rest of the house can see it — before it happens again on the way home.',
+    desc: 'If someone already grabbed milk, everyone else can see it before they walk past the dairy fridge on the way home.',
   },
 ]
 
@@ -214,7 +214,7 @@ export default function Household() {
           </h2>
           <p className="household__lede">
             Invite the people you actually live with. One fridge, one list, and
-            the same quiet nudge on every phone — so dinner isn't a group chat
+            the same quiet nudge on every phone, so dinner stops being a group chat
             about leftover mince.
           </p>
 

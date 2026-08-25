@@ -11,7 +11,8 @@ export default function NotFound() {
     >
       <p>
         That URL does not exist. Head <a href={PATHS.home}>home</a>, browse{' '}
-        <a href={PATHS.resources}>resources</a>, check the{' '}
+        <a href={PATHS.resources}>resources</a>, run the{' '}
+        <a href={PATHS.calculator}>waste calculator</a>, check the{' '}
         <a href={PATHS.changelog}>changelog</a>, or try{' '}
         <a href={PATHS.support}>support</a>.
       </p>

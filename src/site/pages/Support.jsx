@@ -16,7 +16,7 @@ const cards = [
   {
     icon: CreditCard,
     title: 'Subscriptions',
-    body: 'Pro is billed by Apple. Cancel, change plan, or request a refund in your Apple ID settings — we cannot do that from our side.',
+    body: 'Pro is billed by Apple. Cancelling, changing plan and refunds all happen in your Apple ID settings, because we genuinely cannot do it from our side.',
   },
   {
     icon: Trash2,
@@ -41,7 +41,7 @@ export default function Support() {
     <Legal
       title="Support"
       eyebrow="Help"
-      description="Get help with Pantry — contact, subscriptions, account deletion, and common questions."
+      description="Get help with Pantry: contact, subscriptions, account deletion, and common questions."
     >
       <p>
         Stuck on a scan, a household invite, or a Pro subscription? Start here.

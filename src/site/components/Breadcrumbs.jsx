@@ -7,6 +7,8 @@ const PAGE_LABELS = {
   [PATHS.terms]: 'Terms of Service',
   [PATHS.resources]: 'Resources',
   [PATHS.changelog]: 'Changelog',
+  [PATHS.calculator]: 'Waste calculator',
+  [PATHS.resetPassword]: 'Reset password',
 }
 
 const HOME = { label: 'Home', href: PATHS.home }

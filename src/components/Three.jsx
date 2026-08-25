@@ -65,14 +65,14 @@ if (history.scrollRestoration) history.scrollRestoration = 'manual'
 // Lighting rig
 // ---------------------------------------------------------------------------
 const LIGHTING = {
-    exposure: 0.5,
+    exposure: 0.6,
     toneMapping: 'neutral',
 
     envIntensity: 0.4,
     envRotationY: 0,
 
-    key: { intensity: 10, color: 0xffffff, position: [1.9, 4.0, 4.4] },
-    bounce: { intensity: 0.2, color: 0xffffff, position: [5.1, 2.0, 8.0] },
+    key: { intensity: 16.3, color: 0xffffff, position: [1.9, 4.0, 4.4] },
+    bounce: { intensity: 1, color: 0xffffff, position: [-9.5, 2.0, 8.0] },
     fill: { intensity: 6, color: 0xcfe0ff, position: [-5.5, 2.5, 2.0] },
     rim: { intensity: 10.9, color: 0xffffff, position: [-3.0, 4.0, -5.0] },
     ambient: { intensity: 3, sky: 0xffffff, ground: 0xa08b70 },

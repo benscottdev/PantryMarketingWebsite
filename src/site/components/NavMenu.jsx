@@ -4,6 +4,7 @@ import { PATHS } from '../launch'
 export const HOME_MENU_ITEMS = [
   { label: 'How it works', href: '#how', hash: true },
   { label: 'Features', href: '#features', hash: true },
+  { label: 'Calculator', href: PATHS.calculator },
   { label: 'Resources', href: PATHS.resources },
   { label: 'Changelog', href: PATHS.changelog },
   { label: 'Support', href: PATHS.support },
@@ -13,6 +14,7 @@ export const PAGE_MENU_ITEMS = [
   { label: 'Home', href: PATHS.home },
   { label: 'How it works', href: `${PATHS.home}#how` },
   { label: 'Features', href: `${PATHS.home}#features` },
+  { label: 'Calculator', href: PATHS.calculator },
   { label: 'Resources', href: PATHS.resources },
   { label: 'Changelog', href: PATHS.changelog },
   { label: 'Support', href: PATHS.support },

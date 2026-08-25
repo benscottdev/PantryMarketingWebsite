@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Apple Mail and iOS Mail honour these and stop auto-inverting the card
+         into something muddy. Everything below is also inlined for the light
+         theme, so a client that strips <style> still gets the right design. -->
+    <meta name="color-scheme" content="light dark" />
+    <meta name="supported-color-schemes" content="light dark" />
+    <title>Confirm your Pantry email</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Manrope:wght@400;600;700&display=swap');
+
+      @media (prefers-color-scheme: dark) {
+        .p-bg { background-color: #0b1d13 !important; }
+        /* --ink, not --forest: the header bar is #184534, so the card has to
+           sit darker than it or the two merge into one block. */
+        .p-card {
+          background-color: #0f2619 !important;
+          border-color: rgba(185, 255, 164, 0.16) !important;
+        }
+        /* The light-theme CTA is forest-on-mint. Against a dark card that is
+           forest-on-forest, so the button inverts to keep its contrast. */
+        .p-cta {
+          background-color: #b9ffa4 !important;
+          color: #14382a !important;
+        }
+        .p-title { color: #f4f0e4 !important; }
+        .p-body { color: rgba(244, 240, 228, 0.74) !important; }
+        .p-fine { color: rgba(244, 240, 228, 0.55) !important; }
+        .p-rule { border-color: rgba(185, 255, 164, 0.16) !important; }
+        .p-link { color: #b9ffa4 !important; }
+      }
+
+      @media (max-width: 520px) {
+        .p-pad { padding-left: 22px !important; padding-right: 22px !important; }
+        .p-cta { display: block !important; text-align: center !important; }
+      }
+    </style>
+  </head>
+
+  <body class="p-bg" style="background-color:#ECEEE8;margin:0;padding:0;">
+    <!-- Preview text: what shows next to the subject line in the inbox. The
+         spacer stops the client pulling the body copy in after it. -->
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;">
+      One tap and your pantry is ready.
+      &#8203;&#847;&#8203;&#847;&#8203;&#847;&#8203;&#847;&#8203;&#847;&#8203;&#847;&#8203;&#847;&#8203;&#847;&#8203;&#847;&#8203;&#847;
+    </div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="p-bg" style="background-color:#ECEEE8;margin:0;padding:0;">
+      <tr>
+        <td align="center" style="padding:32px 16px;">
+
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="p-card" style="max-width:480px;background-color:#FAFCF8;border-radius:20px;overflow:hidden;border:1px solid #DCE4D7;font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+
+            <!-- Header. #184534 is --nav-bar and #B9FFA4 is --green: the same
+                 forest bar carrying mint type that the site header uses. -->
+            <tr>
+              <td style="background-color:#184534;padding:26px 32px;" class="p-pad">
+                <table role="presentation" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:22px;font-weight:800;color:#B9FFA4;letter-spacing:-0.4px;">
+                      <span style="color:#B9FFA4;">&#9679;</span>&nbsp; Pantry
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:36px 32px 8px 32px;" class="p-pad">
+                <h1 class="p-title" style="margin:0 0 12px 0;font-family:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:26px;line-height:1.2;font-weight:800;color:#1A1D18;letter-spacing:-0.6px;">
+                  Confirm your email
+                </h1>
+                <p class="p-body" style="margin:0 0 8px 0;font-size:16px;line-height:1.6;color:#5E675D;">
+                  Welcome to Pantry. You are one tap away from a kitchen that
+                  keeps track of itself.
+                </p>
+                <p class="p-body" style="margin:0 0 28px 0;font-size:16px;line-height:1.6;color:#5E675D;">
+                  Confirm this address and your first receipt is ready to scan.
+                </p>
+
+                <!-- CTA matches the button on the site: --forest on --green,
+                     14px radius. Same button, same journey. -->
+                <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td align="center">
+                      <a class="p-cta" href="{{ .ConfirmationURL }}"
+                         style="display:inline-block;background-color:#14382A;color:#B9FFA4;font-size:16px;font-weight:700;text-decoration:none;padding:16px 42px;border-radius:14px;letter-spacing:0.2px;">
+                        Confirm my email
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+
+                <p class="p-fine" style="margin:28px 0 6px 0;font-size:13px;line-height:1.6;color:#5E675D;">
+                  Or paste this link into your browser:
+                </p>
+                <p style="margin:0 0 24px 0;font-size:13px;line-height:1.5;word-break:break-all;">
+                  <a class="p-link" href="{{ .ConfirmationURL }}" style="color:#257B3C;text-decoration:underline;">{{ .ConfirmationURL }}</a>
+                </p>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:0 32px;" class="p-pad">
+                <div class="p-rule" style="border-top:1px solid #DCE4D7;"></div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="padding:20px 32px 32px 32px;" class="p-pad">
+                <p class="p-fine" style="margin:0;font-size:13px;line-height:1.6;color:#8A928A;">
+                  If you didn&rsquo;t sign up for Pantry, you can safely ignore this email.
+                  The account stays unusable until someone confirms this address.
+                </p>
+              </td>
+            </tr>
+
+          </table>
+
+          <table role="presentation" cellpadding="0" cellspacing="0" style="max-width:480px;">
+            <tr>
+              <td align="center" style="padding:20px 16px 0 16px;font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+                <p class="p-fine" style="margin:0;font-size:12px;line-height:1.5;color:#9AA29A;">
+                  Pantry &middot; Sent from support@usepantry.com.au
+                </p>
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

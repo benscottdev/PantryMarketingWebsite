@@ -72,6 +72,43 @@ export function Section({ title, children }) {
   )
 }
 
+// Legal docs carry a few things a plain run of paragraphs cannot: reference
+// tables (what we collect, who it goes to, how long we keep it), the food-safety
+// warning that has to read louder than the copy around it, and quieter asides.
+export function Table({ head, children }) {
+  return (
+    <div className="legal__table" role="region" tabIndex={0}>
+      <table>
+        {head ? (
+          <thead>
+            <tr>
+              {head.map((cell) => (
+                <th key={cell} scope="col">
+                  {cell}
+                </th>
+              ))}
+            </tr>
+          </thead>
+        ) : null}
+        <tbody>{children}</tbody>
+      </table>
+    </div>
+  )
+}
+
+export function Callout({ title, children }) {
+  return (
+    <aside className="legal__callout">
+      {title ? <h3>{title}</h3> : null}
+      {children}
+    </aside>
+  )
+}
+
+export function Note({ children }) {
+  return <div className="legal__note">{children}</div>
+}
+
 export default function Legal({
   title,
   heading,
