@@ -25,7 +25,7 @@ The rule sticks in houses that apply it to everything, not just their own shelf.
 
 ## Where Pantry closes the gap labelling cannot
 
-Labelling solves “is this too old.” It does not solve “did someone already buy milk” — the other classic sharehouse failure, where two people each notice the fridge is low and both come home with a carton. This is the exact gap [Pantry Pro’s household sharing](/resources/free-vs-pro) is built to close: one shared pantry, visible to everyone in the house, up to six people on one subscription. Nobody has to ask whose spinach it is — scan it in, and Pantry works out roughly how long it has left. The same three-to-seven-day windows CSIRO publishes for chicken and milk — see [how long food actually lasts](/resources/how-long-food-lasts) — apply in any fridge. Pantry is built to make them visible to the whole house instead of living in one person’s memory.
+Labelling solves “is this too old.” It does not solve “did someone already buy milk” — the other classic sharehouse failure, where two people each notice the fridge is low and both come home with a carton. This is the exact gap [Pantry Pro’s household sharing](/#household) is built to close: one shared pantry, visible to everyone in the house, up to six people on one subscription. Nobody has to ask whose spinach it is — scan it in, and Pantry works out roughly how long it has left. The same three-to-seven-day windows CSIRO publishes for chicken and milk — see [how long food actually lasts](/resources/how-long-food-lasts) — apply in any fridge. Pantry is built to make them visible to the whole house instead of living in one person’s memory.
 
 ## Why this matters more in a sharehouse than a family home
 
@@ -35,4 +35,4 @@ A visible, shared system removes the need to raise it at all. Nobody has to say 
 
 ## Starting small
 
-You do not need buy-in from every flatmate on day one. Start by labelling your own shelf. A shared digital list still works with only two of four housemates on it — it just covers less ground until the rest catch on. The [morning digest](/resources/receipt-to-meals) is built to go to everyone in a household the moment it exists, so the last holdout has a reason to open the app at all: seeing what is turning today, without having to ask.
+You do not need buy-in from every flatmate on day one. Start by labelling your own shelf. A shared digital list still works with only two of four housemates on it — it just covers less ground until the rest catch on. The [morning digest](/#how) is built to go to everyone in a household the moment it exists, so the last holdout has a reason to open the app at all: seeing what is turning today, without having to ask.

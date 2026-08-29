@@ -33,4 +33,4 @@ Getting items into the list quickly is only half the job, though. None of the th
 
 Pantry has not launched. It is on the waitlist, not the App Store, so none of this is a head-to-head test against Fango, Eatvora or Alydo. What is written above reflects how each app presents itself on its own site or listing, not an independent benchmark of accuracy or speed. When Pantry ships, the comparison that matters is the one you run yourself — a docket from your own kitchen, scanned on your own phone, against whichever of these you have used before.
 
-[Join the waitlist](/#waitlist) to be one of the first to run that comparison, or read [how Pantry turns a receipt into a working list](/resources/receipt-to-meals) for the detail behind the approach.
+[Join the waitlist](/#waitlist) to be one of the first to run that comparison, or read [how Pantry turns a receipt into a working list](/#how) for the detail behind the approach.

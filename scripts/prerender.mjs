@@ -131,7 +131,15 @@ function postHead(original, post) {
 }
 
 function postBody(html, post) {
-	const wrapper = `<div id="pantry-prerender" data-slug="${escapeHtml(post.slug)}"><div data-post-body>${post.html}</div></div>`
+	// The nav/footer/breadcrumbs are all React-rendered, so a crawler that
+	// never runs JS sees nothing linking a post page back to /resources or
+	// home — every prerendered post was an "orphan page" by that measure.
+	// This sibling link is outside [data-post-body] on purpose: it's not part
+	// of what src/site/prerendered.js snapshots back into the live React
+	// tree, which already has its own (JS-rendered) breadcrumb and related
+	// posts once it mounts.
+	const staticNav = `<p><a href="/resources">Notes from the fridge</a> · <a href="/">${escapeHtml(SITE_NAME)}</a></p>`
+	const wrapper = `<div id="pantry-prerender" data-slug="${escapeHtml(post.slug)}">${staticNav}<div data-post-body>${post.html}</div></div>`
 	return replaceOnce(html, '<div id="root"></div>', `<div id="root">${wrapper}</div>`, 'root div')
 }
 

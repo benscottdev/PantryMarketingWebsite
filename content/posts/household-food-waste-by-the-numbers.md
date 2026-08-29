@@ -42,6 +42,6 @@ The Fight Food Waste CRC is specific about the size of the gap: people under-rep
 
 ## What closes the gap
 
-The fix is not a diet, a lecture, or a spreadsheet. It is visibility into a fridge that currently runs on memory — knowing what you have, and knowing when it turns. That is the problem Pantry is built to solve: a photographed receipt becomes a list with dates attached, so the spinach and the lasagne stay visible on a screen instead of going quiet behind the milk. Our [shelf-life reference](/resources/how-long-food-lasts) covers the "when does it turn" half; [how Pantry turns a receipt into a working list](/resources/receipt-to-meals) covers the rest.
+The fix is not a diet, a lecture, or a spreadsheet. It is visibility into a fridge that currently runs on memory — knowing what you have, and knowing when it turns. That is the problem Pantry is built to solve: a photographed receipt becomes a list with dates attached, so the spinach and the lasagne stay visible on a screen instead of going quiet behind the milk. Our [shelf-life reference](/resources/how-long-food-lasts) covers the "when does it turn" half; [how Pantry turns a receipt into a working list](/#how) covers the rest.
 
 If you want your own household's version of $2,500 rather than the national average, the [waste calculator](/calculator) runs the same published research against your household size and spend, and shows its working rather than a number picked to sound alarming.

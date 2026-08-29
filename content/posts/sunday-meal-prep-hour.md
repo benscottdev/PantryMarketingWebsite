@@ -34,4 +34,4 @@ The Sunday hour does not pay off on Sunday. It pays off on Wednesday at 6pm, whe
 
 ## Where Pantry fits into the hour
 
-The Sunday check is faster with a list in front of you than with a fridge you have to stand in front of and inventory by eye. Pantry’s list is built from [scanned receipts](/resources/receipt-to-meals), not typed in from memory, so it already holds everything currently in the house — and how many days each item realistically has left. “What should we plan around” stops being a guess standing at the fridge and becomes a five-minute glance at a list that already knows the answer, before the week even starts.
+The Sunday check is faster with a list in front of you than with a fridge you have to stand in front of and inventory by eye. Pantry’s list is built from [scanned receipts](/#how), not typed in from memory, so it already holds everything currently in the house — and how many days each item realistically has left. “What should we plan around” stops being a guess standing at the fridge and becomes a five-minute glance at a list that already knows the answer, before the week even starts.
