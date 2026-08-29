@@ -1,6 +1,6 @@
 ---
 slug: mince-going-off-tonight
-title: "The mince that turns tomorrow: five dinners to use it tonight"
+title: "Mince that turns tomorrow: five dinners tonight"
 excerpt: "Mince keeps two to three days per CSIRO, the shortest window in a standard shop. Five dinners that use it before that window closes."
 tag: COOKING
 publishDate: 2026-08-29

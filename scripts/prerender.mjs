@@ -15,7 +15,9 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
+import { escapeHtml, escapeJsonForScriptTag } from './lib/html.mjs'
 import { getPublishedPosts, loadAllPosts, sydneyToday } from './lib/posts.mjs'
+import { STATIC_PAGES, siteNav, staticPageBody } from './lib/static-pages.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const distDir = resolve(root, 'dist')
@@ -25,6 +27,11 @@ const distDir = resolve(root, 'dist')
 // and treat the real page as missing from the sitemap.
 const SITE_URL = 'https://www.usepantry.com.au'
 const SITE_NAME = 'Pantry'
+const PATHS_RESOURCES = '/resources'
+// One 1200x630 card for every page that isn't an article. Articles get their
+// own from their hero art; these pages have none, and a missing og:image is
+// the difference between a link preview and a bare grey box.
+const DEFAULT_OG = `${SITE_URL}/og/default.jpg`
 
 function readTemplate() {
 	const templatePath = resolve(distDir, 'index.html')
@@ -44,20 +51,6 @@ function replaceOnce(html, needle, replacement, label) {
 		throw new Error(`prerender: expected exactly one "${label}" in dist/index.html, found ${count}`)
 	}
 	return html.slice(0, first) + replacement + html.slice(first + needle.length)
-}
-
-function escapeHtml(str) {
-	return String(str)
-		.replace(/&/g, '&amp;')
-		.replace(/</g, '&lt;')
-		.replace(/>/g, '&gt;')
-		.replace(/"/g, '&quot;')
-}
-
-function escapeJsonForScriptTag(obj) {
-	// </script> inside a JSON string would close the tag early; escape the
-	// slash so it round-trips through JSON.parse unchanged.
-	return JSON.stringify(obj).replace(/</g, '\\u003c')
 }
 
 function extractOriginalHead(html) {
@@ -131,15 +124,17 @@ function postHead(original, post) {
 }
 
 function postBody(html, post) {
-	// The nav/footer/breadcrumbs are all React-rendered, so a crawler that
-	// never runs JS sees nothing linking a post page back to /resources or
-	// home — every prerendered post was an "orphan page" by that measure.
-	// This sibling link is outside [data-post-body] on purpose: it's not part
-	// of what src/site/prerendered.js snapshots back into the live React
-	// tree, which already has its own (JS-rendered) breadcrumb and related
-	// posts once it mounts.
-	const staticNav = `<p><a href="/resources">Notes from the fridge</a> · <a href="/">${escapeHtml(SITE_NAME)}</a></p>`
-	const wrapper = `<div id="pantry-prerender" data-slug="${escapeHtml(post.slug)}">${staticNav}<div data-post-body>${post.html}</div></div>`
+	// Both of these sit OUTSIDE [data-post-body] on purpose: that node is what
+	// src/site/prerendered.js snapshots back into the live React tree, and the
+	// mounted page renders its own <h1> (Legal.jsx) plus its own breadcrumb and
+	// related posts. Inside the wrapper they would be duplicated on screen.
+	//
+	// The heading exists because the article title only ever reached <title>,
+	// so a crawler that never runs JS got a page with no heading at all. The
+	// nav exists because the header and footer are React-rendered too, which
+	// left every post page an orphan with nothing to follow.
+	const heading = `<h1 class="legal__title">${escapeHtml(post.title)}</h1>`
+	const wrapper = `<div id="pantry-prerender" class="legal" data-slug="${escapeHtml(post.slug)}"><article class="legal__doc"><header class="legal__head">${heading}</header><div class="legal__body">${siteNav(`/resources/${post.slug}`)}<div data-post-body>${post.html}</div></div></article></div>`
 	return replaceOnce(html, '<div id="root"></div>', `<div id="root">${wrapper}</div>`, 'root div')
 }
 
@@ -154,7 +149,7 @@ function writePostPage(original, post) {
 function blogCardHtml(post) {
 	const minsLabel = `${post.minutes} min${post.minutes === 1 ? '' : 's'} read`
 	return `<a href="/resources/${post.slug}" class="blog-card">
-			<span class="blog-card__media"><img src="${post.image}" alt="" /></span>
+			<span class="blog-card__media"><img src="${post.image}" alt="${escapeHtml(post.imageAlt)}" /></span>
 			<span class="blog-card__body">
 				<span class="blog-card__meta">
 					<span class="blog-card__tag">${escapeHtml(post.tag)}</span>
@@ -168,7 +163,10 @@ function blogCardHtml(post) {
 function writeIndexPage(original, posts) {
 	const url = `${SITE_URL}/resources`
 	const title = `Notes from the fridge. | ${SITE_NAME}`
-	const description = 'Short reads on food waste, shared pantries, and how Pantry actually works. Every number we quote comes with the place it came from.'
+	// The description prop Resources.jsx actually sets, so the static head and
+	// the head React swaps in on mount say the same thing.
+	const description = 'Notes on food waste, household pantries, and how Pantry works, from receipt scan to dinner.'
+	const lede = 'Short reads on food waste, shared pantries, and how Pantry actually works. Every number we quote comes with the place it came from.'
 
 	const breadcrumbLd = breadcrumbJsonLd([
 		['Home', `${SITE_URL}/`],
@@ -182,9 +180,11 @@ function writeIndexPage(original, posts) {
 		<meta property="og:title" content="Notes from the fridge." />
 		<meta property="og:description" content="${escapeHtml(description)}" />
 		<meta property="og:url" content="${url}" />
-		<meta name="twitter:card" content="summary" />
+		<meta property="og:image" content="${DEFAULT_OG}" />
+		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content="Notes from the fridge." />
 		<meta name="twitter:description" content="${escapeHtml(description)}" />
+		<meta name="twitter:image" content="${DEFAULT_OG}" />
 		<script type="application/ld+json">${escapeJsonForScriptTag(breadcrumbLd)}</script>
 	</head>`
 
@@ -193,11 +193,64 @@ function writeIndexPage(original, posts) {
 	html = replaceOnce(html, '</head>', extraTags, 'head close tag')
 
 	const grid = `<div class="blog-grid">\n\t\t${posts.map(blogCardHtml).join('\n\t\t')}\n\t</div>`
-	html = replaceOnce(html, '<div id="root"></div>', `<div id="root"><h1>Notes from the fridge.</h1>${grid}</div>`, 'root div')
+	const intro = `<header class="legal__head"><h1 class="legal__title">Notes from the fridge.</h1><p class="legal__lede">${escapeHtml(lede)}</p></header>`
+	const page = `<div class="legal legal--wide"><article class="legal__doc">${intro}<div class="legal__body">${grid}${siteNav(PATHS_RESOURCES)}</div></article></div>`
+	html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${page}</div>`, 'root div')
 
 	const outDir = resolve(distDir, 'resources')
 	mkdirSync(outDir, { recursive: true })
 	writeFileSync(resolve(outDir, 'index.html'), html)
+}
+
+function writeStaticPage(original, page) {
+	const url = page.path === '/' ? `${SITE_URL}/` : `${SITE_URL}${page.path}`
+
+	const jsonLd = page.jsonLd
+		? `\n\t\t<script type="application/ld+json">${escapeJsonForScriptTag(page.jsonLd)}</script>`
+		: ''
+
+	const extraTags = `
+		<link rel="canonical" href="${url}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="${SITE_NAME}" />
+		<meta property="og:title" content="${escapeHtml(page.title)}" />
+		<meta property="og:description" content="${escapeHtml(page.description)}" />
+		<meta property="og:url" content="${url}" />
+		<meta property="og:image" content="${DEFAULT_OG}" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="${escapeHtml(page.title)}" />
+		<meta name="twitter:description" content="${escapeHtml(page.description)}" />
+		<meta name="twitter:image" content="${DEFAULT_OG}" />${jsonLd}
+	</head>`
+
+	let html = replaceOnce(original.html, original.titleTag, `<title>${escapeHtml(page.title)}</title>`, 'title tag')
+	html = replaceOnce(html, original.descTag, `<meta name="description" content="${escapeHtml(page.description)}" />`, 'description tag')
+	html = replaceOnce(html, '</head>', extraTags, 'head close tag')
+	html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${staticPageBody(page)}</div>`, 'root div')
+
+	// dir '' is dist/index.html itself — the home page, and (via the
+	// vercel.json rewrite) whatever else doesn't match a file on disk.
+	const outDir = page.dir ? resolve(distDir, page.dir) : distDir
+	mkdirSync(outDir, { recursive: true })
+	writeFileSync(resolve(outDir, 'index.html'), html)
+}
+
+// The app icon centred on the site's cream, at the 1200x630 every scraper
+// expects. Built here for the same reason the post cards are: `vite build`
+// empties dist/, so anything written earlier is wiped.
+async function rasterizeDefaultOg() {
+	const iconPath = resolve(root, 'public/icon.png')
+	if (!existsSync(iconPath)) {
+		console.warn(`[prerender] skip default OG image: ${iconPath} not found`)
+		return
+	}
+	const ogDir = resolve(distDir, 'og')
+	mkdirSync(ogDir, { recursive: true })
+	const icon = await sharp(iconPath).resize(360, 360, { fit: 'contain', background: '#f4f0e4' }).toBuffer()
+	await sharp({ create: { width: 1200, height: 630, channels: 3, background: '#f4f0e4' } })
+		.composite([{ input: icon, gravity: 'centre' }])
+		.jpeg({ quality: 86 })
+		.toFile(resolve(ogDir, 'default.jpg'))
 }
 
 async function rasterizeOg(post) {
@@ -297,11 +350,15 @@ async function main() {
 		await rasterizeOg(post)
 	}
 	writeIndexPage(original, posts)
+	for (const page of STATIC_PAGES) writeStaticPage(original, page)
+	await rasterizeDefaultOg()
 	writeSitemap(posts)
 	writeRss(posts)
 	writeLlmsTxt(posts)
 
-	console.log(`[prerender] wrote ${posts.length}/${all.length} post page(s), sitemap.xml, rss.xml, llms.txt`)
+	console.log(
+		`[prerender] wrote ${posts.length}/${all.length} post page(s), ${STATIC_PAGES.length} static page(s), sitemap.xml, rss.xml, llms.txt`
+	)
 }
 
 main().catch((err) => {
