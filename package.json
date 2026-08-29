@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node scripts/build-content.mjs && vite",
+    "build": "node scripts/build-content.mjs && node scripts/generate-blog-images.mjs && vite build && node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "models": "node scripts/optimize-models.mjs"
@@ -34,6 +34,8 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",
     "globals": "^17.7.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^18.0.11",
     "sass": "^1.102.0",
     "sharp": "^0.35.3",
     "vite": "^8.2.0"

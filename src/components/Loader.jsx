@@ -2,8 +2,13 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { onLoadProgress, onSceneReady } from '../loadingManager'
 
+// Disabled along with the 3D scene in Home.jsx: this loader's entire job was
+// to hide the fridge model's load time (see onSceneReady below), and with
+// that scene not mounted, markSceneReady() never fires — the loader would
+// otherwise hang on every load until MAX_WAIT_MS. Re-enable together with
+// the `<Three>` scene, not on its own.
 /** Flip to false to skip the loader and enter the site immediately. */
-export const LOADER_ON = true
+export const LOADER_ON = false
 
 /** How long the first fact stays readable before we can exit. */
 const MIN_FACT_MS = 2000

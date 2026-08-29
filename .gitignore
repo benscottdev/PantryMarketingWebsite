@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Rebuilt from content/posts/*.md by scripts/build-content.mjs
+src/site/content/posts.index.generated.js
+
 # Local env — contains the Supabase project URL + anon key
 .env
 .env.*

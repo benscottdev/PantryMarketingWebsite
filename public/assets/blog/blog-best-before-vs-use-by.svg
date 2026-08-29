@@ -1,0 +1,10 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+	<rect width="1200" height="675" fill="#e7f7dc" />
+	<g style="mix-blend-mode:multiply">
+		<circle cx="1" cy="396" r="324" fill="#1f5c43" opacity="0.15" />
+		<circle cx="950" cy="511" r="199" fill="#1f5c43" opacity="0.23" />
+		<circle cx="1177" cy="539" r="331" fill="#1f5c43" opacity="0.18" />
+		<circle cx="1090" cy="59" r="186" fill="#1f5c43" opacity="0.23" />
+	</g>
+	<rect width="1200" height="675" fill="none" stroke="#14382a" stroke-opacity="0.06" stroke-width="2" />
+</svg>

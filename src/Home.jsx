@@ -1,5 +1,7 @@
 import { useCallback, useState } from 'react'
-import Three from './components/Three'
+// Disabled for now — the pinned WebGL fridge scene was lagging badly on real
+// hardware. Re-enable by restoring the `<Three>` import and the block below.
+// import Three from './components/Three'
 import Header from './components/Header'
 import Loader, { LOADER_ON } from './components/Loader'
 import SmoothScroll from './components/SmoothScroll'
@@ -16,13 +18,6 @@ export default function Home() {
       <div className={`home${entered ? ' home--entered' : ''}`} id="top">
         <Loader onFinished={onLoaderFinished} />
         <Landing />
-        {/* The ticker is a child of the 3D scene rather than the first band of
-            the marketing site: the scene is pinned for several screens, so this
-            keeps the tape running along the bottom of the viewport for as long
-            as the fridge is on it. */}
-        <Three>
-          {/* <Ticker speed={40} /> */}
-        </Three>
         <Site />
       </div>
     </SmoothScroll>

@@ -1,0 +1,32 @@
+name: Scheduled publish
+
+# There is no scheduler beyond this: it just re-triggers a Vercel build every
+# day. The build itself (scripts/build-content.mjs, scripts/prerender.mjs)
+# re-evaluates which posts are published "as of today" — that's the whole
+# mechanism that makes future-dated posts appear on their own.
+on:
+  schedule:
+    # Both UTC — fired twice, a few minutes apart, so a fixed time doesn't
+    # drift an hour late (or a day early) across the AEST/AEDT changeover.
+    - cron: '5 13 * * *' # 00:05 AEDT (UTC+11)
+    - cron: '5 14 * * *' # 00:05 AEST (UTC+10)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: scheduled-publish
+  cancel-in-progress: false
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy hook
+        run: |
+          code=$(curl -sS -X POST -o /dev/null -w '%{http_code}' \
+            --retry 3 --retry-delay 10 --retry-all-errors \
+            "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}")
+          echo "deploy hook responded $code"
+          [ "$code" -ge 200 ] && [ "$code" -lt 300 ]

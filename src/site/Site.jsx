@@ -9,6 +9,7 @@ import Household from './components/Household';
 import Meals from './components/Meals';
 import Features from './components/Features';
 import Faq from './components/Faq';
+import RecentPosts from './components/RecentPosts';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 
@@ -451,6 +452,7 @@ export default function Site() {
         <Meals />
         <Features />
         <Faq />
+        <RecentPosts />
         <Footer />
       </div>
       <BackToTop />

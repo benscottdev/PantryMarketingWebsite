@@ -9,12 +9,12 @@ Last verified: 25 August 2026.
 
 | Claim | Where it appears | Source |
 | --- | --- | --- |
-| $2,500 of food binned per Australian household per year | `Problem.jsx` counter, FAQ pricing answer, `content.js` (aussie-food-waste), Loader facts, `index.html` meta | Fight Food Waste CRC (2021), collected at [End Food Waste Australia fact library](https://endfoodwaste.com.au/fact-library/) |
-| 265 kg per household per year | `content.js` (aussie-food-waste), Loader facts, `Calculator.jsx` sources | FIAL, *National Food Waste Strategy Feasibility Study* (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
+| $2,500 of food binned per Australian household per year | `Problem.jsx` counter, FAQ pricing answer, `content/posts/household-food-waste-by-the-numbers.md`, `content/posts/food-waste-in-australia-the-numbers.md`, Loader facts, `index.html` meta | Fight Food Waste CRC (2021), collected at [End Food Waste Australia fact library](https://endfoodwaste.com.au/fact-library/) |
+| 265 kg per household per year | `content/posts/household-food-waste-by-the-numbers.md`, `content/posts/food-waste-in-australia-the-numbers.md`, Loader facts, `Calculator.jsx` sources | FIAL, *National Food Waste Strategy Feasibility Study* (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
 | 7.6 million tonnes of food wasted nationally | `Problem.jsx` | FIAL (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) and [DCCEEW](https://www.dcceew.gov.au/environment/protection/waste/food-waste) |
 | $36.6 billion a year, ~1.4% of GDP, across the whole food chain | `Problem.jsx` | FIAL (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/36-6-billion-a-year-wasted-food-waste-drains-1-4-of-australias-gdp-and-weakens-food-security/) |
-| 2.46 Mt from households, almost a third of all Australian food waste | `Calculator.jsx` sources, `content.js` | FIAL (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
-| Households bin more than twice what they think they do | `Calculator.jsx` sources, `content.js` | Fight Food Waste CRC (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
+| 2.46 Mt from households, almost a third of all Australian food waste | `Calculator.jsx` sources, `content/posts/where-the-2500-goes.md`, `content/posts/food-waste-in-australia-the-numbers.md` | FIAL (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
+| Households bin more than twice what they think they do | `Calculator.jsx` sources, `content/posts/household-food-waste-by-the-numbers.md` | Fight Food Waste CRC (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
 | One grocery bag in five ends up in the bin | Loader facts | [DCCEEW food waste](https://www.dcceew.gov.au/environment/protection/waste/food-waste) |
 
 **Important distinction now respected in the copy:** $2,500 and 265 kg are
@@ -59,11 +59,64 @@ Produce and bakery figures (spinach, mushrooms, tomatoes, bananas, sourdough)
 have no CSIRO equivalent and rely on general Australian consumer storage
 guidance. The file header already says this.
 
+## Leftovers and the danger-zone clock
+
+| Claim | Where it appears | Source |
+| --- | --- | --- |
+| Cooked leftovers keep 3 days refrigerated; cooked rice/pasta 2 days | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/how-long-food-lasts.md`, `content/posts/christmas-leftovers-what-keeps.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
+| Two-hour/four-hour rule for food held between 5°C and 60°C, cumulative across a day | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/summer-fridge-food-safety.md`, `content/posts/christmas-leftovers-what-keeps.md` | [NSW Food Authority, managing potentially hazardous foods](https://www.foodauthority.nsw.gov.au/help/managing-potentially-hazardous-foods) |
+| Reheat leftovers to steaming hot, 60°C or above throughout | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/christmas-leftovers-what-keeps.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
+
+These three were already live on the site via `how-long-do-leftovers-keep.md` and
+`summer-fridge-food-safety.md` before this row existed; adding them here closes
+a gap in the register rather than introducing a new claim.
+
 ## Date labels
 
 `use by` is a safety date, `best before` is a quality date, and fresh milk in
 Australia carries a **use-by** date. [FSANZ](https://www.foodstandards.gov.au/consumer/labelling/dates)
 / [NSW Food Authority](https://www.foodauthority.nsw.gov.au/food-labelling/stay-safe/date-marking-storage-labelling).
+
+## Temperature danger zone and hot weather
+
+| Claim | Where it appears | Source |
+| --- | --- | --- |
+| The food safety danger zone is 5°C to 60°C | `content/posts/summer-fridge-food-safety.md`, `content/posts/christmas-leftovers-what-keeps.md` | [FSANZ, keeping food at the right temperature](https://www.foodstandards.gov.au/business/food-safety/keeping-food-at-the-right-temperature) |
+| The 2-hour/4-hour rule (0–2h: refrigerate or use immediately; 2–4h: use immediately; 4h+: discard), cumulative across a day | `content/posts/summer-fridge-food-safety.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/how-long-do-leftovers-keep.md` | [NSW Food Authority, managing potentially hazardous foods](https://www.foodauthority.nsw.gov.au/help/managing-potentially-hazardous-foods) |
+
+## Fruit and vegetable storage (fridge vs bench vs pantry)
+
+| Claim | Where it appears | Source |
+| --- | --- | --- |
+| Bananas, tomatoes, avocado (until ripe), garlic (unpeeled), onions, potatoes, whole pumpkin, whole pineapple and basil should not be refrigerated | `content/posts/fruit-veg-storage-guide.md`, `content/posts/how-long-food-lasts.md` | [Sustainability Victoria, guide for storing fresh produce](https://www.sustainability.vic.gov.au/recycling-and-reducing-waste-at-home/avoid-waste/food-waste/guide-for-storing-fresh-produce) |
+
+## Freezer storage
+
+| Claim | Where it appears | Source |
+| --- | --- | --- |
+| Frozen food is safe indefinitely from a bacterial standpoint; quality, not safety, is the practical limit. A standard fridge-freezer combination holds quality for a few weeks; a chest freezer at -18°C holds it for three months or more depending on fat content | `content/posts/freezer-times-explained.md`, `content/posts/how-long-food-lasts.md` | [Food Safety Information Council, freezer storage times](https://www.foodsafety.asn.au/freezer-storage-times/) |
+
+No specific per-food freezer chart (e.g. "chicken freezes for N months") is
+published on the site. We looked for an authoritative Australian source for
+that kind of chart and could not find one — the same standard applied to the
+receipt-scanning accuracy claim below.
+
+## Competitor apps named in comparison posts
+
+Every claim about a named competitor is a factual feature/pricing description
+taken from that company's own site or app-store listing, not an independent
+test — each post says so. No claim about a competitor's quality, reviews, or
+performance appears anywhere on the site unless independently verified.
+
+| App | Claim | Where it appears | Source |
+| --- | --- | --- | --- |
+| NoWaste | Barcode + photo-recognition entry, separate fridge/freezer/pantry lists, free tier covers 6 lists/500 items, iOS + Android | `content/posts/best-pantry-inventory-apps-australia.md`, `content/posts/expiry-tracker-apps-what-to-look-for.md` | [nowasteapp.com](https://www.nowasteapp.com/) |
+| KitchenPal | Barcode entry, shared grocery lists, meal planning, family sharing; Premium $5.99/mo ($8.99/3mo, $22.99/yr), lifetime $49.99, family lifetime $59.99; 4.4★/95 ratings | `content/posts/best-pantry-inventory-apps-australia.md`, `content/posts/expiry-tracker-apps-what-to-look-for.md` | [App Store listing](https://apps.apple.com/au/app/kitchen-pal-food-pantry-app/id1084982489) |
+| Fridgely | Barcode entry, iOS-only, shared access, expiry alerts, recipe suggestions, live since 2015 | `content/posts/best-pantry-inventory-apps-australia.md` | [fridgelyapp.com](https://fridgelyapp.com/) |
+| Pantry Check | Manual entry only, no barcode/receipt scanning | `content/posts/best-pantry-inventory-apps-australia.md`, `content/posts/expiry-tracker-apps-what-to-look-for.md` | Own App Store listing, described per its stated feature set |
+| Fango | Receipt photo scanning, ~34 countries/8 languages, reads PDF receipts, on-device data, Google Play + App Store | `content/posts/receipt-scanning-apps-compared.md` | [Fango's own blog/listing](https://fango.fi/en/blog/pantry-check-app-alternatives/) |
+| Eatvora | Full kitchen inventory + AI recipe generation + "pantry health score", free tier includes AI features | `content/posts/receipt-scanning-apps-compared.md` | Own site, per search-result summary of its listing |
+| Alydo | Receipt scanning tuned to Australian supermarket formats and abbreviations (Coles/Woolworths/Aldi/IGA/Costco) | `content/posts/receipt-scanning-apps-compared.md`, `content/posts/best-pantry-inventory-apps-australia.md` | [alydo.app](https://alydo.app/) |
 
 ## Product claims (unverifiable, handled accordingly)
 
