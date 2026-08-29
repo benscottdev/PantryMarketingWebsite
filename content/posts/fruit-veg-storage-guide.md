@@ -3,7 +3,7 @@ slug: fruit-veg-storage-guide
 title: "Where to store fruit and veg (and what never goes in the fridge)"
 excerpt: "Bananas, tomatoes, potatoes and pumpkin last longer on the bench than in the crisper. Sustainability Victoria’s guidance, item by item."
 tag: STORAGE
-publishDate: 2026-11-12
+publishDate: 2026-08-29
 image: /assets/blog/blog-fruit-veg-storage-guide.svg
 imageAlt: "A wooden fruit bowl on a kitchen counter next to a pantry basket of potatoes and onions"
 keywords: ["what fruit vegetables should not be refrigerated", "fruit bowl vs fridge storage"]

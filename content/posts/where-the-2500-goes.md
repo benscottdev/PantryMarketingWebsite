@@ -3,7 +3,7 @@ slug: where-the-2500-goes
 title: "Where the $2,500 goes, category by category"
 excerpt: "The Fight Food Waste CRC’s $2,500 figure is not one bad habit. It is built from a few ordinary categories — here is the shape of it."
 tag: WASTE
-publishDate: 2026-10-01
+publishDate: 2026-08-29
 image: /assets/blog/blog-where-the-2500-goes.svg
 imageAlt: "Grocery items arranged with small price tags on a kitchen counter"
 keywords: ["where does household food waste come from", "food waste categories australia"]

@@ -3,7 +3,7 @@ slug: sharehouse-fridge-rule
 title: "The sharehouse fridge rule that ends the argument"
 excerpt: "Three flatmates, one fridge, and nobody's food is technically anyone's problem — which is exactly why it goes off. One rule fixes it."
 tag: HOUSEHOLD
-publishDate: 2026-09-29
+publishDate: 2026-09-17
 image: /assets/blog/blog-sharehouse-fridge-rule.svg
 imageAlt: "A shared fridge shelf with several separate bags of groceries, loosely organised"
 keywords: ["sharehouse fridge organisation", "shared flat food waste"]

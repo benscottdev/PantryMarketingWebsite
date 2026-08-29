@@ -3,7 +3,7 @@ slug: mince-going-off-tonight
 title: "The mince that turns tomorrow: five dinners to use it tonight"
 excerpt: "Mince keeps two to three days per CSIRO, the shortest window in a standard shop. Five dinners that use it before that window closes."
 tag: COOKING
-publishDate: 2026-10-13
+publishDate: 2026-08-29
 image: /assets/blog/blog-mince-going-off-tonight.svg
 imageAlt: "Raw beef mince in a bowl on a kitchen counter beside onion and garlic"
 keywords: ["what to cook with mince before it goes off", "mince recipes use it up"]

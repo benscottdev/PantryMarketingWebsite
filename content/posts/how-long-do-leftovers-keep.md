@@ -3,7 +3,7 @@ slug: how-long-do-leftovers-keep
 title: "Leftovers in the fridge: three days, two for rice"
 excerpt: "Three days for cooked food, two for rice and pasta, per the NSW Food Authority. Pantry gives both a deadline instead of a guess."
 tag: STORAGE
-publishDate: 2026-10-15
+publishDate: 2026-08-29
 image: /assets/blog/blog-how-long-do-leftovers-keep.svg
 imageAlt: "A glass container of leftover cooked food in the fridge, lid beside it"
 keywords: ["how long do leftovers last in the fridge", "how long can you keep cooked food"]

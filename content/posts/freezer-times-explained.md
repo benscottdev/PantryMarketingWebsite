@@ -3,7 +3,7 @@ slug: freezer-times-explained
 title: "Freezer times for the things you freeze wrong"
 excerpt: "Frozen food stays safe almost indefinitely — quality is the real limit. The sourced window for how long that holds, no invented chart."
 tag: STORAGE
-publishDate: 2026-10-29
+publishDate: 2026-08-29
 image: /assets/blog/blog-freezer-times-explained.svg
 imageAlt: "Labelled containers and bags of food stacked neatly in a chest freezer"
 keywords: ["how long does frozen food last", "freezer storage times"]
