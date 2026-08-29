@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://usepantry.com.au/sitemap.xml
+Sitemap: https://www.usepantry.com.au/sitemap.xml

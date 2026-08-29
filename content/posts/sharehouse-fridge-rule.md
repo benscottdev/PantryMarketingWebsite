@@ -1,7 +1,7 @@
 ---
 slug: sharehouse-fridge-rule
 title: "The sharehouse fridge rule that ends the argument"
-excerpt: "Three flatmates, one fridge, and nobody's food is technically anyone else's problem — which is exactly why it goes off. One rule ends the guessing, and a shared list keeps it that way."
+excerpt: "Three flatmates, one fridge, and nobody's food is technically anyone's problem — which is exactly why it goes off. One rule fixes it."
 tag: HOUSEHOLD
 publishDate: 2026-09-29
 image: /assets/blog/blog-sharehouse-fridge-rule.svg

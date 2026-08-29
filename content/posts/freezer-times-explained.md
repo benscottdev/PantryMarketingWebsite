@@ -1,7 +1,7 @@
 ---
 slug: freezer-times-explained
 title: "Freezer times for the things you freeze wrong"
-excerpt: "The Food Safety Information Council is clear: frozen food stays safe to eat almost indefinitely. Quality is the real limit — here is the sourced window for how long that holds, and why Pantry will not invent a per-food countdown nobody can back up."
+excerpt: "Frozen food stays safe almost indefinitely — quality is the real limit. The sourced window for how long that holds, no invented chart."
 tag: STORAGE
 publishDate: 2026-10-29
 image: /assets/blog/blog-freezer-times-explained.svg

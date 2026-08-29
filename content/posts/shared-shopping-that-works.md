@@ -1,7 +1,7 @@
 ---
 slug: shared-shopping-that-works
 title: "One list, one fridge: shared shopping that works"
-excerpt: "Two people, two separate pictures of the same fridge, and a doubled-up carton of milk to prove it. Pantry replaces both pictures with one list, built from the receipt, that updates for everyone the moment it changes."
+excerpt: "Two people, two pictures of the same fridge, and a doubled-up carton of milk. Pantry replaces both with one list everyone sees."
 tag: HOUSEHOLD
 publishDate: 2026-11-03
 image: /assets/blog/blog-shared-shopping-that-works.svg

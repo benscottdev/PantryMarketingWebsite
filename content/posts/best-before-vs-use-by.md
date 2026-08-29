@@ -1,7 +1,7 @@
 ---
 slug: best-before-vs-use-by
 title: "Best before vs use by: the date you can ignore"
-excerpt: "Use by is a safety date. Best before is a quality date. Australian food labelling treats them differently on purpose, and most food binned on a best-before date was never a safety risk at all."
+excerpt: "Use by is a safety date. Best before is a quality date. Most food binned on its best-before date was never actually a safety risk."
 tag: STORAGE
 publishDate: 2026-10-06
 image: /assets/blog/blog-best-before-vs-use-by.svg

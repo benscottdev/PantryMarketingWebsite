@@ -1,7 +1,7 @@
 ---
 slug: where-the-2500-goes
 title: "Where the $2,500 goes, category by category"
-excerpt: "The Fight Food Waste CRC’s $2,500-a-year figure is not one bad habit. It is built from a handful of ordinary categories — here is the shape of it, and where Pantry closes the gap."
+excerpt: "The Fight Food Waste CRC’s $2,500 figure is not one bad habit. It is built from a few ordinary categories — here is the shape of it."
 tag: WASTE
 publishDate: 2026-10-01
 image: /assets/blog/blog-where-the-2500-goes.svg

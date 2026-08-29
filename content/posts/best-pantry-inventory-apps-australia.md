@@ -1,7 +1,7 @@
 ---
 slug: best-pantry-inventory-apps-australia
 title: "The best pantry inventory apps in Australia (2026)"
-excerpt: "Pantry starts from a photographed receipt, not a barcode or a typed-in list. Here is how NoWaste, KitchenPal, Fridgely and Pantry Check handle scanning, sharing and price by comparison — and why Pantry is building the entry point differently."
+excerpt: "Pantry starts from a photographed receipt, not a barcode. Here is how NoWaste, KitchenPal and Fridgely compare, and why Pantry differs."
 tag: APPS
 publishDate: 2026-09-17
 image: /assets/blog/blog-best-pantry-inventory-apps-australia.svg

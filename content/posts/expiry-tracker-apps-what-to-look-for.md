@@ -1,7 +1,7 @@
 ---
 slug: expiry-tracker-apps-what-to-look-for
 title: "Expiry-date tracker apps: what to look for"
-excerpt: "Most expiry trackers ask for a barcode scan or a typed line per item before they can help at all. Here is what separates the ones worth keeping from the ones deleted within a fortnight — entry method, household sharing, and whether a use-by date turns into dinner — and why Pantry starts from a photographed receipt instead."
+excerpt: "What separates an expiry tracker worth keeping from one deleted in a fortnight — entry method, sharing, and why Pantry starts differently."
 tag: APPS
 publishDate: 2026-11-26
 image: /assets/blog/blog-expiry-tracker-apps-what-to-look-for.svg

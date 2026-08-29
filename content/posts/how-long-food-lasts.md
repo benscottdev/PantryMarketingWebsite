@@ -1,7 +1,7 @@
 ---
 slug: how-long-food-lasts
 title: "How long food actually lasts in the fridge"
-excerpt: "A shelf-life reference built from CSIRO’s refrigerated-storage guide and Australian food-safety advice, sourced row by row — not copied from wherever it was first typed up."
+excerpt: "A shelf-life reference built from CSIRO’s storage guide and Australian food-safety advice, sourced row by row."
 tag: STORAGE
 publishDate: 2026-08-26
 image: /assets/blog/blog-how-long-food-lasts.svg

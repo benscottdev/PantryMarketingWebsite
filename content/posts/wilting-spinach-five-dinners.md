@@ -1,7 +1,7 @@
 ---
 slug: wilting-spinach-five-dinners
 title: "Wilting spinach: five dinners before it turns for good"
-excerpt: "Spinach lasts five to seven days before it wilts for good, per Sustainability Victoria. Five dinners that use a going-soft bag before it is a bin decision instead of a dinner one."
+excerpt: "Spinach lasts five to seven days before it wilts for good, per Sustainability Victoria. Five dinners that use a going-soft bag first."
 tag: COOKING
 publishDate: 2026-08-29
 image: /assets/blog/blog-wilting-spinach-five-dinners.svg

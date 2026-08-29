@@ -1,7 +1,7 @@
 ---
 slug: how-long-does-milk-last
 title: "How long does milk last after opening?"
-excerpt: "CSIRO gives milk five to seven days in the fridge. This is what shortens that window, and the signs worth trusting over the date on the carton."
+excerpt: "CSIRO gives milk five to seven days in the fridge. What actually shortens that window, and the signs worth trusting over the date."
 tag: STORAGE
 publishDate: 2026-08-28
 image: /assets/blog/blog-how-long-does-milk-last.svg

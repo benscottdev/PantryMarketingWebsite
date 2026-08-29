@@ -1,7 +1,7 @@
 ---
 slug: household-food-waste-by-the-numbers
 title: "The $2,500 Australian households bin every year"
-excerpt: "$2,500 and 265kg a year, per the Fight Food Waste CRC and FIAL — most households guess the number is less than half that. Here is where it comes from, and what closes the gap."
+excerpt: "$2,500 and 265kg a year, per the Fight Food Waste CRC and FIAL — most households guess the number is less than half that."
 tag: WASTE
 publishDate: 2026-08-27
 image: /assets/blog/blog-household-food-waste-by-the-numbers.svg

@@ -1,7 +1,7 @@
 ---
 slug: receipt-scanning-apps-compared
 title: "Receipt-scanning apps compared, and where Pantry is headed"
-excerpt: "Pantry turns one photographed receipt into a dated grocery list — no barcode, one photo, the whole shop. Here is how Fango, Eatvora and Alydo describe their own scanning, and why Pantry’s Australian-first approach is built differently."
+excerpt: "Pantry turns one photographed receipt into a dated grocery list. How Fango, Eatvora and Alydo compare, and why Pantry differs."
 tag: APPS
 publishDate: 2026-10-20
 image: /assets/blog/blog-receipt-scanning-apps-compared.svg

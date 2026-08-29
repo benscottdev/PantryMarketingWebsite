@@ -1,7 +1,7 @@
 ---
 slug: christmas-leftovers-what-keeps
 title: "Christmas leftovers: what keeps, what doesn't"
-excerpt: "Most cooked leftovers keep three days in the fridge, per the NSW Food Authority — but a five-hour Christmas lunch spends most of that safety window before the fridge clock even starts. Here is what to do with the turkey, the ham and the pavlova once lunch is finally over."
+excerpt: "Cooked leftovers keep three days, per the NSW Food Authority — but a long Christmas lunch burns through most of that window first."
 tag: SEASONAL
 publishDate: 2026-11-24
 image: /assets/blog/blog-christmas-leftovers-what-keeps.svg

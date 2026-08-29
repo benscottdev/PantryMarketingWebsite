@@ -19,7 +19,11 @@ import { getPublishedPosts, loadAllPosts, sydneyToday } from './lib/posts.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const distDir = resolve(root, 'dist')
-const SITE_URL = 'https://usepantry.com.au'
+// The apex domain 308-redirects here (Vercel project config) — every
+// canonical/OG/sitemap URL must point at the domain that actually serves a
+// 200, not the redirect stub, or crawlers see "canonical points to redirect"
+// and treat the real page as missing from the sitemap.
+const SITE_URL = 'https://www.usepantry.com.au'
 const SITE_NAME = 'Pantry'
 
 function readTemplate() {

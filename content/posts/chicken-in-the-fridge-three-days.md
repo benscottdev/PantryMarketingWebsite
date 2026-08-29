@@ -1,7 +1,7 @@
 ---
 slug: chicken-in-the-fridge-three-days
 title: "Chicken in the fridge: three days, no more"
-excerpt: "CSIRO gives raw chicken three days in the fridge — the shortest window of any common grocery item. Here is why poultry is different, and how Pantry keeps that window from closing quietly."
+excerpt: "CSIRO gives raw chicken three days in the fridge, the shortest window of any common grocery item — and why Pantry will not let it slip."
 tag: STORAGE
 publishDate: 2026-09-22
 image: /assets/blog/blog-chicken-in-the-fridge-three-days.svg

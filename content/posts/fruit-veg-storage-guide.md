@@ -1,7 +1,7 @@
 ---
 slug: fruit-veg-storage-guide
 title: "Where to store fruit and veg (and what never goes in the fridge)"
-excerpt: "Bananas, tomatoes, potatoes and whole pumpkin all last longer on the bench than in the crisper drawer. Sustainability Victoria’s guidance, item by item."
+excerpt: "Bananas, tomatoes, potatoes and pumpkin last longer on the bench than in the crisper. Sustainability Victoria’s guidance, item by item."
 tag: STORAGE
 publishDate: 2026-11-12
 image: /assets/blog/blog-fruit-veg-storage-guide.svg
