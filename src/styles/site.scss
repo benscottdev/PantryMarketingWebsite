@@ -5321,6 +5321,86 @@ body:has(.legal),
 	}
 }
 
+// Standard end-of-article call to action. Not a React component: it is
+// appended to the post body itself by scripts/lib/cta.mjs, so it sits inside
+// .prose and needs to win against the `.prose a` link rules — hence the
+// descendant selector rather than a bare `.post-cta`.
+.prose .post-cta {
+	margin: clamp(36px, 5vw, 52px) 0 0;
+	padding: clamp(24px, 3.5vw, 34px);
+	border-radius: var(--radius-lg);
+	background: var(--forest);
+	color: var(--cream);
+
+	&__title {
+		margin: 0 0 10px;
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: clamp(20px, 2.2vw, 25px);
+		letter-spacing: -0.02em;
+		line-height: 1.2;
+		color: var(--cream);
+	}
+
+	&__body {
+		margin: 0 0 20px;
+		font-size: 15px;
+		line-height: 1.6;
+		// Deliberately short of full cream: the heading has to stay the first
+		// thing read inside a block that is already high-contrast.
+		color: rgba(244, 240, 228, 0.8);
+		max-width: 52ch;
+	}
+
+	&__button {
+		// Same pill the header CTA uses, minus the expanding-circle hover —
+		// that effect needs a ::before this block would have to fight .prose
+		// for, and one hover treatment per page is enough.
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		padding: 13px 22px;
+		border-radius: var(--radius-full);
+		background: var(--green);
+		color: var(--forest);
+		font-family: var(--font-body);
+		font-weight: 700;
+		font-size: 15px;
+		letter-spacing: 0.01em;
+		text-decoration: none;
+		transition:
+			background-color 0.25s ease,
+			transform 0.25s ease;
+
+		&:hover {
+			background: var(--cream-2);
+			color: var(--forest);
+			text-decoration: none;
+			transform: translateY(-1px);
+		}
+
+		&:active {
+			transform: translateY(0);
+		}
+	}
+
+	&__icon {
+		flex-shrink: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.prose .post-cta__button {
+		transition: background-color 0.25s ease;
+
+		&:hover,
+		&:active {
+			transform: none;
+		}
+	}
+}
+
 .resource-footer-note {
 	margin-top: clamp(36px, 5vw, 48px) !important;
 	padding-top: 22px;

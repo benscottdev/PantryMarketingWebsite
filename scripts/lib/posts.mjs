@@ -1,12 +1,14 @@
 // Shared by scripts/build-content.mjs, the markdown Vite plugin in
 // vite.config.js, and scripts/prerender.mjs, so the three places that touch
 // post content (index generation, lazy body chunks, and the prerendered
-// static HTML) all parse and render exactly the same way.
+// static HTML) all parse and render exactly the same way — including the
+// standard end-of-post CTA renderPost() appends to every body.
 import { readFileSync, readdirSync } from 'node:fs'
 import { basename, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import matter from 'gray-matter'
 import { marked } from 'marked'
+import { postCtaHtml } from './cta.mjs'
 
 const root = resolve(fileURLToPath(new URL('.', import.meta.url)), '../..')
 export const POSTS_DIR = join(root, 'content/posts')
@@ -82,8 +84,15 @@ export function renderPost(filePath) {
 		throw new Error(`content/posts/${fileSlug}.md: frontmatter slug "${data.slug}" must match filename`)
 	}
 
-	const html = marked.parse(content)
-	const { words, minutes } = wordsAndMinutes(html)
+	const articleHtml = marked.parse(content)
+	// Reading time is measured on the author's words only — the CTA is the
+	// same block on every post, so counting it would add a flat ~40 words to
+	// every "x mins read" on the site.
+	const { words, minutes } = wordsAndMinutes(articleHtml)
+	// Appended here, not in Article.jsx, so the one copy of the CTA reaches
+	// the prerendered HTML, the dev markdown chunks and the React page alike.
+	// See scripts/lib/cta.mjs for why that matters.
+	const html = articleHtml + postCtaHtml()
 	const publishDate = toIsoDateString(data.publishDate, 'publishDate', fileSlug)
 	const updated = data.updated ? toIsoDateString(data.updated, 'updated', fileSlug) : publishDate
 

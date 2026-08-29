@@ -2,9 +2,18 @@
 // download buttons across the landing, header, and footer.
 export const APP_LIVE = false;
 
-export const APP_STORE_URL = import.meta.env.VITE_APP_STORE_URL || "https://apps.apple.com/";
+// Read through this rather than touching `import.meta.env.X` directly: the
+// build-time CTA (scripts/lib/cta.mjs, reached from scripts/lib/posts.mjs)
+// imports this module from plain Node, where `import.meta.env` is undefined
+// and a direct property read would throw. Vite still substitutes the real
+// env object for a bare `import.meta.env`, so the browser bundle is
+// unchanged; Node falls through to process.env, which is what Vercel
+// populates at build time.
+const env = import.meta.env || globalThis.process?.env || {};
 
-export const SUPPORT_EMAIL = import.meta.env.VITE_SUPPORT_EMAIL || "support@usepantry.com.au";
+export const APP_STORE_URL = env.VITE_APP_STORE_URL || "https://apps.apple.com/";
+
+export const SUPPORT_EMAIL = env.VITE_SUPPORT_EMAIL || "support@usepantry.com.au";
 
 export const LEGAL_UPDATED = "22 August 2026";
 
