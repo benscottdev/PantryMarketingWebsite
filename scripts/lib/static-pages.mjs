@@ -101,12 +101,13 @@ export const STATIC_PAGES = [
 	{
 		path: PATHS.home,
 		dir: '',
-		title: 'Pantry | Stop binning the food you paid for',
-		// The template's own description is 186 characters, which is what the
-		// audit flagged on all six of these pages at once. Trimmed to the first
-		// sentence, which is the part that describes the product.
-		description:
-			'Pantry reads your grocery receipt, tracks every expiry date, and tells you what to cook before it goes off.',
+		// null on both = inherit index.html's own <title> and description.
+		// The home page IS the template, so hardcoding them here would silently
+		// override whatever index.html says — which is exactly what happened to
+		// a title edit once already. Every other route sets its own, because
+		// the template has nothing route-specific to give them.
+		title: null,
+		description: null,
 		h1: 'Stop throwing out the food you already paid for.',
 		lede: 'Photograph your receipt. Pantry tracks every expiry date and tells you what to cook first.',
 		jsonLd: FAQ_JSON_LD,

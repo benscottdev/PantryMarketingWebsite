@@ -58,7 +58,12 @@ function extractOriginalHead(html) {
 	const descMatch = html.match(/<meta name="description" content="[^"]*"\s*\/?>/)
 	if (!titleMatch) throw new Error('prerender: could not find <title> in dist/index.html')
 	if (!descMatch) throw new Error('prerender: could not find meta description in dist/index.html')
-	return { titleTag: titleMatch[0], descTag: descMatch[0] }
+	return {
+		titleTag: titleMatch[0],
+		descTag: descMatch[0],
+		titleText: titleMatch[0].replace(/<\/?title>/g, ''),
+		descText: descMatch[0].match(/content="([^"]*)"/)[1],
+	}
 }
 
 function breadcrumbJsonLd(crumbs) {
@@ -204,6 +209,10 @@ function writeIndexPage(original, posts) {
 
 function writeStaticPage(original, page) {
 	const url = page.path === '/' ? `${SITE_URL}/` : `${SITE_URL}${page.path}`
+	// A null title/description means "whatever index.html already says" — see
+	// the home entry in static-pages.mjs.
+	const title = page.title ?? original.titleText
+	const description = page.description ?? original.descText
 
 	const jsonLd = page.jsonLd
 		? `\n\t\t<script type="application/ld+json">${escapeJsonForScriptTag(page.jsonLd)}</script>`
@@ -213,18 +222,18 @@ function writeStaticPage(original, page) {
 		<link rel="canonical" href="${url}" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="${SITE_NAME}" />
-		<meta property="og:title" content="${escapeHtml(page.title)}" />
-		<meta property="og:description" content="${escapeHtml(page.description)}" />
+		<meta property="og:title" content="${escapeHtml(title)}" />
+		<meta property="og:description" content="${escapeHtml(description)}" />
 		<meta property="og:url" content="${url}" />
 		<meta property="og:image" content="${DEFAULT_OG}" />
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="${escapeHtml(page.title)}" />
-		<meta name="twitter:description" content="${escapeHtml(page.description)}" />
+		<meta name="twitter:title" content="${escapeHtml(title)}" />
+		<meta name="twitter:description" content="${escapeHtml(description)}" />
 		<meta name="twitter:image" content="${DEFAULT_OG}" />${jsonLd}
 	</head>`
 
-	let html = replaceOnce(original.html, original.titleTag, `<title>${escapeHtml(page.title)}</title>`, 'title tag')
-	html = replaceOnce(html, original.descTag, `<meta name="description" content="${escapeHtml(page.description)}" />`, 'description tag')
+	let html = replaceOnce(original.html, original.titleTag, `<title>${escapeHtml(title)}</title>`, 'title tag')
+	html = replaceOnce(html, original.descTag, `<meta name="description" content="${escapeHtml(description)}" />`, 'description tag')
 	html = replaceOnce(html, '</head>', extraTags, 'head close tag')
 	html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${staticPageBody(page)}</div>`, 'root div')
 

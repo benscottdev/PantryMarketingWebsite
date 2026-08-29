@@ -2,13 +2,21 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { onLoadProgress, onSceneReady } from '../loadingManager'
 
-// Disabled along with the 3D scene in Home.jsx: this loader's entire job was
-// to hide the fridge model's load time (see onSceneReady below), and with
-// that scene not mounted, markSceneReady() never fires — the loader would
-// otherwise hang on every load until MAX_WAIT_MS. Re-enable together with
-// the `<Three>` scene, not on its own.
 /** Flip to false to skip the loader and enter the site immediately. */
-export const LOADER_ON = false
+export const LOADER_ON = true
+
+/**
+ * Whether the 3D fridge scene is mounted in Home.jsx and therefore driving
+ * this loader. Flip it in the same commit as the `<Three>` import, never on
+ * its own — the two paths below are mutually exclusive:
+ *
+ *  - true:  the doors wait for markSceneReady(), and the bar tracks real asset
+ *           progress. This is what the loader was built for.
+ *  - false: nothing ever calls markSceneReady(), so waiting on it would hang
+ *           until the MAX_WAIT_MS ceiling. Progress and exit come from the
+ *           document instead: creep the bar, open on window load.
+ */
+const SCENE_DRIVEN = false
 
 /** How long the first fact stays readable before we can exit. */
 const MIN_FACT_MS = 2000
@@ -21,6 +29,13 @@ const MIN_FACT_MS = 2000
  * that follow are the rest.
  */
 const MAX_WAIT_MS = 20000
+
+/**
+ * The same ceiling for the page-driven path. Far shorter, because there is no
+ * multi-megabyte decode to wait on — only the document reaching `load`, and a
+ * slow image or webfont should not hold the doors shut.
+ */
+const PAGE_WAIT_MS = 6000
 
 /**
  * The bar can't sit still while several megabytes of Draco decode, but there is
@@ -46,20 +61,39 @@ function whenFramesFlow(run) {
     let prev = performance.now()
     const startedAt = prev
     let raf = 0
+    let done = false
+
+    const finish = () => {
+        if (done) return
+        done = true
+        cancelAnimationFrame(raf)
+        clearTimeout(capTimer)
+        run()
+    }
 
     const tick = (now) => {
         const gap = now - prev
         prev = now
         calm = gap <= SMOOTH_FRAME_MS ? calm + 1 : 0
         if (calm >= SMOOTH_FRAMES || now - startedAt > SETTLE_CAP_MS) {
-            run()
+            finish()
             return
         }
         raf = requestAnimationFrame(tick)
     }
 
+    // The cap inside tick() can only be reached if frames are being delivered
+    // at all — and a browser pauses rAF entirely in a background tab. Opening
+    // the site in one and coming back later would otherwise find the loader
+    // exactly where it started. A real timer makes "give up and open anyway"
+    // true whether or not frames flow.
+    const capTimer = setTimeout(finish, SETTLE_CAP_MS)
     raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
+    return () => {
+        done = true
+        cancelAnimationFrame(raf)
+        clearTimeout(capTimer)
+    }
 }
 
 const FOOD_FACTS = [
@@ -125,11 +159,11 @@ export default function Loader({ onFinished }) {
 
         // Every byte is in and the scene is being decoded and compiled, which
         // reports nothing. Inch forward so the bar doesn't read as hung.
-        const startCreep = () => {
+        const startCreep = (ms = CREEP_MS) => {
             if (creepTween || finishedRef.current || shown >= CREEP_TO) return
             creepTween = gsap.to(fillRef.current, {
                 scaleX: CREEP_TO,
-                duration: CREEP_MS / 1000,
+                duration: ms / 1000,
                 ease: 'power2.out',
                 overwrite: 'auto',
                 onUpdate: () => {
@@ -200,7 +234,21 @@ export default function Loader({ onFinished }) {
         // handful of files to arrive. tryExit still holds the first fact for
         // MIN_FACT_MS, so a warm cache can't flash past it.
         const unsubReady = onSceneReady(tryExit)
-        const hardStop = setTimeout(tryExit, MAX_WAIT_MS)
+        const hardStop = setTimeout(tryExit, SCENE_DRIVEN ? MAX_WAIT_MS : PAGE_WAIT_MS)
+
+        // Page-driven path: there is no asset stream, so nothing would ever move
+        // the bar past its initial 0.02 or call tryExit at all. Creep over the
+        // fact's own minimum rather than the scene's nine seconds, so the bar is
+        // most of the way across by the time the doors are allowed to open.
+        let onPageLoad
+        if (!SCENE_DRIVEN) {
+            startCreep(MIN_FACT_MS)
+            if (document.readyState === 'complete') tryExit()
+            else {
+                onPageLoad = () => tryExit()
+                window.addEventListener('load', onPageLoad, { once: true })
+            }
+        }
 
         // Only cycle facts if we're still here after the first fact has been read.
         factDelayTimer = setTimeout(() => {
@@ -217,6 +265,7 @@ export default function Loader({ onFinished }) {
             clearInterval(factInterval)
             unsubProgress()
             unsubReady()
+            if (onPageLoad) window.removeEventListener('load', onPageLoad)
             cancelSettle?.()
             creepTween?.kill()
             exitTl?.kill()
