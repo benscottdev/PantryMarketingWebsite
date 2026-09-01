@@ -12,6 +12,40 @@
 		<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 	</head>
 	<body>
+		<!-- First-paint curtain for the home page only.
+		     dist/index.html ships a crawler-readable copy of the home page
+		     inside #root (scripts/prerender.mjs), and it is styled like the
+		     rest of the site — so on a cold load it paints as a full article
+		     page, then blanks to the body colour while the lazy Home chunk
+		     loads, and only then does the loader's doors arrive. Two flashes
+		     before the loader anyone was meant to see.
+
+		     This paints the loader's own colour immediately so the first frame
+		     is already what React is about to draw. Loader.jsx removes it the
+		     moment it mounts (before its doors ever open), so the reveal shows
+		     the site and not this.
+
+		     It is deliberately inline and JS-gated: a crawler that never runs
+		     JS gets no curtain and reads the static page exactly as before,
+		     which is the whole reason that markup exists. -->
+		<script>
+			;(function () {
+				if ((location.pathname.replace(/\/+$/, '') || '/') !== '/') return
+				var el = document.createElement('div')
+				el.id = 'boot-curtain'
+				el.style.cssText =
+					'position:fixed;inset:0;z-index:999999;background:#0f2e24;pointer-events:none'
+				document.documentElement.classList.add('loader-lock')
+				document.body.appendChild(el)
+				// If the bundle never arrives, nothing would ever take this
+				// down — sit well past the loader's own 6s page-driven ceiling
+				// rather than leaving a permanently green screen.
+				setTimeout(function () {
+					el.remove()
+					document.documentElement.classList.remove('loader-lock')
+				}, 12000)
+			})()
+		</script>
 		<div id="root"></div>
 		<script type="module" src="/src/main.jsx"></script>
 	</body>

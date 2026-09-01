@@ -109,6 +109,12 @@ const FOOD_FACTS = [
     'Freezing bread on day one beats binning it on day four.'
 ]
 
+/** Takes down the pre-bundle curtain index.html paints on the home page. */
+function dropBootCurtain() {
+    document.getElementById('boot-curtain')?.remove()
+    document.documentElement.classList.remove('loader-lock')
+}
+
 export default function Loader({ onFinished }) {
     const rootRef = useRef()
     const factRef = useRef()
@@ -120,6 +126,13 @@ export default function Loader({ onFinished }) {
     const factReadyRef = useRef(false)
 
     useEffect(() => {
+        // index.html paints a curtain in the loader's own colour before the
+        // bundle lands, so the prerendered home markup never flashes. This is
+        // the handover: we're mounted and covering the screen, so it can go —
+        // and it has to go now, because the doors open over whatever is behind
+        // them.
+        dropBootCurtain()
+
         if (!LOADER_ON) {
             onFinished?.()
             return
