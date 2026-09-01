@@ -79,6 +79,25 @@ function breadcrumbJsonLd(crumbs) {
 	}
 }
 
+// What Google reads to decide the site name printed above every result for
+// this domain — the line that was rendering as "usepantry.com.au". og:site_name
+// alone is only a fallback candidate, and with "Pantry" being an ordinary
+// English noun and the home page's <h1> being a sentence rather than a brand,
+// there was nothing left for it to be confident about. alternateName gives it a
+// second, domain-shaped candidate to fall back on instead of the bare host.
+//
+// Only valid on the domain root; Google ignores it anywhere else, which is why
+// writeStaticPage attaches it to the home page and nothing else.
+function websiteJsonLd() {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		name: SITE_NAME,
+		alternateName: 'usepantry',
+		url: `${SITE_URL}/`,
+	}
+}
+
 function postHead(original, post) {
 	const url = `${SITE_URL}/resources/${post.slug}`
 	const ogImage = `${SITE_URL}/og/${post.slug}.jpg`
@@ -214,9 +233,12 @@ function writeStaticPage(original, page) {
 	const title = page.title ?? original.titleText
 	const description = page.description ?? original.descText
 
-	const jsonLd = page.jsonLd
-		? `\n\t\t<script type="application/ld+json">${escapeJsonForScriptTag(page.jsonLd)}</script>`
-		: ''
+	// One <script> per schema rather than a single @graph, matching how the
+	// post pages already emit BlogPosting and BreadcrumbList side by side.
+	const jsonLd = [page.path === '/' ? websiteJsonLd() : null, page.jsonLd]
+		.filter(Boolean)
+		.map((schema) => `\n\t\t<script type="application/ld+json">${escapeJsonForScriptTag(schema)}</script>`)
+		.join('')
 
 	const extraTags = `
 		<link rel="canonical" href="${url}" />
