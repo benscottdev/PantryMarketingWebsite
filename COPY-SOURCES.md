@@ -15,7 +15,9 @@ Last verified: 25 August 2026.
 | $36.6 billion a year, ~1.4% of GDP, across the whole food chain | `Problem.jsx` | FIAL (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/36-6-billion-a-year-wasted-food-waste-drains-1-4-of-australias-gdp-and-weakens-food-security/) |
 | 2.46 Mt from households, almost a third of all Australian food waste | `Calculator.jsx` sources, `content/posts/where-the-2500-goes.md`, `content/posts/food-waste-in-australia-the-numbers.md` | FIAL (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
 | Households bin more than twice what they think they do | `Calculator.jsx` sources, `content/posts/household-food-waste-by-the-numbers.md` | Fight Food Waste CRC (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
-| One grocery bag in five ends up in the bin | Loader facts | [DCCEEW food waste](https://www.dcceew.gov.au/environment/protection/waste/food-waste) |
+| One grocery bag in five ends up in the bin | Loader facts, `content/posts/save-money-on-groceries-without-buying-less.md` | [DCCEEW food waste](https://www.dcceew.gov.au/environment/protection/waste/food-waste) |
+| ~$48 a week | `content/posts/what-food-waste-costs-per-week.md` | Derived, and shown as derived in the post: $2,500 (Fight Food Waste CRC) ÷ 52 |
+| ~$47 saved per 5 kg of food rescued | `content/posts/what-food-waste-costs-per-week.md` | Derived, and shown as derived in the post: 5 × the $9.43/kg figure below |
 
 **Important distinction now respected in the copy:** $2,500 and 265 kg are
 *household* figures. 7.6 Mt and $36.6 billion are *whole-of-supply-chain*
@@ -35,6 +37,12 @@ Unchanged from what was already there, and already correctly cited in the
 | $9.43/kg | Derived from $2,500 ÷ 265 kg, both measured figures |
 | $1 = 2 meals | [OzHarvest donor promise](https://www.ozharvest.org/donor-promise/) |
 | Swap-card prices | Indicative 2026 Australian retail, flagged in copy as scale, not a quote |
+
+Three of these now also appear in blog posts, cited inline the same way:
+the Rabobank 11.1% / ~17% figures and the $9.43/kg derivation in
+`content/posts/save-money-on-groceries-without-buying-less.md` and
+`content/posts/what-food-waste-costs-per-week.md`, and the OzHarvest
+$1 = 2 meals promise in `save-money-on-groceries-without-buying-less.md`.
 
 ## Shelf life
 
@@ -59,6 +67,11 @@ Produce and bakery figures (spinach, mushrooms, tomatoes, bananas, sourdough)
 have no CSIRO equivalent and rely on general Australian consumer storage
 guidance. The file header already says this.
 
+CSIRO figures from the list above also anchor dedicated posts: eggs 3–6 weeks
+in `content/posts/how-long-do-eggs-last.md`, poultry 3 days (thawed handling)
+in `content/posts/defrosting-chicken-safely.md`, and the guide as a whole in
+`content/posts/where-pantrys-expiry-dates-come-from.md`.
+
 ## Leftovers and the danger-zone clock
 
 | Claim | Where it appears | Source |
@@ -81,8 +94,9 @@ Australia carries a **use-by** date. [FSANZ](https://www.foodstandards.gov.au/co
 
 | Claim | Where it appears | Source |
 | --- | --- | --- |
-| The food safety danger zone is 5°C to 60°C | `content/posts/summer-fridge-food-safety.md`, `content/posts/christmas-leftovers-what-keeps.md` | [FSANZ, keeping food at the right temperature](https://www.foodstandards.gov.au/business/food-safety/keeping-food-at-the-right-temperature) |
-| The 2-hour/4-hour rule (0–2h: refrigerate or use immediately; 2–4h: use immediately; 4h+: discard), cumulative across a day | `content/posts/summer-fridge-food-safety.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/how-long-do-leftovers-keep.md` | [NSW Food Authority, managing potentially hazardous foods](https://www.foodauthority.nsw.gov.au/help/managing-potentially-hazardous-foods) |
+| The food safety danger zone is 5°C to 60°C | `content/posts/summer-fridge-food-safety.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/what-temperature-should-your-fridge-be.md`, `content/posts/defrosting-chicken-safely.md` | [FSANZ, keeping food at the right temperature](https://www.foodstandards.gov.au/business/food-safety/keeping-food-at-the-right-temperature) |
+| A fridge should hold food at 5°C or below | `content/posts/what-temperature-should-your-fridge-be.md` | Same FSANZ page as the danger-zone row — 5°C is the cold boundary of that zone |
+| The 2-hour/4-hour rule (0–2h: refrigerate or use immediately; 2–4h: use immediately; 4h+: discard), cumulative across a day | `content/posts/summer-fridge-food-safety.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/how-long-do-leftovers-keep.md`, `content/posts/defrosting-chicken-safely.md` | [NSW Food Authority, managing potentially hazardous foods](https://www.foodauthority.nsw.gov.au/help/managing-potentially-hazardous-foods) |
 
 ## Fruit and vegetable storage (fridge vs bench vs pantry)
 
