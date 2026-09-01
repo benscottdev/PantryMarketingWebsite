@@ -6104,6 +6104,15 @@ body:has(.legal),
 
 	// ----- Legal ------------------------------------------------------------
 
+	// The doc column is a fixed 760px including padding, so the wider gutter
+	// this block sets would eat it from both sides — 616px of copy at 1600
+	// down to 552px, and shrinking, while the type inside it ramps up. Ramp
+	// the column off the *content* width instead: 616 at the breakpoint (no
+	// jump), climbing to 780 so the summary tables get room too.
+	.legal:not(.legal--wide) .legal__doc {
+		max-width: calc(#{scale-up(616, 780)} + 2 * var(--gutter));
+	}
+
 	.legal:not(.legal--wide) .legal__title {
 		font-size: scale-up(56, 72);
 	}
