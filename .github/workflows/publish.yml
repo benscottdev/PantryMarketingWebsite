@@ -1,32 +1,38 @@
-name: Scheduled publish
+name: Manual publish
 
-# There is no scheduler beyond this: it just re-triggers a Vercel build every
-# day. The build itself (scripts/build-content.mjs, scripts/prerender.mjs)
-# re-evaluates which posts are published "as of today" — that's the whole
-# mechanism that makes future-dated posts appear on their own.
+# The DAILY rebuild is handled by Vercel's own scheduled redeploy — not by
+# this workflow. Each Vercel build re-runs scripts/build-content.mjs and
+# scripts/prerender.mjs, which re-evaluate "today" (Australia/Sydney) and
+# publish any post whose date has arrived. Nothing here runs on a schedule.
+#
+# This workflow is only a manual backup button: if a post needs to go live
+# NOW and a Vercel redeploy is awkward to reach, run this from the Actions
+# tab. It needs a VERCEL_DEPLOY_HOOK_URL secret (Vercel → Project Settings →
+# Git → Deploy Hooks, branch main) — the error message below explains itself
+# if the secret is missing.
 on:
-  schedule:
-    # Both UTC — fired twice, a few minutes apart, so a fixed time doesn't
-    # drift an hour late (or a day early) across the AEST/AEDT changeover.
-    - cron: '5 13 * * *' # 00:05 AEDT (UTC+11)
-    - cron: '5 14 * * *' # 00:05 AEST (UTC+10)
   workflow_dispatch: {}
 
 permissions:
   contents: read
-
-concurrency:
-  group: scheduled-publish
-  cancel-in-progress: false
 
 jobs:
   trigger:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Vercel deploy hook
+        env:
+          HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
         run: |
+          if [ -z "$HOOK_URL" ]; then
+            echo "::error::The VERCEL_DEPLOY_HOOK_URL secret is not set. Create a Deploy Hook in Vercel (Project → Settings → Git → Deploy Hooks, branch main), then add its URL as an Actions secret named VERCEL_DEPLOY_HOOK_URL in this repo."
+            exit 1
+          fi
           code=$(curl -sS -X POST -o /dev/null -w '%{http_code}' \
             --retry 3 --retry-delay 10 --retry-all-errors \
-            "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}")
+            "$HOOK_URL")
           echo "deploy hook responded $code"
-          [ "$code" -ge 200 ] && [ "$code" -lt 300 ]
+          if [ "$code" -lt 200 ] || [ "$code" -ge 300 ]; then
+            echo "::error::Deploy hook returned HTTP $code. The secret is set but Vercel rejected the URL — the hook was probably deleted or pasted wrong. Re-create it in Vercel and update the secret."
+            exit 1
+          fi
