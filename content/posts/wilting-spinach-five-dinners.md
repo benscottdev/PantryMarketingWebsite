@@ -6,7 +6,7 @@ tag: COOKING
 publishDate: 2026-08-29
 image: /assets/blog/blog-wilting-spinach-five-dinners.svg
 imageAlt: "A bowl of fresh spinach leaves next to a slightly wilted bunch on a kitchen counter"
-keywords: ["what to do with wilting spinach", "spinach going off recipes"]
+keywords: ["what to do with wilting spinach", "spinach going off recipes", "how to wilt spinach"]
 ---
 
 Spinach has one of the shortest windows of anything in a typical fridge: five to seven days, per [Sustainability Victoria's storage guidance](https://www.sustainability.vic.gov.au/recycling-and-reducing-waste-at-home/avoid-waste/food-waste/guide-for-storing-fresh-produce). It goes from crisp to sad well before it becomes unsafe. That gap — still fine to eat, no longer appealing raw — is exactly where a bag of spinach quietly turns from dinner into a bin decision.
@@ -32,6 +32,12 @@ Spinach wilted into a simple dal or curry (lentils, tinned tomato, whatever spic
 ## 5. Sautéed as a side, with garlic
 
 The simplest option: a hot pan, a little oil, garlic, and the spinach until it collapses — two or three minutes. This is the fastest of the five, and it works alongside almost anything already planned for dinner, so it does not need its own meal slot.
+
+## How to wilt spinach on purpose
+
+If you landed here wanting the technique rather than the rescue mission: wilting spinach is the fastest job in cooking. A hot pan with a little oil, the leaves in, and thirty seconds to two minutes of tossing — it collapses the moment it hits real heat. Off the stove, the residual warmth of a just-drained pot of pasta or a finished soup does the same thing with no pan at all. There is no timing to get right. Spinach is done wilting when it looks done, and it cannot really be overdone short of leaving it to fry.
+
+The only note worth adding: a full bag cooks down to a fraction of its size, so add more than looks reasonable. That shrinkage is exactly why the five dinners above absorb a whole going-soft bag without anyone noticing.
 
 ## The pattern across all five
 

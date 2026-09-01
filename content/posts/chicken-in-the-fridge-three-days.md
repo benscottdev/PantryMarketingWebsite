@@ -19,7 +19,7 @@ Three days is not a number rounded down for caution's sake. It reflects how fast
 
 ## What "three days" is counted from
 
-The clock starts on the day of purchase, not the day it goes in the freezer and not the day you plan to cook it. A chicken breast bought Monday needs to be cooked, or moved to the freezer, by Wednesday — regardless of the date printed on the pack, which is the manufacturer's own estimate and does not always match CSIRO's figure.
+The clock starts on the day of purchase, not the day it goes in the freezer and not the day you plan to cook it. A chicken breast bought Monday needs to be cooked, or moved to the freezer, by Wednesday — regardless of the date printed on the pack, which is the manufacturer's own estimate and does not always match CSIRO's figure. The label wording changes nothing either: raw, fresh, free-range or otherwise, uncooked chicken in the fridge is a three-day item.
 
 If Wednesday dinner was never going to be chicken, the freezer is the answer. Not a fourth day in the fridge hoping it holds.
 
@@ -37,6 +37,6 @@ A slight colour change at the edges is normal, not a spoilage sign on its own. W
 
 ## Why this is the item that catches people out
 
-Three days moves fast in a normal week. Chicken bought Sunday for "sometime this week" is easy to find still sitting there Wednesday night, right as the window closes, with no plan attached to it. It is the single most common way a $9 pack of chicken becomes bin contents instead of dinner — not carelessness, just a three-day window running out quietly while the week's actual plans moved around it.
+Three days moves fast in a normal week. Chicken bought Sunday for "sometime this week" is easy to find still sitting there Wednesday night, right as the window closes, with no plan attached to it. It is the single most common way a pack of chicken becomes bin contents instead of dinner — not carelessness, just a three-day window running out quietly while the week's actual plans moved around it.
 
 This is precisely the gap Pantry closes. Pantry knows chicken is a three-day item the moment it is scanned off the receipt, and the [afternoon nudge](/#faq) names it specifically, before the window runs out, instead of leaving it to memory. For the rest of what is likely sitting in the same fridge right now, [the full shelf-life reference](/resources/how-long-food-lasts) has the numbers.

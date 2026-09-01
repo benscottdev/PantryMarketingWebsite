@@ -11,7 +11,7 @@ keywords: ["how long does milk last in the fridge", "milk expiry after opening"]
 
 The date on a milk carton is a manufacturer’s estimate for an unopened, correctly refrigerated bottle — not a verdict on the bottle that has been sitting on your middle shelf since Tuesday. Checking by smell before checking the date is the right habit. Here is the number behind it, what shortens it, and the signs worth trusting over the print on the carton.
 
-## The number: five to seven days
+## The shelf life of milk: five to seven days
 
 CSIRO’s [refrigerated-storage guide](https://www.csiro.au/en/research/production/food/Refrigerating-foods) gives milk five to seven days once it is in the fridge — the same range in [our shelf-life reference](/resources/how-long-food-lasts). Full-cream, reduced-fat or skim makes no real difference here: fat content does not change how fast milk sours.
 
