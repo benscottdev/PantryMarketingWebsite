@@ -5913,6 +5913,19 @@ body:has(.legal),
 	// ----- Landing ----------------------------------------------------------
 
 	.landing {
+		// The column has to ramp with the type. Left at the flat 720px it holds
+		// below the breakpoint, it was the one shell in this block that didn't
+		// grow, so the title got 25% bigger inside a column that stayed put and
+		// "food you already paid for." — 814px of text at 1920 — broke onto a
+		// second line, turning the two-line headline into three.
+		//
+		// 900 is 720 x the same 1.25 the font takes, so the ratio of column to
+		// type is identical either side of 1600 and the line breaks exactly
+		// where the <br /> in Landing.jsx says it should.
+		&__copy {
+			width: min(#{scale-up(720, 900)}, calc(100% - 2 * var(--gutter)));
+		}
+
 		&__title {
 			font-size: scale-up(64, 80);
 		}
