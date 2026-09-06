@@ -3,7 +3,7 @@ slug: what-food-waste-costs-per-week
 title: "The $48 a week your fridge is quietly costing you"
 excerpt: "The Fight Food Waste CRC’s $2,500 a year works out to about $48 a week — a recurring bill nobody signed up for. Here is the week it hides in."
 tag: WASTE
-publishDate: 2026-10-06
+publishDate: 2026-08-26
 image: /assets/blog/blog-what-food-waste-costs-per-week.svg
 imageAlt: "A weekly calendar page next to a small pile of receipts and coins on a bench"
 keywords: ["cost of food waste per week", "how much does food waste cost australia", "average household food waste cost", "weekly grocery waste", "food waste money"]

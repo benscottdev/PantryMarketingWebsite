@@ -3,7 +3,7 @@ slug: shared-shopping-that-works
 title: "One list, one fridge: shared shopping that works"
 excerpt: "Two people, two pictures of the same fridge, and a doubled-up carton of milk. Pantry replaces both with one list everyone sees."
 tag: HOUSEHOLD
-publishDate: 2026-11-03
+publishDate: 2026-08-30
 image: /assets/blog/blog-shared-shopping-that-works.svg
 imageAlt: "Two people looking at a phone together in a kitchen, groceries on the counter"
 keywords: ["shared grocery list household", "couples family grocery shopping app"]

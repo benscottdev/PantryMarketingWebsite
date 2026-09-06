@@ -3,7 +3,7 @@ slug: why-receipts-not-barcodes
 title: "Why Pantry reads receipts, not barcodes"
 excerpt: "A barcode knows what a product is. A receipt knows what you bought, all of it, and when. For expiry tracking, that difference is everything."
 tag: PRODUCT
-publishDate: 2026-10-13
+publishDate: 2026-08-27
 image: /assets/blog/blog-why-receipts-not-barcodes.svg
 imageAlt: "A phone photographing a receipt, with a barcode scanner crossed out beside it"
 keywords: ["barcode scanner pantry app vs receipt", "grocery tracking app how to add items", "receipt vs barcode scanning"]

@@ -3,7 +3,7 @@ slug: save-money-on-groceries-without-buying-less
 title: "How to save money on groceries without buying less"
 excerpt: "The average household bins $2,500 of groceries a year, per the Fight Food Waste CRC. The cheapest grocery savings are the ones already in your fridge."
 tag: WASTE
-publishDate: 2026-09-22
+publishDate: 2026-08-23
 image: /assets/blog/blog-save-money-on-groceries-without-buying-less.svg
 imageAlt: "A grocery receipt and a wallet on a kitchen bench beside a bag of vegetables"
 keywords: ["how to save money on groceries australia", "cut grocery bill", "grocery budget tips", "reduce food waste save money", "grocery prices australia save", "food budget household"]

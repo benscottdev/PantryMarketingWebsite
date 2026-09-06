@@ -3,7 +3,7 @@ slug: expiry-tracker-apps-what-to-look-for
 title: "Expiry-date tracker apps: what to look for"
 excerpt: "What separates an expiry tracker worth keeping from one deleted in a fortnight — entry method, sharing, and why Pantry starts differently."
 tag: APPS
-publishDate: 2026-11-26
+publishDate: 2026-09-04
 image: /assets/blog/blog-expiry-tracker-apps-what-to-look-for.svg
 imageAlt: "A phone showing a grocery tracking checklist next to a receipt and pantry items on a kitchen counter"
 keywords: ["best expiry date tracker app", "what to look for in a food tracking app"]

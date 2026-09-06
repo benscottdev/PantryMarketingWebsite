@@ -3,7 +3,7 @@ slug: summer-fridge-food-safety
 title: "Summer fridge: what spoils faster at 35°C"
 excerpt: "The food safety danger zone is 5°C to 60°C, per FSANZ. Australian summer keeps your shopping in it far longer than winter does."
 tag: SEASONAL
-publishDate: 2026-10-27
+publishDate: 2026-08-29
 image: /assets/blog/blog-summer-fridge-food-safety.svg
 imageAlt: "Grocery bags on a hot car seat with sunlight streaming through the window"
 keywords: ["food safety hot weather australia", "how long can groceries sit in a hot car"]

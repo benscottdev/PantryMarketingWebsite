@@ -3,7 +3,7 @@ slug: what-temperature-should-your-fridge-be
 title: "What temperature should your fridge be?"
 excerpt: "5°C or below, per FSANZ. Every shelf-life number on this site quietly assumes it — and plenty of fridges are not there."
 tag: STORAGE
-publishDate: 2026-09-08
+publishDate: 2026-08-20
 image: /assets/blog/blog-what-temperature-should-your-fridge-be.svg
 imageAlt: "A fridge thermometer hanging from a middle shelf between milk and vegetables"
 keywords: ["what temperature should a fridge be australia", "fridge temperature food safety", "is my fridge cold enough"]

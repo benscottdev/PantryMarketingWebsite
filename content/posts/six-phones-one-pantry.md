@@ -3,7 +3,7 @@ slug: six-phones-one-pantry
 title: "Six phones, one pantry: how the shared household works"
 excerpt: "One subscription, up to six people, and every phone showing the same fridge — the design decisions behind Pantry’s household, explained."
 tag: PRODUCT
-publishDate: 2026-12-01
+publishDate: 2026-09-05
 image: /assets/blog/blog-six-phones-one-pantry.svg
 imageAlt: "Several phones on a kitchen table all showing the same pantry list"
 keywords: ["shared pantry app family", "household grocery app multiple users", "share fridge inventory app"]

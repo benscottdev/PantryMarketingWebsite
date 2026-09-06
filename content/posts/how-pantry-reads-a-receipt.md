@@ -3,7 +3,7 @@ slug: how-pantry-reads-a-receipt
 title: "How Pantry reads a faded, crumpled grocery receipt"
 excerpt: "Thermal print fades, names arrive abbreviated, and a code sometimes sits where a tomato should be. Inside the problem Pantry is built around."
 tag: PRODUCT
-publishDate: 2026-10-01
+publishDate: 2026-08-25
 image: /assets/blog/blog-how-pantry-reads-a-receipt.svg
 imageAlt: "A crumpled supermarket receipt flattened on a bench next to a phone camera"
 keywords: ["receipt scanning how it works", "grocery receipt ocr", "scan receipt to list app"]

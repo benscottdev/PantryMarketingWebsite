@@ -75,6 +75,45 @@ This is very much still possible, and it's most of the job:
   at 5:30pm", not "meal-planning friction". "The mince that turns tomorrow",
   not "perishable inventory".
 
+## The opening paragraph answers the query
+
+A post's first paragraph must contain the actual answer to the question in its
+title — the number, the verdict, the rule — not a promise that the answer is
+coming. This is the single highest-leverage line in the post: it is what
+Google lifts into a featured snippet, and on a phone the snippet is most of
+what sits above the fold on a "how long does X last" search.
+
+The test is mechanical. Take the post's first keyword, read only the opening
+paragraph, and check whether the reader now knows the answer. If they have to
+scroll to a later section, the opener has failed, however well it reads.
+
+- **Right** — `chicken-in-the-fridge-three-days`: "Raw chicken has the shortest
+  fridge life of anything in a typical shopping trip. CSIRO's
+  refrigerated-storage guide gives it three days." The number is in sentence
+  two, with its source.
+- **Right** — `what-temperature-should-your-fridge-be`: closes the opener on
+  "5°C or below, everywhere food sits."
+- **Wrong** — an opener that ends "here is the number behind it, what shortens
+  it, and the signs worth trusting." That is a table of contents, not an
+  answer.
+
+This does not mean opening flat. Lead with the concrete kitchen scene if the
+scene earns it, then land the number before the paragraph ends — the eggs post
+takes three sentences to get to "three to six weeks" and still passes. What it
+rules out is deferring the answer to a section below.
+
+Two follow-on rules:
+
+- **Match the H2 to the query.** Where a post targets a modifier people
+  actually type — "after opening", "once opened", "in the fridge" — that
+  phrasing needs its own H2 with a short, self-contained answer under it, not
+  a clause buried mid-paragraph. A post whose title carries a modifier and
+  whose body never repeats it is targeting a query it does not answer.
+- **Answer the variants people search.** Full cream, skim and low fat are three
+  separate searches even when the answer is identical. Say the answer is
+  identical, in those words, rather than leaving the searcher to assume the
+  page is not about their milk.
+
 ## What every claim needs
 
 - **Every number carries its source in the sentence** — "per the Fight Food

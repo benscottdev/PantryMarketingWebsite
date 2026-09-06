@@ -3,7 +3,7 @@ slug: defrosting-chicken-safely
 title: "Defrosting chicken safely: fridge, not bench"
 excerpt: "The bench thaw runs straight into FSANZ’s danger zone. The fridge thaw costs nothing but planning ahead — here is the safe way, and the timing."
 tag: STORAGE
-publishDate: 2026-09-10
+publishDate: 2026-08-21
 image: /assets/blog/blog-defrosting-chicken-safely.svg
 imageAlt: "A wrapped chicken breast defrosting on a plate on the bottom fridge shelf"
 keywords: ["how to defrost chicken safely", "defrost chicken on the bench", "can you refreeze defrosted chicken"]

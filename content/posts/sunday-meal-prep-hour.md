@@ -3,7 +3,7 @@ slug: sunday-meal-prep-hour
 title: "The Sunday hour that stops Wednesday takeaway"
 excerpt: "Wednesday takeaway is rarely about the food. It is the moment nobody knows what is left in the fridge. One Sunday hour closes that gap."
 tag: COOKING
-publishDate: 2026-11-10
+publishDate: 2026-08-31
 image: /assets/blog/blog-sunday-meal-prep-hour.svg
 imageAlt: "A phone showing a delivery app next to a full fridge, both visible on a kitchen counter"
 keywords: ["stop ordering takeaway weeknight dinner plan", "sunday meal planning tips"]

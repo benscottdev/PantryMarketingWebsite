@@ -3,7 +3,7 @@ slug: food-waste-in-australia-the-numbers
 title: "How much food Australia wastes, by the numbers"
 excerpt: "$2,500 a household, $36.6 billion nationally — two real numbers that keep getting quoted as the same one. Here is what each measures."
 tag: WASTE
-publishDate: 2026-11-17
+publishDate: 2026-09-01
 image: /assets/blog/blog-food-waste-in-australia-the-numbers.svg
 imageAlt: "A stack of grocery receipts and a notebook with figures written on it"
 keywords: ["australia food waste statistics", "how much food does australia waste per year"]

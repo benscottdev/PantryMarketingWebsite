@@ -3,7 +3,7 @@ slug: where-pantrys-expiry-dates-come-from
 title: "Where Pantry’s expiry dates come from"
 excerpt: "Not one generic countdown stamped on everything — a per-item window grounded in CSIRO’s published storage research, taken at the cautious end."
 tag: PRODUCT
-publishDate: 2026-11-19
+publishDate: 2026-09-02
 image: /assets/blog/blog-where-pantrys-expiry-dates-come-from.svg
 imageAlt: "A phone showing per-item day counts beside a printed shelf-life table"
 keywords: ["how do expiry tracking apps estimate dates", "pantry app expiry dates source", "food shelf life data"]

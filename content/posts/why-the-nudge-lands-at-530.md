@@ -3,7 +3,7 @@ slug: why-the-nudge-lands-at-530
 title: "Why the nudge lands at 5:30pm"
 excerpt: "Two notifications a day, timed to the two moments a kitchen decision is possible — the design thinking behind Pantry’s digest and nudge."
 tag: PRODUCT
-publishDate: 2026-12-03
+publishDate: 2026-09-06
 image: /assets/blog/blog-why-the-nudge-lands-at-530.svg
 imageAlt: "A phone lock screen at 5:30pm showing a dinner suggestion notification"
 keywords: ["food expiry reminder app notifications", "meal reminder notification timing", "expiry alert app design"]

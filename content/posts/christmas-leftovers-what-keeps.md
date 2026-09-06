@@ -3,7 +3,7 @@ slug: christmas-leftovers-what-keeps
 title: "Christmas leftovers: what keeps, what doesn't"
 excerpt: "Cooked leftovers keep three days, per the NSW Food Authority — but a long Christmas lunch burns through most of that window first."
 tag: SEASONAL
-publishDate: 2026-11-24
+publishDate: 2026-09-03
 image: /assets/blog/blog-christmas-leftovers-what-keeps.svg
 imageAlt: "A Christmas table with turkey, ham and pavlova being packed into containers for the fridge"
 keywords: ["christmas leftovers how long do they last", "boxing day leftovers food safety"]
