@@ -44,7 +44,30 @@ rest gets filled in during clustering.
 ## Queue
 
 <!-- keyword | TAG | priority | note -->
-
+<!-- The queue was empty when the September – October 2026 batch was
+written. The ten struck-through lines below were chosen for it: five
+CSIRO-sourced shelf-life queries carrying the "once opened" / "after opening"
+/ "in the fridge" modifiers, and five app-focused queries. None was in the
+Covered list. The unstruck lines are candidates held back or scrapped, with
+the reason. -->
+~~how long does cheese last in the fridge | STORAGE | high | CSIRO three cheese rows; once-opened H2; 13 Oct 2026~~
+~~is pantry app free | PLANS | high | commercial; Free vs Pro terms from the FAQ and plan cards; 15 Oct 2026~~
+~~app that suggests meals from what you have | PRODUCT | high | commercial; receipt-to-meals, carries the scanning-accuracy framing; 15 Sep 2026~~
+~~how long does cream last after opening | STORAGE | high | CSIRO 5 days; thickened/pure/double variants; 17 Sep 2026~~
+~~how long does christmas ham last in the fridge | SEASONAL | high | whole ham 2-3 wks vs sliced 4-5 days, CSIRO deli section; 22 Sep 2026~~
+~~how long do prawns last in the fridge | SEASONAL | high | CSIRO crustaceans and molluscs 2 days; oysters variant H2; 24 Sep 2026~~
+~~freezer inventory app | APPS | high | commercial; date-frozen not defrost-by, FSIC; 29 Sep 2026~~
+~~how long does bacon last in the fridge | STORAGE | high | CSIRO cured meat 2-3 wks, held at 2; once-opened H2; 1 Oct 2026~~
+~~food waste tracking app australia | WASTE | high | commercial; digest counts waste before it happens, FFW CRC under-reporting; 6 Oct 2026~~
+~~fridge inventory spreadsheet | HOUSEHOLD | high | commercial; DIY-template searchers, why the sheet dies and what the receipt replaces; 8 Oct 2026~~
+how long does raw meat last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026 as least likely; CSIRO meat 3-5 held at 3 if revived
+how long does butter last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026 as least likely; CSIRO 8 wks, data.js 30 days
+how long does fresh fish last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026; overlaps the prawns post; CSIRO seafood 3 days
+how long does mince last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026; competes with mince-going-off-tonight, which already carries the number
+how long does baby spinach last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026; competes with wilting-spinach-five-dinners, which already carries the number
+how long do mushrooms last in the fridge | STORAGE | low | held back: Sustainability Victoria's page says 4-10 days, the site table says 2-3 — reconcile the attribution first (see COPY-SOURCES.md)
+how long do fresh herbs last in the fridge | STORAGE | low | held back: Sustainability Victoria's page says 3-4 days for soft herbs, the site table says 7 — reconcile first
+how long does yoghurt last after opening | STORAGE | low | held back: no CSIRO figure; data.js uses the 10-day cottage/ricotta line as a proxy — decide whether a proxy number gets published
 
 ## Covered
 
@@ -84,3 +107,16 @@ australia · weekly grocery waste · what fruit vegetables should not be
 refrigerated · what temperature should a fridge be australia · what to cook with
 mince before it goes off · what to do with wilting spinach · what to look for in
 a food tracking app · where does household food waste come from
+Added in the September – October 2026 batch (40 posts total):
+
+how long does cheese last in the fridge · how long does cheese last once
+opened · is pantry app free · pantry app free vs pro · app that suggests
+meals from what you have · what can i make with what is in my fridge app ·
+how long does cream last after opening · how long does thickened cream last
+in the fridge · how long does christmas ham last in the fridge · how long
+does ham last in the fridge · how long do prawns last in the fridge · how
+long do oysters last in the fridge · freezer inventory app · app to track
+what is in my freezer · how long does bacon last in the fridge · how long
+does bacon last once opened · food waste tracking app australia · how to
+track food waste at home · fridge inventory spreadsheet · pantry inventory
+spreadsheet template

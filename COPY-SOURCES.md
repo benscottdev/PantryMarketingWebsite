@@ -72,6 +72,53 @@ in `content/posts/how-long-do-eggs-last.md`, poultry 3 days (thawed handling)
 in `content/posts/defrosting-chicken-safely.md`, and the guide as a whole in
 `content/posts/where-pantrys-expiry-dates-come-from.md`.
 
+### September – October 2026 batch (5 shelf-life posts, 5 app posts)
+
+Re-verified against the CSIRO page and the Sustainability Victoria page on
+6 September 2026. Every shelf-life row below is a number or sentence that
+appears on the cited page; where the source gives a range the post takes the
+short end and says so in the same sentence. The app rows restate the site's
+own commercial terms and feature descriptions (FAQ in `src/site/data.js`,
+plan cards in `Features.jsx`, meals copy in `Meals.jsx`, household copy in
+`Household.jsx`, roadmap in `content.js`) and claim nothing the site does not
+already say. No post says or implies the app has shipped.
+
+| Claim | Where it appears | Source |
+| --- | --- | --- |
+| Hard cheese 1–3 months, soft cheeses (camembert, brie) 2–3 weeks, cottage/ricotta/cream cheese 10 days; held at 1 month / 2 weeks / 10 days | `content/posts/how-long-does-cheese-last-in-the-fridge.md` | [CSIRO, *Refrigerated storage of perishable foods*](https://www.csiro.au/en/research/production/food/refrigerating-foods) |
+| Haloumi on the 2–3 week soft/semi-hard line (the site's reading, per the `data.js` comment); feta has no CSIRO row, so no number is given | `content/posts/how-long-does-cheese-last-in-the-fridge.md` | `src/site/data.js` comment; CSIRO table |
+| Cream 5 days, a single figure, not split by type; sour cream and crème fraîche are not on the table, so no number | `content/posts/how-long-does-cream-last-after-opening.md` | CSIRO |
+| Cured meat 2–3 weeks. Verbatim: "Some of the fermented salamis, bacon and whole hams will keep for 2-3 weeks compared to sliced luncheon meats which will keep only 4-5 days after purchase." Held at 2 weeks / 4 days. Home-carved ham slices are read on the sliced line, stated in the post as the site's cautious reading | `content/posts/how-long-does-christmas-ham-last.md`, `content/posts/how-long-does-bacon-last-in-the-fridge.md` | CSIRO, "Delicatessen meats" section |
+| Crustaceans and molluscs 2 days, single figure, not split raw/cooked; seafood 3 days ("one day less than fish") | `content/posts/how-long-do-prawns-last-in-the-fridge.md` | CSIRO |
+| Meat 3–5 days (the pork before curing) | `content/posts/how-long-does-bacon-last-in-the-fridge.md` | CSIRO |
+| The storage table is headed "Storage life of some chilled food in the coldest part of a refrigerator"; refrigeration tip to keep seafood and long-keep items in the coldest part | bacon, ham and prawns posts | CSIRO, table heading and "Refrigeration tips" |
+| Whipped cream on a served dessert, ham slices that sat out through lunch, and prawns on a platter are on the NSW Food Authority leftovers/2h-4h rules, not the CSIRO raw-storage line | cream, ham and prawns posts | Existing rows below (NSW Food Authority leftovers 3 days; 2h/4h rule) |
+| A use-by date is a safety date and overrides CSIRO's window where it lands earlier; a packet's own after-opening instruction is treated the same way | cheese, cream, ham and bacon posts | Existing "Date labels" row (FSANZ / NSW Food Authority) |
+| Free: 1 receipt scan a week, 2 meal generations a week, expiry tracking, morning digest, no card, no trial clock. Pro: unlimited scans and meal generations, afternoon nudge, household of up to six on one subscription (one admin pays, others join free by invite), priority support | `content/posts/pantry-free-vs-pro.md`, `content/posts/receipt-to-meals.md`, `content/posts/freezer-inventory-app.md`, `content/posts/fridge-inventory-spreadsheet.md`, `content/posts/food-waste-tracking-app.md` | `Features.jsx` plan cards; FAQ in `src/site/data.js` |
+| Pro $4.99/month or $49.99/year, billed by Apple, 7-day trial; not sold on the website; cancel from Apple ID settings in about four taps; waitlist members get founding pricing | `content/posts/pantry-free-vs-pro.md` | Existing "Product claims" rows; FAQ |
+| Yearly Pro costs about what the average household bins in a week ($2,500 ÷ 52 ≈ $48) | `content/posts/pantry-free-vs-pro.md`, `content/posts/food-waste-tracking-app.md` | Existing ~$48/week derived row; FAQ pricing answer |
+| The App Store launch is for iPhone; the launch date is a window, not a date; first post-launch roadmap item is meals that lean harder on what is about to expire | `content/posts/pantry-free-vs-pro.md`, `content/posts/receipt-to-meals.md` | `src/site/content.js` roadmap (`coming`) |
+| Meal suggestion built only from items already in the house (green dot), prioritising what is turning first ("Mince with two days left beats yoghurt with a week"), costed from scanned receipts; example turkey mince lettuce wraps | `content/posts/receipt-to-meals.md` | `Meals.jsx` |
+| Scanning accuracy: no percentage quoted; some lines come back wrong; the list is confirmed after every scan; a fix takes two taps; the correction is remembered | `content/posts/receipt-to-meals.md`, `content/posts/fridge-inventory-spreadsheet.md` | FAQ; existing "Product claims" row (97% removed) |
+| Morning digest example "3 things expire this week. $37.47 potentially going to waste." at 7:30am on every plan; 5:30pm Pro nudge with the standing mince example | `content/posts/food-waste-tracking-app.md`, `content/posts/pantry-free-vs-pro.md`, `content/posts/receipt-to-meals.md` | `src/site/data.js` notifications |
+| Pantry's list spans fridge, pantry and freezer; it records the date an item went into the freezer and gives no defrost-by countdown | `content/posts/freezer-inventory-app.md`, `content/posts/fridge-inventory-spreadsheet.md` | FAQ ("across fridge, pantry and freezer"); `freezer-times-explained.md`; `defrosting-chicken-safely.md` |
+| Frozen food safe indefinitely, quality is the limit; fridge-freezer a few weeks, chest freezer at -18°C three months or more depending on fat | `content/posts/freezer-inventory-app.md` | Existing "Freezer storage" row (Food Safety Information Council) |
+| Households under-report waste by more than half; $2,500 and 265 kg a year; Rabobank self-reported 11.1% | `content/posts/food-waste-tracking-app.md` | Existing rows above |
+| Household members mark items as they go ("Marked the milk as opened", "Used the baby spinach"); one shared list on every phone; stop buying it twice | `content/posts/fridge-inventory-spreadsheet.md`, `content/posts/freezer-inventory-app.md` | `Household.jsx`; `six-phones-one-pantry.md` |
+| The example receipt on the site runs to 18 items | `content/posts/fridge-inventory-spreadsheet.md` | `src/site/data.js` `receiptMeta.totalItems` |
+
+**Open discrepancy found while verifying, deliberately not fixed in this
+batch:** Sustainability Victoria's page currently gives mushrooms "4 to 10
+days" in a paper bag, soft herbs (parsley, coriander) "3 to 4 days", tomatoes
+"up to 2 weeks" in the fruit bowl and bananas "up to 1 week". The table in
+`how-long-food-lasts.md` and the line in `where-the-2500-goes.md` attribute
+mushrooms 2–3 days, herbs 7 days and tomatoes 5 days to Sustainability
+Victoria, and `data.js` holds the same numbers. The site's numbers are at or
+below the page's, so nothing published is optimistic, but the herb figure is
+above it and the attribution does not match the page as it reads today. No
+post in this batch uses those rows. Mushroom and herb posts were left out for
+this reason and sit in `content/keyword-queue.md` as held back.
+
 ## Leftovers and the danger-zone clock
 
 | Claim | Where it appears | Source |
