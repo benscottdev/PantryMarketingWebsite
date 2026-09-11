@@ -14,7 +14,7 @@ import additionalsUrl from '../static/models/additionals_compressed.glb?url'
 import apple1Url from '../static/models/apple1.glb?url'
 import apple2Url from '../static/models/apple2.glb?url'
 import apple3Url from '../static/models/apple3.glb?url'
-
+// test
 
 
 import milkUrl from '../static/models/milk.glb?url'
