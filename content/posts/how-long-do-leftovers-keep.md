@@ -1,15 +1,16 @@
 ---
 slug: how-long-do-leftovers-keep
-title: "Leftovers in the fridge: three days, two for rice"
-excerpt: "Three days for cooked food, two for rice and pasta, per the NSW Food Authority. Pantry gives both a deadline instead of a guess."
+title: "How long do leftovers last in the fridge? Three days, two for rice"
+excerpt: "Cooked leftovers last three days in the fridge, cooked rice and pasta two, per the NSW Food Authority. Why rice is shorter, when the clock starts, and how Pantry turns the container into a deadline instead of a guess."
 tag: STORAGE
 publishDate: 2026-08-29
+updated: 2026-09-15
 image: /assets/blog/blog-how-long-do-leftovers-keep.svg
 imageAlt: "A glass container of leftover cooked food in the fridge, lid beside it"
-keywords: ["how long do leftovers last in the fridge", "how long can you keep cooked food"]
+keywords: ["how long do leftovers last in the fridge", "how long can you keep cooked food", "how long does cooked rice last in the fridge"]
 ---
 
-“We’ll have it tomorrow” is one of the most common sentences said over a container of leftovers, and it is usually true. The question is how many tomorrows that covers before the plan needs to change to “cook something else” instead — and that is exactly the question Pantry answers the moment the container goes in the fridge.
+“We’ll have it tomorrow” is one of the most common sentences said over a container of leftovers, and it is usually true. It covers three tomorrows for most cooked food and two for cooked rice or pasta, per the NSW Food Authority — after that the plan needs to change to “cook something else”. That is exactly the question Pantry answers the moment the container goes in the fridge.
 
 ## The number: three days, two for rice
 
@@ -39,4 +40,4 @@ If you cook a large batch on Sunday intending to eat from it across the week, th
 
 Leftovers are one of the biggest quiet contributors to household food waste — cooked once, meant to be eaten, then not, simply because the three-day window closed before anyone circled back to it. Alongside [wilting produce](/resources/wilting-spinach-five-dinners), it is one of the two categories behind most of the [$2,500 a year](/resources/household-food-waste-by-the-numbers) an average household bins.
 
-Pantry treats a container of leftovers exactly the way it treats a fresh grocery item: logged with a date and a countdown the moment it goes in, so “we’ll have it tomorrow” comes with an actual deadline attached instead of an open-ended intention. [The full shelf-life reference](/resources/how-long-food-lasts) covers everything that goes into the pot in the first place.
+Pantry treats a container of leftovers exactly the way it treats a fresh grocery item: logged with a date and a countdown the moment it goes in, so “we’ll have it tomorrow” comes with an actual deadline attached instead of an open-ended intention. When the container is on its last day, [the dinner suggestion](/resources/receipt-to-meals) starts from it rather than from a recipe search. [The full shelf-life reference](/resources/how-long-food-lasts) covers everything that goes into the pot in the first place.

@@ -1,15 +1,16 @@
 ---
 slug: freezer-times-explained
-title: "Freezer times for the things you freeze wrong"
-excerpt: "Frozen food stays safe almost indefinitely — quality is the real limit. The sourced window for how long that holds, no invented chart."
+title: "How long does frozen food last? Freezer times, explained"
+excerpt: "Frozen food stays safe indefinitely, per the Food Safety Information Council — a few weeks in a fridge-freezer, three months or more in a chest freezer, is the quality window. The sourced answer, with no invented chart."
 tag: STORAGE
 publishDate: 2026-08-29
+updated: 2026-09-15
 image: /assets/blog/blog-freezer-times-explained.svg
 imageAlt: "Labelled containers and bags of food stacked neatly in a chest freezer"
 keywords: ["how long does frozen food last", "freezer storage times"]
 ---
 
-Most fridge questions are about safety: is this still okay to eat. Most freezer questions are not, even when they sound like it. Freezing solves the safety problem almost completely — bacteria that cause food poisoning cannot grow at freezer temperatures. What freezing does not stop is the slow decline in texture, flavour and moisture that makes a six-month-old bag of peas taste flatter than a fresh one, even though it is nowhere near unsafe.
+Frozen food stays safe indefinitely. For quality, the Food Safety Information Council gives a few weeks in a standard fridge-freezer and three months or more in a chest freezer at -18°C. Most fridge questions are about safety: is this still okay to eat. Most freezer questions are not, even when they sound like it. Freezing solves the safety problem almost completely — bacteria that cause food poisoning cannot grow at freezer temperatures. What freezing does not stop is the slow decline in texture, flavour and moisture that makes a six-month-old bag of peas taste flatter than a fresh one, even though it is nowhere near unsafe.
 
 ## The real answer: it depends on your freezer, not the food
 
@@ -25,7 +26,7 @@ Fat is what goes rancid in a freezer, not the protein. That oxidising fat is wha
 
 - **A frost-free fridge-freezer, not a chest freezer.** The Food Safety Information Council’s “a few weeks” figure is for the compartment most households have — smaller, warmer on average, and opened often enough to swing the temperature every time.
 - **Poor wrapping.** Air exposure causes freezer burn — visible ice crystals and dried-out patches — long before any safety concern shows up. It is a quality problem, not a safety one, but it is the single biggest reason frozen food tastes worse than it should.
-- **Refreezing after thawing.** Food that has been thawed and refrozen loses quality faster the second time. Ice crystals forming during freezing damage cell structure, and that damage compounds with each cycle.
+- **Refreezing after thawing.** Food that has been thawed and refrozen loses quality faster the second time — which is why the cautious answer to [can you refreeze defrosted chicken](/resources/defrosting-chicken-safely) is to cook it first. Ice crystals forming during freezing damage cell structure, and that damage compounds with each cycle.
 
 ## Check your own freezer’s guidance
 

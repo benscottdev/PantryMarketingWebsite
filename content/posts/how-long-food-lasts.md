@@ -1,9 +1,10 @@
 ---
 slug: how-long-food-lasts
-title: "How long food actually lasts in the fridge"
-excerpt: "A shelf-life reference built from CSIRO’s storage guide and Australian food-safety advice, sourced row by row."
+title: "How long does food last in the fridge? The sourced chart"
+excerpt: "How long milk, chicken, mince, eggs, cheese and leftovers last in the fridge, in one chart built from CSIRO’s storage guide and Australian food-safety advice, sourced row by row."
 tag: STORAGE
 publishDate: 2026-08-26
+updated: 2026-09-15
 image: /assets/blog/blog-how-long-food-lasts.svg
 imageAlt: "An open fridge shelf with labelled containers of milk, cheese, chicken and leafy greens"
 keywords: ["how long does food last in the fridge", "fridge storage times australia", "shelf life chart"]
@@ -11,28 +12,28 @@ keywords: ["how long does food last in the fridge", "fridge storage times austra
 
 Every fridge storage chart on the internet is the same chart, copied from wherever it was first typed up, with no source anywhere near it. This one carries its source on every row: CSIRO’s [*Refrigerated storage of perishable foods*](https://www.csiro.au/en/research/production/food/Refrigerating-foods) guide where CSIRO publishes a figure, and Australian consumer food-safety guidance — Sustainability Victoria and the NSW Food Authority — where it does not.
 
-It is also the dataset Pantry is built on. Every expiry date the app is designed to put next to an item comes from this table, not a generic week tacked onto everything. This is the page every other post on this site points back to when it cites a number, so bookmark it rather than memorising it.
+It is also the dataset Pantry is built on. Every expiry date the app is designed to put next to an item [comes from this table](/resources/where-pantrys-expiry-dates-come-from), not a generic week tacked onto everything. This is the page every other post on this site points back to when it cites a number, so bookmark it rather than memorising it.
 
 ## The table
 
 | Food | Keeps for | Source |
 | --- | --- | --- |
-| Chicken, raw | 3 days | CSIRO |
-| Mince, raw | 2–3 days | CSIRO |
-| Milk | 5–7 days | CSIRO |
+| [Chicken, raw](/resources/chicken-in-the-fridge-three-days) | 3 days | CSIRO |
+| [Mince, raw](/resources/mince-going-off-tonight) | 2–3 days | CSIRO |
+| [Milk](/resources/how-long-does-milk-last) | 5–7 days | CSIRO |
 | Hard cheese | 1–3 months | CSIRO |
 | Soft/semi-hard cheese | 2–3 weeks | CSIRO |
 | Cottage, ricotta, cream cheese | 10 days | CSIRO |
 | Butter | 30 days (cautious end) | CSIRO gives 8 weeks; we hold it shorter |
-| Eggs | 3–6 weeks | CSIRO |
-| Leafy greens (spinach, lettuce) | 5–7 days | Sustainability Victoria |
+| [Eggs](/resources/how-long-do-eggs-last) | 3–6 weeks | CSIRO |
+| [Leafy greens (spinach, lettuce)](/resources/wilting-spinach-five-dinners) | 5–7 days | Sustainability Victoria |
 | Fresh herbs (parsley, coriander) | 7 days | Sustainability Victoria |
 | Mushrooms | 2–3 days | Sustainability Victoria |
 | Tomatoes (bench, not fridge) | 5 days | Sustainability Victoria |
-| Cooked leftovers | 3 days | NSW Food Authority |
+| [Cooked leftovers](/resources/how-long-do-leftovers-keep) | 3 days | NSW Food Authority |
 | Cooked rice or pasta | 2 days | NSW Food Authority |
 
-Where CSIRO gives a range, we hold the shorter end, for the same reason CSIRO’s own numbers exist: a home fridge is not a lab, doors get opened, and a cautious number beats an optimistic one.
+Where CSIRO gives a range, we hold the shorter end, for the same reason CSIRO’s own numbers exist: a home fridge is not a lab, doors get opened, and a cautious number beats an optimistic one. Every row also assumes the fridge is at [5°C or below](/resources/what-temperature-should-your-fridge-be).
 
 ## Why some things are missing
 
@@ -50,6 +51,6 @@ Freezing changes the question entirely: from a food-safety point of view, most f
 
 ## What this page cannot tell you
 
-A shelf-life chart is a starting point, not a verdict. It cannot smell the chicken, and it does not know how your fridge actually runs — a fridge door shelf sits several degrees warmer than the back of the middle shelf, which is part of why two people can get different answers from the “same” week-old milk. Trust your senses over any chart, this one included.
+A shelf-life chart is a starting point, not a verdict. It cannot smell the chicken, and it does not know how your fridge runs — a fridge door shelf sits several degrees warmer than the back of the middle shelf, which is part of why two people can get different answers from the “same” week-old milk. Trust your senses over any chart, this one included.
 
-What a chart like this is for is not needing to guess in the first place. Pantry is built to keep this same dataset behind every item a receipt adds, so the expiry date on the list is this table, not a memory of it. The [receipt scanning post](/#how) has the detail on how that works, and the [household food waste numbers](/resources/household-food-waste-by-the-numbers) explain why a few days one way or the other adds up to real money over a year.
+What a chart like this is for is not needing to guess in the first place. Pantry is built to keep this same dataset behind every item a receipt adds, so the expiry date on the list is this table, not a memory of it. [How Pantry reads a receipt](/resources/how-pantry-reads-a-receipt) has the detail on how that works, and the [household food waste numbers](/resources/household-food-waste-by-the-numbers) explain why a few days one way or the other adds up to real money over a year.

@@ -60,6 +60,20 @@ the reason. -->
 ~~how long does bacon last in the fridge | STORAGE | high | CSIRO cured meat 2-3 wks, held at 2; once-opened H2; 1 Oct 2026~~
 ~~food waste tracking app australia | WASTE | high | commercial; digest counts waste before it happens, FFW CRC under-reporting; 6 Oct 2026~~
 ~~fridge inventory spreadsheet | HOUSEHOLD | high | commercial; DIY-template searchers, why the sheet dies and what the receipt replaces; 8 Oct 2026~~
+<!-- Added 15 Sep 2026 from the first GSC pull (28 Aug – 13 Sep 2026: 396
+impressions, 2 clicks, 12 pages with any impressions). Every visible query
+was a shelf-life or storage query; no app-intent query had a single
+impression, so the app-focused lines below carry no GSC number and are
+ranked on commercial intent instead. Impressions are 28-day GSC figures
+where one exists. Ordered by priority, app-focused first. -->
+does pantry read coles woolworths aldi receipts | PRODUCT | high | commercial; supermarket-named receipt query, the one angle no competitor post can take; abbreviations and thermal fade from how-pantry-reads-a-receipt; link from receipt-scanning-apps-compared; no GSC signal yet
+how to keep track of food in the fridge | APPS | high | commercial top-of-funnel; the question people ask before they know an app exists; opener is the receipt photo, then the digest; link from how-long-food-lasts and sharehouse-fridge-rule; no GSC signal yet
+what to cook with leftovers before they go off | COOKING | high | app-relevant (what-to-cook); leftovers page is the site's second-strongest at pos 11 / 33 impressions with nothing to send that reader to next; same shape as mince-going-off-tonight; link from how-long-do-leftovers-keep and to receipt-to-meals; NSW Food Authority 3 days
+shopping list app with expiry dates | APPS | high | commercial; list-first searchers who want the expiry side bolted on; Pantry has it the other way round; do not re-target shared grocery list household (covered); no GSC signal yet
+app that reminds you of use by dates | APPS | med | commercial; best-before-vs-use-by draws 33 impressions of use-by queries at pos 32 and hands them nowhere; short post, closes on the nudge; risk of overlapping expiry-tracker-apps-what-to-look-for, so lead with the use-by / best-before split not the feature list
+how to store raw chicken in the fridge | STORAGE | med | not a new post: add an H2 to chicken-in-the-fridge-three-days; 8 impressions at pos 36–47 for storing/how-to-store variants the post never answers; needs a sourced bottom-shelf / covered claim (NSW Food Authority) and a COPY-SOURCES row first
+how long does cooked chicken last in the fridge | STORAGE | med | NSW Food Authority 3 days, same as leftovers; distinct from the raw post; watch for cannibalising how-long-do-leftovers-keep, so the H2s stay chicken-specific (cooked from raw on day three, roast chicken, shredded)
+how long does unopened milk last in the fridge | STORAGE | low | not a new post: covered by the once-opened / carton H2s added to how-long-does-milk-last on 15 Sep 2026; 7 impressions for the bare query at pos 20; revisit only if it does not move by mid October
 how long does raw meat last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026 as least likely; CSIRO meat 3-5 held at 3 if revived
 how long does butter last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026 as least likely; CSIRO 8 wks, data.js 30 days
 how long does fresh fish last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026; overlaps the prawns post; CSIRO seafood 3 days

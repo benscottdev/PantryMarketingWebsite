@@ -1,15 +1,16 @@
 ---
 slug: fruit-veg-storage-guide
-title: "Fruit and veg: what never goes in the fridge"
-excerpt: "Bananas, tomatoes, potatoes and pumpkin last longer on the bench than in the crisper. Sustainability Victoria’s guidance, item by item."
+title: "How to store fruit and vegetables: fridge, bowl or pantry"
+excerpt: "Sustainability Victoria’s fruit and vegetable storage guide, item by item: what goes in the fridge, what stays in the bowl, and why bananas, tomatoes, potatoes and pumpkin last longer on the bench than in the crisper."
 tag: STORAGE
 publishDate: 2026-08-29
+updated: 2026-09-15
 image: /assets/blog/blog-fruit-veg-storage-guide.svg
 imageAlt: "A wooden fruit bowl on a kitchen counter next to a pantry basket of potatoes and onions"
-keywords: ["what fruit vegetables should not be refrigerated", "fruit bowl vs fridge storage"]
+keywords: ["fruit and vegetable storage", "how to store vegetables in the fridge", "what fruit vegetables should not be refrigerated", "fruit bowl vs fridge storage"]
 ---
 
-Pantry’s whole job is watching the clock on what is in your kitchen. That clock starts before any app sees the item — with where it lands the moment you get home. Put a tomato in the crisper drawer instead of the fruit bowl and it loses flavour faster, no receipt scan involved. This is the easiest win on the entire site: no app, no tracking, just putting things in the right place to begin with.
+Most fruit and vegetables belong in the fridge. The short list that does not — bananas, tomatoes, avocado until ripe, potatoes, onions, garlic, whole pumpkin, whole pineapple and basil — lasts longer in a bowl or the pantry, per Sustainability Victoria. Pantry’s whole job is watching the clock on what is in your kitchen. That clock starts before any app sees the item — with where it lands the moment you get home. Put a tomato in the crisper drawer instead of the fruit bowl and it loses flavour faster, no receipt scan involved. This is the easiest win on the entire site: no app, no tracking, just putting things in the right place to begin with.
 
 ## What should stay out of the fridge
 
@@ -26,7 +27,7 @@ Per [Sustainability Victoria’s storage guidance](https://www.sustainability.vi
 
 ## What should be refrigerated
 
-Nearly everything else: leafy greens, berries, broccoli, carrots, celery, corn, citrus, mushrooms, most fresh herbs other than basil, stone fruit once ripe, sweet potatoes, zucchini, and any of the room-temperature items above once they have been cut or peeled. If it is not on the list above, the fridge is the right default.
+Nearly everything else: [leafy greens](/resources/wilting-spinach-five-dinners), berries, broccoli, carrots, celery, corn, citrus, mushrooms, most fresh herbs other than basil, stone fruit once ripe, sweet potatoes, zucchini, and any of the room-temperature items above once they have been cut or peeled. If it is not on the list above, the fridge is the right default.
 
 ## Why this list looks arbitrary but is not
 
@@ -40,4 +41,4 @@ The single biggest fix for most kitchens is simple: get bananas, tomatoes, potat
 
 This post is about *where*, not *how long* — for the shelf-life windows once produce is stored correctly, see [our full reference](/resources/how-long-food-lasts). Correct storage and correct timing work together: a tomato in the fruit bowl still has about five days before it turns, per Sustainability Victoria, and a tomato in the fridge loses flavour on top of that same clock still running. Getting the location right does not stop the countdown — it just stops making the problem worse than it already is.
 
-Once everything is sitting in the right spot, that is exactly the countdown Pantry is built to watch. Every item a receipt adds carries the same shelf-life data as this page, counting down to the day it needs using, not the day you gave up remembering it was there.
+Once everything is sitting in the right spot, that is exactly the countdown Pantry is built to watch. Every item [a receipt adds](/resources/how-pantry-reads-a-receipt) carries the same shelf-life data as this page, counting down to the day it needs using, not the day you gave up remembering it was there.
