@@ -4,12 +4,13 @@ title: "The best pantry inventory apps in Australia (2026)"
 excerpt: "Pantry starts from a photographed receipt, not a barcode. Here is how NoWaste, KitchenPal and Fridgely compare, and why Pantry differs."
 tag: APPS
 publishDate: 2026-08-24
+updated: 2026-09-15
 image: /assets/blog/blog-best-pantry-inventory-apps-australia.svg
 imageAlt: "A phone showing a pantry inventory app propped against jars on a kitchen shelf"
 keywords: ["best pantry inventory app australia", "food expiry tracker app"]
 ---
 
-A pantry inventory app almost always starts the same way: type it in, or scan a barcode, one item at a time. Pantry starts somewhere else entirely — a photographed receipt from Coles, Woolworths or Aldi, with a whole trolley becoming a tracked list in one pass. Before getting into why that matters, here is what the established options in this category offer, based on their own app pages and store listings.
+Pantry is an iOS pantry inventory app for Australian households that turns one photographed Coles, Woolworths or Aldi receipt into a dated list of everything you bought, tells you what is turning first, and suggests what to cook before it goes off. Almost every other pantry inventory app starts the same way: type it in, or scan a barcode, one item at a time. Before getting into why that difference matters, here is what the established options in this category offer, based on their own app pages and store listings.
 
 ## NoWaste
 

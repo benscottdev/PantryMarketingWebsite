@@ -18,6 +18,8 @@ import sharp from 'sharp'
 import { escapeHtml, escapeJsonForScriptTag } from './lib/html.mjs'
 import { getPublishedPosts, loadAllPosts, sydneyToday } from './lib/posts.mjs'
 import { STATIC_PAGES, siteNav, staticPageBody } from './lib/static-pages.mjs'
+import { faqs } from '../src/site/data.js'
+import { APP_LIVE, SUPPORT_EMAIL } from '../src/site/launch.js'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const distDir = resolve(root, 'dist')
@@ -32,6 +34,8 @@ const PATHS_RESOURCES = '/resources'
 // own from their hero art; these pages have none, and a missing og:image is
 // the difference between a link preview and a bare grey box.
 const DEFAULT_OG = `${SITE_URL}/og/default.jpg`
+// The one availability line llms.txt carries, off the same flag as every CTA.
+const APP_LIVE_TEXT = APP_LIVE ? 'available on the App Store' : 'pre-launch, waitlist open at the home page; not yet on the App Store'
 
 function readTemplate() {
 	const templatePath = resolve(distDir, 'index.html')
@@ -239,7 +243,7 @@ function writeStaticPage(original, page) {
 
 	// One <script> per schema rather than a single @graph, matching how the
 	// post pages already emit BlogPosting and BreadcrumbList side by side.
-	const jsonLd = [page.path === '/' ? websiteJsonLd() : null, page.jsonLd]
+	const jsonLd = [page.path === '/' ? websiteJsonLd() : null, ...[page.jsonLd].flat()]
 		.filter(Boolean)
 		.map((schema) => `\n\t\t<script type="application/ld+json">${escapeJsonForScriptTag(schema)}</script>`)
 		.join('')
@@ -354,21 +358,114 @@ ${items}
 	writeFileSync(resolve(distDir, 'rss.xml'), xml)
 }
 
+// llms.txt is the page an AI assistant reads instead of crawling the site.
+// It has to do what a home page does for a person: say what Pantry is in one
+// block that can be quoted whole, then list the facts the site is willing to
+// be cited for, then point at the rest. The About block is the first FAQ
+// answer and the Pro FAQ, so it cannot drift from what the page says. The
+// Facts are the sourced figures every post already carries — nothing here is
+// asserted that is not also asserted, with its source, on a page.
+function llmsAbout() {
+	const whatIs = faqs.find((f) => f.q === 'What is Pantry?')
+	const cost = faqs.find((f) => f.q === 'How much does Pro cost?')
+	if (!whatIs || !cost) throw new Error('prerender: the "What is Pantry?" and "How much does Pro cost?" FAQ entries must exist in src/site/data.js')
+	// The FAQ answer is prose; the price is restated here and checked against
+	// it, so a price change in data.js that forgets this line fails the build.
+	const PRO_PRICE = '$4.99 a month or $49.99 a year (AUD)'
+	if (!cost.a.includes('$4.99 a month') || !cost.a.includes('$49.99 a year')) {
+		throw new Error('prerender: Pro price in llms.txt no longer matches the "How much does Pro cost?" FAQ')
+	}
+	return [
+		'## About',
+		'',
+		whatIs.a,
+		'',
+		'- Category: grocery expiry tracker and household pantry app',
+		'- Platform: iOS',
+		'- Country: Australia first; the receipt models are trained on Australian receipts in English',
+		'- Entry point: a photograph of the shopping receipt, not a barcode per item and not manual entry',
+		'- Household: one subscription covers up to six people on one shared list',
+		`- Pricing: Free plan with no trial clock; Pro is ${PRO_PRICE}, billed by Apple, with a 7 day free trial`,
+		`- Status: ${APP_LIVE_TEXT}`,
+		`- Support: ${SUPPORT_EMAIL}`,
+		'',
+	]
+}
+
+function llmsFacts() {
+	return [
+		'## Facts the site is sourced for',
+		'',
+		'Household food waste in Australia (Fight Food Waste CRC and FIAL, via End Food Waste Australia, https://endfoodwaste.com.au/fact-library/):',
+		'- The average Australian household bins about $2,500 and 265 kg of food a year.',
+		'- Households bin more than twice what they think they do.',
+		'- Household food waste is 2.46 million tonnes a year, almost a third of all Australian food waste. $36.6 billion and 7.6 million tonnes are whole-of-supply-chain figures, not household figures.',
+		'',
+		'Fridge shelf life (CSIRO, Refrigerated storage of perishable foods, https://www.csiro.au/en/research/production/food/Refrigerating-foods; Pantry takes the cautious end of every range):',
+		'- Raw chicken: 3 days. Raw mince: 2 to 3 days. Milk: 5 to 7 days, opened or sealed, full cream or skim.',
+		'- Eggs: 3 to 6 weeks. Hard cheese: 1 to 3 months. Soft and semi-hard cheese: 2 to 3 weeks. Cottage, ricotta and cream cheese: 10 days.',
+		'',
+		'Leftovers (NSW Food Authority, https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers):',
+		'- Cooked leftovers: 3 days in the fridge. Cooked rice and pasta: 2 days.',
+		'',
+		'Temperature and date labels (Food Standards Australia New Zealand):',
+		'- A fridge should be at 5°C or below. The danger zone is 5°C to 60°C.',
+		'- "Use by" is a safety date. "Best before" is a quality date; food past it is not automatically unsafe.',
+		'',
+		'Freezing (Food Safety Information Council, https://www.foodsafety.asn.au/freezer-storage-times/):',
+		'- Frozen food stays safe indefinitely; quality, not safety, is the limit. A few weeks in a fridge-freezer, three months or more in a chest freezer at -18°C.',
+		'',
+	]
+}
+
 function writeLlmsTxt(posts) {
 	const lines = [
 		`# ${SITE_NAME}`,
 		'',
 		'> Pantry reads your grocery receipt, tracks every expiry date, and tells you what to cook before it goes off.',
 		'',
-		'## Product',
-		`- [Home](${SITE_URL}/): what Pantry does and who it's for`,
+		...llmsAbout(),
+		...llmsFacts(),
+		'## Pages',
+		`- [Home](${SITE_URL}/): what Pantry does, who it is for, and the FAQ`,
+		`- [Resources](${SITE_URL}/resources): every article, newest first`,
 		`- [Waste calculator](${SITE_URL}/calculator): estimate a household's food waste from published Australian research`,
+		`- [Support](${SITE_URL}/support): contact, subscriptions, account deletion`,
+		`- [Full article text](${SITE_URL}/llms-full.txt): every published article in one file`,
 		'',
 		'## Resources',
 		...posts.map((p) => `- [${p.title}](${SITE_URL}/resources/${p.slug}): ${p.excerpt}`),
 		'',
 	]
 	writeFileSync(resolve(distDir, 'llms.txt'), lines.join('\n'))
+}
+
+// Every published article, as the author wrote it, in one file. Relative
+// links are made absolute so a quoted paragraph still points somewhere.
+function writeLlmsFullTxt(posts) {
+	const sections = posts.map((p) =>
+		[
+			`# ${p.title}`,
+			'',
+			`URL: ${SITE_URL}/resources/${p.slug}`,
+			`Published: ${p.publishDate}${p.updated !== p.publishDate ? ` (updated ${p.updated})` : ''}`,
+			`Summary: ${p.excerpt}`,
+			'',
+			p.markdown.replace(/\]\(\//g, `](${SITE_URL}/`),
+			'',
+		].join('\n')
+	)
+	const lines = [
+		`# ${SITE_NAME} — full article text`,
+		'',
+		`> Every published article from ${SITE_URL}/resources. The short index is ${SITE_URL}/llms.txt.`,
+		'',
+		...llmsAbout(),
+		'---',
+		'',
+		sections.join('\n---\n\n'),
+	]
+	writeFileSync(resolve(distDir, 'llms-full.txt'), lines.join('\n'))
 }
 
 async function main() {
@@ -390,9 +487,10 @@ async function main() {
 	writeSitemap(posts)
 	writeRss(posts)
 	writeLlmsTxt(posts)
+	writeLlmsFullTxt(posts)
 
 	console.log(
-		`[prerender] wrote ${posts.length}/${all.length} post page(s), ${STATIC_PAGES.length} static page(s), sitemap.xml, rss.xml, llms.txt`
+		`[prerender] wrote ${posts.length}/${all.length} post page(s), ${STATIC_PAGES.length} static page(s), sitemap.xml, rss.xml, llms.txt, llms-full.txt`
 	)
 }
 

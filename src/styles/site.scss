@@ -5321,6 +5321,38 @@ body:has(.legal),
 	}
 }
 
+// The Sources list that closes every sourced article. Like the CTA below it
+// is appended to the post body by a build script (scripts/lib/sources.mjs),
+// so it sits inside .prose; the small mono heading is the same register as
+// the page eyebrow, so it reads as apparatus rather than another section.
+.prose .post-sources {
+	margin: clamp(32px, 4vw, 44px) 0 0;
+	padding-top: 22px;
+	border-top: 1px solid var(--line);
+
+	&__title {
+		margin: 0 0 10px;
+		font-family: var(--font-mono);
+		font-weight: 600;
+		font-size: 12.5px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--muted);
+	}
+
+	&__list {
+		margin: 0;
+		padding-left: 1.1em;
+		font-size: 14.5px;
+		line-height: 1.55;
+		color: var(--muted);
+
+		li + li {
+			margin-top: 6px;
+		}
+	}
+}
+
 // Standard end-of-article call to action. Not a React component: it is
 // appended to the post body itself by scripts/lib/cta.mjs, so it sits inside
 // .prose and needs to win against the `.prose a` link rules — hence the

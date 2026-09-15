@@ -9,7 +9,7 @@ imageAlt: "A phone showing a freezer list beside an open chest freezer of labell
 keywords: ["freezer inventory app", "app to track what is in my freezer"]
 ---
 
-A freezer inventory app has one job worth doing: record the date each thing went in. Not a countdown to a “defrost by” date, because there is no sourced date to count down to. The [Food Safety Information Council](https://www.foodsafety.asn.au/freezer-storage-times/) is direct that frozen food stays safe indefinitely from a bacterial standpoint and that quality, not safety, is the practical limit. So the number Pantry attaches to a frozen item is the only defensible one: how long it has been in there.
+Pantry is an iOS app for Australian households that tracks the fridge, pantry and freezer from one photographed grocery receipt, and in the freezer it records the one number worth recording: the date each thing went in. That is the whole job of a freezer inventory app. Not a countdown to a “defrost by” date, because there is no sourced date to count down to. The [Food Safety Information Council](https://www.foodsafety.asn.au/freezer-storage-times/) is direct that frozen food stays safe indefinitely from a bacterial standpoint and that quality, not safety, is the practical limit. So the number Pantry attaches to a frozen item is the only defensible one: how long it has been in there.
 
 ## Why there is no defrost-by countdown
 

@@ -19,7 +19,7 @@ import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { faqs } from '../../src/site/data.js'
 import { coming } from '../../src/site/content.js'
-import { PATHS, SUPPORT_EMAIL } from '../../src/site/launch.js'
+import { APP_LIVE, APP_STORE_URL, PATHS, SUPPORT_EMAIL } from '../../src/site/launch.js'
 import { escapeHtml } from './html.mjs'
 
 const root = resolve(fileURLToPath(new URL('.', import.meta.url)), '../..')
@@ -94,6 +94,48 @@ export const FAQ_JSON_LD = {
 	})),
 }
 
+// The entity record for the app itself: what it is, on what platform, for
+// which country, at what price. This is what an answer engine reads to decide
+// whether it can describe Pantry confidently enough to recommend it, so every
+// field here is quoted from copy the site already makes — the description is
+// the first FAQ answer, the prices are the Pro FAQ, the household size is the
+// Pro FAQ. Nothing is asserted here that is not asserted on the page.
+//
+// Availability is gated on APP_LIVE the same way the CTAs are: no download or
+// install URL until the app is on the App Store. A SoftwareApplication with
+// no downloadUrl describes software; it does not claim it is on sale.
+const SITE_URL = 'https://www.usepantry.com.au'
+const whatIsPantry = faqs.find((f) => f.q === 'What is Pantry?')
+if (!whatIsPantry) throw new Error('static-pages: the "What is Pantry?" FAQ entry is missing from src/site/data.js')
+
+export const SOFTWARE_APPLICATION_JSON_LD = {
+	'@context': 'https://schema.org',
+	'@type': 'SoftwareApplication',
+	name: 'Pantry',
+	alternateName: 'Pantry app',
+	url: `${SITE_URL}/`,
+	description: whatIsPantry.a,
+	applicationCategory: 'LifestyleApplication',
+	applicationSubCategory: 'Grocery expiry tracker',
+	operatingSystem: 'iOS',
+	inLanguage: 'en-AU',
+	countriesSupported: 'AU',
+	featureList: [
+		'Receipt scanning: one photo of a Coles, Woolworths or Aldi receipt becomes a dated grocery list',
+		'Expiry tracking: per-item shelf life grounded in CSIRO refrigerated-storage guidance, taken at the cautious end',
+		'Morning digest: what is turning this week and what it is worth',
+		'Meal suggestions from what is already in the house, starting with what turns first',
+		'Shared household: one subscription, up to six people, one list',
+	],
+	offers: [
+		{ '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'AUD' },
+		{ '@type': 'Offer', name: 'Pro (monthly)', price: '4.99', priceCurrency: 'AUD' },
+		{ '@type': 'Offer', name: 'Pro (yearly)', price: '49.99', priceCurrency: 'AUD' },
+	],
+	publisher: { '@type': 'Organization', name: 'Pantry', url: `${SITE_URL}/` },
+	...(APP_LIVE ? { downloadUrl: APP_STORE_URL, installUrl: APP_STORE_URL } : {}),
+}
+
 // `dir` is the directory written under dist/ — '' is dist/index.html itself,
 // which is both the home page and (via the vercel.json rewrite) the fallback
 // for anything unmatched.
@@ -110,7 +152,7 @@ export const STATIC_PAGES = [
 		description: null,
 		h1: 'Stop throwing out the food you already paid for.',
 		lede: 'Photograph your receipt. Pantry tracks every expiry date and tells you what to cook first.',
-		jsonLd: FAQ_JSON_LD,
+		jsonLd: [SOFTWARE_APPLICATION_JSON_LD, FAQ_JSON_LD],
 		body: () => `<h2>Common questions</h2>${faqHtml()}`,
 	},
 	{

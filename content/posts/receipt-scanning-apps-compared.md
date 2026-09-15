@@ -4,12 +4,13 @@ title: "Receipt-scanning apps compared, and where Pantry is headed"
 excerpt: "Pantry turns one photographed receipt into a dated grocery list. How Fango, Eatvora and Alydo compare, and why Pantry differs."
 tag: APPS
 publishDate: 2026-08-28
+updated: 2026-09-15
 image: /assets/blog/blog-receipt-scanning-apps-compared.svg
 imageAlt: "A phone camera photographing a grocery receipt on a kitchen counter"
 keywords: ["receipt scanning app grocery", "scan receipt track pantry app"]
 ---
 
-Pantry starts from a photographed receipt, not a barcode scanned one item at a time. Point the camera at a Coles, Woolworths or Aldi docket and the whole shop becomes a dated list in one pass. A handful of other apps have started building toward the same idea. Here is what Fango, Eatvora and Alydo say about their own receipt scanning, and where Pantry sits next to them.
+Pantry is an iOS app for Australian households that starts from a photographed receipt, not a barcode scanned one item at a time. Point the camera at a Coles, Woolworths or Aldi docket and the whole shop becomes a dated list in one pass, with every item’s expiry counted from the day you bought it. A handful of other apps have started building toward the same idea. Here is what Fango, Eatvora and Alydo say about their own receipt scanning, and where Pantry sits next to them.
 
 ## Fango
 

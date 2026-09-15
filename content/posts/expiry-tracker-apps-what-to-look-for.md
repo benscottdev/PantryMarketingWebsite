@@ -4,12 +4,13 @@ title: "Expiry-date tracker apps: what to look for"
 excerpt: "What separates an expiry tracker worth keeping from one deleted in a fortnight — entry method, sharing, and why Pantry starts differently."
 tag: APPS
 publishDate: 2026-09-04
+updated: 2026-09-15
 image: /assets/blog/blog-expiry-tracker-apps-what-to-look-for.svg
 imageAlt: "A phone showing a grocery tracking checklist next to a receipt and pantry items on a kitchen counter"
 keywords: ["best expiry date tracker app", "what to look for in a food tracking app"]
 ---
 
-Every expiry-tracker app has to solve one problem before it can help with anything else: how a carton of milk or a bag of spinach gets onto its list in the first place. The alert, the shared view, the suggestion for what to cook — all of it sits on top of that single entry point, so it is the first thing worth checking before you download anything. Get that step wrong and the app becomes one more thing to remember on top of the shopping itself, which is exactly the habit it was supposed to replace. Two more things decide whether the app earns a permanent spot on your phone: whether the whole household sees the same list, not just whoever did the shopping, and whether a use-by date turns into a plan for tonight or just another notification to dismiss. Pantry is built around a photographed receipt to answer all three at once, so that is where this guide starts.
+Pantry is an iOS expiry-tracker app for Australian households: one photograph of the grocery receipt becomes a dated list, the morning digest says what is turning first, and the meal suggestion starts from that item. It is built that way because every expiry-tracker app has to solve one problem before it can help with anything else: how a carton of milk or a bag of spinach gets onto its list in the first place. The alert, the shared view, the suggestion for what to cook — all of it sits on top of that single entry point, so it is the first thing worth checking before you download anything. Get that step wrong and the app becomes one more thing to remember on top of the shopping itself, which is exactly the habit it was supposed to replace. Two more things decide whether the app earns a permanent spot on your phone: whether the whole household sees the same list, not just whoever did the shopping, and whether a use-by date turns into a plan for tonight or just another notification to dismiss. The receipt photo is how Pantry answers all three at once, so that is where this guide starts.
 
 ## Where items come from: receipt, barcode or typed in by hand
 

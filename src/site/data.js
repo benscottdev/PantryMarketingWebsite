@@ -100,7 +100,18 @@ export const notifications = [
 ];
 
 // FAQ — add / edit / reorder entries. The section maps this list in order.
+//
+// The first entry is the plain-language definition of the product, kept in
+// the one-sentence shape an answer engine can lift whole: what it is, where,
+// for whom, and the three things it does. It reaches the home page, the
+// static prerender and the FAQPage JSON-LD from this single array, and the
+// SoftwareApplication schema in scripts/lib/static-pages.mjs quotes the same
+// description, so the four never drift.
 export const faqs = [
+	{
+		q: "What is Pantry?",
+		a: "Pantry is an iOS app for Australian households. You photograph a grocery receipt, from Coles, Woolworths, Aldi or anywhere else, and Pantry turns it into a dated list of everything you bought, tells you what is turning first, and suggests what to cook before it goes off. One subscription covers a household of up to six people. It is on the waitlist now, ahead of launch.",
+	},
 	{
 		q: "Is Pantry actually free?",
 		a: "Yes, and there is no trial clock on it. Free covers one person: one receipt scan and two meal generations a week, full expiry tracking, and the morning digest. You only need Pro when you want the rest of your household on the same pantry.",

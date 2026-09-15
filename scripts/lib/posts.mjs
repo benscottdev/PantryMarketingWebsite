@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url'
 import matter from 'gray-matter'
 import { marked } from 'marked'
 import { postCtaHtml } from './cta.mjs'
+import { postSourcesHtml } from './sources.mjs'
 
 const root = resolve(fileURLToPath(new URL('.', import.meta.url)), '../..')
 export const POSTS_DIR = join(root, 'content/posts')
@@ -91,8 +92,9 @@ export function renderPost(filePath) {
 	const { words, minutes } = wordsAndMinutes(articleHtml)
 	// Appended here, not in Article.jsx, so the one copy of the CTA reaches
 	// the prerendered HTML, the dev markdown chunks and the React page alike.
-	// See scripts/lib/cta.mjs for why that matters.
-	const html = articleHtml + postCtaHtml()
+	// See scripts/lib/cta.mjs for why that matters. The Sources block goes
+	// first so the post still closes on Pantry (scripts/lib/sources.mjs).
+	const html = articleHtml + postSourcesHtml(articleHtml) + postCtaHtml()
 	const publishDate = toIsoDateString(data.publishDate, 'publishDate', fileSlug)
 	const updated = data.updated ? toIsoDateString(data.updated, 'updated', fileSlug) : publishDate
 
@@ -107,6 +109,9 @@ export function renderPost(filePath) {
 		imageAlt: data.imageAlt,
 		keywords: data.keywords || [],
 		html,
+		// The author's markdown, untouched. Only scripts/prerender.mjs reads it
+		// (for llms-full.txt); build-content.mjs strips it from the client index.
+		markdown: content.trim(),
 		words,
 		minutes,
 	}

@@ -9,7 +9,7 @@ imageAlt: "A phone showing a meal suggestion built from items on a scanned recei
 keywords: ["app that suggests meals from what you have", "what can i make with what is in my fridge app"]
 ---
 
-Pantry turns a receipt into dinner in three moves, and none of them is a recipe search. The receipt scan puts every item in the house on one dated list. The meal suggestion is written from that list alone, so every ingredient is something you already own. And it starts from whatever is turning first, because, as Pantry’s own meals section puts it, mince with two days left beats yoghurt with a week. That is the whole answer to “what can I make with what is in my fridge”: the app already knows what is in there, because it read the docket.
+Pantry, an iOS app for Australian households, turns a receipt into dinner in three moves, and none of them is a recipe search. The receipt scan puts every item in the house on one dated list. The meal suggestion is written from that list alone, so every ingredient is something you already own. And it starts from whatever is turning first, because, as Pantry’s own meals section puts it, mince with two days left beats yoghurt with a week. That is the whole answer to “what can I make with what is in my fridge”: the app already knows what is in there, because it read the docket.
 
 ## Every ingredient is already in the house
 
