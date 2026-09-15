@@ -4,6 +4,7 @@ title: "The sharehouse fridge rule that ends the argument"
 excerpt: "Three flatmates, one fridge, and nobody's food is technically anyone's problem — which is exactly why it goes off. One rule fixes it."
 tag: HOUSEHOLD
 publishDate: 2026-08-22
+updated: 2026-09-15
 image: /assets/blog/blog-sharehouse-fridge-rule.svg
 imageAlt: "A shared fridge shelf with several separate bags of groceries, loosely organised"
 keywords: ["sharehouse fridge organisation", "shared flat food waste"]
@@ -35,4 +36,4 @@ A visible, shared system removes the need to raise it at all. Nobody has to say 
 
 ## Starting small
 
-You do not need buy-in from every flatmate on day one. Start by labelling your own shelf. A shared digital list still works with only two of four housemates on it — it just covers less ground until the rest catch on. The [morning digest](/#how) is built to go to everyone in a household the moment it exists, so the last holdout has a reason to open the app at all: seeing what is turning today, without having to ask.
+You do not need buy-in from every flatmate on day one. Start by labelling your own shelf. A shared digital list still works with only two of four housemates on it — it just covers less ground until the rest catch on. [Keeping track of what is in the fridge](/resources/how-to-keep-track-of-food-in-the-fridge) gets easier, not harder, with each phone added. The [morning digest](/#how) is built to go to everyone in a household the moment it exists, so the last holdout has a reason to open the app at all: seeing what is turning today, without having to ask.

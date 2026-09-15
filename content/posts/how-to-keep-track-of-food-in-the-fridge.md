@@ -3,7 +3,7 @@ slug: how-to-keep-track-of-food-in-the-fridge
 title: "How to keep track of food in the fridge"
 excerpt: "Track it from the receipt, not from the fridge. A photo of the docket on shopping day gives every item a name and a purchase date, which is all a shelf-life clock needs. Pantry does the rest: the countdown, the morning digest, the meal for tonight."
 tag: APPS
-publishDate: 2026-10-10
+publishDate: 2026-09-15
 image: /assets/blog/blog-how-to-keep-track-of-food-in-the-fridge.svg
 imageAlt: "An open fridge with a phone propped on the door shelf showing a list of items and days remaining"
 keywords: ["how to keep track of food in the fridge", "how to keep track of what is in your fridge", "fridge food tracker app", "keep track of expiry dates"]

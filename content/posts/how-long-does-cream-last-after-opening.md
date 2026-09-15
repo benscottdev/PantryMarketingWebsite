@@ -3,7 +3,7 @@ slug: how-long-does-cream-last-after-opening
 title: "How long does cream last after opening?"
 excerpt: "CSIRO gives cream five days in the fridge, opened or not, thickened or pure. The carton bought for one recipe is the one Pantry is built to catch before day five."
 tag: STORAGE
-publishDate: 2026-09-17
+publishDate: 2026-09-15
 image: /assets/blog/blog-how-long-does-cream-last-after-opening.svg
 imageAlt: "An opened carton of thickened cream on a fridge shelf beside a bowl of whipped cream"
 keywords: ["how long does cream last after opening", "how long does thickened cream last in the fridge"]

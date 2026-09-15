@@ -14,7 +14,7 @@ keywords: ["how long do leftovers last in the fridge", "how long can you keep co
 
 ## The number: three days, two for rice
 
-The [NSW Food Authority](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) puts most cooked leftovers at three days once refrigerated. Cooked rice and pasta get a shorter window — two days — and that is not a rounding difference. Cooked rice in particular can carry bacterial spores that survive cooking and multiply during cooling and storage, so the shorter number reflects a real difference in risk, not extra caution for its own sake.
+The [NSW Food Authority](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) puts most cooked leftovers at three days once refrigerated — [cooked chicken](/resources/how-long-does-cooked-chicken-last-in-the-fridge) included. Cooked rice and pasta get a shorter window — two days — and that is not a rounding difference. Cooked rice in particular can carry bacterial spores that survive cooking and multiply during cooling and storage, so the shorter number reflects a real difference in risk, not extra caution for its own sake.
 
 Both numbers assume the food went into the fridge reasonably promptly after cooking, and stayed there.
 
@@ -40,4 +40,4 @@ If you cook a large batch on Sunday intending to eat from it across the week, th
 
 Leftovers are one of the biggest quiet contributors to household food waste — cooked once, meant to be eaten, then not, simply because the three-day window closed before anyone circled back to it. Alongside [wilting produce](/resources/wilting-spinach-five-dinners), it is one of the two categories behind most of the [$2,500 a year](/resources/household-food-waste-by-the-numbers) an average household bins.
 
-Pantry treats a container of leftovers exactly the way it treats a fresh grocery item: logged with a date and a countdown the moment it goes in, so “we’ll have it tomorrow” comes with an actual deadline attached instead of an open-ended intention. When the container is on its last day, [the dinner suggestion](/resources/receipt-to-meals) starts from it rather than from a recipe search. [The full shelf-life reference](/resources/how-long-food-lasts) covers everything that goes into the pot in the first place.
+Pantry treats a container of leftovers exactly the way it treats a fresh grocery item: logged with a date and a countdown the moment it goes in, so “we’ll have it tomorrow” comes with an actual deadline attached instead of an open-ended intention. When the container is on its last day, [the dinner suggestion](/resources/receipt-to-meals) starts from it rather than from a recipe search — and [five dinners built from leftovers](/resources/what-to-cook-with-leftovers-before-they-go-off) is the same idea done by hand. [The full shelf-life reference](/resources/how-long-food-lasts) covers everything that goes into the pot in the first place.

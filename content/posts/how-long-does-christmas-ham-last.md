@@ -3,7 +3,7 @@ slug: how-long-does-christmas-ham-last
 title: "How long does Christmas ham last in the fridge?"
 excerpt: "CSIRO gives a whole ham two to three weeks in the fridge and sliced ham four to five days. This site holds both at the short end, and Pantry keeps the two clocks apart."
 tag: SEASONAL
-publishDate: 2026-09-22
+publishDate: 2026-09-15
 image: /assets/blog/blog-how-long-does-christmas-ham-last.svg
 imageAlt: "A glazed leg of ham on a board, partly carved, with slices stacked beside it"
 keywords: ["how long does christmas ham last in the fridge", "how long does ham last in the fridge"]

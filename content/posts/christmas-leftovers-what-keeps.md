@@ -4,6 +4,7 @@ title: "Christmas leftovers: what keeps, what doesn't"
 excerpt: "Cooked leftovers keep three days, per the NSW Food Authority — but a long Christmas lunch burns through most of that window first."
 tag: SEASONAL
 publishDate: 2026-09-03
+updated: 2026-09-15
 image: /assets/blog/blog-christmas-leftovers-what-keeps.svg
 imageAlt: "A Christmas table with turkey, ham and pavlova being packed into containers for the fridge"
 keywords: ["christmas leftovers how long do they last", "boxing day leftovers food safety"]
@@ -43,7 +44,7 @@ Once dessert has been served, treat what is left the same way as the ham: back i
 
 Christmas lunch is usually cooked for more people than a household normally feeds, which means there is more left over than three days of eating can realistically get through. Stretching the fridge portion to day four or five is not a food-safety strategy, however good the turkey still smells — three days is the window. [The real fix is the freezer](/resources/freezer-times-explained): portion out whatever will not be eaten by day three and freeze it the same day it comes off the table, while there is still real quality left to preserve. Turkey and ham both freeze well, sliced or shredded into flat, dated portions. Cream-based dessert is the one exception worth knowing — cream and custard can separate on thawing, so a leftover pavlova is better finished within its fridge window than frozen and hoped for later.
 
-Done this way, a table that fed twelve on Christmas Day turns into two or three more real dinners across the following fortnight, instead of a bin bag on the twenty-eighth.
+Done this way, a table that fed twelve on Christmas Day turns into two or three more real dinners across the following fortnight, instead of a bin bag on the twenty-eighth. [Five dinners that start from a container of leftovers](/resources/what-to-cook-with-leftovers-before-they-go-off) covers what those dinners look like.
 
 ## Boxing Day is day two, not day one
 

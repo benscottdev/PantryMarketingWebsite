@@ -3,7 +3,7 @@ slug: how-long-does-cooked-chicken-last-in-the-fridge
 title: "How long does cooked chicken last in the fridge? Three days"
 excerpt: "Cooked chicken lasts three days in the fridge, per the NSW Food Authority, the same window as any other cooked leftover. The clock starts when it is cooked, not when the raw pack was bought, and it runs the same for a roast, a shredded breast or a supermarket chook."
 tag: STORAGE
-publishDate: 2026-10-20
+publishDate: 2026-09-15
 image: /assets/blog/blog-how-long-does-cooked-chicken-last-in-the-fridge.svg
 imageAlt: "A container of sliced roast chicken on a fridge shelf next to a half-carved roast on a board"
 keywords: ["how long does cooked chicken last in the fridge", "how long does roast chicken last in the fridge", "how long is cooked chicken good for"]

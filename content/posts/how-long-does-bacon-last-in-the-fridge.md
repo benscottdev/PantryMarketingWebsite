@@ -3,7 +3,7 @@ slug: how-long-does-bacon-last-in-the-fridge
 title: "How long does bacon last in the fridge once opened?"
 excerpt: "CSIRO gives bacon two to three weeks in the fridge. This site counts two, from the receipt, and the half-packet at the back of the drawer stops being a mystery."
 tag: STORAGE
-publishDate: 2026-10-01
+publishDate: 2026-09-15
 image: /assets/blog/blog-how-long-does-bacon-last-in-the-fridge.svg
 imageAlt: "An opened packet of bacon with three rashers left, folded closed in a fridge drawer"
 keywords: ["how long does bacon last in the fridge", "how long does bacon last once opened"]

@@ -3,7 +3,7 @@ slug: shopping-list-app-with-expiry-dates
 title: "Shopping list app with expiry dates: why Pantry starts at the receipt"
 excerpt: "Pantry has no shopping list. It has the list that matters more: everything you bought, dated from the receipt, with a countdown on every line. A shopping list records what you meant to buy. The docket records what came home."
 tag: APPS
-publishDate: 2026-10-03
+publishDate: 2026-09-15
 image: /assets/blog/blog-shopping-list-app-with-expiry-dates.svg
 imageAlt: "A handwritten shopping list and a supermarket receipt side by side on a kitchen bench, a phone resting on the receipt"
 keywords: ["shopping list app with expiry dates", "grocery list app that tracks expiry", "shopping list app that tracks food expiry"]

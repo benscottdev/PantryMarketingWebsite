@@ -3,7 +3,7 @@ slug: what-to-cook-with-leftovers-before-they-go-off
 title: "What to cook with leftovers before they go off: five dinners"
 excerpt: "Cooked leftovers last three days in the fridge, two for rice, per the NSW Food Authority. Five dinners that turn a container on its last day into something nobody at the table recognises as leftovers."
 tag: COOKING
-publishDate: 2026-09-26
+publishDate: 2026-09-15
 image: /assets/blog/blog-what-to-cook-with-leftovers-before-they-go-off.svg
 imageAlt: "Two glass containers of leftover roast vegetables and rice on a bench beside a frying pan and eggs"
 keywords: ["what to cook with leftovers before they go off", "what to do with leftovers", "leftover dinner ideas", "how to use up leftovers"]

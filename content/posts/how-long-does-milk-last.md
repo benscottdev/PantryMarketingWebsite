@@ -48,7 +48,7 @@ Milk that smells fine and looks fine is fine to drink, even a day past the date.
 
 ## Long-life vs fresh
 
-UHT (long-life) milk plays by a different set of rules. Sterilised at a higher temperature, it can sit unrefrigerated and sealed for months. Opened, though, it becomes ordinary milk from that point on: back in the fridge, same five-to-seven-day clock. The long shelf life belongs to the unopened carton, not to the milk itself.
+UHT (long-life) milk plays by a different set of rules. Sterilised at a higher temperature, it can sit unrefrigerated and sealed for months. Opened, though, it becomes ordinary milk from that point on: back in the fridge, same five-to-seven-day clock. The long shelf life belongs to the unopened carton, not to the milk itself. [Cream](/resources/how-long-does-cream-last-after-opening) is the other carton in the same door, on a five-day clock.
 
 ## Two bottles in the fridge
 

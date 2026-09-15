@@ -30,7 +30,7 @@ Three days works if the household knows the clock is running. That means:
 
 - **Plan the chicken meal first, everything else around it.** Chicken in the fridge has first claim on a dinner slot within its window — not “whatever we feel like Wednesday.”
 - **Freeze it on day one if the week is uncertain.** There is no penalty for freezing chicken straight after the shop when you are not sure which night it will be cooked. It defrosts fine — [in the fridge, not on the bench](/resources/defrosting-chicken-safely) — and the three-day clock simply has not started yet.
-- **Cook it even if plans change.** Cooked chicken keeps for the [normal three-day leftovers window](/resources/how-long-do-leftovers-keep) from there — so cooking on day three and eating over the next few days is a legitimate way to use it, even when the original dinner plan fell through.
+- **Cook it even if plans change.** Cooked chicken keeps for [its own three-day window](/resources/how-long-does-cooked-chicken-last-in-the-fridge) from there — so cooking on day three and eating over the next few days is a legitimate way to use it, even when the original dinner plan fell through.
 
 ## Signs to trust alongside the date
 

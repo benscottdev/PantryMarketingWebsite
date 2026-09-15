@@ -4,6 +4,7 @@ title: "Why the nudge lands at 5:30pm"
 excerpt: "Two notifications a day, timed to the two moments a kitchen decision is possible — the design thinking behind Pantry’s digest and nudge."
 tag: PRODUCT
 publishDate: 2026-09-06
+updated: 2026-09-15
 image: /assets/blog/blog-why-the-nudge-lands-at-530.svg
 imageAlt: "A phone lock screen at 5:30pm showing a dinner suggestion notification"
 keywords: ["food expiry reminder app notifications", "meal reminder notification timing", "expiry alert app design"]
@@ -27,6 +28,6 @@ And it is built to name a meal, not a deadline. The standing example: “Your le
 
 ## Two, and no more
 
-The quietest design decision is the ceiling. Two timed notifications a day is the lot, because an app that pings every time something ages becomes an app that gets muted, and a muted expiry tracker is [a $48-a-week leak](/resources/what-food-waste-costs-per-week) with an icon. Notification design for a years-long habit optimises for the day you keep listening, not the day you install — so each one has to arrive when a decision is live, say which food and which meal, and otherwise stay silent.
+The quietest design decision is the ceiling. Two timed notifications a day is the lot, because an app that pings every time something ages becomes an app that gets muted, and a muted expiry tracker is [a $48-a-week leak](/resources/what-food-waste-costs-per-week) with an icon. [A use-by reminder](/resources/app-that-reminds-you-of-use-by-dates) has to be one you keep listening to. Notification design for a years-long habit optimises for the day you keep listening, not the day you install — so each one has to arrive when a decision is live, say which food and which meal, and otherwise stay silent.
 
 That is the entire philosophy: [the data behind the countdown](/resources/where-pantrys-expiry-dates-come-from) decides what is true, and the clock decides when saying it can still change dinner.

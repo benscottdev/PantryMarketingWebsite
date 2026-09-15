@@ -4,6 +4,7 @@ title: "One list, one fridge: shared shopping that works"
 excerpt: "Two people, two pictures of the same fridge, and a doubled-up carton of milk. Pantry replaces both with one list everyone sees."
 tag: HOUSEHOLD
 publishDate: 2026-08-30
+updated: 2026-09-15
 image: /assets/blog/blog-shared-shopping-that-works.svg
 imageAlt: "Two people looking at a phone together in a kitchen, groceries on the counter"
 keywords: ["shared grocery list household", "couples family grocery shopping app"]
@@ -19,7 +20,7 @@ One person can hold a rough picture of their own fridge — not a perfect one, b
 
 ## The list Pantry keeps in sync
 
-This is the exact gap Pantry’s household sharing is built to close. Photograph the receipt from Coles, Woolworths or Aldi — no barcode to scan item by item, nothing typed in from memory — and [the whole basket becomes a shared list in one pass](/#how), reading the shop’s own abbreviations, with an expiry date already attached to every item. Nobody has to open the app and type “milk” after unpacking the shop for the list to be right. It stays right because it updates itself from what was bought, at the moment it was bought.
+This is the exact gap Pantry’s household sharing is built to close. Photograph the receipt from Coles, Woolworths or Aldi — no barcode to scan item by item, nothing typed in from memory — and [the whole basket becomes a shared list in one pass](/#how), reading the shop’s own abbreviations, with an expiry date already attached to every item. Nobody has to open the app and type “milk” after unpacking the shop for the list to be right — which is why Pantry is [not a shopping list app](/resources/shopping-list-app-with-expiry-dates) and does not try to be one. It stays right because it updates itself from what was bought, at the moment it was bought.
 
 Up to six people share the one Pantry subscription, and every one of them sees the same update at the same time. Household sharing is built around the receipt as the entry point, not bolted on afterwards — the list two people need is the one neither of them has to keep up by hand.
 

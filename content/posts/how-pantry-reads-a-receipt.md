@@ -4,6 +4,7 @@ title: "How Pantry reads a faded, crumpled grocery receipt"
 excerpt: "Thermal print fades, names arrive abbreviated, and a code sometimes sits where a tomato should be. Inside the problem Pantry is built around."
 tag: PRODUCT
 publishDate: 2026-08-25
+updated: 2026-09-15
 image: /assets/blog/blog-how-pantry-reads-a-receipt.svg
 imageAlt: "A crumpled supermarket receipt flattened on a bench next to a phone camera"
 keywords: ["receipt scanning how it works", "grocery receipt ocr", "scan receipt to list app"]
@@ -19,7 +20,7 @@ Everything Pantry does downstream — the countdowns, the digest, the [use-it-to
 
 Reading it is the hard part, and the reasons are worth being plain about.
 
-- **Abbreviation is the norm.** Receipt printers work a narrow roll, so names arrive compressed and inconsistent, differing between chains and sometimes between stores of the same chain. Pantry reads the receipt itself rather than matching one supermarket’s template, which is what lets Coles, Woolworths, IGA, Aldi and the corner grocer all go through the same way.
+- **Abbreviation is the norm.** Receipt printers work a narrow roll, so names arrive compressed and inconsistent, differing between chains and sometimes between stores of the same chain. Pantry reads the receipt itself rather than matching one supermarket’s template, which is what lets [Coles, Woolworths, IGA, Aldi and the corner grocer](/resources/does-pantry-read-coles-woolworths-aldi-receipts) all go through the same way.
 - **Thermal print fades.** The receipt photographed on shopping day is a different document to the one found in a pocket a week later. Sooner is better, and shopping day is best.
 - **Not everything on a receipt is food.** Dishwashing tablets do not have a use-by date worth tracking. The reader is built to filter non-food lines out on purpose — Pantry tracks grocery shelf life, not your whole shopping history.
 

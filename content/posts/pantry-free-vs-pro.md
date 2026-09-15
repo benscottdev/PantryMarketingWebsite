@@ -3,7 +3,7 @@ slug: pantry-free-vs-pro
 title: "Is Pantry free, and what does Pro cost?"
 excerpt: "Yes, Free is a real plan with no trial clock. Pro is $4.99 a month or $49.99 a year, billed by Apple, and it exists for the household rather than the individual."
 tag: PLANS
-publishDate: 2026-10-15
+publishDate: 2026-09-15
 image: /assets/blog/blog-pantry-free-vs-pro.svg
 imageAlt: "Two plan cards side by side on a phone, Free and Pro, propped on a kitchen bench"
 keywords: ["is pantry app free", "pantry app free vs pro"]

@@ -50,29 +50,29 @@ CSIRO-sourced shelf-life queries carrying the "once opened" / "after opening"
 / "in the fridge" modifiers, and five app-focused queries. None was in the
 Covered list. The unstruck lines are candidates held back or scrapped, with
 the reason. -->
-~~how long does cheese last in the fridge | STORAGE | high | CSIRO three cheese rows; once-opened H2; 13 Oct 2026~~
-~~is pantry app free | PLANS | high | commercial; Free vs Pro terms from the FAQ and plan cards; 15 Oct 2026~~
+~~how long does cheese last in the fridge | STORAGE | high | CSIRO three cheese rows; once-opened H2; published 15 Sep 2026~~
+~~is pantry app free | PLANS | high | commercial; Free vs Pro terms from the FAQ and plan cards; published 15 Sep 2026~~
 ~~app that suggests meals from what you have | PRODUCT | high | commercial; receipt-to-meals, carries the scanning-accuracy framing; 15 Sep 2026~~
-~~how long does cream last after opening | STORAGE | high | CSIRO 5 days; thickened/pure/double variants; 17 Sep 2026~~
-~~how long does christmas ham last in the fridge | SEASONAL | high | whole ham 2-3 wks vs sliced 4-5 days, CSIRO deli section; 22 Sep 2026~~
-~~how long do prawns last in the fridge | SEASONAL | high | CSIRO crustaceans and molluscs 2 days; oysters variant H2; 24 Sep 2026~~
-~~freezer inventory app | APPS | high | commercial; date-frozen not defrost-by, FSIC; 29 Sep 2026~~
-~~how long does bacon last in the fridge | STORAGE | high | CSIRO cured meat 2-3 wks, held at 2; once-opened H2; 1 Oct 2026~~
-~~food waste tracking app australia | WASTE | high | commercial; digest counts waste before it happens, FFW CRC under-reporting; 6 Oct 2026~~
-~~fridge inventory spreadsheet | HOUSEHOLD | high | commercial; DIY-template searchers, why the sheet dies and what the receipt replaces; 8 Oct 2026~~
+~~how long does cream last after opening | STORAGE | high | CSIRO 5 days; thickened/pure/double variants; published 15 Sep 2026~~
+~~how long does christmas ham last in the fridge | SEASONAL | high | whole ham 2-3 wks vs sliced 4-5 days, CSIRO deli section; published 15 Sep 2026~~
+~~how long do prawns last in the fridge | SEASONAL | high | CSIRO crustaceans and molluscs 2 days; oysters variant H2; published 15 Sep 2026~~
+~~freezer inventory app | APPS | high | commercial; date-frozen not defrost-by, FSIC; published 15 Sep 2026~~
+~~how long does bacon last in the fridge | STORAGE | high | CSIRO cured meat 2-3 wks, held at 2; once-opened H2; published 15 Sep 2026~~
+~~food waste tracking app australia | WASTE | high | commercial; digest counts waste before it happens, FFW CRC under-reporting; published 15 Sep 2026~~
+~~fridge inventory spreadsheet | HOUSEHOLD | high | commercial; DIY-template searchers, why the sheet dies and what the receipt replaces; published 15 Sep 2026~~
 <!-- Added 15 Sep 2026 from the first GSC pull (28 Aug – 13 Sep 2026: 396
 impressions, 2 clicks, 12 pages with any impressions). Every visible query
 was a shelf-life or storage query; no app-intent query had a single
 impression, so the app-focused lines below carry no GSC number and are
 ranked on commercial intent instead. Impressions are 28-day GSC figures
 where one exists. Ordered by priority, app-focused first. -->
-~~does pantry read coles woolworths aldi receipts | PRODUCT | high | commercial; written 15 Sep 2026, publishes 19 Sep 2026; when live, link to it from receipt-scanning-apps-compared and how-pantry-reads-a-receipt~~
-~~how to keep track of food in the fridge | APPS | high | commercial top-of-funnel; written 15 Sep 2026, publishes 10 Oct 2026 (after fridge-inventory-spreadsheet, which it links); when live, link to it from how-long-food-lasts and sharehouse-fridge-rule~~
-~~what to cook with leftovers before they go off | COOKING | high | written 15 Sep 2026, publishes 26 Sep 2026; when live, link to it from how-long-do-leftovers-keep and christmas-leftovers-what-keeps~~
-~~shopping list app with expiry dates | APPS | high | written 15 Sep 2026, publishes 3 Oct 2026; states plainly that Pantry has no shopping list; when live, link to it from shared-shopping-that-works and expiry-tracker-apps-what-to-look-for~~
-~~app that reminds you of use by dates | APPS | med | written 15 Sep 2026, publishes 17 Oct 2026; leads with the use-by / best-before split; when live, link to it from best-before-vs-use-by and why-the-nudge-lands-at-530~~
+~~does pantry read coles woolworths aldi receipts | PRODUCT | high | commercial; written and published 15 Sep 2026; linked from receipt-scanning-apps-compared and how-pantry-reads-a-receipt on 15 Sep 2026~~
+~~how to keep track of food in the fridge | APPS | high | commercial top-of-funnel; written and published 15 Sep 2026; linked from how-long-food-lasts and sharehouse-fridge-rule on 15 Sep 2026~~
+~~what to cook with leftovers before they go off | COOKING | high | written and published 15 Sep 2026; linked from how-long-do-leftovers-keep and christmas-leftovers-what-keeps on 15 Sep 2026~~
+~~shopping list app with expiry dates | APPS | high | written and published 15 Sep 2026; states plainly that Pantry has no shopping list; linked from shared-shopping-that-works and expiry-tracker-apps-what-to-look-for on 15 Sep 2026~~
+~~app that reminds you of use by dates | APPS | med | written and published 15 Sep 2026; leads with the use-by / best-before split; linked from best-before-vs-use-by and why-the-nudge-lands-at-530 on 15 Sep 2026~~
 how to store raw chicken in the fridge | STORAGE | med | not a new post: add an H2 to chicken-in-the-fridge-three-days; 8 impressions at pos 36–47 for storing/how-to-store variants the post never answers; needs a sourced bottom-shelf / covered claim (NSW Food Authority) and a COPY-SOURCES row first
-~~how long does cooked chicken last in the fridge | STORAGE | med | written 15 Sep 2026, publishes 20 Oct 2026; H2s stay chicken-specific; when live, link to it from chicken-in-the-fridge-three-days and how-long-do-leftovers-keep~~
+~~how long does cooked chicken last in the fridge | STORAGE | med | written and published 15 Sep 2026; H2s stay chicken-specific; linked from chicken-in-the-fridge-three-days and how-long-do-leftovers-keep on 15 Sep 2026~~
 how long does unopened milk last in the fridge | STORAGE | low | not a new post: covered by the once-opened / carton H2s added to how-long-does-milk-last on 15 Sep 2026; 7 impressions for the bare query at pos 20; revisit only if it does not move by mid October
 how long does raw meat last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026 as least likely; CSIRO meat 3-5 held at 3 if revived
 how long does butter last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026 as least likely; CSIRO 8 wks, data.js 30 days

@@ -3,7 +3,7 @@ slug: fridge-inventory-spreadsheet
 title: "Does a fridge inventory spreadsheet work?"
 excerpt: "For about a week. The sheet needs every item typed in by whoever did the shopping, and it dies the first shop that does not get entered. Pantry fills the same columns from one photo of the receipt."
 tag: HOUSEHOLD
-publishDate: 2026-10-08
+publishDate: 2026-09-15
 image: /assets/blog/blog-fridge-inventory-spreadsheet.svg
 imageAlt: "A laptop with a half-filled fridge inventory spreadsheet next to a phone showing the same list filled from a receipt"
 keywords: ["fridge inventory spreadsheet", "pantry inventory spreadsheet template"]
