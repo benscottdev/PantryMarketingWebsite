@@ -9,12 +9,12 @@ Last verified: 25 August 2026.
 
 | Claim | Where it appears | Source |
 | --- | --- | --- |
-| $2,500 of food binned per Australian household per year | `Problem.jsx` counter, FAQ pricing answer, `content/posts/household-food-waste-by-the-numbers.md`, `content/posts/food-waste-in-australia-the-numbers.md`, Loader facts, `index.html` meta | Fight Food Waste CRC (2021), collected at [End Food Waste Australia fact library](https://endfoodwaste.com.au/fact-library/) |
+| $2,500 of food binned per Australian household per year | `Problem.jsx` counter, FAQ pricing answer, `content/posts/household-food-waste-by-the-numbers.md`, `content/posts/food-waste-in-australia-the-numbers.md`, Loader facts, `index.html` meta, `content/posts/how-to-keep-track-of-food-in-the-fridge.md` | Fight Food Waste CRC (2021), collected at [End Food Waste Australia fact library](https://endfoodwaste.com.au/fact-library/) |
 | 265 kg per household per year | `content/posts/household-food-waste-by-the-numbers.md`, `content/posts/food-waste-in-australia-the-numbers.md`, Loader facts, `Calculator.jsx` sources | FIAL, *National Food Waste Strategy Feasibility Study* (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
 | 7.6 million tonnes of food wasted nationally | `Problem.jsx` | FIAL (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) and [DCCEEW](https://www.dcceew.gov.au/environment/protection/waste/food-waste) |
 | $36.6 billion a year, ~1.4% of GDP, across the whole food chain | `Problem.jsx` | FIAL (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/36-6-billion-a-year-wasted-food-waste-drains-1-4-of-australias-gdp-and-weakens-food-security/) |
 | 2.46 Mt from households, almost a third of all Australian food waste | `Calculator.jsx` sources, `content/posts/where-the-2500-goes.md`, `content/posts/food-waste-in-australia-the-numbers.md` | FIAL (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
-| Households bin more than twice what they think they do | `Calculator.jsx` sources, `content/posts/household-food-waste-by-the-numbers.md` | Fight Food Waste CRC (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
+| Households bin more than twice what they think they do | `Calculator.jsx` sources, `content/posts/household-food-waste-by-the-numbers.md`, `content/posts/how-to-keep-track-of-food-in-the-fridge.md` | Fight Food Waste CRC (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
 | One grocery bag in five ends up in the bin | Loader facts, `content/posts/save-money-on-groceries-without-buying-less.md` | [DCCEEW food waste](https://www.dcceew.gov.au/environment/protection/waste/food-waste) |
 | ~$48 a week | `content/posts/what-food-waste-costs-per-week.md` | Derived, and shown as derived in the post: $2,500 (Fight Food Waste CRC) ÷ 52 |
 | ~$47 saved per 5 kg of food rescued | `content/posts/what-food-waste-costs-per-week.md` | Derived, and shown as derived in the post: 5 × the $9.43/kg figure below |
@@ -72,6 +72,21 @@ in `content/posts/how-long-do-eggs-last.md`, poultry 3 days (thawed handling)
 in `content/posts/defrosting-chicken-safely.md`, and the guide as a whole in
 `content/posts/where-pantrys-expiry-dates-come-from.md`.
 
+### 15 September 2026: two app posts from the first GSC pull
+
+`content/posts/does-pantry-read-coles-woolworths-aldi-receipts.md` and
+`content/posts/how-to-keep-track-of-food-in-the-fridge.md` restate claims the
+site already makes and add none: the receipt reader (Coles, Woolworths, IGA,
+Aldi and the corner grocer through one reader; abbreviation differs between
+chains and between stores; thermal fade; non-food lines filtered; confirm step
+and two-tap fix; no accuracy number) from `how-pantry-reads-a-receipt.md` and
+the scanning FAQ; "trained on Australian receipt data in English" from the
+"Is Pantry available worldwide?" FAQ; poultry 3 days and milk 5–7 days from
+the CSIRO list above; the 7:30am digest on every plan, the 5:30pm Pro nudge
+and its standing mince example from `why-the-nudge-lands-at-530.md` and
+`src/site/data.js`; the six-person household from the Pro FAQ. Neither post
+says or implies the app has shipped.
+
 ### September – October 2026 batch (5 shelf-life posts, 5 app posts)
 
 Re-verified against the CSIRO page and the Sustainability Victoria page on
@@ -123,7 +138,7 @@ this reason and sit in `content/keyword-queue.md` as held back.
 
 | Claim | Where it appears | Source |
 | --- | --- | --- |
-| Cooked leftovers keep 3 days refrigerated; cooked rice/pasta 2 days | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/how-long-food-lasts.md`, `content/posts/christmas-leftovers-what-keeps.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
+| Cooked leftovers keep 3 days refrigerated; cooked rice/pasta 2 days | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/how-long-food-lasts.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/how-to-keep-track-of-food-in-the-fridge.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
 | Two-hour/four-hour rule for food held between 5°C and 60°C, cumulative across a day | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/summer-fridge-food-safety.md`, `content/posts/christmas-leftovers-what-keeps.md` | [NSW Food Authority, managing potentially hazardous foods](https://www.foodauthority.nsw.gov.au/help/managing-potentially-hazardous-foods) |
 | Reheat leftovers to steaming hot, 60°C or above throughout | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/christmas-leftovers-what-keeps.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
 

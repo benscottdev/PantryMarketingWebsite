@@ -66,8 +66,8 @@ was a shelf-life or storage query; no app-intent query had a single
 impression, so the app-focused lines below carry no GSC number and are
 ranked on commercial intent instead. Impressions are 28-day GSC figures
 where one exists. Ordered by priority, app-focused first. -->
-does pantry read coles woolworths aldi receipts | PRODUCT | high | commercial; supermarket-named receipt query, the one angle no competitor post can take; abbreviations and thermal fade from how-pantry-reads-a-receipt; link from receipt-scanning-apps-compared; no GSC signal yet
-how to keep track of food in the fridge | APPS | high | commercial top-of-funnel; the question people ask before they know an app exists; opener is the receipt photo, then the digest; link from how-long-food-lasts and sharehouse-fridge-rule; no GSC signal yet
+~~does pantry read coles woolworths aldi receipts | PRODUCT | high | commercial; written 15 Sep 2026, publishes 19 Sep 2026; when live, link to it from receipt-scanning-apps-compared and how-pantry-reads-a-receipt~~
+~~how to keep track of food in the fridge | APPS | high | commercial top-of-funnel; written 15 Sep 2026, publishes 10 Oct 2026 (after fridge-inventory-spreadsheet, which it links); when live, link to it from how-long-food-lasts and sharehouse-fridge-rule~~
 what to cook with leftovers before they go off | COOKING | high | app-relevant (what-to-cook); leftovers page is the site's second-strongest at pos 11 / 33 impressions with nothing to send that reader to next; same shape as mince-going-off-tonight; link from how-long-do-leftovers-keep and to receipt-to-meals; NSW Food Authority 3 days
 shopping list app with expiry dates | APPS | high | commercial; list-first searchers who want the expiry side bolted on; Pantry has it the other way round; do not re-target shared grocery list household (covered); no GSC signal yet
 app that reminds you of use by dates | APPS | med | commercial; best-before-vs-use-by draws 33 impressions of use-by queries at pos 32 and hands them nowhere; short post, closes on the nudge; risk of overlapping expiry-tracker-apps-what-to-look-for, so lead with the use-by / best-before split not the feature list
@@ -134,3 +134,10 @@ what is in my freezer · how long does bacon last in the fridge · how long
 does bacon last once opened · food waste tracking app australia · how to
 track food waste at home · fridge inventory spreadsheet · pantry inventory
 spreadsheet template
+
+Added 15 September 2026 (42 posts total):
+
+does pantry read coles woolworths aldi receipts · coles receipt scanner app ·
+woolworths receipt scanning app · aldi receipt app · how to keep track of
+food in the fridge · how to keep track of what is in your fridge · fridge
+food tracker app · keep track of expiry dates
