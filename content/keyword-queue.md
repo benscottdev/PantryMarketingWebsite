@@ -68,8 +68,8 @@ ranked on commercial intent instead. Impressions are 28-day GSC figures
 where one exists. Ordered by priority, app-focused first. -->
 ~~does pantry read coles woolworths aldi receipts | PRODUCT | high | commercial; written 15 Sep 2026, publishes 19 Sep 2026; when live, link to it from receipt-scanning-apps-compared and how-pantry-reads-a-receipt~~
 ~~how to keep track of food in the fridge | APPS | high | commercial top-of-funnel; written 15 Sep 2026, publishes 10 Oct 2026 (after fridge-inventory-spreadsheet, which it links); when live, link to it from how-long-food-lasts and sharehouse-fridge-rule~~
-what to cook with leftovers before they go off | COOKING | high | app-relevant (what-to-cook); leftovers page is the site's second-strongest at pos 11 / 33 impressions with nothing to send that reader to next; same shape as mince-going-off-tonight; link from how-long-do-leftovers-keep and to receipt-to-meals; NSW Food Authority 3 days
-shopping list app with expiry dates | APPS | high | commercial; list-first searchers who want the expiry side bolted on; Pantry has it the other way round; do not re-target shared grocery list household (covered); no GSC signal yet
+~~what to cook with leftovers before they go off | COOKING | high | written 15 Sep 2026, publishes 26 Sep 2026; when live, link to it from how-long-do-leftovers-keep and christmas-leftovers-what-keeps~~
+~~shopping list app with expiry dates | APPS | high | written 15 Sep 2026, publishes 3 Oct 2026; states plainly that Pantry has no shopping list; when live, link to it from shared-shopping-that-works and expiry-tracker-apps-what-to-look-for~~
 app that reminds you of use by dates | APPS | med | commercial; best-before-vs-use-by draws 33 impressions of use-by queries at pos 32 and hands them nowhere; short post, closes on the nudge; risk of overlapping expiry-tracker-apps-what-to-look-for, so lead with the use-by / best-before split not the feature list
 how to store raw chicken in the fridge | STORAGE | med | not a new post: add an H2 to chicken-in-the-fridge-three-days; 8 impressions at pos 36–47 for storing/how-to-store variants the post never answers; needs a sourced bottom-shelf / covered claim (NSW Food Authority) and a COPY-SOURCES row first
 how long does cooked chicken last in the fridge | STORAGE | med | NSW Food Authority 3 days, same as leftovers; distinct from the raw post; watch for cannibalising how-long-do-leftovers-keep, so the H2s stay chicken-specific (cooked from raw on day three, roast chicken, shredded)
@@ -135,9 +135,12 @@ does bacon last once opened · food waste tracking app australia · how to
 track food waste at home · fridge inventory spreadsheet · pantry inventory
 spreadsheet template
 
-Added 15 September 2026 (42 posts total):
+Added 15 September 2026 (44 posts total):
 
 does pantry read coles woolworths aldi receipts · coles receipt scanner app ·
 woolworths receipt scanning app · aldi receipt app · how to keep track of
 food in the fridge · how to keep track of what is in your fridge · fridge
-food tracker app · keep track of expiry dates
+food tracker app · keep track of expiry dates · what to cook with leftovers
+before they go off · what to do with leftovers · leftover dinner ideas · how
+to use up leftovers · shopping list app with expiry dates · grocery list app
+that tracks expiry

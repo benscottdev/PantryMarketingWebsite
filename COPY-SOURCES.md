@@ -9,7 +9,7 @@ Last verified: 25 August 2026.
 
 | Claim | Where it appears | Source |
 | --- | --- | --- |
-| $2,500 of food binned per Australian household per year | `Problem.jsx` counter, FAQ pricing answer, `content/posts/household-food-waste-by-the-numbers.md`, `content/posts/food-waste-in-australia-the-numbers.md`, Loader facts, `index.html` meta, `content/posts/how-to-keep-track-of-food-in-the-fridge.md` | Fight Food Waste CRC (2021), collected at [End Food Waste Australia fact library](https://endfoodwaste.com.au/fact-library/) |
+| $2,500 of food binned per Australian household per year | `Problem.jsx` counter, FAQ pricing answer, `content/posts/household-food-waste-by-the-numbers.md`, `content/posts/food-waste-in-australia-the-numbers.md`, Loader facts, `index.html` meta, `content/posts/how-to-keep-track-of-food-in-the-fridge.md`, `content/posts/what-to-cook-with-leftovers-before-they-go-off.md` | Fight Food Waste CRC (2021), collected at [End Food Waste Australia fact library](https://endfoodwaste.com.au/fact-library/) |
 | 265 kg per household per year | `content/posts/household-food-waste-by-the-numbers.md`, `content/posts/food-waste-in-australia-the-numbers.md`, Loader facts, `Calculator.jsx` sources | FIAL, *National Food Waste Strategy Feasibility Study* (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) |
 | 7.6 million tonnes of food wasted nationally | `Problem.jsx` | FIAL (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/fact-library/) and [DCCEEW](https://www.dcceew.gov.au/environment/protection/waste/food-waste) |
 | $36.6 billion a year, ~1.4% of GDP, across the whole food chain | `Problem.jsx` | FIAL (2021), via [End Food Waste Australia](https://endfoodwaste.com.au/36-6-billion-a-year-wasted-food-waste-drains-1-4-of-australias-gdp-and-weakens-food-security/) |
@@ -87,6 +87,16 @@ and its standing mince example from `why-the-nudge-lands-at-530.md` and
 `src/site/data.js`; the six-person household from the Pro FAQ. Neither post
 says or implies the app has shipped.
 
+Two more on the same day: `content/posts/what-to-cook-with-leftovers-before-they-go-off.md`
+(NSW Food Authority 3 days / 2 days for rice, the reheating rule and the
+two-hour/four-hour rule, all from the rows above; the five dinners are
+directions, not claims, in the same shape as `mince-going-off-tonight.md`)
+and `content/posts/shopping-list-app-with-expiry-dates.md` (states plainly
+that Pantry has no shopping list — `HowItWorks.jsx` "you never type a shopping
+list again" and `Meals.jsx` "not on another shopping list" are the site's own
+line; marking items as used from `Household.jsx`; CSIRO poultry and milk from
+the list above). Neither says or implies the app has shipped.
+
 ### September – October 2026 batch (5 shelf-life posts, 5 app posts)
 
 Re-verified against the CSIRO page and the Sustainability Victoria page on
@@ -119,7 +129,7 @@ already say. No post says or implies the app has shipped.
 | Pantry's list spans fridge, pantry and freezer; it records the date an item went into the freezer and gives no defrost-by countdown | `content/posts/freezer-inventory-app.md`, `content/posts/fridge-inventory-spreadsheet.md` | FAQ ("across fridge, pantry and freezer"); `freezer-times-explained.md`; `defrosting-chicken-safely.md` |
 | Frozen food safe indefinitely, quality is the limit; fridge-freezer a few weeks, chest freezer at -18°C three months or more depending on fat | `content/posts/freezer-inventory-app.md` | Existing "Freezer storage" row (Food Safety Information Council) |
 | Households under-report waste by more than half; $2,500 and 265 kg a year; Rabobank self-reported 11.1% | `content/posts/food-waste-tracking-app.md` | Existing rows above |
-| Household members mark items as they go ("Marked the milk as opened", "Used the baby spinach"); one shared list on every phone; stop buying it twice | `content/posts/fridge-inventory-spreadsheet.md`, `content/posts/freezer-inventory-app.md` | `Household.jsx`; `six-phones-one-pantry.md` |
+| Household members mark items as they go ("Marked the milk as opened", "Used the baby spinach"); one shared list on every phone; stop buying it twice | `content/posts/fridge-inventory-spreadsheet.md`, `content/posts/freezer-inventory-app.md`, `content/posts/shopping-list-app-with-expiry-dates.md` | `Household.jsx`; `six-phones-one-pantry.md` |
 | The example receipt on the site runs to 18 items | `content/posts/fridge-inventory-spreadsheet.md` | `src/site/data.js` `receiptMeta.totalItems` |
 
 **Open discrepancy found while verifying, deliberately not fixed in this
@@ -138,9 +148,9 @@ this reason and sit in `content/keyword-queue.md` as held back.
 
 | Claim | Where it appears | Source |
 | --- | --- | --- |
-| Cooked leftovers keep 3 days refrigerated; cooked rice/pasta 2 days | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/how-long-food-lasts.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/how-to-keep-track-of-food-in-the-fridge.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
-| Two-hour/four-hour rule for food held between 5°C and 60°C, cumulative across a day | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/summer-fridge-food-safety.md`, `content/posts/christmas-leftovers-what-keeps.md` | [NSW Food Authority, managing potentially hazardous foods](https://www.foodauthority.nsw.gov.au/help/managing-potentially-hazardous-foods) |
-| Reheat leftovers to steaming hot, 60°C or above throughout | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/christmas-leftovers-what-keeps.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
+| Cooked leftovers keep 3 days refrigerated; cooked rice/pasta 2 days | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/how-long-food-lasts.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/how-to-keep-track-of-food-in-the-fridge.md`, `content/posts/what-to-cook-with-leftovers-before-they-go-off.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
+| Two-hour/four-hour rule for food held between 5°C and 60°C, cumulative across a day | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/summer-fridge-food-safety.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/what-to-cook-with-leftovers-before-they-go-off.md` | [NSW Food Authority, managing potentially hazardous foods](https://www.foodauthority.nsw.gov.au/help/managing-potentially-hazardous-foods) |
+| Reheat leftovers to steaming hot, 60°C or above throughout | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/what-to-cook-with-leftovers-before-they-go-off.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
 
 These three were already live on the site via `how-long-do-leftovers-keep.md` and
 `summer-fridge-food-safety.md` before this row existed; adding them here closes
