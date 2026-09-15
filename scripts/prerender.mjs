@@ -186,10 +186,14 @@ function blogCardHtml(post) {
 
 function writeIndexPage(original, posts) {
 	const url = `${SITE_URL}/resources`
-	const title = `Notes from the fridge. | ${SITE_NAME}`
+	// The title prop Resources.jsx sets (Legal.jsx appends the site name), so
+	// the static <title> and the one React writes on mount are the same string.
+	// The H1 keeps its own line; the title tag is what carries the query terms.
+	const titleText = 'Food storage, shelf life and how the app works'
+	const title = `${titleText} | ${SITE_NAME}`
 	// The description prop Resources.jsx actually sets, so the static head and
 	// the head React swaps in on mount say the same thing.
-	const description = 'Notes on food waste, household pantries, and how Pantry works, from receipt scan to dinner.'
+	const description = 'How long food lasts in the fridge, what to cook before it turns, and how Pantry works, from receipt scan to dinner. Every number sourced.'
 	const lede = 'Short reads on food waste, shared pantries, and how Pantry actually works. Every number we quote comes with the place it came from.'
 
 	const breadcrumbLd = breadcrumbJsonLd([
@@ -201,12 +205,12 @@ function writeIndexPage(original, posts) {
 		<link rel="canonical" href="${url}" />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="${SITE_NAME}" />
-		<meta property="og:title" content="Notes from the fridge." />
+		<meta property="og:title" content="${escapeHtml(titleText)}" />
 		<meta property="og:description" content="${escapeHtml(description)}" />
 		<meta property="og:url" content="${url}" />
 		<meta property="og:image" content="${DEFAULT_OG}" />
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Notes from the fridge." />
+		<meta name="twitter:title" content="${escapeHtml(titleText)}" />
 		<meta name="twitter:description" content="${escapeHtml(description)}" />
 		<meta name="twitter:image" content="${DEFAULT_OG}" />
 		<script type="application/ld+json">${escapeJsonForScriptTag(breadcrumbLd)}</script>

@@ -6,7 +6,7 @@ export default function Resources() {
   return (
     <Legal
       wide
-      title="Notes from the fridge."
+      title="Food storage, shelf life and how the app works"
       heading={
         <>
           Notes from the <em>fridge.</em>
@@ -15,7 +15,7 @@ export default function Resources() {
       eyebrow="RESOURCES"
       updated={false}
       lede="Short reads on food waste, shared pantries, and how Pantry actually works. Every number we quote comes with the place it came from."
-      description="Notes on food waste, household pantries, and how Pantry works, from receipt scan to dinner."
+      description="How long food lasts in the fridge, what to cook before it turns, and how Pantry works, from receipt scan to dinner. Every number sourced."
     >
       <div className="blog-grid">
         {articles.map((post) => {
