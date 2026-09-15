@@ -70,9 +70,9 @@ where one exists. Ordered by priority, app-focused first. -->
 ~~how to keep track of food in the fridge | APPS | high | commercial top-of-funnel; written 15 Sep 2026, publishes 10 Oct 2026 (after fridge-inventory-spreadsheet, which it links); when live, link to it from how-long-food-lasts and sharehouse-fridge-rule~~
 ~~what to cook with leftovers before they go off | COOKING | high | written 15 Sep 2026, publishes 26 Sep 2026; when live, link to it from how-long-do-leftovers-keep and christmas-leftovers-what-keeps~~
 ~~shopping list app with expiry dates | APPS | high | written 15 Sep 2026, publishes 3 Oct 2026; states plainly that Pantry has no shopping list; when live, link to it from shared-shopping-that-works and expiry-tracker-apps-what-to-look-for~~
-app that reminds you of use by dates | APPS | med | commercial; best-before-vs-use-by draws 33 impressions of use-by queries at pos 32 and hands them nowhere; short post, closes on the nudge; risk of overlapping expiry-tracker-apps-what-to-look-for, so lead with the use-by / best-before split not the feature list
+~~app that reminds you of use by dates | APPS | med | written 15 Sep 2026, publishes 17 Oct 2026; leads with the use-by / best-before split; when live, link to it from best-before-vs-use-by and why-the-nudge-lands-at-530~~
 how to store raw chicken in the fridge | STORAGE | med | not a new post: add an H2 to chicken-in-the-fridge-three-days; 8 impressions at pos 36–47 for storing/how-to-store variants the post never answers; needs a sourced bottom-shelf / covered claim (NSW Food Authority) and a COPY-SOURCES row first
-how long does cooked chicken last in the fridge | STORAGE | med | NSW Food Authority 3 days, same as leftovers; distinct from the raw post; watch for cannibalising how-long-do-leftovers-keep, so the H2s stay chicken-specific (cooked from raw on day three, roast chicken, shredded)
+~~how long does cooked chicken last in the fridge | STORAGE | med | written 15 Sep 2026, publishes 20 Oct 2026; H2s stay chicken-specific; when live, link to it from chicken-in-the-fridge-three-days and how-long-do-leftovers-keep~~
 how long does unopened milk last in the fridge | STORAGE | low | not a new post: covered by the once-opened / carton H2s added to how-long-does-milk-last on 15 Sep 2026; 7 impressions for the bare query at pos 20; revisit only if it does not move by mid October
 how long does raw meat last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026 as least likely; CSIRO meat 3-5 held at 3 if revived
 how long does butter last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026 as least likely; CSIRO 8 wks, data.js 30 days
@@ -135,7 +135,7 @@ does bacon last once opened · food waste tracking app australia · how to
 track food waste at home · fridge inventory spreadsheet · pantry inventory
 spreadsheet template
 
-Added 15 September 2026 (44 posts total):
+Added 15 September 2026 (46 posts total):
 
 does pantry read coles woolworths aldi receipts · coles receipt scanner app ·
 woolworths receipt scanning app · aldi receipt app · how to keep track of
@@ -143,4 +143,7 @@ food in the fridge · how to keep track of what is in your fridge · fridge
 food tracker app · keep track of expiry dates · what to cook with leftovers
 before they go off · what to do with leftovers · leftover dinner ideas · how
 to use up leftovers · shopping list app with expiry dates · grocery list app
-that tracks expiry
+that tracks expiry · app that reminds you of use by dates · use by date reminder
+app · expiry date reminder app australia · how long does cooked chicken last
+in the fridge · how long does roast chicken last in the fridge · how long is
+cooked chicken good for

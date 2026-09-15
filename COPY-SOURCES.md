@@ -97,6 +97,17 @@ list again" and `Meals.jsx` "not on another shopping list" are the site's own
 line; marking items as used from `Household.jsx`; CSIRO poultry and milk from
 the list above). Neither says or implies the app has shipped.
 
+And two more: `content/posts/app-that-reminds-you-of-use-by-dates.md` (the
+FSANZ / NSW Food Authority date-label distinction from the "Date labels"
+section; CSIRO poultry and milk; the digest, nudge, two-a-day ceiling and
+six-person household from `why-the-nudge-lands-at-530.md` and the FAQ; states
+plainly that Pantry does not read the date printed on the pack, which the site
+has never claimed) and `content/posts/how-long-does-cooked-chicken-last-in-the-fridge.md`
+(NSW Food Authority 3 days / 2 days rice, the two-hour/four-hour rule and the
+reheating rule; CSIRO poultry 3 days; FSIC freezing; the cook-before-refreeze
+line from `defrosting-chicken-safely.md`). Neither says or implies the app has
+shipped.
+
 ### September – October 2026 batch (5 shelf-life posts, 5 app posts)
 
 Re-verified against the CSIRO page and the Sustainability Victoria page on
@@ -118,7 +129,7 @@ already say. No post says or implies the app has shipped.
 | Meat 3–5 days (the pork before curing) | `content/posts/how-long-does-bacon-last-in-the-fridge.md` | CSIRO |
 | The storage table is headed "Storage life of some chilled food in the coldest part of a refrigerator"; refrigeration tip to keep seafood and long-keep items in the coldest part | bacon, ham and prawns posts | CSIRO, table heading and "Refrigeration tips" |
 | Whipped cream on a served dessert, ham slices that sat out through lunch, and prawns on a platter are on the NSW Food Authority leftovers/2h-4h rules, not the CSIRO raw-storage line | cream, ham and prawns posts | Existing rows below (NSW Food Authority leftovers 3 days; 2h/4h rule) |
-| A use-by date is a safety date and overrides CSIRO's window where it lands earlier; a packet's own after-opening instruction is treated the same way | cheese, cream, ham and bacon posts | Existing "Date labels" row (FSANZ / NSW Food Authority) |
+| A use-by date is a safety date and overrides CSIRO's window where it lands earlier; a packet's own after-opening instruction is treated the same way | cheese, cream, ham and bacon posts, `content/posts/app-that-reminds-you-of-use-by-dates.md` | Existing "Date labels" row (FSANZ / NSW Food Authority) |
 | Free: 1 receipt scan a week, 2 meal generations a week, expiry tracking, morning digest, no card, no trial clock. Pro: unlimited scans and meal generations, afternoon nudge, household of up to six on one subscription (one admin pays, others join free by invite), priority support | `content/posts/pantry-free-vs-pro.md`, `content/posts/receipt-to-meals.md`, `content/posts/freezer-inventory-app.md`, `content/posts/fridge-inventory-spreadsheet.md`, `content/posts/food-waste-tracking-app.md` | `Features.jsx` plan cards; FAQ in `src/site/data.js` |
 | Pro $4.99/month or $49.99/year, billed by Apple, 7-day trial; not sold on the website; cancel from Apple ID settings in about four taps; waitlist members get founding pricing | `content/posts/pantry-free-vs-pro.md` | Existing "Product claims" rows; FAQ |
 | Yearly Pro costs about what the average household bins in a week ($2,500 ÷ 52 ≈ $48) | `content/posts/pantry-free-vs-pro.md`, `content/posts/food-waste-tracking-app.md` | Existing ~$48/week derived row; FAQ pricing answer |
@@ -148,9 +159,9 @@ this reason and sit in `content/keyword-queue.md` as held back.
 
 | Claim | Where it appears | Source |
 | --- | --- | --- |
-| Cooked leftovers keep 3 days refrigerated; cooked rice/pasta 2 days | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/how-long-food-lasts.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/how-to-keep-track-of-food-in-the-fridge.md`, `content/posts/what-to-cook-with-leftovers-before-they-go-off.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
-| Two-hour/four-hour rule for food held between 5°C and 60°C, cumulative across a day | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/summer-fridge-food-safety.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/what-to-cook-with-leftovers-before-they-go-off.md` | [NSW Food Authority, managing potentially hazardous foods](https://www.foodauthority.nsw.gov.au/help/managing-potentially-hazardous-foods) |
-| Reheat leftovers to steaming hot, 60°C or above throughout | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/what-to-cook-with-leftovers-before-they-go-off.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
+| Cooked leftovers keep 3 days refrigerated; cooked rice/pasta 2 days | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/how-long-food-lasts.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/how-to-keep-track-of-food-in-the-fridge.md`, `content/posts/what-to-cook-with-leftovers-before-they-go-off.md`, `content/posts/how-long-does-cooked-chicken-last-in-the-fridge.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
+| Two-hour/four-hour rule for food held between 5°C and 60°C, cumulative across a day | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/summer-fridge-food-safety.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/what-to-cook-with-leftovers-before-they-go-off.md`, `content/posts/how-long-does-cooked-chicken-last-in-the-fridge.md` | [NSW Food Authority, managing potentially hazardous foods](https://www.foodauthority.nsw.gov.au/help/managing-potentially-hazardous-foods) |
+| Reheat leftovers to steaming hot, 60°C or above throughout | `content/posts/how-long-do-leftovers-keep.md`, `content/posts/christmas-leftovers-what-keeps.md`, `content/posts/what-to-cook-with-leftovers-before-they-go-off.md`, `content/posts/how-long-does-cooked-chicken-last-in-the-fridge.md` | [NSW Food Authority, leftovers guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/leftovers) |
 
 These three were already live on the site via `how-long-do-leftovers-keep.md` and
 `summer-fridge-food-safety.md` before this row existed; adding them here closes
@@ -180,7 +191,7 @@ Australia carries a **use-by** date. [FSANZ](https://www.foodstandards.gov.au/co
 
 | Claim | Where it appears | Source |
 | --- | --- | --- |
-| Frozen food is safe indefinitely from a bacterial standpoint; quality, not safety, is the practical limit. A standard fridge-freezer combination holds quality for a few weeks; a chest freezer at -18°C holds it for three months or more depending on fat content | `content/posts/freezer-times-explained.md`, `content/posts/how-long-food-lasts.md` | [Food Safety Information Council, freezer storage times](https://www.foodsafety.asn.au/freezer-storage-times/) |
+| Frozen food is safe indefinitely from a bacterial standpoint; quality, not safety, is the practical limit. A standard fridge-freezer combination holds quality for a few weeks; a chest freezer at -18°C holds it for three months or more depending on fat content | `content/posts/freezer-times-explained.md`, `content/posts/how-long-food-lasts.md`, `content/posts/how-long-does-cooked-chicken-last-in-the-fridge.md` | [Food Safety Information Council, freezer storage times](https://www.foodsafety.asn.au/freezer-storage-times/) |
 
 No specific per-food freezer chart (e.g. "chicken freezes for N months") is
 published on the site. We looked for an authoritative Australian source for
