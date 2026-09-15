@@ -108,6 +108,11 @@ export function renderPost(filePath) {
 		image: data.image,
 		imageAlt: data.imageAlt,
 		keywords: data.keywords || [],
+		// `featured: true` in frontmatter promotes the post to the wide card at
+		// the top of /resources (Resources.jsx and prerender's writeIndexPage).
+		// One post at a time; the first in publishDate order wins if several
+		// carry it, and the newest post stands in if none does.
+		featured: data.featured === true,
 		html,
 		// The author's markdown, untouched. Only scripts/prerender.mjs reads it
 		// (for llms-full.txt); build-content.mjs strips it from the client index.

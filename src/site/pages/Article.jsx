@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Legal from '../Legal'
 import { PATHS, articlePath } from '../launch'
-import { getArticle, readingMins, articles } from '../content'
+import { getArticle, readingMins, articles, formatDisplayDate } from '../content'
 import { PRERENDER_BODY, PRERENDER_SLUG } from '../prerendered'
 
 // Lazy on purpose: production always has the body inlined by
@@ -9,16 +9,6 @@ import { PRERENDER_BODY, PRERENDER_SLUG } from '../prerendered'
 // `vite dev` and as a defensive fallback if the prerendered snapshot is ever
 // missing for some reason.
 const bodyModules = import.meta.glob('/content/posts/*.md')
-
-function formatDisplayDate(iso) {
-  const [y, m, d] = iso.split('-').map(Number)
-  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-AU', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    timeZone: 'UTC',
-  })
-}
 
 function useArticleHtml(slug) {
   const [html, setHtml] = useState(() => (PRERENDER_SLUG === slug ? PRERENDER_BODY : null))

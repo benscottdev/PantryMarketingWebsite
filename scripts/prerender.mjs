@@ -19,6 +19,7 @@ import { escapeHtml, escapeJsonForScriptTag } from './lib/html.mjs'
 import { getPublishedPosts, loadAllPosts, sydneyToday } from './lib/posts.mjs'
 import { STATIC_PAGES, siteNav, staticPageBody } from './lib/static-pages.mjs'
 import { faqs } from '../src/site/data.js'
+import { formatDisplayDate, pickFeatured } from '../src/site/content.js'
 import { APP_LIVE, SUPPORT_EMAIL } from '../src/site/launch.js'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
@@ -174,14 +175,34 @@ function writePostPage(original, post) {
 	writeFileSync(resolve(outDir, 'index.html'), html)
 }
 
+function minsLabel(post) {
+	return `${post.minutes} min${post.minutes === 1 ? '' : 's'} read`
+}
+
+// The wide card at the top of the listing. Same markup Resources.jsx renders,
+// so the pre-hydration paint and the mounted page agree.
+function blogFeaturedHtml(post) {
+	return `<a href="/resources/${post.slug}" class="blog-featured">
+			<span class="blog-featured__media"><img src="${post.image}" alt="${escapeHtml(post.imageAlt)}" /></span>
+			<span class="blog-featured__body">
+				<span class="blog-featured__meta">
+					<span class="blog-featured__flag">Start here</span>
+					<span class="blog-card__tag">${escapeHtml(post.tag)}</span>
+					<span><time datetime="${post.publishDate}">${formatDisplayDate(post.publishDate)}</time><span aria-hidden="true"> · </span>${minsLabel(post)}</span>
+				</span>
+				<span class="blog-featured__title">${escapeHtml(post.title)}</span>
+				<span class="blog-featured__excerpt">${escapeHtml(post.excerpt)}</span>
+			</span>
+		</a>`
+}
+
 function blogCardHtml(post) {
-	const minsLabel = `${post.minutes} min${post.minutes === 1 ? '' : 's'} read`
 	return `<a href="/resources/${post.slug}" class="blog-card">
 			<span class="blog-card__media"><img src="${post.image}" alt="${escapeHtml(post.imageAlt)}" /></span>
 			<span class="blog-card__body">
 				<span class="blog-card__meta">
 					<span class="blog-card__tag">${escapeHtml(post.tag)}</span>
-					<span>${minsLabel}</span>
+					<span>${minsLabel(post)}</span>
 				</span>
 				<span class="blog-card__title">${escapeHtml(post.title)}</span>
 			</span>
@@ -224,7 +245,11 @@ function writeIndexPage(original, posts) {
 	html = replaceOnce(html, original.descTag, `<meta name="description" content="${escapeHtml(description)}" />`, 'description tag')
 	html = replaceOnce(html, '</head>', extraTags, 'head close tag')
 
-	const grid = `<div class="blog-grid">\n\t\t${posts.map(blogCardHtml).join('\n\t\t')}\n\t</div>`
+	const featured = pickFeatured(posts)
+	const rest = posts.filter((p) => p.slug !== featured?.slug)
+	const grid =
+		(featured ? `${blogFeaturedHtml(featured)}\n\t` : '') +
+		`<div class="blog-grid">\n\t\t${rest.map(blogCardHtml).join('\n\t\t')}\n\t</div>`
 	const intro = `<header class="legal__head"><h1 class="legal__title">Notes from the fridge.</h1><p class="legal__lede">${escapeHtml(lede)}</p></header>`
 	const page = `<div class="legal legal--wide"><article class="legal__doc">${intro}<div class="legal__body">${grid}${siteNav(PATHS_RESOURCES)}</div></article></div>`
 	html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${page}</div>`, 'root div')

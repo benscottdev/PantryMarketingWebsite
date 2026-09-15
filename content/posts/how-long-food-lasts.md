@@ -3,6 +3,7 @@ slug: how-long-food-lasts
 title: "How long does food last in the fridge? The sourced chart"
 excerpt: "How long milk, chicken, mince, eggs, cheese and leftovers last in the fridge, in one chart built from CSIRO’s storage guide and Australian food-safety advice, sourced row by row."
 tag: STORAGE
+featured: true
 publishDate: 2026-08-26
 updated: 2026-09-15
 image: /assets/blog/blog-how-long-food-lasts.svg

@@ -16,6 +16,26 @@ export function getArticle(id) {
 	return articles.find((post) => post.id === id) ?? null
 }
 
+// The post shown as the wide card at the top of /resources: whichever carries
+// `featured: true` in its frontmatter, else the newest. Exported as a function
+// over a list so scripts/prerender.mjs can apply the same rule to its own
+// already-published list and the static page matches what React mounts.
+export function pickFeatured(list = articles) {
+	return list.find((post) => post.featured) ?? list[0] ?? null
+}
+
+// "15 September 2026", assembled from named parts rather than
+// toLocaleDateString: a small-icu Node build renders en-AU as en-US, and the
+// prerendered page and the mounted one must print the same string.
+const MONTHS = [
+	'January', 'February', 'March', 'April', 'May', 'June',
+	'July', 'August', 'September', 'October', 'November', 'December',
+]
+export function formatDisplayDate(iso) {
+	const [y, m, d] = iso.split('-').map(Number)
+	return `${d} ${MONTHS[m - 1]} ${y}`
+}
+
 // App releases only, newest first. This is the Pantry iOS app's changelog:
 // what a user's phone actually got. Website and marketing-site work does not
 // belong here, no matter how much of it there was.
