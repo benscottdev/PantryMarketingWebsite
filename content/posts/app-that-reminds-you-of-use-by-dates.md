@@ -1,9 +1,10 @@
 ---
 slug: app-that-reminds-you-of-use-by-dates
-title: "An app that reminds you of use-by dates, and knows which dates matter"
-excerpt: "Pantry reminds you before a use-by date arrives, not the morning after, and it treats a use-by date as the safety cutoff it is and a best-before date as the quality guess it is. The reminder comes off the receipt, not off a label you typed in."
+title: "A use-by date reminder app that knows which dates matter"
+excerpt: "Pantry reminds you before a use-by date arrives, knows use-by from best-before, and counts from the receipt rather than a label you typed in."
 tag: APPS
 publishDate: 2026-09-15
+updated: 2026-09-15
 image: /assets/blog/blog-app-that-reminds-you-of-use-by-dates.svg
 imageAlt: "A phone lock screen showing a morning digest of items due this week, propped against a milk carton with its use-by date visible"
 keywords: ["app that reminds you of use by dates", "use by date reminder app", "expiry date reminder app australia"]

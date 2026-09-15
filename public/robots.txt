@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /reset-password
 
 Sitemap: https://www.usepantry.com.au/sitemap.xml

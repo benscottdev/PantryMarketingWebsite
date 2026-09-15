@@ -1,9 +1,10 @@
 ---
 slug: receipt-to-meals
 title: "How does Pantry turn a receipt into dinner?"
-excerpt: "Pantry writes a dinner suggestion from three things it already holds: what is in the house, what is turning first, and what it cost. No recipe search, no second shopping list."
+excerpt: "Pantry writes a dinner suggestion from what is in the house, what is turning first, and what it cost. No recipe search, no second shopping list."
 tag: PRODUCT
 publishDate: 2026-09-15
+updated: 2026-09-15
 image: /assets/blog/blog-receipt-to-meals.svg
 imageAlt: "A phone showing a meal suggestion built from items on a scanned receipt, beside the receipt on a bench"
 keywords: ["app that suggests meals from what you have", "what can i make with what is in my fridge app"]

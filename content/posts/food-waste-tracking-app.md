@@ -1,9 +1,10 @@
 ---
 slug: food-waste-tracking-app
 title: "How do you track food waste at home?"
-excerpt: "Not with a bin diary. Households under-report their waste by more than half, per the Fight Food Waste CRC, so Pantry counts what is about to be wasted instead: what is turning this week, and what it is worth."
+excerpt: "Not with a bin diary. Households under-report waste by more than half, per the Fight Food Waste CRC, so Pantry counts what is about to be wasted instead."
 tag: WASTE
 publishDate: 2026-09-15
+updated: 2026-09-15
 image: /assets/blog/blog-food-waste-tracking-app.svg
 imageAlt: "A phone lock screen showing a morning digest of three items turning this week and their dollar value"
 keywords: ["food waste tracking app australia", "how to track food waste at home"]

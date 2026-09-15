@@ -4,12 +4,13 @@ title: "Wilting spinach: five dinners before it turns"
 excerpt: "Spinach lasts five to seven days before it wilts for good, per Sustainability Victoria. Five dinners that use a going-soft bag first."
 tag: COOKING
 publishDate: 2026-08-29
+updated: 2026-09-15
 image: /assets/blog/blog-wilting-spinach-five-dinners.svg
 imageAlt: "A bowl of fresh spinach leaves next to a slightly wilted bunch on a kitchen counter"
 keywords: ["what to do with wilting spinach", "spinach going off recipes", "how to wilt spinach"]
 ---
 
-Spinach has one of the shortest windows of anything in a typical fridge: five to seven days, per [Sustainability Victoria's storage guidance](https://www.sustainability.vic.gov.au/recycling-and-reducing-waste-at-home/avoid-waste/food-waste/guide-for-storing-fresh-produce). It goes from crisp to sad well before it becomes unsafe. That gap — still fine to eat, no longer appealing raw — is exactly where a bag of spinach quietly turns from dinner into a bin decision.
+Spinach has one of the shortest windows of anything in a typical fridge: five to seven days, per [Sustainability Victoria’s storage guidance](https://www.sustainability.vic.gov.au/recycling-and-reducing-waste-at-home/avoid-waste/food-waste/guide-for-storing-fresh-produce). It goes from crisp to sad well before it becomes unsafe. That gap — still fine to eat, no longer appealing raw — is exactly where a bag of spinach quietly turns from dinner into a bin decision.
 
 The good news: wilted spinach is a cooking problem, not a food-safety one. Heat fixes texture. Here are five ways to use it before it goes soft enough that even cooking will not save it.
 
@@ -45,4 +46,4 @@ Every one of these treats wilting as a texture change, not a spoilage signal. If
 
 ## Catching it earlier
 
-The better fix does not need this list at all: knowing on day four that the spinach from Monday's shop has to be tonight's dinner, not Thursday's. That is the difference between a fridge you remember and a fridge you can see. Pantry's afternoon nudge is built for exactly this — a specific push, on the day it matters, naming the ingredient instead of a generic "check your fridge" reminder. The [Pro plans page](/#faq) has the detail on how that nudge works, and [our full shelf-life reference](/resources/how-long-food-lasts) has the numbers for everything else in the crisper drawer running on the same kind of clock.
+The better fix does not need this list at all: knowing on day four that the spinach from Monday’s shop has to be tonight’s dinner, not Thursday’s — the same clock [the mince runs on](/resources/mince-going-off-tonight), a day or two longer. That is the difference between a fridge you remember and a fridge you can see. Pantry’s afternoon nudge is built for exactly this — a specific push, on the day it matters, naming the ingredient instead of a generic “check your fridge” reminder. The [Pro plans page](/#faq) has the detail on how that nudge works, and [our full shelf-life reference](/resources/how-long-food-lasts) has the numbers for everything else in the crisper drawer running on the same kind of clock.

@@ -136,7 +136,7 @@ export default function Legal({
     <SmoothScroll>
       <div className={`legal${wide ? ' legal--wide' : ''}`}>
         <LegalHeader />
-        <article className="legal__doc">
+        <main className="legal__doc">
           <header className="legal__head">
             <Breadcrumbs />
             {eyebrow ? <div className="legal__eyebrow eyebrow">{eyebrow}</div> : null}
@@ -145,7 +145,7 @@ export default function Legal({
             {updated ? <p className="legal__updated">Last updated {LEGAL_UPDATED}</p> : null}
           </header>
           <div className="legal__body">{children}</div>
-        </article>
+        </main>
         <LegalFooter />
       </div>
     </SmoothScroll>

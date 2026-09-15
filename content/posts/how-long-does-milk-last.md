@@ -1,7 +1,7 @@
 ---
 slug: how-long-does-milk-last
 title: "How long does milk last after opening? Five to seven days"
-excerpt: "CSIRO gives milk five to seven days in the fridge, carton or bottle, full cream or skim, and opening it does not reset the clock. What shortens that window, and the signs worth trusting over the date."
+excerpt: "CSIRO gives milk five to seven days in the fridge, carton or bottle, full cream or skim, and opening it does not reset the clock. What shortens it, what to trust."
 tag: STORAGE
 publishDate: 2026-08-28
 updated: 2026-09-15

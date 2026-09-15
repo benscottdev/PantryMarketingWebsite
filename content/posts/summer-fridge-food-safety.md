@@ -4,12 +4,13 @@ title: "Summer fridge: what spoils faster at 35°C"
 excerpt: "The food safety danger zone is 5°C to 60°C, per FSANZ. Australian summer keeps your shopping in it far longer than winter does."
 tag: SEASONAL
 publishDate: 2026-08-29
+updated: 2026-09-15
 image: /assets/blog/blog-summer-fridge-food-safety.svg
 imageAlt: "Grocery bags on a hot car seat with sunlight streaming through the window"
 keywords: ["food safety hot weather australia", "how long can groceries sit in a hot car"]
 ---
 
-Pantry’s shelf-life countdowns — like every number on this site — assume food goes from shop to fridge in reasonable time. CSIRO’s guidance behind them does too, and so do Sustainability Victoria’s and the NSW Food Authority’s. Summer is the season that quietly breaks that assumption: a car boot in full sun, a slower walk home, a longer stretch on the kitchen bench before anyone gets to the fridge. None of that counts as “reasonable time” on a genuinely hot day, and the maths behind every countdown on this site shifts accordingly.
+Pantry’s shelf-life countdowns — like every number on this site — assume food goes from shop to fridge in reasonable time. CSIRO’s guidance behind them does too, and so do Sustainability Victoria’s and the NSW Food Authority’s. Summer is the season that quietly breaks that assumption: a car boot in full sun, a slower walk home, a longer stretch on the kitchen bench before anyone gets to the fridge. None of that counts as “reasonable time” on a hot day, and the maths behind every countdown on this site shifts accordingly.
 
 ## The danger zone does not move. Your time inside it does.
 

@@ -10,6 +10,7 @@
 // Category keys map to icon + colour swatches defined in style.scss
 // (--zone-*-bg / --zone-*-icon), mirroring the storage-zone system used
 // throughout the Pantry+ app.
+import { APP_LIVE } from "./launch.js";
 
 // Same thresholds as expiryToneFromDays() in public/pantry_ios_theme.ts,
 // so every "days left" figure on the site maps to the same urgency colour
@@ -113,7 +114,7 @@ export const faqs = [
 		a: "Pantry is an iOS app for Australian households. You photograph a grocery receipt, from Coles, Woolworths, Aldi or anywhere else, and Pantry turns it into a dated list of everything you bought, tells you what is turning first, and suggests what to cook before it goes off. One subscription covers a household of up to six people. It is on the waitlist now, ahead of launch.",
 	},
 	{
-		q: "Is Pantry actually free?",
+		q: "Is Pantry free?",
 		a: "Yes, and there is no trial clock on it. Free covers one person: one receipt scan and two meal generations a week, full expiry tracking, and the morning digest. You only need Pro when you want the rest of your household on the same pantry.",
 	},
 	{
@@ -126,7 +127,11 @@ export const faqs = [
 	},
 	{
 		q: "Can I buy Pro from this site?",
-		a: "No. Download the app and upgrade there, with 7 days free first. People on the waitlist get founding pricing when we launch.",
+		// Pre-launch there is nothing to download, so the answer says so; the
+		// same sentence with "download" in it would be a claim the app is out.
+		a: APP_LIVE
+			? "No. Download the app and upgrade there, with 7 days free first."
+			: "No. Pro is bought inside the app, after launch, with 7 days free first. People on the waitlist get founding pricing when we launch.",
 	},
 	{
 		q: "How much does Pro cost?",

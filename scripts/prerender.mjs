@@ -31,6 +31,7 @@ const distDir = resolve(root, 'dist')
 const SITE_URL = 'https://www.usepantry.com.au'
 const SITE_NAME = 'Pantry'
 const PATHS_RESOURCES = '/resources'
+const PATHS_HOME = '/'
 // One 1200x630 card for every page that isn't an article. Articles get their
 // own from their hero art; these pages have none, and a missing og:image is
 // the difference between a link preview and a bare grey box.
@@ -163,7 +164,7 @@ function postBody(html, post) {
 	// nav exists because the header and footer are React-rendered too, which
 	// left every post page an orphan with nothing to follow.
 	const heading = `<h1 class="legal__title">${escapeHtml(post.title)}</h1>`
-	const wrapper = `<div id="pantry-prerender" class="legal" data-slug="${escapeHtml(post.slug)}"><article class="legal__doc"><header class="legal__head">${heading}</header><div class="legal__body">${siteNav(`/resources/${post.slug}`)}<div data-post-body>${post.html}</div></div></article></div>`
+	const wrapper = `<div id="pantry-prerender" class="legal" data-slug="${escapeHtml(post.slug)}"><main class="legal__doc"><header class="legal__head">${heading}</header><div class="legal__body">${siteNav(`/resources/${post.slug}`)}<div data-post-body>${post.html}</div></div></main></div>`
 	return replaceOnce(html, '<div id="root"></div>', `<div id="root">${wrapper}</div>`, 'root div')
 }
 
@@ -252,7 +253,7 @@ function writeIndexPage(original, posts) {
 		(featured ? `${blogFeaturedHtml(featured)}\n\t` : '') +
 		`<div class="blog-grid">\n\t\t${rest.map(blogCardHtml).join('\n\t\t')}\n\t</div>`
 	const intro = `<header class="legal__head"><h1 class="legal__title">Notes from the fridge.</h1><p class="legal__lede">${escapeHtml(lede)}</p></header>`
-	const page = `<div class="legal legal--wide"><article class="legal__doc">${intro}<div class="legal__body">${grid}${siteNav(PATHS_RESOURCES)}</div></article></div>`
+	const page = `<div class="legal legal--wide"><main class="legal__doc">${intro}<div class="legal__body">${grid}${siteNav(PATHS_RESOURCES)}</div></main></div>`
 	html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${page}</div>`, 'root div')
 
 	const outDir = resolve(distDir, 'resources')
@@ -269,13 +270,14 @@ function writeStaticPage(original, page) {
 
 	// One <script> per schema rather than a single @graph, matching how the
 	// post pages already emit BlogPosting and BreadcrumbList side by side.
-	const jsonLd = [page.path === '/' ? websiteJsonLd() : null, ...[page.jsonLd].flat()]
+	const jsonLd = [page.path === '/' ? websiteJsonLd() : null, ...(page.noindex ? [] : [page.jsonLd].flat())]
 		.filter(Boolean)
 		.map((schema) => `\n\t\t<script type="application/ld+json">${escapeJsonForScriptTag(schema)}</script>`)
 		.join('')
 
-	const extraTags = `
-		<link rel="canonical" href="${url}" />
+	// A noindex page gets no canonical and no schema: nothing about it should
+	// invite a crawler to keep it.
+	const extraTags = `${page.noindex ? '\n\t\t<meta name="robots" content="noindex" />' : `\n\t\t<link rel="canonical" href="${url}" />`}
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="${SITE_NAME}" />
 		<meta property="og:title" content="${escapeHtml(title)}" />
@@ -298,6 +300,41 @@ function writeStaticPage(original, page) {
 	const outDir = page.dir ? resolve(distDir, page.dir) : distDir
 	mkdirSync(outDir, { recursive: true })
 	writeFileSync(resolve(outDir, 'index.html'), html)
+}
+
+// dist/404.html — what Vercel serves, with a real 404 status, for any path
+// that matches no file. Before this existed vercel.json rewrote every unknown
+// URL to index.html, so a typo returned a 200 copy of the home page (a soft
+// 404 to Google, and a duplicate of the home page's title and description at
+// every mistyped address). React still mounts on it and renders NotFound.jsx;
+// this is that page's own copy, so the pre-hydration paint and the mounted
+// page say the same thing.
+function writeNotFoundPage(original) {
+	const title = `Page not found | ${SITE_NAME}`
+	const description = 'That page is not on the Pantry site.'
+	const links = [
+		[PATHS_HOME, 'home'],
+		[PATHS_RESOURCES, 'resources'],
+		['/calculator', 'waste calculator'],
+		['/changelog', 'changelog'],
+		['/support', 'support'],
+	]
+	const [home, resources, calculator, changelog, support] = links.map(([href, label]) => `<a href="${href}">${label}</a>`)
+	const body =
+		`<div class="legal"><main class="legal__doc"><header class="legal__head">` +
+		`<div class="legal__eyebrow eyebrow">404</div><h1 class="legal__title">Page not found</h1></header>` +
+		`<div class="legal__body"><p>That URL does not exist. Head ${home}, browse ${resources}, run the ${calculator}, check the ${changelog}, or try ${support}.</p></div>` +
+		`</main></div>`
+	const extraTags = `
+		<meta name="robots" content="noindex" />
+		<meta property="og:title" content="${escapeHtml(title)}" />
+		<meta property="og:description" content="${escapeHtml(description)}" />
+	</head>`
+	let html = replaceOnce(original.html, original.titleTag, `<title>${escapeHtml(title)}</title>`, 'title tag')
+	html = replaceOnce(html, original.descTag, `<meta name="description" content="${escapeHtml(description)}" />`, 'description tag')
+	html = replaceOnce(html, '</head>', extraTags, 'head close tag')
+	html = replaceOnce(html, '<div id="root"></div>', `<div id="root">${body}</div>`, 'root div')
+	writeFileSync(resolve(distDir, '404.html'), html)
 }
 
 // The app icon centred on the site's cream, at the 1200x630 every scraper
@@ -509,6 +546,7 @@ async function main() {
 	}
 	writeIndexPage(original, posts)
 	for (const page of STATIC_PAGES) writeStaticPage(original, page)
+	writeNotFoundPage(original)
 	await rasterizeDefaultOg()
 	writeSitemap(posts)
 	writeRss(posts)
@@ -516,7 +554,7 @@ async function main() {
 	writeLlmsFullTxt(posts)
 
 	console.log(
-		`[prerender] wrote ${posts.length}/${all.length} post page(s), ${STATIC_PAGES.length} static page(s), sitemap.xml, rss.xml, llms.txt, llms-full.txt`
+		`[prerender] wrote ${posts.length}/${all.length} post page(s), ${STATIC_PAGES.length} static page(s), 404.html, sitemap.xml, rss.xml, llms.txt, llms-full.txt`
 	)
 }
 

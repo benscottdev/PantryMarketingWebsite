@@ -4335,7 +4335,9 @@ img {
 		font-weight: 700;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
-		color: rgba(244, 240, 228, 0.42);
+		// 0.6 of cream on forest is 5.3:1; the 0.42 it was sat at 3.3:1, under
+		// the 4.5:1 WCAG AA needs at this size.
+		color: rgba(244, 240, 228, 0.6);
 	}
 
 	&__all {
@@ -4386,7 +4388,7 @@ img {
 		border-top: 1px solid rgba(244, 240, 228, 0.16);
 		font-size: 12.5px;
 		font-weight: 600;
-		color: rgba(244, 240, 228, 0.5);
+		color: rgba(244, 240, 228, 0.6); // 5.3:1 on forest, was 4.0:1
 	}
 
 	&__copy {

@@ -1,7 +1,7 @@
 ---
 slug: freezer-times-explained
 title: "How long does frozen food last? Freezer times, explained"
-excerpt: "Frozen food stays safe indefinitely, per the Food Safety Information Council — a few weeks in a fridge-freezer, three months or more in a chest freezer, is the quality window. The sourced answer, with no invented chart."
+excerpt: "Safe indefinitely, per the Food Safety Information Council. For quality, a few weeks in a fridge-freezer, three months or more in a chest freezer. No invented chart."
 tag: STORAGE
 publishDate: 2026-08-29
 updated: 2026-09-15

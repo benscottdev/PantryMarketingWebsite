@@ -16,7 +16,7 @@ const cards = [
   {
     icon: CreditCard,
     title: 'Subscriptions',
-    body: 'Pro is billed by Apple. Cancelling, changing plan and refunds all happen in your Apple ID settings, because we genuinely cannot do it from our side.',
+    body: 'Pro is billed by Apple. Cancelling, changing plan and refunds all happen in your Apple ID settings, because we cannot do it from our side.',
   },
   {
     icon: Trash2,

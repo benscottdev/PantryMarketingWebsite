@@ -1,7 +1,7 @@
 ---
 slug: chicken-in-the-fridge-three-days
 title: "How long does raw chicken last in the fridge? Three days"
-excerpt: "CSIRO gives raw chicken three days in the fridge, the shortest window of any common grocery item. What the three days is counted from, when to freeze instead, and why Pantry will not let it slip."
+excerpt: "CSIRO gives raw chicken three days in the fridge, the shortest window in a typical shop. What the three days counts from, when to freeze, and how Pantry catches it."
 tag: STORAGE
 publishDate: 2026-08-29
 updated: 2026-09-15
@@ -16,11 +16,11 @@ Raw chicken has the shortest fridge life of anything in a typical shopping trip.
 
 Poultry carries a higher natural bacterial load than red meat, and that bacteria multiplies fastest in exactly the temperature range a fridge sits at the edge of. That is why CSIRO’s number for chicken is tighter than the three-to-five-day range it gives for other raw meat. Mince sits at the short end too, two to three days, for a related reason: more surface area exposed to air than a whole cut.
 
-Three days is not a number rounded down for caution's sake. It reflects how fast this specific food turns.
+Three days is not a number rounded down for caution’s sake. It reflects how fast this specific food turns.
 
 ## What “three days” is counted from
 
-The clock starts on the day of purchase, not the day it goes in the freezer and not the day you plan to cook it. A chicken breast bought Monday needs to be cooked, or moved to the freezer, by Wednesday — regardless of the date printed on the pack, which is the manufacturer's own estimate and does not always match CSIRO’s figure. The label wording changes nothing either: raw, fresh, free-range or otherwise, uncooked chicken in the fridge is a three-day item.
+The clock starts on the day of purchase, not the day it goes in the freezer and not the day you plan to cook it. A chicken breast bought Monday needs to be cooked, or moved to the freezer, by Wednesday — regardless of the date printed on the pack, which is the manufacturer’s own estimate and does not always match CSIRO’s figure. The label wording changes nothing either: raw, fresh, free-range or otherwise, uncooked chicken in the fridge is a three-day item.
 
 If Wednesday dinner was never going to be chicken, the freezer is the answer. Not a fourth day in the fridge hoping it holds.
 
@@ -38,6 +38,6 @@ A slight colour change at the edges is normal, not a spoilage sign on its own. W
 
 ## Why this is the item that catches people out
 
-Three days moves fast in a normal week. Chicken bought Sunday for “sometime this week” is easy to find still sitting there Wednesday night, right as the window closes, with no plan attached to it. It is the single most common way a pack of chicken becomes bin contents instead of dinner — not carelessness, just a three-day window running out quietly while the week's actual plans moved around it.
+Three days moves fast in a normal week. Chicken bought Sunday for “sometime this week” is easy to find still sitting there Wednesday night, right as the window closes, with no plan attached to it. It is the single most common way a pack of chicken becomes bin contents instead of dinner — not carelessness, just a three-day window running out quietly while the week’s actual plans moved around it.
 
 This is precisely the gap Pantry closes. Pantry knows chicken is a three-day item the moment it is scanned off the receipt, and the [afternoon nudge](/#faq) names it specifically, before the window runs out, instead of leaving it to memory. That entry point — a photo of the receipt rather than a barcode per pack — is [the first thing worth checking in any expiry tracker](/resources/expiry-tracker-apps-what-to-look-for), because chicken is the item that punishes a list nobody kept up. For the rest of what is likely sitting in the same fridge right now, [the full shelf-life reference](/resources/how-long-food-lasts) has the numbers.

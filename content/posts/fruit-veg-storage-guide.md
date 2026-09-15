@@ -1,7 +1,7 @@
 ---
 slug: fruit-veg-storage-guide
 title: "How to store fruit and vegetables: fridge, bowl or pantry"
-excerpt: "Sustainability Victoria’s fruit and vegetable storage guide, item by item: what goes in the fridge, what stays in the bowl, and why bananas, tomatoes, potatoes and pumpkin last longer on the bench than in the crisper."
+excerpt: "Sustainability Victoria’s guide, item by item: what goes in the fridge, what stays in the bowl, and why bananas, tomatoes and potatoes last longer on the bench."
 tag: STORAGE
 publishDate: 2026-08-29
 updated: 2026-09-15

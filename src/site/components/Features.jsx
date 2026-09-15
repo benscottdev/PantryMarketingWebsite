@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react'
+import { APP_LIVE } from '../launch'
 
 const plans = [
   {
@@ -82,8 +83,9 @@ export default function Features() {
             everyone who opens that fridge.
           </p>
           <p className="features__note">
-            Pro is not sold on this site. Download the app, use Free as long as
-            you like, and upgrade in-app if the house needs it.
+            {APP_LIVE
+              ? 'Pro is not sold on this site. Download the app, use Free as long as you like, and upgrade in-app if the house needs it.'
+              : 'Pro is not sold on this site. When Pantry launches, use Free as long as you like and upgrade in-app if the house needs it.'}
           </p>
         </div>
 

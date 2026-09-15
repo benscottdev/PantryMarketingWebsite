@@ -26,7 +26,7 @@ The rule sticks in houses that apply it to everything, not just their own shelf.
 
 ## Where Pantry closes the gap labelling cannot
 
-Labelling solves “is this too old.” It does not solve “did someone already buy milk” — the other classic sharehouse failure, where two people each notice the fridge is low and both come home with a carton. This is the exact gap [Pantry Pro’s household sharing](/#household) is built to close: one shared pantry, visible to everyone in the house, up to six people on one subscription. Nobody has to ask whose spinach it is — scan it in, and Pantry works out roughly how long it has left. The same three-to-seven-day windows CSIRO publishes for chicken and milk — see [how long food actually lasts](/resources/how-long-food-lasts) — apply in any fridge. Pantry is built to make them visible to the whole house instead of living in one person’s memory.
+Labelling solves “is this too old.” It does not solve “did someone already buy milk” — the other classic sharehouse failure, where two people each notice the fridge is low and both come home with a carton. This is the exact gap [Pantry Pro’s household sharing](/#household) is built to close: one shared pantry, visible to everyone in the house, up to six people on one subscription. Nobody has to ask whose spinach it is — scan it in, and Pantry works out roughly how long it has left. The same three-to-seven-day windows CSIRO publishes for chicken and milk — see [how long food lasts](/resources/how-long-food-lasts) — apply in any fridge. Pantry is built to make them visible to the whole house instead of living in one person’s memory.
 
 ## Why this matters more in a sharehouse than a family home
 

@@ -1,9 +1,10 @@
 ---
 slug: does-pantry-read-coles-woolworths-aldi-receipts
 title: "Does Pantry read Coles, Woolworths and Aldi receipts?"
-excerpt: "Yes, and IGA and the corner grocer through the same reader. Pantry reads the receipt itself rather than one supermarket’s template, so a whole docket becomes a dated list in one photo, whichever chain printed it."
+excerpt: "Yes, and IGA and the corner grocer through the same reader. Pantry reads the receipt itself, not a template, so one photo of any docket becomes a dated list."
 tag: PRODUCT
 publishDate: 2026-09-15
+updated: 2026-09-15
 image: /assets/blog/blog-does-pantry-read-coles-woolworths-aldi-receipts.svg
 imageAlt: "Three supermarket receipts of different lengths fanned out on a kitchen bench beside a phone"
 keywords: ["does pantry read coles woolworths aldi receipts", "coles receipt scanner app", "woolworths receipt scanning app", "aldi receipt app"]

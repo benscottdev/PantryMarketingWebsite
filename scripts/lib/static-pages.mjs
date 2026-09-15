@@ -199,7 +199,7 @@ export const STATIC_PAGES = [
 		lede: 'Stuck on a scan, a household invite, or a Pro subscription? Start here. We read every email. We are a small Australian team, so you will get a person, not a ticket maze.',
 		body: () =>
 			`<h2>Email us</h2><p>The fastest way to reach a person. <a href="mailto:${escapeHtml(SUPPORT_EMAIL)}">${escapeHtml(SUPPORT_EMAIL)}</a></p>` +
-			'<h2>Subscriptions</h2><p>Pro is billed by Apple. Cancelling, changing plan and refunds all happen in your Apple ID settings, because we genuinely cannot do it from our side.</p>' +
+			'<h2>Subscriptions</h2><p>Pro is billed by Apple. Cancelling, changing plan and refunds all happen in your Apple ID settings, because we cannot do it from our side.</p>' +
 			'<h2>Delete your account</h2><p>Use the in-app account controls, or email us from the address on the account and ask us to delete it.</p>' +
 			`<h2>Privacy requests</h2><p>Access, correction, and deletion are covered in the <a href="${PATHS.privacy}">privacy policy</a>. Email us and we will take it from there.</p>`,
 	},
@@ -216,6 +216,21 @@ export const STATIC_PAGES = [
 			'<p>This policy explains what personal information we collect, why we collect it, who we share it with, how long we keep it, and what you can do about it. It is our policy under Australian Privacy Principle 1.3. You can read it free of charge at any time, in the app and on this website.</p>' +
 			'<h2>What this policy covers</h2>' +
 			list(sectionTitles('Privacy.jsx', 25).map(escapeHtml)),
+	},
+	// Rendered as a shell so the SPA catch-all rewrite in vercel.json is not
+	// needed for it — that rewrite was what made every unknown URL a 200 copy
+	// of the home page. The form itself is React (it needs the Supabase token
+	// from the URL); the static copy is the page's own title and lede. Not for
+	// search: it only exists as a link target in password-recovery emails.
+	{
+		path: PATHS.resetPassword,
+		dir: 'reset-password',
+		title: 'Reset your password | Pantry',
+		description: 'Choose a new password for your Pantry account.',
+		h1: 'Reset your password.',
+		lede: 'Choose a new password for your Pantry account.',
+		noindex: true,
+		body: () => '',
 	},
 	{
 		path: PATHS.terms,
@@ -238,13 +253,13 @@ export const STATIC_PAGES = [
 // the whole point is that both see the same thing.
 export function staticPageBody(page) {
 	return (
-		`<div class="legal"><article class="legal__doc">` +
+		`<div class="legal"><main class="legal__doc">` +
 		`<header class="legal__head">` +
 		`<h1 class="legal__title">${escapeHtml(page.h1)}</h1>` +
 		`<p class="legal__lede">${escapeHtml(page.lede)}</p>` +
 		`</header>` +
 		`<div class="legal__body">${page.body()}${siteNav(page.path)}</div>` +
-		`</article></div>`
+		`</main></div>`
 	)
 }
 

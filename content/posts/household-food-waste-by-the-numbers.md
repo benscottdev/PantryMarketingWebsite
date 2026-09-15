@@ -4,6 +4,7 @@ title: "The $2,500 Australian households bin every year"
 excerpt: "$2,500 and 265kg a year, per the Fight Food Waste CRC and FIAL — most households guess the number is less than half that."
 tag: WASTE
 publishDate: 2026-08-27
+updated: 2026-09-15
 image: /assets/blog/blog-household-food-waste-by-the-numbers.svg
 imageAlt: "A kitchen bin next to a shopping receipt and a calculator on a bench"
 keywords: ["australian household food waste statistics", "how much food waste per year australia"]
@@ -13,7 +14,7 @@ Ask someone how much food their household bins in a year and most people guess l
 
 ## The number is $2,500
 
-The Fight Food Waste CRC puts household food waste at about $2,500 a year. FIAL's *National Food Waste Strategy Feasibility Study* puts the weight behind that at 265kg a year per household — 2.46 million tonnes nationally, close to a third of everything Australia wastes. Both figures come from [End Food Waste Australia's fact library](https://endfoodwaste.com.au/fact-library/).
+The Fight Food Waste CRC puts household food waste at about $2,500 a year. FIAL’s *National Food Waste Strategy Feasibility Study* puts the weight behind that at 265kg a year per household — 2.46 million tonnes nationally, close to a third of everything Australia wastes. Both figures come from [End Food Waste Australia’s fact library](https://endfoodwaste.com.au/fact-library/).
 
 $2,500 is not what a careless household spends. It is the average — which means plenty of households that consider themselves careful are most of the way there without knowing it.
 
@@ -30,7 +31,7 @@ No household sits down and allocates part of the grocery budget to the bin on pu
 There is no single villain category. It spreads across:
 
 - **Fresh produce** — the shortest shelf life in the shop, and the first thing to go soft in a crisper drawer nobody checks daily.
-- **Leftovers** — cooked once, eaten never, because "tomorrow" loses to takeaway most weeks.
+- **Leftovers** — cooked once, eaten never, because “tomorrow” loses to takeaway most weeks.
 - **Dairy** — milk that turns a day before anyone notices, cheese pushed to the back of the shelf.
 - **Bread** — bought fresh, forgotten, then binned or frozen too late to help.
 
@@ -42,6 +43,6 @@ The Fight Food Waste CRC is specific about the size of the gap: people under-rep
 
 ## What closes the gap
 
-The fix is not a diet, a lecture, or a spreadsheet. It is visibility into a fridge that currently runs on memory — knowing what you have, and knowing when it turns. That is the problem Pantry is built to solve: a photographed receipt becomes a list with dates attached, so the spinach and the lasagne stay visible on a screen instead of going quiet behind the milk. Our [shelf-life reference](/resources/how-long-food-lasts) covers the "when does it turn" half; [how Pantry turns a receipt into a working list](/#how) covers the rest.
+The fix is not a diet, a lecture, or a spreadsheet. It is visibility into a fridge that currently runs on memory — knowing what you have, and knowing when it turns. That is the problem Pantry is built to solve: a photographed receipt becomes a list with dates attached, so the spinach and the lasagne stay visible on a screen instead of going quiet behind the milk. Our [shelf-life reference](/resources/how-long-food-lasts) covers the “when does it turn” half; [how Pantry turns a receipt into a working list](/#how) covers the rest.
 
-If you want your own household's version of $2,500 rather than the national average, the [waste calculator](/calculator) runs the same published research against your household size and spend, and shows its working rather than a number picked to sound alarming.
+If you want your own household’s version of $2,500 rather than the national average, the [waste calculator](/calculator) runs the same published research against your household size and spend, and shows its working rather than a number picked to sound alarming.

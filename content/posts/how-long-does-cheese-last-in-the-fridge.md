@@ -1,9 +1,10 @@
 ---
 slug: how-long-does-cheese-last-in-the-fridge
 title: "How long does cheese last in the fridge?"
-excerpt: "CSIRO gives hard cheese one to three months, soft cheese two to three weeks and ricotta ten days. This site holds each at the short end, and Pantry keeps the three clocks apart."
+excerpt: "CSIRO gives hard cheese one to three months, soft cheese two to three weeks and ricotta ten days. Pantry holds each at the short end and keeps the clocks apart."
 tag: STORAGE
 publishDate: 2026-09-15
+updated: 2026-09-15
 image: /assets/blog/blog-how-long-does-cheese-last-in-the-fridge.svg
 imageAlt: "A block of cheddar, a wedge of brie and a tub of ricotta side by side on a fridge shelf"
 keywords: ["how long does cheese last in the fridge", "how long does cheese last once opened"]

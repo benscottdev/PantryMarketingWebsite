@@ -1,9 +1,10 @@
 ---
 slug: freezer-inventory-app
 title: "What should a freezer inventory app track?"
-excerpt: "The date it went in, not a made-up defrost-by countdown. Frozen food stays safe indefinitely per the Food Safety Information Council, so the useful number is how long it has been in there."
+excerpt: "The date it went in, not a made-up defrost-by countdown. Frozen food stays safe indefinitely, per the Food Safety Information Council, so age is the number."
 tag: APPS
 publishDate: 2026-09-15
+updated: 2026-09-15
 image: /assets/blog/blog-freezer-inventory-app.svg
 imageAlt: "A phone showing a freezer list beside an open chest freezer of labelled bags"
 keywords: ["freezer inventory app", "app to track what is in my freezer"]

@@ -1,9 +1,10 @@
 ---
 slug: how-long-do-prawns-last-in-the-fridge
 title: "How long do prawns last in the fridge?"
-excerpt: "CSIRO gives prawns, oysters and mussels two days in the fridge, the shortest window of anything in a Christmas shop. Pantry counts it from the receipt, not from memory."
+excerpt: "CSIRO gives prawns, oysters and mussels two days in the fridge, the shortest window in a Christmas shop. Pantry counts it from the receipt, not from memory."
 tag: SEASONAL
 publishDate: 2026-09-15
+updated: 2026-09-15
 image: /assets/blog/blog-how-long-do-prawns-last-in-the-fridge.svg
 imageAlt: "A bowl of cooked prawns on ice on the bottom shelf of a fridge"
 keywords: ["how long do prawns last in the fridge", "how long do oysters last in the fridge"]
