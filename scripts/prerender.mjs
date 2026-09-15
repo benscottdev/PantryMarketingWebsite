@@ -192,6 +192,7 @@ function blogFeaturedHtml(post) {
 				</span>
 				<span class="blog-featured__title">${escapeHtml(post.title)}</span>
 				<span class="blog-featured__excerpt">${escapeHtml(post.excerpt)}</span>
+				<span class="blog-featured__author"><img class="blog-featured__avatar" src="/icon.png" alt="" /><span class="blog-featured__author-name">Ben Scott</span><span class="blog-featured__author-role">Founder</span></span>
 			</span>
 		</a>`
 }

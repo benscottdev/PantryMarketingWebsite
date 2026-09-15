@@ -41,6 +41,11 @@ export default function Resources() {
             </span>
             <span className="blog-featured__title">{featured.title}</span>
             <span className="blog-featured__excerpt">{featured.excerpt}</span>
+            <span className="blog-featured__author">
+              <img className="blog-featured__avatar" src="/icon.png" alt="" />
+              <span className="blog-featured__author-name">Ben Scott</span>
+              <span className="blog-featured__author-role">Founder</span>
+            </span>
           </span>
         </a>
       ) : null}
