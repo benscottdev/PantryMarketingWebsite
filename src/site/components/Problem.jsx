@@ -1,6 +1,7 @@
 export default function Problem() {
   return (
     <section className="problem" data-problem>
+      <h2 className="problem__eyebrow eyebrow">THE PROBLEM WE AIM TO SOLVE</h2>
       <div className="problem__counter" data-counter>
         $0
       </div>
