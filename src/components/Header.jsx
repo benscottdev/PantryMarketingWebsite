@@ -106,6 +106,7 @@ export default function Header() {
               href={APP_STORE_URL}
               className="nav__cta"
               data-nav-cta
+              data-analytics-location="header"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -119,6 +120,7 @@ export default function Header() {
               href="#waitlist"
               className="nav__cta"
               data-nav-cta
+              data-analytics-location="header"
               onClick={(e) => {
                 e.preventDefault()
                 e.stopPropagation()

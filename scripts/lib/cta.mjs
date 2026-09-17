@@ -67,7 +67,7 @@ export function postCtaHtml() {
 	// another part of it, so it stays out of the document outline a screen
 	// reader reads the post from.
 	return `
-<aside class="post-cta" aria-label="Get Pantry">
+<aside class="post-cta" aria-label="Get Pantry" data-analytics-location="post-cta">
 	<p class="post-cta__title">${escapeHtml(heading)}</p>
 	<p class="post-cta__body">${escapeHtml(body)}</p>
 	<a class="post-cta__button" href="${escapeHtml(href)}"${rel}>${inner}</a>

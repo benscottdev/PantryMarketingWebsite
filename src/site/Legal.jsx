@@ -24,6 +24,7 @@ function LegalHeader() {
             href={APP_STORE_URL}
             className="nav__cta"
             data-nav-cta
+            data-analytics-location="header"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -33,7 +34,7 @@ function LegalHeader() {
             </span>
           </a>
         ) : (
-          <a href="/#waitlist" className="nav__cta" data-nav-cta>
+          <a href="/#waitlist" className="nav__cta" data-nav-cta data-analytics-location="header">
             <span className="nav__cta-label">
               Start saving
               <ArrowRight size={15} strokeWidth={2.5} />

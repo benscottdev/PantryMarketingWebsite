@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
+import { track } from '../lib/analytics';
 import { CalendarDays, Users, Wallet, ChevronDown, HeartHandshake } from 'lucide-react';
 import WasteSwap from './WasteSwap';
 
@@ -91,6 +92,15 @@ export default function Calculator() {
 
   const frequency = FREQUENCIES.find((f) => f.id === frequencyId);
 
+  // The calculator has no submit — it recomputes live — so count someone as
+  // having used it the first time they touch any control, once per visit.
+  const used = useRef(false);
+  const markUsed = () => {
+    if (used.current) return;
+    used.current = true;
+    track('calculator_use');
+  };
+
   // Switching how often you shop shouldn't quietly change how much you spend
   // — carry the annual total across and re-express it as a per-shop figure,
   // so the results only move when you actually move the slider.
@@ -151,7 +161,7 @@ export default function Calculator() {
                     type="button"
                     className={`calc-pills__pill${f.id === frequencyId ? ' is-active' : ''}`}
                     aria-pressed={f.id === frequencyId}
-                    onClick={() => changeFrequency(f)}
+                    onClick={() => { markUsed(); changeFrequency(f); }}
                   >
                     {f.label}
                   </button>
@@ -169,7 +179,7 @@ export default function Calculator() {
                   id="calc-people"
                   className="calc-select__input"
                   value={people}
-                  onChange={(e) => setPeople(Number(e.target.value))}
+                  onChange={(e) => { markUsed(); setPeople(Number(e.target.value)); }}
                 >
                   {[1, 2, 3, 4, 5, 6].map((n) => (
                     <option key={n} value={n}>
@@ -198,7 +208,7 @@ export default function Calculator() {
                 step={frequency.step}
                 value={spendPerShop}
                 style={{ '--fill': `${sliderFill}%` }}
-                onChange={(e) => setSpendPerShop(Number(e.target.value))}
+                onChange={(e) => { markUsed(); setSpendPerShop(Number(e.target.value)); }}
               />
               <div className="calc-field__scale">
                 <span>{money(frequency.min)}</span>

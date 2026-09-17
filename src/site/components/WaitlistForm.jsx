@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CircleCheck, ArrowRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { APP_LIVE, APP_STORE_URL } from '../launch';
+import { track } from '../lib/analytics';
 
 function AppleMark() {
   return (
@@ -25,6 +26,7 @@ function StoreButton({ variant }) {
             : 'waitlist-form__store'
       }
       href={APP_STORE_URL}
+      data-analytics-location={`waitlist-${variant}`}
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -92,6 +94,7 @@ export default function WaitlistForm({ variant = 'hero' }) {
     }
 
     setStatus('done');
+    track('waitlist_signup', { source: variant });
   };
 
   if (status === 'done') {

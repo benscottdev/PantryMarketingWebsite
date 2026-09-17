@@ -19,7 +19,7 @@ function ColLink({ href, children, external }) {
 
 function Col({ title, links }) {
   return (
-    <nav className="footer__col" aria-label={title}>
+    <nav className="footer__col" aria-label={title} data-analytics-location="footer">
       <h3 className="footer__col-title">{title}</h3>
       {links.map((item) => (
         <ColLink key={item.label} href={item.href} external={item.external}>

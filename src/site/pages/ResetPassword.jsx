@@ -67,6 +67,7 @@ function Done() {
         <a
           className="reset__button reset__button--link"
           href={APP_STORE_URL}
+          data-analytics-location="reset-password"
           target="_blank"
           rel="noopener noreferrer"
         >

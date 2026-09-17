@@ -16,6 +16,14 @@
 			window.dataLayer = window.dataLayer || []
 			function gtag() { dataLayer.push(arguments) }
 			gtag('js', new Date())
+			// Own visits: open any page once with ?internal=1 and this browser
+			// tags every hit traffic_type=internal from then on. GA4's default
+			// "Internal Traffic" data filter (Admin > Data filters) drops
+			// those once it is switched from Testing to Active.
+			try {
+				if (new URLSearchParams(location.search).has('internal')) localStorage.setItem('pantry_internal', '1')
+				if (localStorage.getItem('pantry_internal') === '1') gtag('set', { traffic_type: 'internal' })
+			} catch (e) {}
 			gtag('config', 'G-JTLC9P0DV5')
 		</script>
 	</head>
