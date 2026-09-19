@@ -1,4 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/resources/how-long-does-milk-last-after-opening",
+      "destination": "/resources/how-long-does-milk-last",
+      "permanent": true
+    }
+  ]
 }

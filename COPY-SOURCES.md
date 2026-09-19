@@ -198,6 +198,35 @@ published on the site. We looked for an authoritative Australian source for
 that kind of chart and could not find one — the same standard applied to the
 receipt-scanning accuracy claim below.
 
+## Raw meat handling (added 19 September 2026)
+
+| Claim | Where it appears | Source |
+| --- | --- | --- |
+| Store raw meat and poultry at the bottom of the fridge so it cannot drip onto other food; refrigerate promptly, keep below 5°C until cooked; never wash raw chicken before cooking | `content/posts/chicken-in-the-fridge-three-days.md` | [NSW Food Authority, Poultry and raw meat](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/poultry-and-raw-meat), verified 19 Sep 2026 |
+| Three recommended defrosting methods (refrigerator, cold water in airtight packaging, microwave); never on the bench; plan ahead for the fridge; boneless breasts usually overnight, whole chickens one to two days or longer | `content/posts/defrosting-chicken-safely.md` | Same NSW Food Authority page, "Defrost with care" |
+
+The same NSW page says to freeze raw meat and poultry "if it will not be used
+within 2 days". The site keeps CSIRO's three days for raw chicken as its
+published figure and does not quote the NSW two-day line, so the two numbers
+are not mixed on one page.
+
+## Pantry's own privacy practices (added 19 September 2026)
+
+`content/posts/what-happens-to-your-receipt-photo.md` restates the
+receipt-scanning sections of `src/site/pages/Privacy.jsx` (the published
+`/privacy` page) and nothing beyond them. Every figure in the post must
+match that page; if the policy changes, the post changes with it.
+
+| Claim | Source |
+| --- | --- |
+| Receipt image uploaded to Supabase Storage, hosted in Sydney; text read by Google Cloud Vision; parsed by the AI provider | `/privacy`, "Receipt scans" and "Sending information overseas" |
+| Only item name, quantity, price, date and merchant are extracted | `/privacy`, "Receipt scans" |
+| Image deleted about 6 hours after processing; crop before upload; delete parsed lines at review | `/privacy`, "Receipt scans" |
+| Failed-scan retention needs consent, asked at onboarding; opt out in Settings → Privacy → "Help improve receipt scanning"; images deleted within 7 days of opting out; cap 500 images, max 12 months; not used to train Pantry's own model or any vendor's | `/privacy`, "Retaining failed receipt images" |
+| Card and payment details never received; Apple handles billing | `/privacy` |
+| Items from a receipt one member scans land in the shared household, attributed by name | `/privacy`, household section |
+| Manual entry is available; scanning is optional | `/privacy`, "Receipt scans" |
+
 ## Competitor apps named in comparison posts
 
 Every claim about a named competitor is a factual feature/pricing description

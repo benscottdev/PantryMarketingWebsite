@@ -71,8 +71,19 @@ where one exists. Ordered by priority, app-focused first. -->
 ~~what to cook with leftovers before they go off | COOKING | high | written and published 15 Sep 2026; linked from how-long-do-leftovers-keep and christmas-leftovers-what-keeps on 15 Sep 2026~~
 ~~shopping list app with expiry dates | APPS | high | written and published 15 Sep 2026; states plainly that Pantry has no shopping list; linked from shared-shopping-that-works and expiry-tracker-apps-what-to-look-for on 15 Sep 2026~~
 ~~app that reminds you of use by dates | APPS | med | written and published 15 Sep 2026; leads with the use-by / best-before split; linked from best-before-vs-use-by and why-the-nudge-lands-at-530 on 15 Sep 2026~~
-how to store raw chicken in the fridge | STORAGE | med | not a new post: add an H2 to chicken-in-the-fridge-three-days; 8 impressions at pos 36–47 for storing/how-to-store variants the post never answers; needs a sourced bottom-shelf / covered claim (NSW Food Authority) and a COPY-SOURCES row first
+~~how to store raw chicken in the fridge | STORAGE | med | done 19 Sep 2026 as an H2 on chicken-in-the-fridge-three-days, sourced to the NSW Food Authority poultry page (COPY-SOURCES row added); 8 impressions at pos 36–47 before the edit~~
 ~~how long does cooked chicken last in the fridge | STORAGE | med | written and published 15 Sep 2026; H2s stay chicken-specific; linked from chicken-in-the-fridge-three-days and how-long-do-leftovers-keep on 15 Sep 2026~~
+<!-- Added 19 Sep 2026 from the second GSC pull (21 Aug – 17 Sep 2026: 751
+impressions, 5 clicks, 36 pages with impressions). The queue had no unstruck
+app-focused line, so the two posts this week came from commercial gaps the
+site had not covered rather than from GSC rows; app-intent queries still
+carry almost no impressions (pantry tracking app 1, coles receipt 1). -->
+~~how to stop buying food you already have | HOUSEHOLD | high | commercial; the double-up angle (second bottle of milk), receipt-fed list on every phone; publishes 29 Sep 2026; when live, link to it from how-long-does-milk-last (Two bottles section), fridge-inventory-spreadsheet and shared-shopping-that-works~~
+~~receipt scanning app privacy | PRODUCT | high | commercial trust; restates the /privacy receipt sections only (6-hour deletion, five fields, opt-out switch); publishes 1 Oct 2026; when live, link to it from how-pantry-reads-a-receipt, does-pantry-read-coles-woolworths-aldi-receipts and receipt-scanning-apps-compared~~
+safest way to defrost a chicken | STORAGE | med | not a new post: H2 added to defrosting-chicken-safely on 19 Sep 2026 for the multiple-choice quiz query (37 impressions at pos 8); leave unless it stalls
+how long does ham last in the fridge | STORAGE | low | the christmas ham post already carries this H2 and sits at pos 22 on 2 impressions; a non-seasonal ham post would cannibalise it, leave
+pantry app android | PRODUCT | med | commercial FAQ-style candidate for a future week: iOS-first, what Android users on the waitlist get; source the answer from the FAQ and roadmap before writing
+when does pantry launch | PRODUCT | med | commercial candidate: roadmap windows, founding pricing for waitlist members; write only with the roadmap page as the single source, no dates the site does not publish
 how long does unopened milk last in the fridge | STORAGE | low | not a new post: covered by the once-opened / carton H2s added to how-long-does-milk-last on 15 Sep 2026; 7 impressions for the bare query at pos 20; revisit only if it does not move by mid October
 how long does raw meat last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026 as least likely; CSIRO meat 3-5 held at 3 if revived
 how long does butter last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026 as least likely; CSIRO 8 wks, data.js 30 days
@@ -147,3 +158,13 @@ that tracks expiry · app that reminds you of use by dates · use by date remind
 app · expiry date reminder app australia · how long does cooked chicken last
 in the fridge · how long does roast chicken last in the fridge · how long is
 cooked chicken good for
+
+Added 19 September 2026 (48 posts total):
+
+how to stop buying food you already have · how to stop buying duplicate
+groceries · app that shows what is in my fridge while shopping · buying food
+you already have at home · receipt scanning app privacy · is it safe to scan
+receipts with an app · what happens to receipt photos in an app · pantry app
+privacy receipt · how to store raw chicken in the fridge · safest way to
+defrost a chicken · how long do cooked prawns last in the fridge · how long do
+raw prawns last in the fridge · how long does deli bacon last in the fridge

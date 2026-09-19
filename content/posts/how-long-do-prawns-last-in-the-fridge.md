@@ -4,17 +4,21 @@ title: "How long do prawns last in the fridge?"
 excerpt: "CSIRO gives prawns, oysters and mussels two days in the fridge, the shortest window in a Christmas shop. Pantry counts it from the receipt, not from memory."
 tag: SEASONAL
 publishDate: 2026-09-15
-updated: 2026-09-15
+updated: 2026-09-19
 image: /assets/blog/blog-how-long-do-prawns-last-in-the-fridge.svg
 imageAlt: "A bowl of cooked prawns on ice on the bottom shelf of a fridge"
-keywords: ["how long do prawns last in the fridge", "how long do oysters last in the fridge"]
+keywords: ["how long do prawns last in the fridge", "how long do cooked prawns last in the fridge", "how long do raw prawns last in the fridge", "how long do oysters last in the fridge"]
 ---
 
 Prawns bought on Christmas Eve are a two-day item. [CSIRO’s refrigerated-storage guide](https://www.csiro.au/en/research/production/food/Refrigerating-foods) gives crustaceans and molluscs — prawns, crabs, lobster, oysters, mussels — two days in the fridge, one day less than fish and the shortest window of anything in a Christmas shop. Bought on the twenty-fourth, they need to be eaten by the twenty-sixth. Boxing Day is the last day, not a spare one.
 
-## Two days, raw or cooked
+## How long do raw prawns last in the fridge?
 
-CSIRO gives two days as a single figure, not a range, so there is no cautious end to take. Two is the number. Its row does not split raw from cooked either, and this site does not try to. Cooked prawns from the fishmonger are on the same two-day clock as green ones, and two days is shorter than any other rule that could apply to them, including [the three days for cooked leftovers](/resources/how-long-do-leftovers-keep), so it is the one to use.
+Two days. Green, fresh, uncooked, it is all the same prawn to CSIRO, which gives two days as a single figure, not a range, so there is no cautious end to take. Two is the number, counted from the day they came home.
+
+## How long do cooked prawns last in the fridge?
+
+Two days as well. CSIRO’s row does not split raw from cooked, and this site does not try to. Cooked prawns from the fishmonger are on the same two-day clock as green ones, and two days is shorter than any other rule that could apply to them, including [the three days for cooked leftovers](/resources/how-long-do-leftovers-keep), so it is the one to use. Prawns you cooked at home on day one do not get a fresh two days from the pan. The clock started at the shop.
 
 ## How long do oysters last in the fridge?
 

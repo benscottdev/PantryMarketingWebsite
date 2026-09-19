@@ -4,7 +4,7 @@ title: "How long does milk last after opening? Five to seven days"
 excerpt: "CSIRO gives milk five to seven days in the fridge, carton or bottle, full cream or skim, and opening it does not reset the clock. What shortens it, what to trust."
 tag: STORAGE
 publishDate: 2026-08-28
-updated: 2026-09-15
+updated: 2026-09-19
 image: /assets/blog/blog-how-long-does-milk-last.svg
 imageAlt: "A glass milk bottle on a cream kitchen counter next to a small jug"
 keywords: ["how long does milk last after opening", "how long does milk last once opened", "how long does carton milk last after opening", "how long does milk last in the fridge", "milk expiry after opening"]
@@ -24,9 +24,9 @@ Opening the carton does not reset the window and does not start a new one. Milk 
 
 Full cream, reduced fat, low fat and skim all get the same five to seven days. Fat content does not change how fast milk sours, so there is no separate number to look up for your milk. The one exception is long-life milk, covered below, and that is a difference in processing, not in fat.
 
-## Carton or bottle
+## How long does carton milk last after opening?
 
-CSIRO’s figure is for milk, not for a container. A two-litre carton and a glass bottle get the same five to seven days. What does change the number is where in the fridge it sits, which is the next section.
+Five to seven days, the same as any other milk. CSIRO’s figure is for milk, not for a container. A two-litre carton and a glass bottle get the same five to seven days, opened or sealed. An unopened carton still ages in the fridge; the seal keeps air out, which is why a sealed carton belongs at the long end of the window and an opened one at the short end, but neither gets a separate number. What does change the number is where in the fridge it sits, which is the next section.
 
 ## What shortens the window
 

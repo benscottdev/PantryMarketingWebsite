@@ -4,9 +4,10 @@ title: "Defrosting chicken safely: fridge, not bench"
 excerpt: "The bench thaw runs straight into FSANZ’s danger zone. The fridge thaw costs nothing but planning ahead — here is the safe way, and the timing."
 tag: STORAGE
 publishDate: 2026-08-21
+updated: 2026-09-19
 image: /assets/blog/blog-defrosting-chicken-safely.svg
 imageAlt: "A wrapped chicken breast defrosting on a plate on the bottom fridge shelf"
-keywords: ["how to defrost chicken safely", "defrost chicken on the bench", "can you refreeze defrosted chicken"]
+keywords: ["how to defrost chicken safely", "safest way to defrost a chicken", "defrost chicken on the bench", "can you refreeze defrosted chicken"]
 ---
 
 Freezing chicken before [its three-day window](/resources/chicken-in-the-fridge-three-days) closes is the smart move this site keeps recommending. Getting it back out is where the plan usually goes wrong — because the fastest thaw, the one on the kitchen bench, is the one food safety guidance rules out.
@@ -16,6 +17,10 @@ Freezing chicken before [its three-day window](/resources/chicken-in-the-fridge-
 A frozen chicken breast on the bench does not thaw evenly. The outside reaches room temperature while the middle is still frozen, and from that point the surface sits squarely in [FSANZ’s danger zone](https://www.foodstandards.gov.au/business/food-safety/keeping-food-at-the-right-temperature) — 5°C to 60°C, the range where bacteria multiply fastest — for however many hours the thaw takes. The [NSW Food Authority’s time limits for food out of the fridge](https://www.foodauthority.nsw.gov.au/help/managing-potentially-hazardous-foods) are cumulative and short: past four hours in that zone, food should be discarded. A bench thaw spends that allowance before cooking has even started.
 
 The bench thaw feels fine because it usually looks fine. Nothing about chicken announces the hours its surface spent warm.
+
+## The safest way to defrost a chicken
+
+In the refrigerator, on the bottom shelf. The [NSW Food Authority’s poultry and raw meat page](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/poultry-and-raw-meat) recommends three methods, the fridge, cold water in airtight packaging, or the microwave, and says it is best to plan ahead for the slow fridge thaw. Its timings: boneless breasts usually defrost overnight, a whole chicken takes one to two days or longer. The bench is never on the list. If the question arrives as a multiple choice, on the bench, in the refrigerator on the bottom shelf, in the sink, or cook it still frozen, the refrigerator is the answer, for the reasons below.
 
 ## The fridge thaw
 

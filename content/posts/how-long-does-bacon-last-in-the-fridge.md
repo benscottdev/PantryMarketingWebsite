@@ -4,9 +4,10 @@ title: "How long does bacon last in the fridge once opened?"
 excerpt: "CSIRO gives bacon two to three weeks in the fridge. This site counts two, from the receipt, and the half-packet at the back of the drawer stops being a mystery."
 tag: STORAGE
 publishDate: 2026-09-15
+updated: 2026-09-19
 image: /assets/blog/blog-how-long-does-bacon-last-in-the-fridge.svg
 imageAlt: "An opened packet of bacon with three rashers left, folded closed in a fridge drawer"
-keywords: ["how long does bacon last in the fridge", "how long does bacon last once opened"]
+keywords: ["how long does bacon last in the fridge", "how long does bacon last once opened", "how long does deli bacon last in the fridge"]
 ---
 
 Bacon lasts longer than almost anything else in the meat drawer, and that is the trouble with it. [CSIRO’s refrigerated-storage guide](https://www.csiro.au/en/research/production/food/Refrigerating-foods) gives bacon two to three weeks in the fridge, on the same line as whole hams and fermented salamis. This site takes the cautious end and says so: two weeks, counted from the day the packet came home, opened or not.
@@ -22,6 +23,10 @@ Two weeks from purchase, at most. Opening the packet does not reset the clock, a
 Two things override that. Where the packet prints its own after-opening instruction, that instruction wins, in the same way a use-by date does. And where the [use-by date](/resources/best-before-vs-use-by) on the packet lands before day fourteen, the use-by date wins outright. It is a safety date, and CSIRO’s window is not a licence to go past it.
 
 Once open, fold the packet closed or move the rashers to a container. The cut edges dry out and take on fridge smells long before the two weeks are up, and dry, grey-edged bacon on day twelve is the packet nobody wants to use, which is how it reaches day fifteen.
+
+## How long does bacon from the deli or butcher last?
+
+The same two weeks, held at the cautious end of CSIRO’s two to three. Short cut, middle, streaky, sliced at the deli counter or wrapped at the butcher, it is all on CSIRO’s one bacon line, and nothing about where it was cut changes the cure that earns it the window. What changes is the paperwork. Deli and butcher bacon comes home in paper with no printed use-by date and no after-opening instruction, so the receipt date is the only date it has. Count fourteen days from that and move it into a container the day it arrives, because paper does nothing to stop the cut edges drying out.
 
 ## Sliced ham is not on the same line
 

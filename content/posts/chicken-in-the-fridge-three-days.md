@@ -4,10 +4,10 @@ title: "How long does raw chicken last in the fridge? Three days"
 excerpt: "CSIRO gives raw chicken three days in the fridge, the shortest window in a typical shop. What the three days counts from, when to freeze, and how Pantry catches it."
 tag: STORAGE
 publishDate: 2026-08-29
-updated: 2026-09-15
+updated: 2026-09-19
 image: /assets/blog/blog-chicken-in-the-fridge-three-days.svg
 imageAlt: "Raw chicken thighs on a plate on a kitchen counter, timer icon overlay"
-keywords: ["how long does raw chicken last in the fridge", "raw chicken in fridge for 3 days", "chicken expiry days"]
+keywords: ["how long does raw chicken last in the fridge", "raw chicken in fridge for 3 days", "how to store raw chicken in the fridge", "chicken expiry days"]
 ---
 
 Raw chicken has the shortest fridge life of anything in a typical shopping trip. [CSIRO’s refrigerated-storage guide](https://www.csiro.au/en/research/production/food/Refrigerating-foods) gives it three days — shorter than milk, shorter than most vegetables, shorter than almost everything else that comes home in the same bag.
@@ -31,6 +31,10 @@ Three days works if the household knows the clock is running. That means:
 - **Plan the chicken meal first, everything else around it.** Chicken in the fridge has first claim on a dinner slot within its window — not “whatever we feel like Wednesday.”
 - **Freeze it on day one if the week is uncertain.** There is no penalty for freezing chicken straight after the shop when you are not sure which night it will be cooked. It defrosts fine — [in the fridge, not on the bench](/resources/defrosting-chicken-safely) — and the three-day clock simply has not started yet.
 - **Cook it even if plans change.** Cooked chicken keeps for [its own three-day window](/resources/how-long-does-cooked-chicken-last-in-the-fridge) from there — so cooking on day three and eating over the next few days is a legitimate way to use it, even when the original dinner plan fell through.
+
+## How to store raw chicken in the fridge
+
+Bottom shelf, in its packaging or a covered container, straight from the shopping bag. The [NSW Food Authority’s poultry and raw meat guidance](https://www.foodauthority.nsw.gov.au/consumer/special-care-foods/poultry-and-raw-meat) is to store raw meat and poultry at the bottom of the fridge so it cannot drip onto other food, to refrigerate it promptly rather than leaving it on the bench, and to keep it below 5°C until it is cooked. The same page says never to wash raw chicken before cooking, because the water spreads bacteria around the sink and bench. None of this stretches the three days. It is what the three days assumes.
 
 ## Signs to trust alongside the date
 
