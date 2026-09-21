@@ -1347,11 +1347,12 @@ img {
 	&__time-range {
 		position: absolute;
 		inset: 0;
+		z-index: 2;
 		width: 100%;
 		height: 100%;
 		margin: 0;
 		padding: 0;
-		background: transparent;
+		opacity: 0;
 		writing-mode: vertical-lr;
 		direction: ltr;
 		appearance: none;
@@ -1359,46 +1360,50 @@ img {
 		cursor: ns-resize;
 		touch-action: none;
 
-		&::-webkit-slider-runnable-track {
-			width: 100%;
-			height: 100%;
-			background: transparent;
-		}
-
+		// Keep the invisible thumb the same size as the drawn one so the grab
+		// region and the travel range line up with what the visitor sees.
 		&::-webkit-slider-thumb {
 			-webkit-appearance: none;
 			width: 28px;
 			height: 28px;
-			border-radius: 50%;
-			background: var(--forest);
-			border: 3px solid #fff;
-			box-shadow: 0 6px 14px -4px rgba(15, 38, 25, 0.5);
-			cursor: grab;
-		}
-
-		&::-moz-range-track {
-			background: transparent;
 		}
 
 		&::-moz-range-thumb {
-			width: 22px;
-			height: 22px;
-			border-radius: 50%;
-			background: var(--forest);
-			border: 3px solid #fff;
-			box-shadow: 0 6px 14px -4px rgba(15, 38, 25, 0.5);
-			cursor: grab;
+			width: 28px;
+			height: 28px;
+			border: 0;
 		}
 
 		&:focus-visible {
 			outline: none;
 
-			&::-webkit-slider-thumb {
+			+ .landing__time-thumb {
 				box-shadow:
 					0 0 0 4px var(--green),
 					0 6px 14px -4px rgba(15, 38, 25, 0.5);
 			}
 		}
+
+		&:active + .landing__time-thumb {
+			cursor: grabbing;
+		}
+	}
+
+	// Drawn thumb. `--p` is the slider's value as a 0–1 fraction; the centre
+	// travels between the two ends of the gradient fill above.
+	&__time-thumb {
+		position: absolute;
+		z-index: 1;
+		left: 50%;
+		top: calc(var(--p, 0) * (100% - 28px));
+		width: 28px;
+		height: 28px;
+		margin-left: -14px;
+		border-radius: 50%;
+		background: var(--forest);
+		border: 3px solid #fff;
+		box-shadow: 0 6px 14px -4px rgba(15, 38, 25, 0.5);
+		pointer-events: none;
 	}
 
 	&__time-lost {
@@ -1415,6 +1420,281 @@ img {
 		}
 	}
 
+}
+
+// Simulated weekly-review sheet the time slider opens at the bottom of its
+// run. Native <dialog> for focus trapping and Escape; the card is styled as
+// one of the app's screens so it reads as a feature, not a marketing pop-up.
+.week-review {
+	border: 0;
+	padding: 0;
+	max-width: none;
+	max-height: none;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	color: var(--ink);
+	font-family: var(--font-body);
+
+	&::backdrop {
+		background: rgba(11, 29, 19, 0.55);
+		backdrop-filter: blur(4px);
+	}
+
+	&[open] {
+		display: grid;
+		place-items: center;
+		padding: 20px;
+		box-sizing: border-box;
+	}
+
+	&[open] &__card {
+		animation: week-review-in 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+	}
+
+	&__card {
+		position: relative;
+		width: min(100%, 380px);
+		max-height: calc(100dvh - 40px);
+		overflow: auto;
+		padding: 28px 24px 24px;
+		border-radius: var(--radius-xl);
+		background: linear-gradient(180deg, #ffffff 0%, var(--cream) 100%);
+		box-shadow:
+			0 30px 60px -20px rgba(11, 29, 19, 0.5),
+			0 0 0 1px rgba(15, 38, 25, 0.06);
+	}
+
+	&__close {
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		width: 34px;
+		height: 34px;
+		border: 0;
+		border-radius: 50%;
+		background: rgba(15, 38, 25, 0.06);
+		color: var(--ink);
+		font-size: 22px;
+		line-height: 1;
+		cursor: pointer;
+
+		&:hover,
+		&:focus-visible {
+			background: rgba(15, 38, 25, 0.12);
+			outline: none;
+		}
+	}
+
+	&__eyebrow {
+		margin: 0 0 6px;
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--green-dark);
+	}
+
+	&__title {
+		margin: 0;
+		font-family: var(--font-display);
+		font-size: 26px;
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		color: var(--forest);
+	}
+
+	&__sub {
+		margin: 8px 0 18px;
+		font-size: 13px;
+		line-height: 1.45;
+		color: var(--muted);
+	}
+
+	&__totals {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+	}
+
+	&__total {
+		display: flex;
+		flex-direction: column;
+		padding: 12px 14px;
+		border-radius: var(--radius-md);
+
+		span {
+			font-size: 11px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+		}
+
+		strong {
+			margin-top: 2px;
+			font-family: var(--font-display);
+			font-size: 26px;
+			line-height: 1.1;
+			letter-spacing: -0.02em;
+			font-variant-numeric: tabular-nums;
+		}
+
+		small {
+			font-size: 11px;
+			font-weight: 600;
+			opacity: 0.8;
+		}
+
+		&--used {
+			background: var(--green-light);
+			color: var(--green-dark);
+		}
+
+		&--binned {
+			background: var(--red-bg);
+			color: var(--red);
+		}
+	}
+
+	&__bar {
+		position: relative;
+		height: 22px;
+		margin: 12px 0 18px;
+		border-radius: var(--radius-full);
+		background: var(--red-bg);
+		overflow: hidden;
+
+		span {
+			position: absolute;
+			inset: 0 auto 0 0;
+			border-radius: var(--radius-full);
+			background: linear-gradient(90deg, var(--green-dark), #3f9a55);
+			transform-origin: left;
+			animation: week-review-fill 0.8s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+		}
+
+		em {
+			position: absolute;
+			left: 12px;
+			top: 50%;
+			transform: translateY(-50%);
+			font-style: normal;
+			font-size: 11px;
+			font-weight: 800;
+			color: #fff;
+		}
+	}
+
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border-top: 1px solid rgba(15, 38, 25, 0.08);
+
+		li {
+			display: grid;
+			grid-template-columns: 28px 1fr auto auto;
+			align-items: center;
+			gap: 10px;
+			padding: 8px 0;
+			border-bottom: 1px solid rgba(15, 38, 25, 0.08);
+			font-size: 13px;
+			font-weight: 600;
+		}
+
+		svg {
+			width: 28px;
+			height: 28px;
+		}
+
+		b {
+			padding: 2px 8px;
+			border-radius: var(--radius-full);
+			font-size: 10px;
+			font-weight: 800;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			background: var(--red-bg);
+			color: var(--red);
+		}
+
+		i {
+			min-width: 48px;
+			text-align: right;
+			font-style: normal;
+			font-variant-numeric: tabular-nums;
+			color: var(--muted);
+		}
+
+		li[data-used] b {
+			background: var(--green-light);
+			color: var(--green-dark);
+		}
+
+		li:not([data-used]) {
+			svg {
+				filter: grayscale(1);
+				opacity: 0.5;
+			}
+
+			span {
+				text-decoration: line-through;
+				color: var(--muted);
+			}
+		}
+	}
+
+	&__delta {
+		margin: 16px 0 0;
+		font-size: 13px;
+		line-height: 1.45;
+		color: var(--muted);
+
+		strong {
+			color: var(--forest);
+			font-weight: 800;
+			font-variant-numeric: tabular-nums;
+		}
+	}
+
+	&__cta {
+		display: block;
+		margin-top: 16px;
+		padding: 13px 18px;
+		border-radius: var(--radius-full);
+		background: var(--forest);
+		color: var(--green);
+		font-weight: 800;
+		font-size: 14px;
+		text-align: center;
+		text-decoration: none;
+
+		&:hover,
+		&:focus-visible {
+			background: var(--forest-light);
+			outline: none;
+		}
+	}
+}
+
+@keyframes week-review-in {
+	from {
+		opacity: 0;
+		transform: translateY(18px) scale(0.97);
+	}
+}
+
+@keyframes week-review-fill {
+	from {
+		transform: scaleX(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.week-review[open] .week-review__card,
+	.week-review__bar span {
+		animation: none;
+	}
 }
 
 @media (max-width: 900px) {

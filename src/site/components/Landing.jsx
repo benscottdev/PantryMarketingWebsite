@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { track } from '../lib/analytics'
 import gsap from 'gsap'
 import WaitlistForm from './WaitlistForm'
 import PhoneFrame from './PhoneFrame'
@@ -13,13 +14,17 @@ const toneFor = (days) => (days <= 0 ? 'expired' : days <= 4 ? 'urgent' : days <
 // `days` is measured from today, whatever today is. The time slider walks
 // forward through these; the last item goes at `MAX_DAYS`, so the slider ends
 // on an empty fridge rather than a carrot that never dies.
+//
+// `used` is the fate each item meets in the simulated weekly review once the
+// slider hits the bottom: with reminders, the short-dated salmon gets cooked
+// first and only the spinach slips through.
 const FOODS = [
-  { id: 'apple', name: 'Apples', days: 5, price: 4.2, x: 9, y: 22 },
-  { id: 'milk', name: 'Milk', days: 6, price: 3.1, x: 18, y: 58 },
-  { id: 'egg', name: 'Eggs', days: 12, price: 6.5, x: 28, y: 8 },
-  { id: 'fish', name: 'Salmon', days: 2, price: 12.9, x: 68, y: 9 },
-  { id: 'greens', name: 'Spinach', days: 3, price: 3.5, x: 80, y: 54 },
-  { id: 'carrot', name: 'Carrots', days: 14, price: 2.4, x: 82, y: 20 },
+  { id: 'apple', name: 'Apples', days: 5, price: 4.2, x: 9, y: 22, used: true },
+  { id: 'milk', name: 'Milk', days: 6, price: 3.1, x: 18, y: 58, used: true },
+  { id: 'egg', name: 'Eggs', days: 12, price: 6.5, x: 28, y: 8, used: true },
+  { id: 'fish', name: 'Salmon', days: 2, price: 12.9, x: 68, y: 9, used: true },
+  { id: 'greens', name: 'Spinach', days: 3, price: 3.5, x: 80, y: 54, used: false },
+  { id: 'carrot', name: 'Carrots', days: 14, price: 2.4, x: 82, y: 20, used: true },
 ]
 const MAX_DAYS = Math.max(...FOODS.map((f) => f.days))
 
@@ -35,6 +40,92 @@ function FoodArt({ id }) {
     <svg viewBox="0 0 64 64" aria-hidden="true">
       {HERO_ART[id]}
     </svg>
+  )
+}
+
+// The app's Sunday-night screen, faked from the same six items: what got
+// eaten, what got binned, and the dollar gap between the two fridges.
+function WeekReview({ open, onClose, lost }) {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const dialog = ref.current
+    if (!dialog) return
+    if (open && !dialog.open) {
+      dialog.showModal()
+      track('weekly_review_open')
+    } else if (!open && dialog.open) {
+      dialog.close()
+    }
+  }, [open])
+
+  const used = FOODS.filter((f) => f.used)
+  const binned = FOODS.filter((f) => !f.used)
+  const usedTotal = used.reduce((sum, f) => sum + f.price, 0)
+  const binnedTotal = binned.reduce((sum, f) => sum + f.price, 0)
+  const usedPct = Math.round((usedTotal / (usedTotal + binnedTotal)) * 100)
+
+  return (
+    <dialog
+      ref={ref}
+      className="week-review"
+      aria-labelledby="week-review-title"
+      onClose={onClose}
+      onClick={(e) => {
+        if (e.target === ref.current) onClose()
+      }}
+    >
+      <div className="week-review__card">
+        <button type="button" className="week-review__close" onClick={onClose} aria-label="Close">
+          ×
+        </button>
+        <p className="week-review__eyebrow">Sunday · Weekly review</p>
+        <h2 id="week-review-title" className="week-review__title">
+          Your fridge, with Pantry
+        </h2>
+        <p className="week-review__sub">
+          Same six items. Reminders said cook the salmon first and the eggs could wait.
+        </p>
+
+        <div className="week-review__totals">
+          <div className="week-review__total week-review__total--used">
+            <span>Eaten</span>
+            <strong>{money(usedTotal)}</strong>
+            <small>{used.length} items</small>
+          </div>
+          <div className="week-review__total week-review__total--binned">
+            <span>Binned</span>
+            <strong>{money(binnedTotal)}</strong>
+            <small>{binned.length} item{binned.length === 1 ? '' : 's'}</small>
+          </div>
+        </div>
+
+        <div className="week-review__bar" role="img" aria-label={`${usedPct}% of your shop was eaten`}>
+          <span style={{ width: `${usedPct}%` }} />
+          <em>{usedPct}% used</em>
+        </div>
+
+        <ul className="week-review__list">
+          {FOODS.map((f) => (
+            <li key={f.id} data-used={f.used ? '' : undefined}>
+              <svg viewBox="0 0 64 64" aria-hidden="true">{HERO_ART[f.id]}</svg>
+              <span>{f.name}</span>
+              <b>{f.used ? 'Eaten' : 'Binned'}</b>
+              <i>{money(f.price)}</i>
+            </li>
+          ))}
+        </ul>
+
+        <p className="week-review__delta">
+          Without reminders you binned <strong>{money(lost)}</strong>. That's{' '}
+          <strong>{money(lost - binnedTotal)}</strong> back in the fridge this fortnight.
+        </p>
+
+        <a href="#waitlist" className="week-review__cta" onClick={onClose}>
+          Join the waitlist →
+        </a>
+      </div>
+    </dialog>
   )
 }
 
@@ -160,7 +251,20 @@ export default function Landing() {
   const [open, setOpen] = useState(null)
   // Days ahead of today the visitor has dragged the time slider.
   const [ahead, setAhead] = useState(0)
+  // The review opens once per trip to the bottom: dragging back up re-arms it.
+  const [review, setReview] = useState(false)
+  const armed = useRef(true)
   useFoodMotion(stageRef)
+
+  const onAhead = (value) => {
+    setAhead(value)
+    if (value >= MAX_DAYS && armed.current) {
+      armed.current = false
+      setReview(true)
+    } else if (value < MAX_DAYS) {
+      armed.current = true
+    }
+  }
 
   const onFood = (id) => {
     setOpen((cur) => (cur === id ? null : id))
@@ -226,6 +330,10 @@ export default function Landing() {
             {whenLabel}
             <small>{dateIn(ahead)}</small>
           </div>
+          {/* The native input stays for keyboard, screen readers and the drag
+              itself, but it is invisible: Safari lays a vertical writing-mode
+              thumb off the track's axis, so the thumb you see is a span placed
+              from the value instead. */}
           <div className="landing__time-track">
             <input
               className="landing__time-range"
@@ -236,8 +344,9 @@ export default function Landing() {
               value={ahead}
               aria-label="Days from today"
               aria-valuetext={`${whenLabel}, ${dateIn(ahead)}`}
-              onChange={(e) => setAhead(Number(e.target.value))}
+              onChange={(e) => onAhead(Number(e.target.value))}
             />
+            <span className="landing__time-thumb" style={{ '--p': ahead / MAX_DAYS }} aria-hidden="true" />
           </div>
           <div className={`landing__time-lost${lost > 0 ? ' is-on' : ''}`}>
             {lost > 0 ? <><strong>{money(lost)}</strong> binned</> : <>slide down ↓</>}
@@ -250,6 +359,8 @@ export default function Landing() {
           </PhoneFrame>
         </div>
       </div>
+
+      <WeekReview open={review} onClose={() => setReview(false)} lost={lost} />
     </section>
   )
 }
