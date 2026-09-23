@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CircleCheck, ArrowRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-import { APP_LIVE, APP_STORE_URL } from '../launch';
+import { APP_BETA, APP_LIVE, APP_STORE_URL, BETA_URL } from '../launch';
 import { track } from '../lib/analytics';
 
 function AppleMark() {
@@ -15,6 +15,8 @@ function AppleMark() {
   )
 }
 
+// The App Store badge once live; the same badge pointed at the TestFlight
+// invite during the public beta.
 function StoreButton({ variant }) {
   return (
     <a
@@ -25,16 +27,23 @@ function StoreButton({ variant }) {
             ? 'waitlist-form__store waitlist-form__store--hero'
             : 'waitlist-form__store'
       }
-      href={APP_STORE_URL}
+      href={APP_LIVE ? APP_STORE_URL : BETA_URL}
       data-analytics-location={`waitlist-${variant}`}
       target="_blank"
       rel="noopener noreferrer"
     >
       <AppleMark />
-      <span>
-        <small>Download on the</small>
-        App Store
-      </span>
+      {APP_LIVE ? (
+        <span>
+          <small>Download on the</small>
+          App Store
+        </span>
+      ) : (
+        <span>
+          <small>Join the beta on</small>
+          TestFlight
+        </span>
+      )}
     </a>
   )
 }
@@ -44,7 +53,7 @@ export default function WaitlistForm({ variant = 'hero' }) {
   const [status, setStatus] = useState('idle'); // idle | saving | done | error
   const [error, setError] = useState('');
 
-  if (APP_LIVE) {
+  if (APP_LIVE || APP_BETA) {
     return (
       <div
         className={
@@ -57,7 +66,11 @@ export default function WaitlistForm({ variant = 'hero' }) {
       >
         <StoreButton variant={variant} />
         {variant === 'hero' && (
-          <p className="waitlist-form__prompt">Pantry is on the App Store. Free to start.</p>
+          <p className="waitlist-form__prompt">
+            {APP_LIVE
+              ? 'Pantry is on the App Store. Free to start.'
+              : 'Public beta for iPhone, free through TestFlight.'}
+          </p>
         )}
       </div>
     )
@@ -105,7 +118,7 @@ export default function WaitlistForm({ variant = 'hero' }) {
         }
       >
         <CircleCheck size={18} strokeWidth={2.25} />
-        You&apos;re on the list. We&apos;ll email you once, when it ships.
+        You&apos;re on the list. Check your inbox.
       </div>
     );
   }
@@ -146,7 +159,7 @@ export default function WaitlistForm({ variant = 'hero' }) {
         </button>
       </div>
       {variant === 'hero' && (
-        <p className="waitlist-form__prompt">One email when Pantry launches, plus founding pricing.</p>
+        <p className="waitlist-form__prompt">Beta and launch news, plus founding pricing.</p>
       )}
       {error && (
         <p className="waitlist-form__error" role="alert">

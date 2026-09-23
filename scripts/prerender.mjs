@@ -20,7 +20,7 @@ import { getPublishedPosts, loadAllPosts, sydneyToday } from './lib/posts.mjs'
 import { STATIC_PAGES, siteNav, staticPageBody } from './lib/static-pages.mjs'
 import { faqs } from '../src/site/data.js'
 import { formatDisplayDate, pickFeatured } from '../src/site/content.js'
-import { APP_LIVE, SUPPORT_EMAIL } from '../src/site/launch.js'
+import { APP_BETA, APP_LIVE, SUPPORT_EMAIL } from '../src/site/launch.js'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const distDir = resolve(root, 'dist')
@@ -37,7 +37,11 @@ const PATHS_HOME = '/'
 // the difference between a link preview and a bare grey box.
 const DEFAULT_OG = `${SITE_URL}/og/default.jpg`
 // The one availability line llms.txt carries, off the same flag as every CTA.
-const APP_LIVE_TEXT = APP_LIVE ? 'available on the App Store' : 'pre-launch, waitlist open at the home page; not yet on the App Store'
+const APP_LIVE_TEXT = APP_LIVE
+	? 'available on the App Store'
+	: APP_BETA
+		? 'public beta for iPhone via TestFlight, linked from the home page; not yet on the App Store'
+		: 'pre-launch, waitlist open at the home page; not yet on the App Store'
 
 function readTemplate() {
 	const templatePath = resolve(distDir, 'index.html')

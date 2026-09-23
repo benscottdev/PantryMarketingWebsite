@@ -1,7 +1,7 @@
 import { useLenis } from 'lenis/react'
 import WaitlistForm from './WaitlistForm'
 import { FooterLegal, SiteMap } from './SiteMap'
-import { APP_LIVE } from '../launch'
+import { APP_BETA, APP_LIVE } from '../launch'
 
 export default function Footer() {
   const lenis = useLenis()
@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="footer__inner">
         <div className="footer__waitlist">
           <h2 className="footer__title">
-            {APP_LIVE ? 'Pantry is live.' : 'Get in before the first shop.'}
+            {APP_LIVE ? 'Pantry is live.' : APP_BETA ? 'Pantry is in public beta.' : 'Get in before the first shop.'}
           </h2>
           <WaitlistForm variant="cta" />
           {/* <p className="footer__note">

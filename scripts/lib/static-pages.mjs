@@ -232,6 +232,18 @@ export const STATIC_PAGES = [
 		noindex: true,
 		body: () => '',
 	},
+	// Same shell treatment as reset-password: the page is React (it reads the
+	// token from the URL), and it only exists as a link in waitlist emails.
+	{
+		path: PATHS.unsubscribe,
+		dir: 'unsubscribe',
+		title: 'Unsubscribe | Pantry',
+		description: 'Stop emails from the Pantry waitlist.',
+		h1: 'Leave the list.',
+		lede: 'Stop emails from the Pantry waitlist.',
+		noindex: true,
+		body: () => '',
+	},
 	{
 		path: PATHS.terms,
 		dir: 'terms',

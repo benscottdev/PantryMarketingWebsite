@@ -16,7 +16,7 @@
 // Consequence worth knowing: this is post *body* HTML, not a component, so
 // there is no lucide import here — the icons are inlined SVG, drawn to match
 // the ones the header and waitlist form use.
-import { APP_LIVE, APP_STORE_URL } from '../../src/site/launch.js'
+import { APP_BETA, INSTALL_CTA } from '../../src/site/launch.js'
 
 // Written to sit under any article on the site: it re-states the product in
 // one line rather than referring back to whatever the post happened to be
@@ -25,17 +25,17 @@ const HEADING = 'Know what’s in your fridge before it goes off.'
 const BODY =
 	'Pantry reads your shopping receipt, dates every item in it, and tells you what needs eating first. The average Australian household bins $2,500 of food a year — start with yours.'
 
-// Pre-launch the CTA points at the home page's waitlist footer; once
-// APP_LIVE flips it becomes a real App Store link, matching what the header
-// and waitlist form already do off the same flag.
+// Pre-launch the CTA points at the home page's waitlist footer; in beta it is
+// the TestFlight invite and once live the App Store, matching what the header
+// and waitlist form already do off the same LAUNCH_STAGE.
 export const POST_CTA = {
 	heading: HEADING,
 	body: BODY,
-	label: APP_LIVE ? 'Download on the App Store' : 'Join the waitlist',
-	href: APP_LIVE ? APP_STORE_URL : '/#waitlist',
-	// An off-site App Store link opens in a new tab; the in-page anchor must
+	label: APP_BETA ? 'Join the public beta' : INSTALL_CTA ? 'Download on the App Store' : 'Join the waitlist',
+	href: INSTALL_CTA ? INSTALL_CTA.href : '/#waitlist',
+	// An off-site install link opens in a new tab; the in-page anchor must
 	// not, or the waitlist opens in a window with no history behind it.
-	external: APP_LIVE,
+	external: Boolean(INSTALL_CTA),
 }
 
 // lucide's arrow-right, inlined. Same 2.5 stroke weight the header CTA uses.

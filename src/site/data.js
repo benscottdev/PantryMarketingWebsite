@@ -10,7 +10,7 @@
 // Category keys map to icon + colour swatches defined in style.scss
 // (--zone-*-bg / --zone-*-icon), mirroring the storage-zone system used
 // throughout the Pantry+ app.
-import { APP_LIVE } from "./launch.js";
+import { APP_BETA, APP_LIVE } from "./launch.js";
 
 // Same thresholds as expiryToneFromDays() in public/pantry_ios_theme.ts,
 // so every "days left" figure on the site maps to the same urgency colour
@@ -131,7 +131,9 @@ export const faqs = [
 		// same sentence with "download" in it would be a claim the app is out.
 		a: APP_LIVE
 			? "No. Download the app and upgrade there, with 7 days free first."
-			: "No. Pro is bought inside the app, after launch, with 7 days free first. People on the waitlist get founding pricing when we launch.",
+			: APP_BETA
+				? "No. The public beta is free on TestFlight. Pro is bought inside the app after launch, with 7 days free first."
+				: "No. Pro is bought inside the app, after launch, with 7 days free first. People on the waitlist get founding pricing when we launch.",
 	},
 	{
 		q: "How much does Pro cost?",

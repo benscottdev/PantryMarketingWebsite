@@ -5,7 +5,7 @@ import SmoothScroll from '../components/SmoothScroll'
 import NavMenu, { PAGE_MENU_ITEMS } from './components/NavMenu'
 import Breadcrumbs from './components/Breadcrumbs'
 import { FooterLegal, SiteMap } from './components/SiteMap'
-import { APP_LIVE, APP_STORE_URL, LEGAL_UPDATED, PATHS } from './launch'
+import { INSTALL_CTA, LEGAL_UPDATED, PATHS } from './launch'
 
 function LegalHeader() {
   return (
@@ -19,9 +19,9 @@ function LegalHeader() {
           <span className="nav__logo" aria-hidden="true" />
         </a>
 
-        {APP_LIVE ? (
+        {INSTALL_CTA ? (
           <a
-            href={APP_STORE_URL}
+            href={INSTALL_CTA.href}
             className="nav__cta"
             data-nav-cta
             data-analytics-location="header"
@@ -29,7 +29,7 @@ function LegalHeader() {
             rel="noopener noreferrer"
           >
             <span className="nav__cta-label">
-              Get the app
+              {INSTALL_CTA.label}
               <ArrowRight size={15} strokeWidth={2.5} />
             </span>
           </a>

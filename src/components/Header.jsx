@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { useLenis } from 'lenis/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
-import { APP_LIVE, APP_STORE_URL } from '../site/launch'
+import { INSTALL_CTA } from '../site/launch'
 import NavMenu, { HOME_MENU_ITEMS } from '../site/components/NavMenu'
 
 function jumpTo(lenis, target) {
@@ -101,9 +101,9 @@ export default function Header() {
             <span className="nav__logo" aria-hidden="true" />
           </a>
 
-          {APP_LIVE ? (
+          {INSTALL_CTA ? (
             <a
-              href={APP_STORE_URL}
+              href={INSTALL_CTA.href}
               className="nav__cta"
               data-nav-cta
               data-analytics-location="header"
@@ -111,7 +111,7 @@ export default function Header() {
               rel="noopener noreferrer"
             >
               <span className="nav__cta-label">
-                Get the app
+                {INSTALL_CTA.label}
                 <ArrowRight size={15} strokeWidth={2.5} />
               </span>
             </a>

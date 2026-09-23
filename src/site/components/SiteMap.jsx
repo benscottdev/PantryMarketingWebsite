@@ -1,5 +1,5 @@
 import { articles } from '../content'
-import { APP_LIVE, APP_STORE_URL, PATHS, SUPPORT_EMAIL, articlePath } from '../launch'
+import { INSTALL_CTA, PATHS, SUPPORT_EMAIL, articlePath } from '../launch'
 
 function homeHref(hash, home) {
   return home ? hash : `${PATHS.home}${hash}`
@@ -35,8 +35,8 @@ export function SiteMap({ home = false, onBrandClick }) {
     { label: 'How it works', href: homeHref('#how', home) },
     { label: 'Features', href: homeHref('#features', home) },
     { label: 'Changelog', href: PATHS.changelog },
-    APP_LIVE
-      ? { label: 'Get the app', href: APP_STORE_URL, external: true }
+    INSTALL_CTA
+      ? { label: INSTALL_CTA.label, href: INSTALL_CTA.href, external: true }
       : { label: 'Join waitlist', href: homeHref('#waitlist', home) },
   ]
 

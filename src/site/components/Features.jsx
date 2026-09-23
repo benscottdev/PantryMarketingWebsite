@@ -1,5 +1,5 @@
 import { Check } from 'lucide-react'
-import { APP_LIVE } from '../launch'
+import { APP_BETA, APP_LIVE } from '../launch'
 
 const plans = [
   {
@@ -85,7 +85,9 @@ export default function Features() {
           <p className="features__note">
             {APP_LIVE
               ? 'Pro is not sold on this site. Download the app, use Free as long as you like, and upgrade in-app if the house needs it.'
-              : 'Pro is not sold on this site. When Pantry launches, use Free as long as you like and upgrade in-app if the house needs it.'}
+              : APP_BETA
+                ? 'Pro is not sold on this site. The beta is free on TestFlight; when Pantry launches, use Free as long as you like and upgrade in-app if the house needs it.'
+                : 'Pro is not sold on this site. When Pantry launches, use Free as long as you like and upgrade in-app if the house needs it.'}
           </p>
         </div>
 

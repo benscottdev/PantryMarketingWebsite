@@ -30,8 +30,8 @@ one of these wrong is a regression, not a style nitpick.
   [`COPY-SOURCES.md`](../COPY-SOURCES.md) records that a "97% accurate" claim
   was removed for being unverifiable. The correct framing is in
   `content/posts/receipt-to-meals.md`.
-- **Never imply the app has shipped.** `APP_LIVE` is `false` in
-  `src/site/launch.js`. Write "when the app ships" / "download it when it's
+- **Never imply the app has shipped.** `LAUNCH_STAGE` in
+  `src/site/launch.js` is not `'live'`; a TestFlight beta is not a launch. Write "when the app ships" / "download it when it's
   live", not "download Pantry today".
 - **Never say Pro can be bought on the website.** It cannot — see
   `content/posts/free-vs-pro.md`. Purchases happen in the App Store, after

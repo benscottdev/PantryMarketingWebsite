@@ -17,7 +17,9 @@ export function initAnalytics() {
     if (!a) return;
     const href = a.getAttribute('href') || '';
     const location = a.closest('[data-analytics-location]')?.dataset.analyticsLocation || window.location.pathname;
-    if (href.includes('apps.apple.com')) {
+    if (href.includes('testflight.apple.com')) {
+      track('beta_click', { location });
+    } else if (href.includes('apps.apple.com')) {
       track('app_store_click', { location });
     } else if (href.endsWith('#waitlist')) {
       track('waitlist_cta_click', { location });

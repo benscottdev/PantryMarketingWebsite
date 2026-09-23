@@ -20,8 +20,9 @@ real product, and both boundaries protect against exposure that a marketing
 tone change cannot justify.
 
 - **Never state or imply Pantry is available, launched, downloadable, or on
-  the App Store.** Check `APP_LIVE` in `src/site/launch.js` — while it is
-  `false`, Pantry is pre-launch and waitlist-only. Saying otherwise on a live
+  the App Store.** Check `LAUNCH_STAGE` in `src/site/launch.js` — while it is
+  `'waitlist'`, Pantry is pre-launch and waitlist-only; at `'beta'` it is a
+  TestFlight public beta, which is still not "on the App Store" or "launched". Saying otherwise on a live
   public page is a false claim of fact to real consumers, and in Australia
   that is squarely what the Australian Consumer Law's misleading-conduct
   provisions are for. Write pre-launch copy with real energy — anticipation,

@@ -8,6 +8,7 @@ import Changelog from './site/pages/Changelog'
 import Calculator from './site/pages/Calculator'
 import NotFound from './site/pages/NotFound'
 import ResetPassword from './site/pages/ResetPassword'
+import Unsubscribe from './site/pages/Unsubscribe'
 import { PATHS } from './site/launch'
 import './styles/style.scss'
 import './styles/site.scss'
@@ -22,6 +23,7 @@ const pages = {
   [PATHS.changelog]: Changelog,
   [PATHS.calculator]: Calculator,
   [PATHS.resetPassword]: ResetPassword,
+  [PATHS.unsubscribe]: Unsubscribe,
 }
 
 function currentPath() {
