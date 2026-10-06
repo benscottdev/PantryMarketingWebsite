@@ -4,6 +4,7 @@ title: "Six phones, one pantry: how the shared household works"
 excerpt: "One subscription, up to six people, and every phone showing the same fridge — the design decisions behind Pantry’s household, explained."
 tag: PRODUCT
 publishDate: 2026-09-05
+updated: 2026-10-07
 image: /assets/blog/blog-six-phones-one-pantry.svg
 imageAlt: "Several phones on a kitchen table all showing the same pantry list"
 keywords: ["shared pantry app family", "household grocery app multiple users", "share fridge inventory app"]
@@ -23,7 +24,7 @@ Pantry Pro covers a household of up to six on a single subscription. One person 
 
 ## Invites are deliberate
 
-Joining a household is by invitation, and the bar is meant to be the same as the physical one: this list shows everything your kitchen holds and everything it is running out of, so let in the people you would hand a house key to. And because houses change, membership does too — leave a household, or remove someone, whenever the share-house reshuffles. The list is a tool, not a group chat you can never mute.
+Joining a household is by invitation, and the bar is meant to be the same as the physical one: this list shows everything your kitchen holds and everything it is running out of, so let in the people you would hand a house key to. And because houses change, membership does too — leave a household, or remove someone, whenever the share-house reshuffles. The list is a tool, not a group chat you can never mute. Pantry is iPhone first, so every member needs an iPhone to join, and [the Android post](/resources/pantry-app-android) covers the mixed house.
 
 ## Built for the argument at 5:30pm
 

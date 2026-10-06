@@ -4,6 +4,7 @@ title: "Is Pantry free, and what does Pro cost?"
 excerpt: "Yes, Free is a real plan with no trial clock. Pro is $4.99 a month or $49.99 a year, billed by Apple, and it exists for the household rather than the individual."
 tag: PLANS
 publishDate: 2026-09-15
+updated: 2026-10-07
 image: /assets/blog/blog-pantry-free-vs-pro.svg
 imageAlt: "Two plan cards side by side on a phone, Free and Pro, propped on a kitchen bench"
 keywords: ["is pantry app free", "pantry app free vs pro"]
@@ -42,4 +43,4 @@ Leaving is from your Apple ID settings, in about four taps. No calls, no forms, 
 
 ## Which one to start on
 
-Free. One scan a week is a weekly shop, which is most of what most households need to find out whether the list changes what gets cooked. Move to Pro on the day a second person wants to see it, and not before. Pantry ships to the App Store for iPhone first, on a window rather than a date, and the free plan is the one everybody on the waitlist starts on.
+Free. One scan a week is a weekly shop, which is most of what most households need to find out whether the list changes what gets cooked. Move to Pro on the day a second person wants to see it, and not before. Pantry ships to the App Store for iPhone first, on a window rather than a date ([when does Pantry launch](/resources/when-does-pantry-launch) has the roadmap, and [the Android post](/resources/pantry-app-android) covers the other phone), and the free plan is the one everybody on the waitlist starts on.

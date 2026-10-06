@@ -3,7 +3,7 @@ slug: pantry-app-android
 title: "Is Pantry on Android? Not at launch, it is iPhone first"
 excerpt: "No. Pantry is an iOS app, launching on iPhone first, and the roadmap lists no Android version. What that means for Android phones and mixed households."
 tag: PRODUCT
-publishDate: 2026-10-20
+publishDate: 2026-10-07
 image: /assets/blog/blog-pantry-app-android.svg
 imageAlt: "Two phones on a kitchen bench beside a grocery receipt, one showing a dated pantry list and one with a blank screen"
 keywords: ["pantry app android", "is pantry on android", "pantry app for android phones", "expiry tracker app android australia"]

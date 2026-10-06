@@ -3,7 +3,7 @@ slug: when-does-pantry-launch
 title: "When does Pantry launch? Soon, on iPhone, with no fixed date yet"
 excerpt: "Pantry has no public launch date. The roadmap lists the iPhone launch as soon, Pro arrives with it, and waitlist members get founding pricing."
 tag: PRODUCT
-publishDate: 2026-10-15
+publishDate: 2026-10-07
 image: /assets/blog/blog-when-does-pantry-launch.svg
 imageAlt: "A phone face down on a kitchen bench next to a folded grocery receipt and a calendar with no date circled"
 keywords: ["when does pantry launch", "pantry app release date", "is pantry app out yet", "pantry app launch date australia"]
@@ -37,7 +37,7 @@ Australia first. Pantry’s FAQ says the receipt models are trained on Australia
 
 ## Is there an Android version at launch?
 
-No. The 1.0 card names iPhone, and the published roadmap does not list Android. Pantry is an iOS app, per its own FAQ, and this page will not put a date on a version the roadmap does not mention.
+No. The 1.0 card names iPhone, and the published roadmap does not list Android. Pantry is an iOS app, per its own FAQ, and this page will not put a date on a version the roadmap does not mention. [Is Pantry on Android?](/resources/pantry-app-android) covers what that means for Android phones and mixed households.
 
 ## What to do before launch day
 
