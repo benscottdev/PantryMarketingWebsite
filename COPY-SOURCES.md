@@ -155,6 +155,23 @@ above it and the attribution does not match the page as it reads today. No
 post in this batch uses those rows. Mushroom and herb posts were left out for
 this reason and sit in `content/keyword-queue.md` as held back.
 
+### 7 October 2026: two launch-status posts
+
+`when-does-pantry-launch` and `pantry-app-android` restate the roadmap
+(`coming` in `src/site/content.js`), the empty `changelog` array, the FAQ in
+`src/site/data.js` and the waitlist form prompt. They add no new facts and no
+dates. Neither post names a competitor.
+
+| Claim | Where used | Source |
+| --- | --- | --- |
+| No public launch date; 1.0 = launch for iPhone, window “Soon”; Pro “At launch”; Next “After launch” (better names off Woolies/Coles slips, meals leaning on what is about to expire, first-month fixes); windows move and are not promises | `content/posts/when-does-pantry-launch.md`, `content/posts/pantry-app-android.md` | `src/site/content.js` roadmap (`coming`) and its comment |
+| Release history empty on purpose until a real release | `content/posts/when-does-pantry-launch.md` | `changelog` in `src/site/content.js`; “Changelog scope” below |
+| Pantry is an iOS app; Australia first, receipt models trained on Australian receipt data in English | both posts | FAQ, `src/site/data.js` |
+| No Android version on the published roadmap | both posts | `coming` in `src/site/content.js` lists iPhone only |
+| Waitlist form takes an email only and promises beta news, launch news and founding pricing | both posts | `src/site/components/WaitlistForm.jsx` |
+| Receipt image deleted about six hours after processing | `content/posts/when-does-pantry-launch.md` | Existing “Pantry's own privacy practices” row |
+| Pro $4.99/month or $49.99/year, Apple billing, 7 days free; household of up to six joins free by invite | both posts | Existing “Product claims” rows; FAQ |
+
 ## Leftovers and the danger-zone clock
 
 | Claim | Where it appears | Source |

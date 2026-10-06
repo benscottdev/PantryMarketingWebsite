@@ -4,7 +4,7 @@ title: "Receipt-scanning apps compared, and where Pantry is headed"
 excerpt: "Pantry turns one photographed receipt into a dated grocery list. How Fango, Eatvora and Alydo compare, and why Pantry differs."
 tag: APPS
 publishDate: 2026-08-28
-updated: 2026-09-15
+updated: 2026-10-07
 image: /assets/blog/blog-receipt-scanning-apps-compared.svg
 imageAlt: "A phone camera photographing a grocery receipt on a kitchen counter"
 keywords: ["receipt scanning app grocery", "scan receipt track pantry app"]
@@ -32,6 +32,6 @@ Getting items into the list quickly is only half the job, though. None of the th
 
 ## Where Pantry stands right now
 
-Pantry has not launched. It is on the waitlist, not the App Store, so none of this is a head-to-head test against Fango, Eatvora or Alydo. What is written above reflects how each app presents itself on its own site or listing, not an independent benchmark of accuracy or speed. When Pantry ships, the comparison that matters is the one you run yourself — a docket from your own kitchen, [from Coles, Woolworths or Aldi](/resources/does-pantry-read-coles-woolworths-aldi-receipts), scanned on your own phone, against whichever of these you have used before.
+Pantry has not launched. It is on the waitlist, not the App Store, so none of this is a head-to-head test against Fango, Eatvora or Alydo. What is written above reflects how each app presents itself on its own site or listing, not an independent benchmark of accuracy or speed. When Pantry ships, the comparison that matters is the one you run yourself — a docket from your own kitchen, [from Coles, Woolworths or Aldi](/resources/does-pantry-read-coles-woolworths-aldi-receipts), scanned on your own phone, against whichever of these you have used before. Before that first photo, read [what happens to your receipt photo](/resources/what-happens-to-your-receipt-photo) after Pantry scans it.
 
 [Join the waitlist](/#waitlist) to be one of the first to run that comparison, or read [how Pantry turns a receipt into a working list](/#how) for the detail behind the approach.

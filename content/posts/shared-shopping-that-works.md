@@ -4,7 +4,7 @@ title: "One list, one fridge: shared shopping that works"
 excerpt: "Two people, two pictures of the same fridge, and a doubled-up carton of milk. Pantry replaces both with one list everyone sees."
 tag: HOUSEHOLD
 publishDate: 2026-08-30
-updated: 2026-09-15
+updated: 2026-10-07
 image: /assets/blog/blog-shared-shopping-that-works.svg
 imageAlt: "Two people looking at a phone together in a kitchen, groceries on the counter"
 keywords: ["shared grocery list household", "couples family grocery shopping app"]
@@ -26,7 +26,7 @@ Up to six people share the one Pantry subscription, and every one of them sees t
 
 ## It is never just the milk
 
-Milk is the obvious example — bought often, every carton looking the same — but the same root cause shows up everywhere two people shop for one household: duplicate vegetables bought for the same meal, two people each grabbing “something for dinner” with no idea the other already has a plan, a second jar of a condiment because the first one was pushed to the back of a shelf. None of it is really about milk. It is the same gap every time: no single record of what the fridge holds right now, visible to both people who shop for it.
+Milk is the obvious example — bought often, every carton looking the same — but the same root cause shows up everywhere two people shop for one household: duplicate vegetables bought for the same meal, two people each grabbing “something for dinner” with no idea the other already has a plan, a second jar of a condiment because the first one was pushed to the back of a shelf. None of it is really about milk. It is the same gap every time: no single record of what the fridge holds right now, visible to both people who shop for it. [How to stop buying food you already have](/resources/how-to-stop-buying-food-you-already-have) walks through closing it.
 
 ## One subscription covers the whole household
 

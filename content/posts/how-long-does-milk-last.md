@@ -4,7 +4,7 @@ title: "How long does milk last after opening? Five to seven days"
 excerpt: "CSIRO gives milk five to seven days in the fridge, carton or bottle, full cream or skim, and opening it does not reset the clock. What shortens it, what to trust."
 tag: STORAGE
 publishDate: 2026-08-28
-updated: 2026-09-19
+updated: 2026-10-07
 image: /assets/blog/blog-how-long-does-milk-last.svg
 imageAlt: "A glass milk bottle on a cream kitchen counter next to a small jug"
 keywords: ["how long does milk last after opening", "how long does milk last once opened", "how long does carton milk last after opening", "how long does milk last in the fridge", "milk expiry after opening"]
@@ -52,6 +52,6 @@ UHT (long-life) milk plays by a different set of rules. Sterilised at a higher t
 
 ## Two bottles in the fridge
 
-Milk gets bought weekly in most households, which is exactly how a new bottle and a six-day-old one end up side by side and indistinguishable. One from Tuesday’s shop, one bought Thursday “just in case” — the older one is the one that gets missed. A shared fridge makes it worse, not better: whoever bought the milk knows how old it is, and nobody else does.
+Milk gets bought weekly in most households, which is exactly how a new bottle and a six-day-old one end up side by side and indistinguishable. One from Tuesday’s shop, one bought Thursday “just in case” — the older one is the one that gets missed. A shared fridge makes it worse, not better: whoever bought the milk knows how old it is, and nobody else does. [How to stop buying food you already have](/resources/how-to-stop-buying-food-you-already-have) covers the fix for the second bottle.
 
 This is the food waste that never makes a headline — not a dramatic bin clear-out, just five to seven days quietly running out with nobody watching the clock. Pantry fixes the part that goes wrong here. The moment a receipt is scanned, the date attaches to that bottle, not to someone’s memory of Tuesday, and every phone in the household sees the same age on the same bottle. The number it counts down from is [the same CSIRO figure as this page](/resources/where-pantrys-expiry-dates-come-from), and it comes off [the receipt rather than a barcode](/resources/why-receipts-not-barcodes), so the second bottle gets its own date instead of sharing the first one’s. If milk is one of the things your household keeps re-buying before finishing the last one, the [morning digest](/#how) is built for exactly that gap.

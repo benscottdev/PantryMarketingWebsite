@@ -4,7 +4,7 @@ title: "Does Pantry read Coles, Woolworths and Aldi receipts?"
 excerpt: "Yes, and IGA and the corner grocer through the same reader. Pantry reads the receipt itself, not a template, so one photo of any docket becomes a dated list."
 tag: PRODUCT
 publishDate: 2026-09-15
-updated: 2026-09-15
+updated: 2026-10-07
 image: /assets/blog/blog-does-pantry-read-coles-woolworths-aldi-receipts.svg
 imageAlt: "Three supermarket receipts of different lengths fanned out on a kitchen bench beside a phone"
 keywords: ["does pantry read coles woolworths aldi receipts", "coles receipt scanner app", "woolworths receipt scanning app", "aldi receipt app"]
@@ -30,7 +30,7 @@ Some will. Receipts are abbreviated, faded and inconsistent, and this site does 
 
 ## Photograph it on shopping day
 
-Thermal print fades. The receipt from a warm car on Saturday is a different document by the following Friday, and the one at the bottom of a bag has been folded through most of its lines. The habit that makes the reader’s job easiest is the simplest one: photograph the docket when the shopping comes in, before it goes anywhere near a pocket. Non-food lines — dishwashing tablets, the bin liners — are filtered out on purpose. Pantry tracks grocery shelf life, not your whole shopping history.
+Thermal print fades. The receipt from a warm car on Saturday is a different document by the following Friday, and the one at the bottom of a bag has been folded through most of its lines. The habit that makes the reader’s job easiest is the simplest one: photograph the docket when the shopping comes in, before it goes anywhere near a pocket. Non-food lines — dishwashing tablets, the bin liners — are filtered out on purpose. Pantry tracks grocery shelf life, not your whole shopping history. [What happens to your receipt photo](/resources/what-happens-to-your-receipt-photo) covers what is kept and what is deleted.
 
 ## The comparison worth running
 

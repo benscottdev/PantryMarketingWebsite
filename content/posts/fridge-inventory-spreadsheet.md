@@ -4,7 +4,7 @@ title: "Does a fridge inventory spreadsheet work?"
 excerpt: "For about a week. The sheet dies the first shop nobody types in. Pantry fills the same columns from one photo of the receipt, with a date on every row."
 tag: HOUSEHOLD
 publishDate: 2026-09-15
-updated: 2026-09-15
+updated: 2026-10-07
 image: /assets/blog/blog-fridge-inventory-spreadsheet.svg
 imageAlt: "A laptop with a half-filled fridge inventory spreadsheet next to a phone showing the same list filled from a receipt"
 keywords: ["fridge inventory spreadsheet", "pantry inventory spreadsheet template"]
@@ -41,7 +41,7 @@ One photograph replaces the entry column, the date column and the window column 
 
 ## What a shared list changes
 
-The exit and ownership problems go together, and so does their fix. Pantry’s household puts the list on every phone in the house, and members mark things as they go: the milk marked as opened, the baby spinach used, the mince moved to the freezer. A row disappears when the food does, from everyone’s view at once, and the person at the shop sees the fridge as it is right now, not as it was the last time someone updated a sheet.
+The exit and ownership problems go together, and so does their fix. Pantry’s household puts the list on every phone in the house, and members mark things as they go: the milk marked as opened, the baby spinach used, the mince moved to the freezer. A row disappears when the food does, from everyone’s view at once, and the person at the shop sees the fridge as it is right now, not as it was the last time someone updated a sheet. That is the whole of [how to stop buying food you already have](/resources/how-to-stop-buying-food-you-already-have).
 
 ## What a nudge changes
 

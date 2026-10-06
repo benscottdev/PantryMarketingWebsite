@@ -78,12 +78,16 @@ impressions, 5 clicks, 36 pages with impressions). The queue had no unstruck
 app-focused line, so the two posts this week came from commercial gaps the
 site had not covered rather than from GSC rows; app-intent queries still
 carry almost no impressions (pantry tracking app 1, coles receipt 1). -->
-~~how to stop buying food you already have | HOUSEHOLD | high | commercial; the double-up angle (second bottle of milk), receipt-fed list on every phone; publishes 29 Sep 2026; when live, link to it from how-long-does-milk-last (Two bottles section), fridge-inventory-spreadsheet and shared-shopping-that-works~~
-~~receipt scanning app privacy | PRODUCT | high | commercial trust; restates the /privacy receipt sections only (6-hour deletion, five fields, opt-out switch); publishes 1 Oct 2026; when live, link to it from how-pantry-reads-a-receipt, does-pantry-read-coles-woolworths-aldi-receipts and receipt-scanning-apps-compared~~
+~~how to stop buying food you already have | HOUSEHOLD | high | commercial; the double-up angle (second bottle of milk), receipt-fed list on every phone; published 29 Sep 2026; linked from how-long-does-milk-last (Two bottles section), fridge-inventory-spreadsheet and shared-shopping-that-works on 7 Oct 2026~~
+~~receipt scanning app privacy | PRODUCT | high | commercial trust; restates the /privacy receipt sections only (6-hour deletion, five fields, opt-out switch); published 1 Oct 2026; linked from how-pantry-reads-a-receipt, does-pantry-read-coles-woolworths-aldi-receipts and receipt-scanning-apps-compared on 7 Oct 2026~~
 safest way to defrost a chicken | STORAGE | med | not a new post: H2 added to defrosting-chicken-safely on 19 Sep 2026 for the multiple-choice quiz query (37 impressions at pos 8); leave unless it stalls
 how long does ham last in the fridge | STORAGE | low | the christmas ham post already carries this H2 and sits at pos 22 on 2 impressions; a non-seasonal ham post would cannibalise it, leave
-pantry app android | PRODUCT | med | commercial FAQ-style candidate for a future week: iOS-first, what Android users on the waitlist get; source the answer from the FAQ and roadmap before writing
-when does pantry launch | PRODUCT | med | commercial candidate: roadmap windows, founding pricing for waitlist members; write only with the roadmap page as the single source, no dates the site does not publish
+~~pantry app android | PRODUCT | med | commercial; FAQ (iOS app, Australia first) and roadmap only, no Android date invented, mixed iPhone/Android household section; publishes 20 Oct 2026; when live, link to it from when-does-pantry-launch (Android section), pantry-free-vs-pro and six-phones-one-pantry~~
+<!-- 7 Oct 2026: the GSC pull failed (expired OAuth token) and GA4 did not
+connect, so this week's two posts are the last two app-focused lines in the
+queue. The unstruck lines left are all STORAGE and deliberately held back;
+next week needs new app-focused candidates from a working GSC pull. -->
+~~when does pantry launch | PRODUCT | med | commercial; roadmap cards (1.0 Soon, Pro At launch, Next After launch) and the empty changelog only, no date; publishes 15 Oct 2026; when live, link to it from pantry-free-vs-pro (Which one to start on), receipt-scanning-apps-compared (Where Pantry stands right now) and does-pantry-read-coles-woolworths-aldi-receipts (The comparison worth running)~~
 how long does unopened milk last in the fridge | STORAGE | low | not a new post: covered by the once-opened / carton H2s added to how-long-does-milk-last on 15 Sep 2026; 7 impressions for the bare query at pos 20; revisit only if it does not move by mid October
 how long does raw meat last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026 as least likely; CSIRO meat 3-5 held at 3 if revived
 how long does butter last in the fridge | STORAGE | low | drafted then scrapped 6 Sep 2026 as least likely; CSIRO 8 wks, data.js 30 days
@@ -168,3 +172,9 @@ receipts with an app · what happens to receipt photos in an app · pantry app
 privacy receipt · how to store raw chicken in the fridge · safest way to
 defrost a chicken · how long do cooked prawns last in the fridge · how long do
 raw prawns last in the fridge · how long does deli bacon last in the fridge
+
+Added 7 October 2026 (50 posts total):
+
+when does pantry launch · pantry app release date · is pantry app out yet ·
+pantry app launch date australia · pantry app android · is pantry on android ·
+pantry app for android phones · expiry tracker app android australia

@@ -4,7 +4,7 @@ title: "How Pantry reads a faded, crumpled grocery receipt"
 excerpt: "Thermal print fades, names arrive abbreviated, and a code sometimes sits where a tomato should be. Inside the problem Pantry is built around."
 tag: PRODUCT
 publishDate: 2026-08-25
-updated: 2026-09-15
+updated: 2026-10-07
 image: /assets/blog/blog-how-pantry-reads-a-receipt.svg
 imageAlt: "A crumpled supermarket receipt flattened on a bench next to a phone camera"
 keywords: ["receipt scanning how it works", "grocery receipt ocr", "scan receipt to list app"]
@@ -32,4 +32,4 @@ That confirm step is not an apology for the reader. It is the design. A list the
 
 ## From paper to pantry
 
-Once confirmed, each line becomes an item with a name, a purchase date, and an expiry estimate drawn from the same CSIRO-grounded shelf-life data behind [the reference table on this site](/resources/how-long-food-lasts) — a different window for the chicken than for the cheddar, because [they do not age alike](/resources/chicken-in-the-fridge-three-days). The receipt goes back to being rubbish. The information on it becomes the list your household runs the week from — which, given [what forgetting costs](/resources/where-the-2500-goes), is the best thing a terrible document ever turned into.
+Once confirmed, each line becomes an item with a name, a purchase date, and an expiry estimate drawn from the same CSIRO-grounded shelf-life data behind [the reference table on this site](/resources/how-long-food-lasts) — a different window for the chicken than for the cheddar, because [they do not age alike](/resources/chicken-in-the-fridge-three-days). The receipt goes back to being rubbish, and the photo is deleted about six hours after processing, per [what happens to your receipt photo](/resources/what-happens-to-your-receipt-photo). The information on it becomes the list your household runs the week from — which, given [what forgetting costs](/resources/where-the-2500-goes), is the best thing a terrible document ever turned into.
