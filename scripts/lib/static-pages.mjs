@@ -210,7 +210,7 @@ export const STATIC_PAGES = [
 		description:
 			'What personal information Pantry collects, why, who we share it with, how long we keep it, and what you can do about it.',
 		h1: 'Privacy Policy',
-		lede: 'Version 1.0. Applies to the Pantry iOS app and the Pantry website.',
+		lede: 'Version 1.1. Applies to the Pantry iOS app and the Pantry website.',
 		body: () =>
 			'<p>We are Benjamin James Linehan Scott (ABN 45 718 906 920), trading as Pantry and LSD Studios, Chatswood NSW 2067, Australia. Pantry is run by one person.</p>' +
 			'<p>This policy explains what personal information we collect, why we collect it, who we share it with, how long we keep it, and what you can do about it. It is our policy under Australian Privacy Principle 1.3. You can read it free of charge at any time, in the app and on this website.</p>' +
