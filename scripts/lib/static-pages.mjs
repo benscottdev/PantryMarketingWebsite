@@ -244,6 +244,18 @@ export const STATIC_PAGES = [
 		noindex: true,
 		body: () => '',
 	},
+	// Same shell again: the page is React (it reads the code from the URL). Every
+	// /join/CODE is rewritten to this one file in vercel.json.
+	{
+		path: PATHS.join,
+		dir: 'join',
+		title: 'Household invite | Pantry',
+		description: 'Someone has invited you to their Pantry household.',
+		h1: 'Share a pantry.',
+		lede: 'Someone has invited you to their Pantry household.',
+		noindex: true,
+		body: () => '',
+	},
 	{
 		path: PATHS.terms,
 		dir: 'terms',

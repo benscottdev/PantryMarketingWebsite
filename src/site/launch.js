@@ -15,7 +15,7 @@ export const LAUNCH_STAGE = "waitlist";
 // populates at build time.
 const env = import.meta.env || globalThis.process?.env || {};
 
-export const APP_STORE_URL = env.VITE_APP_STORE_URL || "https://apps.apple.com/";
+export const APP_STORE_URL = env.VITE_APP_STORE_URL || "https://apps.apple.com/app/id6784073206";
 
 // The public TestFlight invite, e.g. "https://testflight.apple.com/join/AbCd1234".
 // Paste it here, or set VITE_BETA_URL in Vercel to override without a commit.
@@ -59,6 +59,10 @@ export const PATHS = {
 	// The link at the foot of the waitlist welcome email (the waitlist-welcome
 	// edge function in the app repo builds it). Change it there too.
 	unsubscribe: "/unsubscribe",
+	// Household invite links, as /join/CODE. The app builds them (inviteLink in the
+	// app repo's src/lib/inviteShare.ts) and claims them through
+	// public/.well-known/apple-app-site-association. Change all three together.
+	join: "/join",
 };
 
 export function articlePath(id) {

@@ -7,6 +7,7 @@ import Article from './site/pages/Article'
 import Changelog from './site/pages/Changelog'
 import Calculator from './site/pages/Calculator'
 import NotFound from './site/pages/NotFound'
+import Join from './site/pages/Join'
 import ResetPassword from './site/pages/ResetPassword'
 import Unsubscribe from './site/pages/Unsubscribe'
 import { PATHS } from './site/launch'
@@ -24,6 +25,7 @@ const pages = {
   [PATHS.calculator]: Calculator,
   [PATHS.resetPassword]: ResetPassword,
   [PATHS.unsubscribe]: Unsubscribe,
+  [PATHS.join]: Join,
 }
 
 function currentPath() {
@@ -35,6 +37,8 @@ export default function App() {
   const Page = pages[path]
 
   if (Page) return <Page />
+
+  if (path.startsWith(`${PATHS.join}/`)) return <Join />
 
   if (path.startsWith(`${PATHS.resources}/`)) {
     const slug = path.slice(PATHS.resources.length + 1)

@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["JKYUF3HG49.com.lsdstudios.pantry"],
+        "components": [{ "/": "/join/*", "comment": "Household invites" }]
+      }
+    ]
+  }
+}

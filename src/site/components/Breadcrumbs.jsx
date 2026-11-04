@@ -10,6 +10,7 @@ const PAGE_LABELS = {
   [PATHS.calculator]: 'Waste calculator',
   [PATHS.resetPassword]: 'Reset password',
   [PATHS.unsubscribe]: 'Unsubscribe',
+  [PATHS.join]: 'Household invite',
 }
 
 const HOME = { label: 'Home', href: PATHS.home }
@@ -21,6 +22,11 @@ function currentPath() {
 export function crumbsForPath(path = currentPath()) {
   if (PAGE_LABELS[path]) {
     return [HOME, { label: PAGE_LABELS[path], href: path }]
+  }
+
+  // Never the full path: the code in it goes no further than this page.
+  if (path.startsWith(`${PATHS.join}/`)) {
+    return [HOME, { label: PAGE_LABELS[PATHS.join], href: PATHS.join }]
   }
 
   if (path.startsWith(`${PATHS.resources}/`)) {

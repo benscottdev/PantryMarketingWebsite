@@ -5649,6 +5649,45 @@ body:has(.legal),
 	}
 }
 
+// Under .reset for specificity: .legal's body copy styles would otherwise win.
+.reset .join {
+	&__code {
+		margin: 14px 0 18px;
+		font-family: var(--font-display);
+		font-weight: 800;
+		font-size: clamp(30px, 8vw, 40px);
+		line-height: 1.1;
+		letter-spacing: 4px;
+		color: var(--charcoal);
+		overflow-wrap: anywhere;
+		user-select: all;
+	}
+
+	&__copy {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	&__steps {
+		margin: 28px 0 0;
+		padding-left: 22px;
+		font-size: 16px;
+		line-height: 1.6;
+
+		li + li {
+			margin-top: 8px;
+		}
+	}
+
+	&__note {
+		margin: 18px 0 0;
+		font-size: 15px;
+		line-height: 1.6;
+		color: rgba(26, 29, 24, 0.72);
+	}
+}
+
 .changelog-empty {
 	margin: 8px 0 0;
 	padding: clamp(20px, 3vw, 30px);

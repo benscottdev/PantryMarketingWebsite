@@ -24,7 +24,16 @@
 				if (new URLSearchParams(location.search).has('internal')) localStorage.setItem('pantry_internal', '1')
 				if (localStorage.getItem('pantry_internal') === '1') gtag('set', { traffic_type: 'internal' })
 			} catch (e) {}
-			gtag('config', 'G-JTLC9P0DV5')
+			// Invite links carry a household's code in the path. It stays out of
+			// analytics, both here and as the referrer on the next page.
+			if (location.pathname.indexOf('/join/') === 0) {
+				var referrerPolicy = document.createElement('meta')
+				referrerPolicy.name = 'referrer'
+				referrerPolicy.content = 'origin'
+				document.head.appendChild(referrerPolicy)
+			} else {
+				gtag('config', 'G-JTLC9P0DV5')
+			}
 		</script>
 	</head>
 	<body>

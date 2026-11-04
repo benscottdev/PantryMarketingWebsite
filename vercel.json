@@ -1,6 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/.well-known/apple-app-site-association",
+      "headers": [{ "key": "Content-Type", "value": "application/json" }]
+    }
+  ],
+  "rewrites": [{ "source": "/join/:code", "destination": "/join/index.html" }],
   "redirects": [
     {
       "source": "/resources/how-long-does-milk-last-after-opening",
