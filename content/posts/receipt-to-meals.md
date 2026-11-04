@@ -24,9 +24,9 @@ The list carries a window for every item, [taken at the cautious end of CSIRO’
 
 Each suggestion is priced from the receipts you scanned, so the dinner comes with a number attached, and the number is what it already cost. That changes the 5:30pm decision in a way a recipe never does. Takeaway is a new spend. The suggestion is a spend already made, sitting in the fridge, and a dinner that is already paid for is a harder thing to order pizza past.
 
-## Two a week on Free, unlimited on Pro
+## Two a week on Free, no weekly cap on Pro
 
-The free plan includes two meal generations a week, built from whatever a receipt has already logged. [Pro](/resources/pantry-free-vs-pro) makes them unlimited and adds the delivery mechanism that matters most: the afternoon nudge, which arrives at 5:30pm naming the ingredient and the meal, on every phone in the household, while acting on it is still possible. [The timing is deliberate](/resources/why-the-nudge-lands-at-530). A suggestion at 11am reaches someone at work. The same suggestion at 5:30pm reaches someone deciding.
+The free plan includes two meal generations a week, built from whatever a receipt has already logged. [Pro](/resources/pantry-free-vs-pro) removes the weekly cap and adds the delivery mechanism that matters most: the afternoon nudge, which arrives at 5:30pm naming the ingredient and the meal, on every phone in the household, while acting on it is still possible. [The timing is deliberate](/resources/why-the-nudge-lands-at-530). A suggestion at 11am reaches someone at work. The same suggestion at 5:30pm reaches someone deciding.
 
 ## Where the list can be wrong, and what happens then
 

@@ -17,7 +17,7 @@ No. The release history on [the changelog](/changelog) is empty on purpose, and 
 
 ## What arrives at launch
 
-The roadmap splits launch into two cards. The 1.0 card is Pantry itself: the iPhone app, founding pricing for waitlist members, and a free plan that stays free, covering weekly scans, expiry tracking and the morning digest. The Pro card is marked “At launch” as well, and it is the household plan. Up to six people share one pantry on one subscription, with unlimited receipt scans and meal generations, and an afternoon nudge when something is turning.
+The roadmap splits launch into two cards. The 1.0 card is Pantry itself: the iPhone app, founding pricing for waitlist members, and a free plan that stays free, covering weekly scans, expiry tracking and the morning digest. The Pro card is marked “At launch” as well, and it is the household plan. Up to six people share one pantry on one subscription, with no weekly cap on receipt scans or meal generations, and an afternoon nudge when something is turning.
 
 Pro’s terms are already set. It is $4.99 a month or $49.99 a year, billed by Apple with seven days free first. [The Free vs Pro post](/resources/pantry-free-vs-pro) lays out where the line falls between the two plans, and [six phones, one pantry](/resources/six-phones-one-pantry) covers why the household plan is priced per house rather than per phone.
 

@@ -6,31 +6,29 @@ const plans = [
     id: 'free',
     name: 'Free',
     kicker: 'Forever',
-    desc: 'Scan a receipt, watch what is turning, and get one quiet nudge every morning. No card, no trial clock.',
+    desc: 'Scan a receipt, watch what is turning, and get a quiet heads-up on mornings when food is about to go. No card, no trial clock.',
     items: [
       { label: 'Receipt scans', note: '1 / week' },
       { label: 'Meal generations', note: '2 / week' },
       { label: 'Expiry tracking' },
       { label: 'Morning digest' },
-      { label: 'Afternoon AI notifications', included: false },
+      { label: '5:30pm dinner idea', included: false },
       { label: 'Household members', included: false },
-      { label: 'Priority support', included: false },
     ],
   },
   {
     id: 'pro',
     name: 'Pro',
     kicker: 'Upgrade in the app',
-    desc: 'Unlimited scans and meals, the evening nudge, and everyone you live with on the same pantry. One subscription covers the house.',
+    desc: 'More scans and meals, a 5:30pm dinner idea, and everyone you live with on the same pantry. One subscription covers the house.',
     featured: true,
     items: [
-      { label: 'Receipt scans', note: 'Unlimited' },
-      { label: 'Meal generations', note: 'Unlimited' },
+      { label: 'Receipt scans', note: 'No weekly cap' },
+      { label: 'Meal generations', note: 'No weekly cap' },
       { label: 'Expiry tracking' },
       { label: 'Morning digest' },
-      { label: 'Afternoon AI notifications' },
-      { label: 'Household members' },
-      { label: 'Priority support' },
+      { label: '5:30pm dinner idea' },
+      { label: 'Household members', note: 'Up to 6' },
     ],
   },
 ]
@@ -79,7 +77,7 @@ export default function Features() {
           </h2>
           <p className="features__desc">
             Free is a real plan, not a countdown. Pro opens it up to the whole
-            house: unlimited scans, the evening nudge, and one shared pantry for
+            house: more scans, a 5:30pm dinner idea, and one shared pantry for
             everyone who opens that fridge.
           </p>
           <p className="features__note">

@@ -1,7 +1,7 @@
 ---
 slug: shopping-list-app-with-expiry-dates
 title: "Shopping list app with expiry dates? Start at the receipt"
-excerpt: "Pantry has no shopping list. It keeps the list that matters more: everything you bought, dated from the receipt, with a countdown on every line."
+excerpt: "Pantry keeps a simple shopping list, but the list that matters more is everything you bought, dated from the receipt, with a countdown on every line."
 tag: APPS
 publishDate: 2026-09-15
 updated: 2026-09-15
@@ -34,4 +34,4 @@ The question a shopping list is meant to answer, “do we need milk”, is a fri
 
 ## The gap, stated plainly
 
-Pantry will not write your shopping list. If a list you tick off in the aisle is the thing you cannot do without, the notes app already does that job well enough, and Pantry does not try to take it over. What Pantry removes is everything after the checkout: typing the shop into an app you have already paid for, guessing which day the chicken came in, and finding out on Thursday that nobody was counting. The list with the dates on it is the one you did not have to write. [Join the waitlist](/#waitlist) and the next receipt is the first one that gets read.
+Pantry has a simple shared shopping list, but it will not write it for you. If a detailed list you tick off in the aisle is the thing you cannot do without, the notes app already does that job well enough, and Pantry does not try to take it over. What Pantry removes is everything after the checkout: typing the shop into an app you have already paid for, guessing which day the chicken came in, and finding out on Thursday that nobody was counting. The list with the dates on it is the one you did not have to write. [Join the waitlist](/#waitlist) and the next receipt is the first one that gets read.

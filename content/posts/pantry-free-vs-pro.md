@@ -22,10 +22,9 @@ That is a working expiry tracker, not a demo. Free stays free for as long as you
 
 Pro removes the weekly caps and adds the two things a shared fridge needs.
 
-- **Unlimited scans and meal generations.** The second shop of the week, the top-up run, the market on Saturday, all scanned.
+- **More scans and meal generations.** No weekly cap, so the second shop of the week, the top-up run and the market on Saturday all get scanned. Fair use limits still apply.
 - **The afternoon nudge.** Lands at 5:30pm and names a meal for the thing about to turn, in Pantry’s standing example: “Your lean beef mince goes off tomorrow. Spaghetti bolognese tonight and it never sees the bin.” [Why it lands at 5:30pm](/resources/why-the-nudge-lands-at-530) has the reasoning.
 - **Household members.** Up to six people on one shared pantry, one subscription. One person pays and becomes the admin. Everyone else joins free by invite and gets the same list and the same digest.
-- **Priority support.**
 
 ## Who Pro is for
 

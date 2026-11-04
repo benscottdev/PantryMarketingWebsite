@@ -72,7 +72,7 @@ export const coming = [
 		color: "#8ec8e8",
 		changes: [
 			"Shared household of up to six, one subscription",
-			"Unlimited receipt scans and meal generations",
+			"More receipt scans and meal generations, with no weekly cap",
 			"Afternoon meal nudges when something is turning",
 		],
 	},
