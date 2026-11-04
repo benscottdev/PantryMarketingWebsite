@@ -25,7 +25,7 @@ The reading is the hard part. Supermarket dockets are abbreviated, a thermal sli
 
 Three things work in any browser, on any phone.
 
-- **Join the waitlist.** The form asks for an email address and nothing about your phone. It sends beta news, launch news and founding pricing.
+- **Join the waitlist.** The form asks for an email address and nothing about your phone. It sends beta and launch news.
 - **Use the shelf-life table.** [How long food lasts](/resources/how-long-food-lasts) is the same CSIRO-grounded data Pantry’s expiry windows are built on, laid out as a table you can check from the fridge door.
 - **Run the calculator.** [The food waste calculator](/calculator) estimates what your household bins each year, from how often you shop, who you feed and what you spend.
 
@@ -37,7 +37,7 @@ In a house with one iPhone and one Android phone, the iPhone owner can still sca
 
 ## When does Pantry launch on iPhone?
 
-The roadmap marks the iPhone launch as “Soon”, a window rather than a date, and the page says its windows move. [When does Pantry launch](/resources/when-does-pantry-launch) covers what arrives on launch day and what comes after. Pro is $4.99 a month or $49.99 a year, billed by Apple with seven days free, and waitlist members get founding pricing.
+The roadmap marks the iPhone launch as “Soon”, a window rather than a date, and the page says its windows move. [When does Pantry launch](/resources/when-does-pantry-launch) covers what arrives on launch day and what comes after. Pro is $4.99 a month or $49.99 a year, billed by Apple with seven days free.
 
 ## Australia first, iPhone first
 
@@ -45,4 +45,4 @@ Both choices come from the same place. Pantry’s FAQ says the receipt models ar
 
 ## Get on the list either way
 
-Join [the waitlist](/#waitlist), whichever phone is in your pocket. An iPhone gets you onto the first release and founding pricing. An Android phone gets you the launch news, the shelf-life table and the calculator, and a seat on the list if the roadmap ever adds the platform. Pantry starts with a photographed receipt and a dated list on every iPhone in the house.
+Join [the waitlist](/#waitlist), whichever phone is in your pocket. An iPhone gets you onto the first release. An Android phone gets you the launch news, the shelf-life table and the calculator, and a seat on the list if the roadmap ever adds the platform. Pantry starts with a photographed receipt and a dated list on every iPhone in the house.

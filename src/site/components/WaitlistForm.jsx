@@ -159,7 +159,7 @@ export default function WaitlistForm({ variant = 'hero' }) {
         </button>
       </div>
       {variant === 'hero' && (
-        <p className="waitlist-form__prompt">Beta and launch news, plus founding pricing.</p>
+        <p className="waitlist-form__prompt">Beta and launch news.</p>
       )}
       {error && (
         <p className="waitlist-form__error" role="alert">

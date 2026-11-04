@@ -131,7 +131,7 @@ already say. No post says or implies the app has shipped.
 | Whipped cream on a served dessert, ham slices that sat out through lunch, and prawns on a platter are on the NSW Food Authority leftovers/2h-4h rules, not the CSIRO raw-storage line | cream, ham and prawns posts | Existing rows below (NSW Food Authority leftovers 3 days; 2h/4h rule) |
 | A use-by date is a safety date and overrides CSIRO's window where it lands earlier; a packet's own after-opening instruction is treated the same way | cheese, cream, ham and bacon posts, `content/posts/app-that-reminds-you-of-use-by-dates.md` | Existing "Date labels" row (FSANZ / NSW Food Authority) |
 | Free: 1 receipt scan a week, 2 meal generations a week, expiry tracking, morning digest, no card, no trial clock. Pro: more scans and meal generations, no weekly cap, fair use limits, afternoon nudge, household of up to six on one subscription (one admin pays, others join free by invite), priority support | `content/posts/pantry-free-vs-pro.md`, `content/posts/receipt-to-meals.md`, `content/posts/freezer-inventory-app.md`, `content/posts/fridge-inventory-spreadsheet.md`, `content/posts/food-waste-tracking-app.md` | `Features.jsx` plan cards; FAQ in `src/site/data.js` |
-| Pro $4.99/month or $49.99/year, billed by Apple, 7-day trial; not sold on the website; cancel from Apple ID settings in about four taps; waitlist members get founding pricing | `content/posts/pantry-free-vs-pro.md` | Existing "Product claims" rows; FAQ |
+| Pro $4.99/month or $49.99/year, billed by Apple, 7-day trial; not sold on the website; cancel from Apple ID settings in about four taps | `content/posts/pantry-free-vs-pro.md` | Existing "Product claims" rows; FAQ |
 | Yearly Pro costs about what the average household bins in a week ($2,500 ÷ 52 ≈ $48) | `content/posts/pantry-free-vs-pro.md`, `content/posts/food-waste-tracking-app.md` | Existing ~$48/week derived row; FAQ pricing answer |
 | The App Store launch is for iPhone; the launch date is a window, not a date; first post-launch roadmap item is meals that lean harder on what is about to expire | `content/posts/pantry-free-vs-pro.md`, `content/posts/receipt-to-meals.md` | `src/site/content.js` roadmap (`coming`) |
 | Meal suggestion built only from items already in the house (green dot), prioritising what is turning first ("Mince with two days left beats yoghurt with a week"), costed from scanned receipts; example turkey mince lettuce wraps | `content/posts/receipt-to-meals.md` | `Meals.jsx` |
@@ -168,7 +168,7 @@ dates. Neither post names a competitor.
 | Release history empty on purpose until a real release | `content/posts/when-does-pantry-launch.md` | `changelog` in `src/site/content.js`; “Changelog scope” below |
 | Pantry is an iOS app; Australia first, receipt models trained on Australian receipt data in English | both posts | FAQ, `src/site/data.js` |
 | No Android version on the published roadmap | both posts | `coming` in `src/site/content.js` lists iPhone only |
-| Waitlist form takes an email only and promises beta news, launch news and founding pricing | both posts | `src/site/components/WaitlistForm.jsx` |
+| Waitlist form takes an email only and promises beta news and launch news | both posts | `src/site/components/WaitlistForm.jsx` |
 | Receipt image deleted about six hours after processing | `content/posts/when-does-pantry-launch.md` | Existing “Pantry's own privacy practices” row |
 | Pro $4.99/month or $49.99/year, Apple billing, 7 days free; household of up to six joins free by invite | both posts | Existing “Product claims” rows; FAQ |
 
@@ -267,7 +267,7 @@ performance appears anywhere on the site unless independently verified.
 | --- | --- |
 | "About 97% accurate" on receipt scanning (FAQ + article) | **Removed.** There is no published test set behind it, so it is a number the site cannot defend. Replaced with an honest statement about messiness plus the two-tap fix. To put a number back, you need a held-out set of real Australian receipts, a stated metric (line-level? item-name-only?), and a date, then quote it as "N% of lines on our M-receipt test set, measured [date]" |
 | $4.99/mo, $49.99/yr, 7-day trial, household of six | Kept. These are your own commercial terms and they now match across FAQ, Terms and the articles. Terms already carries the "currently A$..." hedge |
-| "Founding pricing for waitlist members" | Kept. A promise you can keep, but it is a promise, so it now appears consistently rather than in three different phrasings |
+| "Founding pricing for waitlist members" | **Removed 4 Nov 2026.** Nothing in the app delivers it, and there is no plan to offer it |
 
 ## Changelog scope
 

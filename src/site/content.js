@@ -61,7 +61,6 @@ export const coming = [
 		color: "#b9ffa4",
 		changes: [
 			"Pantry on the App Store for iPhone",
-			"Waitlist members get founding pricing",
 			"Free forever: weekly scans, expiry tracking, and the morning digest",
 		],
 	},

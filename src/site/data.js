@@ -133,7 +133,7 @@ export const faqs = [
 			? "No. Download the app and upgrade there, with 7 days free first."
 			: APP_BETA
 				? "No. The public beta is free on TestFlight. Pro is bought inside the app after launch, with 7 days free first."
-				: "No. Pro is bought inside the app, after launch, with 7 days free first. People on the waitlist get founding pricing when we launch.",
+				: "No. Pro is bought inside the app, after launch, with 7 days free first.",
 	},
 	{
 		q: "How much does Pro cost?",

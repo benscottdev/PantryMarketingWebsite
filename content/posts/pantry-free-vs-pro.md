@@ -36,7 +36,7 @@ The yearly plan costs about what the average Australian household bins in a sing
 
 ## Where to buy it, and how to leave
 
-Pro is not sold on this website, and it cannot be. Purchases happen inside the app through the App Store, after launch, which is also where the seven-day trial starts. This site takes one thing: a place on [the waitlist](/#waitlist), and people on it get founding pricing when Pantry ships.
+Pro is not sold on this website, and it cannot be. Purchases happen inside the app through the App Store, after launch, which is also where the seven-day trial starts. This site takes one thing: a place on [the waitlist](/#waitlist), so you hear when Pantry ships.
 
 Leaving is from your Apple ID settings, in about four taps. No calls, no forms, no retention offers.
 
