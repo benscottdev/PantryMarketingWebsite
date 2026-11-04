@@ -11,7 +11,7 @@ export default function Privacy() {
       description="What personal information Pantry collects, why, who we share it with, how long we keep it, and what you can do about it."
     >
       <p>
-        <strong>Version 1.0.</strong> Applies to the Pantry iOS app and the Pantry
+        <strong>Version 1.1.</strong> Applies to the Pantry iOS app and the Pantry
         website.
       </p>
       <p>
@@ -90,7 +90,11 @@ export default function Privacy() {
             <td>Parsed receipt data: shop, location, date, line items, prices, totals</td>
             <td>To build your pantry and track spend and waste</td>
             <td>Supabase; OpenAI/Anthropic; other members of your household</td>
-            <td>Until you delete the item or your account</td>
+            <td>
+              Until you delete your account or your household is deleted. Removing
+              an item from your pantry doesn’t remove the receipt line it came from,
+              including lines that never reached your pantry
+            </td>
           </tr>
           <tr>
             <td>
@@ -121,6 +125,15 @@ export default function Privacy() {
             <td>To send notifications and support the app</td>
             <td>Expo/EAS; Supabase</td>
             <td>Until you delete your account or turn off notifications</td>
+          </tr>
+          <tr>
+            <td>
+              App activity: when you open the app, when you see the paywall, your
+              answer to the AI services request, and when you share an invite
+            </td>
+            <td>To understand whether Pantry is working and improve it</td>
+            <td>Supabase</td>
+            <td>Until you delete your account</td>
           </tr>
           <tr>
             <td>IP address, server logs, crash data</td>
@@ -757,6 +770,10 @@ export default function Privacy() {
           Whichever is active receives the same categories of data for that function:
           receipt text and pantry item names for parsing; diet, allergy and equipment
           constraints for meal generation.
+        </p>
+        <p>
+          Before your data first goes to these services, the app asks for your
+          permission and names them. If you say no, you can still add food by hand.
         </p>
         <p>
           We want to be precise here rather than reassuring, because a vague promise

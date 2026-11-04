@@ -41,7 +41,7 @@ export const INSTALL_CTA = APP_LIVE
 
 export const SUPPORT_EMAIL = env.VITE_SUPPORT_EMAIL || "support@usepantry.com.au";
 
-export const LEGAL_UPDATED = "22 August 2026";
+export const LEGAL_UPDATED = "4 November 2026";
 
 export const PATHS = {
 	home: "/",
